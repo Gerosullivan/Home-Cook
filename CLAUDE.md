@@ -75,6 +75,12 @@ All skills are in `.claude/commands/` and invoked as slash commands.
 | `/plan` | Setting up or adjusting upcoming meals. Shows the rotation, allows assigning recipes to days. |
 | `/inventory` | After shopping or cooking. Adds/removes/checks kitchen stock. |
 
+## Kitchen Equipment
+
+- **Wireless thermometers**: 2 available. Use for meat doneness — no guessing.
+  - Chicken: 68°C internal temp
+  - Remind Ger to probe when oven-cooking meat
+
 ## Cooking Mode Guidelines
 
 When guiding a cook via `/cook`:
@@ -85,6 +91,10 @@ When guiding a cook via `/cook`:
 4. **Metric always**: Show all temperatures in Celsius, all weights in grams, all volumes in ml
 5. **Step format**: Number each step clearly. Include estimated time per step where relevant.
 6. **Kid-friendly notes**: If a recipe has a spice/heat element, suggest reducing or serving sauce on the side for kids
+
+## Fetching External Recipes
+
+When Ger shares a URL to import a recipe (e.g. from ReciMe, BBC Good Food, etc.), use the **Claude in Chrome** browser tools (`mcp__claude-in-chrome__*`) to navigate to the page and read the recipe content. `WebFetch` often fails on these sites due to auth or blocking. The Chrome extension can access pages Ger is logged into.
 
 ## File Structure
 
