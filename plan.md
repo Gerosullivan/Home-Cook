@@ -215,159 +215,143 @@ Home-Cook/
 ### Phase 1: Foundation
 
 #### 1.1 Repository Setup
-- [ ] Initialise git repo (`git init`)
-- [ ] Create `.gitignore` (ignore `data/homecook.db`, `.DS_Store`, `__pycache__/`, `*.pyc`)
-- [ ] Create directory structure (`data/`, `scripts/`, `.claude/commands/`)
-- [ ] Initial commit with `plan.md` and `anylist.json`
+- [x] Initialise git repo (`git init`)
+- [x] Create `.gitignore` (ignore `data/homecook.db`, `.DS_Store`, `__pycache__/`, `*.pyc`)
+- [x] Create directory structure (`data/`, `scripts/`, `.claude/commands/`)
+- [x] Initial commit with `plan.md` and `anylist.json`
 
 #### 1.2 Project Context
-- [ ] Create `CLAUDE.md` with:
-  - [ ] Family profile (names, ages, roles)
-  - [ ] Meal patterns (Mon-Thu cook, Fri/Sat takeaway, Sunday flexible)
-  - [ ] 3-week rotation framework
-  - [ ] Lunch details (Maura's sandwich, eldest's school lunch)
-  - [ ] Dietary notes (no allergies, kids don't like spicy)
-  - [ ] Shopping habits (Tesco, Friday afternoons)
-  - [ ] Database location and how to query it
-  - [ ] Skill descriptions and when to use them
-  - [ ] Metric units policy
-  - [ ] Cooking mode instructions (timing optimisation, portion adjustment)
+- [x] Create `CLAUDE.md` with:
+  - [x] Family profile (names, ages, roles)
+  - [x] Meal patterns (Mon-Thu cook, Fri/Sat takeaway, Sunday flexible)
+  - [x] 3-week rotation framework
+  - [x] Lunch details (Maura's sandwich, eldest's school lunch)
+  - [x] Dietary notes (no allergies, kids don't like spicy)
+  - [x] Shopping habits (Tesco, Friday afternoons)
+  - [x] Database location and how to query it
+  - [x] Skill descriptions and when to use them
+  - [x] Metric units policy
+  - [x] Cooking mode instructions (timing optimisation, portion adjustment)
 
 #### 1.3 Database
-- [ ] Write `data/schema.sql` with all table definitions:
-  - [ ] `recipes` table
-  - [ ] `recipe_ingredients` table
-  - [ ] `recipe_steps` table
-  - [ ] `recipe_tags` table
-  - [ ] `inventory` table
-  - [ ] `meal_plan` table
-  - [ ] `shopping_list` table
-  - [ ] `meal_log` table (actual vs planned - supports `/checkin`)
-  - [ ] `recipe_notes` table (per-recipe notes from check-ins, e.g. "kids loved this")
-- [ ] Create indexes on frequently queried columns (recipe name, date, cuisine, protein)
-- [ ] Initialise `data/homecook.db` by running the schema
+- [x] Write `data/schema.sql` with all table definitions:
+  - [x] `recipes` table
+  - [x] `recipe_ingredients` table
+  - [x] `recipe_steps` table
+  - [x] `recipe_tags` table
+  - [x] `inventory` table
+  - [x] `meal_plan` table
+  - [x] `shopping_list` table
+  - [x] `meal_log` table (actual vs planned - supports `/checkin`)
+  - [x] `recipe_notes` table (per-recipe notes from check-ins, e.g. "kids loved this")
+- [x] Create indexes on frequently queried columns (recipe name, date, cuisine, protein)
+- [x] Initialise `data/homecook.db` by running the schema
 
 #### 1.4 Recipe Import
-- [ ] Write `scripts/import_anylist.py`:
-  - [ ] Parse `anylist.json`
-  - [ ] Insert into `recipes` (map name, icon, servings, cookTime, prepTime, sourceName, sourceUrl, rating, note)
-  - [ ] Parse `servings` string to integer
-  - [ ] Parse `cookTime` and `prepTime` strings to minutes
-  - [ ] Insert into `recipe_ingredients` (map name, quantity, rawIngredient, note)
-  - [ ] Parse and separate quantity from unit in ingredient quantities
-  - [ ] Insert into `recipe_steps` (map preparationSteps with step numbers)
-  - [ ] Handle duplicates (there are some in the AnyList data, e.g. "Chicken in a pot" x2)
-  - [ ] Log import summary (total imported, any skipped/flagged)
-- [ ] Run the import script
-- [ ] Verify: 467 recipes, spot-check a few
+- [x] Write `scripts/import_anylist.py`:
+  - [x] Parse `anylist.json`
+  - [x] Insert into `recipes` (map name, icon, servings, cookTime, prepTime, sourceName, sourceUrl, rating, note)
+  - [x] Parse `servings` string to integer
+  - [x] Parse `cookTime` and `prepTime` strings to minutes (seconds ÷ 60)
+  - [x] Insert into `recipe_ingredients` (map name, quantity, rawIngredient, note)
+  - [x] Parse and separate quantity from unit in ingredient quantities
+  - [x] Insert into `recipe_steps` (map preparationSteps with step numbers)
+  - [x] Handle duplicates (8 skipped: Pad Thai, Chicken in a pot, etc.)
+  - [x] Log import summary (459 imported, 8 skipped)
+- [x] Run the import script
+- [x] Verify: 459 unique recipes (467 - 8 dupes), spot-checked
 
 #### 1.5 Claude Skills
-- [ ] Write `.claude/commands/cook.md`:
-  - [ ] Query today's meal plan from database
-  - [ ] Fetch full recipe (ingredients, steps)
-  - [ ] Instructions for timing optimisation
-  - [ ] Portion adjustment guidance (default 5 servings)
-  - [ ] CLI-friendly step-by-step presentation format
-- [ ] Write `.claude/commands/checkin.md`:
-  - [ ] Query today's planned meal
-  - [ ] Prompt: did you cook what was planned?
-  - [ ] If yes: any modifications? Log to `meal_log`
-  - [ ] If no: what happened instead? (cancelled, swapped, takeaway)
-  - [ ] Offer to update recipe or fork as new variation
-  - [ ] Prompt for notes (kid reactions, taste adjustments, tips)
-  - [ ] Save notes to `recipe_notes`
-  - [ ] Update inventory based on what was used
-- [ ] Write `.claude/commands/shop.md`:
-  - [ ] Query upcoming week's meal plan
-  - [ ] Aggregate all required ingredients
-  - [ ] Query inventory and subtract what's in stock
-  - [ ] Group items by category (produce, meat, dairy, bakery, pantry, frozen)
-  - [ ] Present as a formatted checklist
-  - [ ] Instructions for marking items as checked during shop
-- [ ] Write `.claude/commands/plan.md`:
-  - [ ] Query current rotation week
-  - [ ] Show current week's plan (or upcoming week)
-  - [ ] Allow assigning recipes to days
-  - [ ] Handle day swaps (e.g. swap Thu cooking with Fri takeaway)
-  - [ ] Flag missing ingredients for planned recipes
-  - [ ] Support marking days as takeaway, eating out, at parents', etc.
-- [ ] Write `.claude/commands/inventory.md`:
-  - [ ] Query current inventory by location
-  - [ ] Instructions for adding items (after a shop)
-  - [ ] Instructions for removing/adjusting items
-  - [ ] Show what's running low
-  - [ ] Flag items nearing expiry
+- [x] Write `.claude/commands/cook.md`:
+  - [x] Query today's meal plan from database
+  - [x] Fetch full recipe (ingredients, steps)
+  - [x] Instructions for timing optimisation
+  - [x] Portion adjustment guidance (default 5 servings)
+  - [x] CLI-friendly step-by-step presentation format
+- [x] Write `.claude/commands/checkin.md`:
+  - [x] Query today's planned meal
+  - [x] Prompt: did you cook what was planned?
+  - [x] If yes: any modifications? Log to `meal_log`
+  - [x] If no: what happened instead? (cancelled, swapped, takeaway)
+  - [x] Offer to update recipe or fork as new variation
+  - [x] Prompt for notes (kid reactions, taste adjustments, tips)
+  - [x] Save notes to `recipe_notes`
+  - [x] Update inventory based on what was used
+- [x] Write `.claude/commands/shop.md`:
+  - [x] Query upcoming week's meal plan
+  - [x] Aggregate all required ingredients
+  - [x] Query inventory and subtract what's in stock
+  - [x] Group items by category (produce, meat, dairy, bakery, pantry, frozen)
+  - [x] Present as a formatted checklist
+  - [x] Instructions for marking items as checked during shop
+- [x] Write `.claude/commands/plan.md`:
+  - [x] Query current rotation week
+  - [x] Show current week's plan (or upcoming week)
+  - [x] Allow assigning recipes to days
+  - [x] Handle day swaps (e.g. swap Thu cooking with Fri takeaway)
+  - [x] Flag missing ingredients for planned recipes
+  - [x] Support marking days as takeaway, eating out, at parents', etc.
+- [x] Write `.claude/commands/inventory.md`:
+  - [x] Query current inventory by location
+  - [x] Instructions for adding items (after a shop)
+  - [x] Instructions for removing/adjusting items
+  - [x] Show what's running low
+  - [x] Flag items nearing expiry
 
 #### 1.6 Backlog
-- [ ] Create `backlog.md` with all future ideas, categorised
+- [x] Create `backlog.md` with all future ideas, categorised
 
 #### 1.7 Foundation Commit
-- [ ] Commit all Phase 1 work
+- [x] Commit all Phase 1 work
 
 ---
 
 ### Phase 2: Recipe Enhancement
 
 #### 2.1 Auto-Tagging
-- [ ] Write `scripts/auto_tag.py`:
-  - [ ] **Cuisine detection**: keyword matching on recipe name + ingredients
-    - [ ] Italian: pasta, pesto, risotto, carbonara, parmigiana, gnocchi, etc.
-    - [ ] Asian: stir-fry, noodles, pad thai, miso, teriyaki, wok, pho, etc.
-    - [ ] Indian: curry, tikka, biryani, masala, korma, rogan josh, etc.
-    - [ ] Mexican: tacos, burrito, enchilada, salsa, chipotle, carnitas, etc.
-    - [ ] Irish: colcannon, stew, Guinness, shepherd's pie, etc.
-    - [ ] British: roast, pie, fish and chips, etc.
-    - [ ] Mediterranean: Greek, feta, halloumi, olive, couscous, etc.
-    - [ ] French: en croûte, papillote, niçoise, etc.
-    - [ ] Spanish: paella, chorizo-heavy dishes, etc.
-    - [ ] Korean: bulgogi, kimchi, gochujang, etc.
-    - [ ] Thai: laksa, pad thai, coconut curry, etc.
-    - [ ] Japanese: ramen, tsukemen, miso, etc.
-  - [ ] **Protein detection**: scan ingredient names
-    - [ ] Chicken, beef, lamb, pork, turkey
-    - [ ] Salmon, tuna, cod, sea bass, trout, halibut, monkfish, mackerel, haddock
-    - [ ] Prawns/shrimp, clams, mussels, scallops, crab
-    - [ ] Tofu, halloumi (vegetarian)
-    - [ ] No protein → vegetarian/vegan
-  - [ ] **Spice level**: scan recipe name + ingredients
-    - [ ] Level 3 (hot): scotch bonnet, habanero, "extra hot"
-    - [ ] Level 2 (medium): chilli (generic), jalapeño, cayenne, nduja, sriracha, harissa, jerk
-    - [ ] Level 1 (mild): paprika, mild curry, cumin, ginger
-    - [ ] Level 0 (none): no spice indicators
-  - [ ] **Kid-friendly**: spice_level <= 1 AND no unusual/complex ingredients
-  - [ ] **Meal type**: classify by keyword
-    - [ ] Side: salad (standalone), fries, roasted veg, mash
-    - [ ] Breakfast: eggs, omelette, pancakes, granola, smoothie
-    - [ ] Smoothie/drink: smoothie, martini
-    - [ ] Dessert: crumble, ice cream
-    - [ ] Default: dinner
-- [ ] Run auto-tagger against all 467 recipes
-- [ ] Review summary: print counts per cuisine, protein, spice level
-- [ ] Commit tagging results
+- [x] Write `scripts/auto_tag.py`:
+  - [x] **Cuisine detection**: keyword matching on recipe name + ingredients
+    - [x] Italian, Asian, Indian, Mexican, Irish, British, Mediterranean, French, Spanish, Korean, Thai, Japanese + Chinese, Middle Eastern, Portuguese, Caribbean
+  - [x] **Protein detection**: scan ingredient names (excludes stock/broth/sauce false positives)
+    - [x] Chicken, beef, lamb, pork, turkey, duck
+    - [x] Salmon, tuna, cod, sea bass, trout, halibut, monkfish, mackerel
+    - [x] Prawns/shrimp, shellfish (clams, mussels, scallops, crab, squid)
+    - [x] Tofu (vegetarian)
+    - [x] No protein → vegetarian
+  - [x] **Spice level**: scan recipe name + ingredients + steps
+    - [x] Level 3 (hot): 4 recipes
+    - [x] Level 2 (medium): 169 recipes
+    - [x] Level 1 (mild): 56 recipes
+    - [x] Level 0 (none): 230 recipes
+  - [x] **Kid-friendly**: spice_level <= 1 AND no unusual ingredients (263 yes, 196 no)
+  - [x] **Meal type**: dinner (381), lunch (46), side (10), snack (6), breakfast (6), dessert (5), drink (5)
+- [x] Run auto-tagger against all 459 recipes
+- [x] Review summary: counts per cuisine, protein, spice level
+- [x] Commit tagging results
 
 #### 2.2 Unit Normalisation
-- [ ] Write `scripts/normalise_units.py`:
-  - [ ] Build imperial→metric conversion map:
-    - [ ] Cups → ml (1 cup = 240ml)
-    - [ ] Oz → g (1 oz = 28g)
-    - [ ] Lb → g (1 lb = 454g)
-    - [ ] Fl oz → ml
-    - [ ] Fahrenheit → Celsius (in prep steps)
-    - [ ] Inches → cm (in prep notes)
-  - [ ] Parse quantity+unit from `recipe_ingredients.quantity` field
-  - [ ] Convert and update the `unit` column
-  - [ ] Keep `raw_ingredient` untouched as original reference
-  - [ ] Flag any quantities that can't be parsed (log for manual review)
-  - [ ] Scan `recipe_steps` for Fahrenheit temperatures and convert to Celsius
-- [ ] Run normaliser
-- [ ] Review flagged items
-- [ ] Commit normalisation results
+- [x] Write `scripts/normalise_units.py`:
+  - [x] Build imperial→metric conversion map:
+    - [x] Cups → ml (1 cup = 240ml)
+    - [x] Oz → g (1 oz = 28g)
+    - [x] Lb → g (1 lb = 454g)
+    - [x] Fl oz → ml
+    - [x] Fahrenheit → Celsius (in prep steps)
+    - [x] Inches → cm (in prep notes)
+  - [x] Parse quantity+unit from `recipe_ingredients.quantity` field
+  - [x] Convert and update the `unit` column
+  - [x] Keep `raw_ingredient` untouched as original reference
+  - [x] Flag any quantities that can't be parsed (0 flagged)
+  - [x] Scan `recipe_steps` for Fahrenheit temperatures and convert to Celsius
+- [x] Run normaliser (674 ingredient conversions, 54 step conversions)
+- [x] Review flagged items (none)
+- [x] Commit normalisation results
 
 #### 2.3 Phase 2 Verification
-- [ ] Run all verification queries (see Verification section below)
-- [ ] Spot-check 5-10 recipes for correct tags
-- [ ] Spot-check unit conversions
-- [ ] Final commit for Phase 2
+- [x] Run all verification queries (459 recipes, 5370 ingredients, 0 imperial units remaining, 0 °F remaining)
+- [x] Spot-check recipes for correct tags (Bolognese, Pad Thai, jerk chicken, Guinness pies, halloumi, carbonara, smoothies)
+- [x] Spot-check unit conversions (1/4 cup → 60ml, 1 lb → 455g, °F → °C)
+- [x] Final commit for Phase 2
 
 ---
 
