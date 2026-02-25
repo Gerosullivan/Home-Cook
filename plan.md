@@ -355,15 +355,15 @@ Home-Cook/
 
 ---
 
-### Phase 3: Inventory System (next session)
+### Phase 3: Inventory System
 
 #### 3.1 Initial Population
-- [ ] Walk through kitchen with Ger to populate inventory:
-  - [ ] Fridge contents
-  - [ ] Freezer contents
-  - [ ] Pantry / dry goods
-  - [ ] Spice rack
-- [ ] Insert all items into `inventory` table
+- [x] Walk through kitchen with Ger to populate inventory:
+  - [x] Fridge contents (26 items)
+  - [x] Freezer contents (22 items)
+  - [x] Pantry / dry goods (38 items incl. fruit basket & veg)
+  - [x] Spice rack (25 items)
+- [x] Insert all items into `inventory` table (111 total)
 
 #### 3.2 Inventory Workflows
 - [ ] Test `/inventory` skill: add items after a shop
