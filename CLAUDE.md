@@ -75,6 +75,24 @@ All skills are in `.claude/commands/` and invoked as slash commands.
 | `/plan` | Setting up or adjusting upcoming meals. Shows the rotation, allows assigning recipes to days. |
 | `/inventory` | After shopping or cooking. Adds/removes/checks kitchen stock. |
 
+## Recipe Cache
+
+Recipes have two layers of cache to avoid redundant work by the scheduled card generator:
+
+1. **HTML card cache**: `data/recipe-cards/{recipe_id}.html` — full recipe card with `{{DATE}}` placeholder
+2. **Prep-ahead analysis**: `recipe_prep_ahead` table + `prep_ahead_status` column on `recipes`
+
+**When modifying a recipe** (steps, ingredients, or anything that affects the card), always invalidate both:
+```sql
+DELETE FROM recipe_prep_ahead WHERE recipe_id = ?;
+UPDATE recipes SET prep_ahead_status = NULL, prep_ahead_total_mins = NULL WHERE id = ?;
+```
+```bash
+rm -f data/recipe-cards/{recipe_id}.html
+```
+
+This ensures the next scheduled run regenerates the card fresh.
+
 ## Kitchen Equipment
 
 - **Wireless thermometers**: 2 available. Use for meat doneness — no guessing.

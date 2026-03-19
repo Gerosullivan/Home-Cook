@@ -212,6 +212,143 @@
     display: block;
     margin-bottom: 0.15rem;
   }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '✓';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #c0392b !important; }
 </style>
 </head>
 <body>
@@ -251,6 +388,50 @@
       <li>1 ripe avocado</li>
       <li>150–200g sour cream or Greek yoghurt</li>
     </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~10 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Grate the cheddar (150–200g) and set in a bowl</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Measure out spices: 1 tsp smoked paprika, ½ tsp cumin, ½ tsp garlic powder, pinch of salt</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Get the tomato purée and olive oil out on the counter</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Move frozen veg mix from freezer to counter</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Set out sour cream, take mince from fridge</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <hr class="prep-divider">
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Mince comes to room temp — cooks more evenly</div>
+      </div>
+    </div>
 
     <h2>Method</h2>
 
@@ -310,13 +491,18 @@
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr><td>0:00</td><td>Heat pan, start browning mince</td></tr>
-        <tr><td>0:06</td><td>Drain fat, add spices and tomato purée</td></tr>
-        <tr><td>0:07</td><td>Add frozen veg mix to the pan</td></tr>
-        <tr><td>0:13</td><td>Prep toppings: slice avocado, grate cheese, set out sour cream</td></tr>
-        <tr><td>0:15</td><td>Warm wraps in a dry pan or microwave</td></tr>
-        <tr><td>0:17</td><td>Check veg — sizzle off remaining moisture</td></tr>
-        <tr><td>0:20</td><td>Set everything on the table, build your own wraps!</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
+        <tr><td>4:50 PM</td><td>Grate cheese, measure spices, get ingredients out</td></tr>
+        <tr><td>4:55 PM</td><td>Take mince from fridge, move frozen veg to counter</td></tr>
+        <tr><td>5:00 PM</td><td>Head out — mince comes to room temp while you're gone</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Heat pan, start browning mince</td></tr>
+        <tr><td>5:36 PM</td><td>Drain fat, add spices and tomato purée</td></tr>
+        <tr><td>5:37 PM</td><td>Add frozen veg mix to the pan</td></tr>
+        <tr><td>5:43 PM</td><td>Slice avocado, set out toppings</td></tr>
+        <tr><td>5:45 PM</td><td>Warm wraps in a dry pan or microwave</td></tr>
+        <tr><td>5:47 PM</td><td>Check veg — sizzle off remaining moisture</td></tr>
+        <tr><td>5:50 PM</td><td>Set everything on the table, build your own wraps!</td></tr>
       </tbody>
     </table>
   </div>
@@ -409,6 +595,43 @@
       }, 100);
     });
   });
+
+  // Prep-ahead checkbox persistence (keyed by today's date)
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    // Clean up old dates (keep only today)
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
 </script>
 </body>
 </html>

@@ -19,7 +19,9 @@ CREATE TABLE IF NOT EXISTS recipes (
     kid_friendly BOOLEAN,
     spice_level INTEGER DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    prep_ahead_total_mins INTEGER,
+    prep_ahead_status TEXT
 );
 
 CREATE TABLE IF NOT EXISTS recipe_ingredients (
@@ -97,6 +99,18 @@ CREATE TABLE IF NOT EXISTS recipe_notes (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS recipe_prep_ahead (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    recipe_id INTEGER NOT NULL REFERENCES recipes(id) ON DELETE CASCADE,
+    sort_order INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    classification TEXT NOT NULL,
+    tag TEXT,
+    is_passive BOOLEAN DEFAULT 0,
+    safety_note TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_recipes_name ON recipes(name);
 CREATE INDEX IF NOT EXISTS idx_recipes_cuisine ON recipes(cuisine);
@@ -111,3 +125,4 @@ CREATE INDEX IF NOT EXISTS idx_meal_log_date ON meal_log(date);
 CREATE INDEX IF NOT EXISTS idx_shopping_list_checked ON shopping_list(checked);
 CREATE INDEX IF NOT EXISTS idx_inventory_location ON inventory(location);
 CREATE INDEX IF NOT EXISTS idx_inventory_expiry ON inventory(expiry_date);
+CREATE INDEX IF NOT EXISTS idx_recipe_prep_ahead_recipe_id ON recipe_prep_ahead(recipe_id);

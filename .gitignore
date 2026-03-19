@@ -1,4 +1,6 @@
 data/homecook.db
+data/homecook.db-journal
+data/recipe-cards/*.html
 .DS_Store
 __pycache__/
 *.pyc
