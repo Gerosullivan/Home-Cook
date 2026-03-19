@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Family Beef Fajita Wraps</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c0392b;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #c0392b;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #c0392b;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #fdf2f0;
+    border-left: 3px solid #c0392b;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #7a4040;
+  }
+  .callout strong { color: #c0392b; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #fdf2f0;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #c0392b;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #c0392b;
+    text-decoration: none;
+    border-bottom: 1px dashed #c0392b;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #a93226;
+    border-bottom-color: #a93226;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #c0392b;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="date">Thursday 19 March 2026</div>
+    <h1>Family Beef Fajita Wraps</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        25 mins
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Beef · Mexican
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li>500g beef mince (5–10% fat)</li>
+      <li>500g Tesco Mexican-style veg mix (frozen)</li>
+      <li>1 tbsp olive oil</li>
+      <li>1 tsp smoked paprika</li>
+      <li>½ tsp ground cumin</li>
+      <li>½ tsp garlic powder</li>
+      <li>1 tbsp tomato purée</li>
+      <li>Small pinch of salt</li>
+      <li>8–10 soft tortilla wraps</li>
+      <li>150–200g grated cheddar</li>
+      <li>1 ripe avocado</li>
+      <li>150–200g sour cream or Greek yoghurt</li>
+    </ul>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Brown the mince <span class="step-time">5–6 mins</span></div>
+        <div class="step-text">Heat a large pan over medium-high heat. Add <a class="ing-link" data-ingredient="mince">mince</a> (and <a class="ing-link" data-ingredient="oil">oil</a> if needed). Break it up well and cook for 5–6 minutes until fully browned. Tip off excess fat so it's not greasy for the kids.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Season <span class="step-time">1 min</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="paprika">smoked paprika</a>, <a class="ing-link" data-ingredient="cumin">cumin</a>, <a class="ing-link" data-ingredient="garlic">garlic powder</a> and <a class="ing-link" data-ingredient="salt">salt</a>. Stir for 30 seconds to cook out the spices. Stir in the <a class="ing-link" data-ingredient="puree">tomato purée</a> — adds richness, not heat.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Cook the veg <span class="step-time">6–8 mins</span></div>
+        <div class="step-text">Tip the frozen <a class="ing-link" data-ingredient="veg">veg mix</a> straight into the pan. Cook for 6–8 minutes until hot and most of the moisture has cooked off. Let it sizzle a little at the end for better flavour — don't stew it.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Tip:</strong> Cook the veg mix until the steam is gone to avoid watery filling. Drain excess fat from the mince first.</div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Warm the wraps <span class="step-time">2 mins</span></div>
+        <div class="step-text">Warm <a class="ing-link" data-ingredient="wraps">wraps</a> in a dry frying pan or microwave, just until soft and flexible. Keep wrapped in a tea towel so they stay warm.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Serve — build your own!</div>
+        <div class="step-text">Serve everything in bowls on the table: <a class="ing-link" data-ingredient="wraps">wraps</a>, beef &amp; veg, <a class="ing-link" data-ingredient="cheese">cheese</a>, <a class="ing-link" data-ingredient="sour-cream">sour cream</a>, <a class="ing-link" data-ingredient="avocado">avocado</a> — let the kids build their own. Optional: once filled, fold wraps and toast in a dry pan for 1–2 minutes per side, then cut in half for smaller hands.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Adults only</div>
+        <div class="step-text">Put hot sauce, jalapeños, chilli flakes, or a squeeze of lime on the table separately for the grown-ups.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> Call them "cheesy beef wraps" instead of fajitas for better buy-in. All the heat stays off the pan and on the adult table.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>0:00</td><td>Heat pan, start browning mince</td></tr>
+        <tr><td>0:06</td><td>Drain fat, add spices and tomato purée</td></tr>
+        <tr><td>0:07</td><td>Add frozen veg mix to the pan</td></tr>
+        <tr><td>0:13</td><td>Prep toppings: slice avocado, grate cheese, set out sour cream</td></tr>
+        <tr><td>0:15</td><td>Warm wraps in a dry pan or microwave</td></tr>
+        <tr><td>0:17</td><td>Check veg — sizzle off remaining moisture</td></tr>
+        <tr><td>0:20</td><td>Set everything on the table, build your own wraps!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map — key matches data-ingredient attribute
+  const ingredients = {
+    'mince':       '500g beef mince (5–10% fat)',
+    'oil':         '1 tbsp olive oil',
+    'paprika':     '1 tsp smoked paprika',
+    'cumin':       '½ tsp ground cumin',
+    'garlic':      '½ tsp garlic powder',
+    'salt':        'Small pinch of salt',
+    'puree':       '1 tbsp tomato purée',
+    'veg':         '500g Tesco Mexican-style veg mix (frozen)',
+    'wraps':       '8–10 soft tortilla wraps',
+    'cheese':      '150–200g grated cheddar',
+    'avocado':     '1 ripe avocado, sliced or lightly mashed',
+    'sour-cream':  '150–200g sour cream or Greek yoghurt'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  // Position tooltip above the link
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    // Keep within viewport
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  // Click to toggle tooltip
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  // Dismiss on click outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  // Also show on hover for desktop
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      // Small delay so tooltip doesn't flicker
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+</script>
+</body>
+</html>

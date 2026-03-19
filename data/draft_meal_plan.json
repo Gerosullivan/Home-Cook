@@ -1,0 +1,80 @@
+{
+  "version": "2026-03-18",
+  "rotation_cycle_weeks": 3,
+  "notes": "3-week rotation. Friday replacing takeaway with homemade. Sat/Sun flexible. Week 2 Thu and Week 3 Wed/Thu TBD. Confirm plan each Friday before pushing to Google Calendar.",
+  "weeks": {
+    "week_1": {
+      "label": "Week 1",
+      "first_occurrence": "2026-03-16",
+      "meals": {
+        "monday": {
+          "recipe_id": 283,
+          "recipe_name": "Steak Meal"
+        },
+        "tuesday": {
+          "recipe_id": 462,
+          "recipe_name": "Pan-Seared Pork Chops with Honey-Mustard Butter, Creamed Savoy Cabbage & Potatoes"
+        },
+        "wednesday": {
+          "recipe_id": 463,
+          "recipe_name": "Pan-Fried Chicken with Butter Gravy & Potatoes"
+        },
+        "thursday": {
+          "recipe_id": 460,
+          "recipe_name": "Family Beef Fajita Wraps"
+        },
+        "friday": {
+          "recipe_id": 484,
+          "recipe_name": "Homemade Pizza (Pepperoni, Ham & Pickled Red Onion)"
+        }
+      }
+    },
+    "week_2": {
+      "label": "Week 2",
+      "first_occurrence": "2026-03-23",
+      "meals": {
+        "monday": {
+          "recipe_id": 482,
+          "recipe_name": "Chicken Chasseur (Ger's Version)"
+        },
+        "tuesday": {
+          "recipe_id": 283,
+          "recipe_name": "Steak Meal"
+        },
+        "wednesday": {
+          "recipe_id": 17,
+          "recipe_name": "The Best Spaghetti Bolognese"
+        },
+        "thursday": null,
+        "friday": {
+          "recipe_id": 484,
+          "recipe_name": "Homemade Pizza (Pepperoni, Ham & Pickled Red Onion)"
+        }
+      }
+    },
+    "week_3": {
+      "label": "Week 3",
+      "first_occurrence": "2026-03-30",
+      "meals": {
+        "monday": {
+          "recipe_id": 420,
+          "recipe_name": "Roast Chicken with Roasted Cauliflower, Carrots & Potatoes"
+        },
+        "tuesday": {
+          "recipe_id": 283,
+          "recipe_name": "Steak Meal"
+        },
+        "wednesday": null,
+        "thursday": null,
+        "friday": {
+          "recipe_id": 483,
+          "recipe_name": "Chicken Pad Thai (RecipeTinEats)"
+        }
+      }
+    }
+  },
+  "process": {
+    "confirmation_day": "friday",
+    "description": "Every Friday, review and confirm the following week's plan before pushing to Google Calendar (Home-Cook calendar)."
+  }
+}
