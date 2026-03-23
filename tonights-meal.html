@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Family Beef Fajita Wraps</title>
+<title>Tonight's Meal — Chicken Chasseur</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    background: linear-gradient(135deg, #7B2D3B 0%, #5A1F2B 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -62,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c0392b;
+    color: #7B2D3B;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,13 +86,24 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #c0392b;
+    background: #7B2D3B;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
     position: relative;
     top: -1px;
   }
+  .ingredients .section-label {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #7B2D3B;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 0.6rem;
+    border-bottom: none;
+  }
+  .ingredients .section-label::before { display: none; }
   .step {
     display: flex;
     gap: 1rem;
@@ -100,7 +111,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #c0392b;
+    background: #7B2D3B;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +136,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdf2f0;
-    border-left: 3px solid #c0392b;
+    background: #fdf0f2;
+    border-left: 3px solid #7B2D3B;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #7a4040;
+    color: #5A1F2B;
   }
-  .callout strong { color: #c0392b; }
+  .callout strong { color: #7B2D3B; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -143,7 +154,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdf2f0;
+    background: #fdf0f2;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -156,22 +167,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c0392b;
+    color: #7B2D3B;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c0392b;
+    color: #7B2D3B;
     text-decoration: none;
-    border-bottom: 1px dashed #c0392b;
+    border-bottom: 1px dashed #7B2D3B;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #a93226;
-    border-bottom-color: #a93226;
+    color: #5A1F2B;
+    border-bottom-color: #5A1F2B;
   }
 
   /* Tooltip overlay */
@@ -205,7 +216,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c0392b;
+    color: #7B2D3B;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -273,7 +284,7 @@
     background: #2a7a5b;
   }
   .prep-step-check:checked::after {
-    content: '✓';
+    content: '\2713';
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
@@ -348,18 +359,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c0392b !important; }
+  .timing-phase-row.cook td { color: #7B2D3B !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Thursday 19 March 2026</div>
-    <h1>Family Beef Fajita Wraps</h1>
+    <div class="date">Monday 23 March 2026</div>
+    <h1>Chicken Chasseur (Ger's Version)</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        25 mins
+        ~55 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -367,7 +378,7 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef · Mexican
+        Chicken &middot; French
       </div>
     </div>
   </div>
@@ -375,51 +386,69 @@
   <div class="body">
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li>500g beef mince (5–10% fat)</li>
-      <li>500g Tesco Mexican-style veg mix (frozen)</li>
-      <li>1 tbsp olive oil</li>
-      <li>1 tsp smoked paprika</li>
-      <li>½ tsp ground cumin</li>
-      <li>½ tsp garlic powder</li>
-      <li>1 tbsp tomato purée</li>
-      <li>Small pinch of salt</li>
-      <li>8–10 soft tortilla wraps</li>
-      <li>150–200g grated cheddar</li>
-      <li>1 ripe avocado</li>
-      <li>150–200g sour cream or Greek yoghurt</li>
+      <li><a class="ing-link" data-ingredient="chicken">1 whole chicken (~1.2kg), broken down into thighs and breasts</a></li>
+      <li><a class="ing-link" data-ingredient="olive-oil">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt and pepper</a></li>
+      <li><a class="ing-link" data-ingredient="shallots">300g shallots, sliced</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">4 cloves garlic, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="flour">2 tbsp plain flour</a></li>
+      <li><a class="ing-link" data-ingredient="mushrooms">300g closed cup mushrooms, quartered</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">400g tin chopped tomatoes</a></li>
+      <li><a class="ing-link" data-ingredient="wine">200ml white wine (or red)</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">2 sprigs of fresh thyme</a></li>
+      <li><a class="ing-link" data-ingredient="soy">1 tsp soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="tarragon">Fresh tarragon, to finish (or 1 tsp dried)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~10 min prep</span>
+        <span class="prep-time-pill">~30 min prep</span>
       </div>
       <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Grate the cheddar (150–200g) and set in a bowl</span>
+        <span class="prep-step-text">Break down the whole chicken &mdash; remove thighs and breasts (bone-in, skin-on). Set aside drumsticks and wings for stock.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Measure out spices: 1 tsp smoked paprika, ½ tsp cumin, ½ tsp garlic powder, pinch of salt</span>
+        <span class="prep-step-text">Season all chicken pieces generously with salt and pepper.</span>
         <span class="prep-step-tag before">before</span>
       </div>
+
+      <div class="callout" style="margin: 0.5rem 0 0.5rem 0;"><strong>Food safety:</strong> Wash your board and knife thoroughly after handling the raw chicken before prepping the veg.</div>
+
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Get the tomato purée and olive oil out on the counter</span>
+        <span class="prep-step-text">Slice the shallots and roughly chop the garlic.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Move frozen veg mix from freezer to counter</span>
+        <span class="prep-step-text">Quarter the mushrooms.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Set out sour cream, take mince from fridge</span>
+        <span class="prep-step-text">Brown chicken in olive oil, skin-side down, for 8&ndash;10 mins, turning once until golden. Work in batches if needed. Remove and set aside.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Cook shallots and garlic in the pan for 1 minute, scraping up the fond. Stir in the flour for 1 minute.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="6">
+        <span class="prep-step-text">Add mushrooms, tinned tomatoes, wine, thyme, and soy sauce. Stir to combine.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="7">
+        <span class="prep-step-text">Return chicken to the pan, bring to a boil, then reduce to a gentle simmer. Cover with lid.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -429,7 +458,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Mince comes to room temp — cooks more evenly</div>
+        <div class="prep-passive-item">Chasseur simmering gently on low heat with the lid on &mdash; it'll be about 30 mins in when you get back, nearly done</div>
       </div>
     </div>
 
@@ -438,71 +467,91 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Brown the mince <span class="step-time">5–6 mins</span></div>
-        <div class="step-text">Heat a large pan over medium-high heat. Add <a class="ing-link" data-ingredient="mince">mince</a> (and <a class="ing-link" data-ingredient="oil">oil</a> if needed). Break it up well and cook for 5–6 minutes until fully browned. Tip off excess fat so it's not greasy for the kids.</div>
+        <div class="step-title">Break down the chicken <span class="step-time">5 mins</span></div>
+        <div class="step-text">Remove thighs and breasts (bone-in, skin-on) from the <a class="ing-link" data-ingredient="chicken">whole chicken</a>. Set aside drumsticks and wings for stock another day.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Season <span class="step-time">1 min</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="paprika">smoked paprika</a>, <a class="ing-link" data-ingredient="cumin">cumin</a>, <a class="ing-link" data-ingredient="garlic">garlic powder</a> and <a class="ing-link" data-ingredient="salt">salt</a>. Stir for 30 seconds to cook out the spices. Stir in the <a class="ing-link" data-ingredient="puree">tomato purée</a> — adds richness, not heat.</div>
+        <div class="step-title">Season the chicken <span class="step-time">1 min</span></div>
+        <div class="step-text">Season all chicken pieces generously with <a class="ing-link" data-ingredient="salt">salt and pepper</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the veg <span class="step-time">6–8 mins</span></div>
-        <div class="step-text">Tip the frozen <a class="ing-link" data-ingredient="veg">veg mix</a> straight into the pan. Cook for 6–8 minutes until hot and most of the moisture has cooked off. Let it sizzle a little at the end for better flavour — don't stew it.</div>
+        <div class="step-title">Brown the chicken <span class="step-time">8&ndash;10 mins</span></div>
+        <div class="step-text">Heat <a class="ing-link" data-ingredient="olive-oil">olive oil</a> in a large heavy pan or casserole over medium-high heat. Brown chicken skin-side down for 8&ndash;10 minutes, turning once, until golden all over. Work in batches if needed. Remove and set aside.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Tip:</strong> Cook the veg mix until the steam is gone to avoid watery filling. Drain excess fat from the mince first.</div>
+    <div class="callout"><strong>Food safety:</strong> Wash your board and knife after handling the raw chicken. Clean up any splashes from browning.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Warm the wraps <span class="step-time">2 mins</span></div>
-        <div class="step-text">Warm <a class="ing-link" data-ingredient="wraps">wraps</a> in a dry frying pan or microwave, just until soft and flexible. Keep wrapped in a tea towel so they stay warm.</div>
+        <div class="step-title">Soften the aromatics <span class="step-time">2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="shallots">sliced shallots</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> to the pan. Cook for 1 minute, scraping up any fond. Stir in the <a class="ing-link" data-ingredient="flour">flour</a> and cook for 1 minute, mixing well.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Serve — build your own!</div>
-        <div class="step-text">Serve everything in bowls on the table: <a class="ing-link" data-ingredient="wraps">wraps</a>, beef &amp; veg, <a class="ing-link" data-ingredient="cheese">cheese</a>, <a class="ing-link" data-ingredient="sour-cream">sour cream</a>, <a class="ing-link" data-ingredient="avocado">avocado</a> — let the kids build their own. Optional: once filled, fold wraps and toast in a dry pan for 1–2 minutes per side, then cut in half for smaller hands.</div>
+        <div class="step-title">Build the sauce <span class="step-time">2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="mushrooms">quartered mushrooms</a>, <a class="ing-link" data-ingredient="tomatoes">tinned tomatoes</a>, <a class="ing-link" data-ingredient="wine">wine</a>, <a class="ing-link" data-ingredient="thyme">thyme</a>, and <a class="ing-link" data-ingredient="soy">soy sauce</a>. Stir to combine.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Adults only</div>
-        <div class="step-text">Put hot sauce, jalapeños, chilli flakes, or a squeeze of lime on the table separately for the grown-ups.</div>
+        <div class="step-title">Braise the chicken <span class="step-time">35&ndash;40 mins</span></div>
+        <div class="step-text">Return chicken to the pan, nestling pieces into the sauce. Bring to a boil, then reduce to a gentle simmer. Cover and cook for 35&ndash;40 minutes until chicken is cooked through.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Kid-friendly note:</strong> Call them "cheesy beef wraps" instead of fajitas for better buy-in. All the heat stays off the pan and on the adult table.</div>
+    <div class="callout"><strong>Thermometer check:</strong> Chicken should reach 68&deg;C internal. Probe the thickest part of the breast &mdash; pop a wireless thermometer in before you leave for pickup and you'll know it's done when you're back.</div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Check and finish <span class="step-time">2 mins</span></div>
+        <div class="step-text">Check the chicken is cooked through (68&deg;C). Taste the sauce and adjust seasoning. Sprinkle with fresh <a class="ing-link" data-ingredient="tarragon">tarragon</a>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Serve</div>
+        <div class="step-text">Serve with mashed potato. The sauce is rich and tomatoey &mdash; perfect for soaking up with the mash.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> This dish is mild and saucy &mdash; kids tend to love it. The mushrooms can be fished out for any fussy eaters. Serve with extra mash on the side.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
-        <tr><td>4:50 PM</td><td>Grate cheese, measure spices, get ingredients out</td></tr>
-        <tr><td>4:55 PM</td><td>Take mince from fridge, move frozen veg to counter</td></tr>
-        <tr><td>5:00 PM</td><td>Head out — mince comes to room temp while you're gone</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Heat pan, start browning mince</td></tr>
-        <tr><td>5:36 PM</td><td>Drain fat, add spices and tomato purée</td></tr>
-        <tr><td>5:37 PM</td><td>Add frozen veg mix to the pan</td></tr>
-        <tr><td>5:43 PM</td><td>Slice avocado, set out toppings</td></tr>
-        <tr><td>5:45 PM</td><td>Warm wraps in a dry pan or microwave</td></tr>
-        <tr><td>5:47 PM</td><td>Check veg — sizzle off remaining moisture</td></tr>
-        <tr><td>5:50 PM</td><td>Set everything on the table, build your own wraps!</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Break down the chicken. Season with salt and pepper.</td></tr>
+        <tr><td>4:36 PM</td><td>Wash board &amp; knife. Slice shallots, chop garlic, quarter mushrooms.</td></tr>
+        <tr><td>4:43 PM</td><td>Heat olive oil. Brown chicken pieces 8&ndash;10 mins, turning once. Remove.</td></tr>
+        <tr><td>4:53 PM</td><td>Cook shallots &amp; garlic 1 min. Stir in flour 1 min.</td></tr>
+        <tr><td>4:55 PM</td><td>Add mushrooms, tomatoes, wine, thyme, soy. Return chicken. Bring to boil, reduce to gentle simmer, cover.</td></tr>
+        <tr><td>4:58 PM</td><td>Pop a wireless thermometer into the thickest breast piece. Lid on.</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; chasseur simmers away on low</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Check thermometer &mdash; chicken should be at or near 68&deg;C. Taste sauce, adjust seasoning.</td></tr>
+        <tr><td>5:32 PM</td><td>Start the mash &mdash; peel and boil potatoes (or use ones you've prepped).</td></tr>
+        <tr><td>5:45 PM</td><td>Drain potatoes, mash with butter and a splash of milk. Season well.</td></tr>
+        <tr><td>5:48 PM</td><td>Sprinkle tarragon over the chasseur. Plate up with mashed potato.</td></tr>
+        <tr><td>5:50 PM</td><td>Dinner on the table!</td></tr>
       </tbody>
     </table>
   </div>
@@ -512,26 +561,25 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map — key matches data-ingredient attribute
+  // Ingredient data map
   const ingredients = {
-    'mince':       '500g beef mince (5–10% fat)',
-    'oil':         '1 tbsp olive oil',
-    'paprika':     '1 tsp smoked paprika',
-    'cumin':       '½ tsp ground cumin',
-    'garlic':      '½ tsp garlic powder',
-    'salt':        'Small pinch of salt',
-    'puree':       '1 tbsp tomato purée',
-    'veg':         '500g Tesco Mexican-style veg mix (frozen)',
-    'wraps':       '8–10 soft tortilla wraps',
-    'cheese':      '150–200g grated cheddar',
-    'avocado':     '1 ripe avocado, sliced or lightly mashed',
-    'sour-cream':  '150–200g sour cream or Greek yoghurt'
+    'chicken':    '1 whole chicken (~1.2kg) — thighs and breasts, bone-in skin-on',
+    'olive-oil':  '2 tbsp olive oil',
+    'salt':       'Salt and pepper',
+    'shallots':   '300g shallots, sliced',
+    'garlic':     '4 cloves garlic, roughly chopped',
+    'flour':      '2 tbsp plain flour',
+    'mushrooms':  '300g closed cup mushrooms, quartered',
+    'tomatoes':   '400g tin chopped tomatoes',
+    'wine':       '200ml white wine (or red)',
+    'thyme':      '2 sprigs of fresh thyme',
+    'soy':        '1 tsp soy sauce',
+    'tarragon':   'Fresh tarragon to finish (or 1 tsp dried)'
   };
 
   const tooltip = document.getElementById('tooltip');
   let activeLink = null;
 
-  // Position tooltip above the link
   function showTooltip(link) {
     const key = link.dataset.ingredient;
     const detail = ingredients[key];
@@ -546,12 +594,10 @@
     let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
     let top = rect.top - tipRect.height - 10;
 
-    // Keep within viewport
     if (left < 8) left = 8;
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
       top = rect.bottom + 10;
-      tooltip.style.setProperty('--arrow', 'top');
     }
 
     tooltip.style.left = left + 'px';
@@ -564,47 +610,37 @@
     activeLink = null;
   }
 
-  // Click to toggle tooltip
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      if (activeLink === link) {
-        hideTooltip();
-      } else {
-        showTooltip(link);
-      }
+      if (activeLink === link) { hideTooltip(); }
+      else { showTooltip(link); }
     });
   });
 
-  // Dismiss on click outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
       hideTooltip();
     }
   });
 
-  // Also show on hover for desktop
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('mouseenter', () => showTooltip(link));
     link.addEventListener('mouseleave', (e) => {
-      // Small delay so tooltip doesn't flicker
       setTimeout(() => {
-        if (activeLink === link && !link.matches(':hover')) {
-          hideTooltip();
-        }
+        if (activeLink === link && !link.matches(':hover')) { hideTooltip(); }
       }, 100);
     });
   });
 
-  // Prep-ahead checkbox persistence (keyed by today's date)
+  // Prep-ahead checkbox persistence
   (function() {
     const today = new Date().toISOString().slice(0, 10);
     const storageKey = 'prep-checks-' + today;
 
     function loadChecks() {
-      try {
-        return JSON.parse(localStorage.getItem(storageKey)) || {};
-      } catch { return {}; }
+      try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
+      catch { return {}; }
     }
 
     function saveChecks(state) {
@@ -617,7 +653,6 @@
     checks.forEach(cb => {
       const key = cb.dataset.prep;
       if (saved[key]) cb.checked = true;
-
       cb.addEventListener('change', () => {
         const state = loadChecks();
         state[key] = cb.checked;
@@ -625,7 +660,6 @@
       });
     });
 
-    // Clean up old dates (keep only today)
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('prep-checks-') && k !== storageKey) {
         localStorage.removeItem(k);

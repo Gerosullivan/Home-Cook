@@ -5,34 +5,52 @@ A personal food management system for a family of five, built entirely on Claude
 ## How it works
 
 ```
-Google Calendar                Claude App                    Phone
-(meal plan)            (scheduled task, daily)          (home screen shortcut)
-     |                         |                              |
-     +-----> Which recipe? --->+                              |
-                               |                              |
-             SQLite DB ------->+ recipe data                  |
-             Cache ----------->+ or cached HTML               |
-                               |                              |
-                               +----> tonights-meal.html ---->+
-                               |      (served on LAN)         |
-                               |                              |
-                        Mobile chat <-------------------------+
-                        (Despatch)     "too dry, add more     |
-                               |        garlic next time"     |
-                               |                              |
-                               +----> DB updated, cache       |
-                                      invalidated             |
+                        Tesco order email
+                              |
+                              v
+Google Calendar        Claude App (daily)              Phone
+(meal plan)                   |                    (home screen shortcut)
+     |                        |                           |
+     +-> Which recipe? ------>+                           |
+                              |                           |
+           SQLite DB -------->+ recipe data               |
+           Cache ------------>+ or cached HTML            |
+                              |                           |
+                              +---> tonights-meal.html -->+
+                              |     (served on LAN)       |
+                              |                           |
+                              +<-- Despatch chat ---------+
+                              |    "swapped to takeaway"  |
+                              |    "add more garlic"      |
+                              v                           |
+                         INVENTORY                        |
+                     (auto in/out tracking)                |
+                              |                           |
+                              +---> Shopping list draft -->+
+                                    (for Ger's review)
 ```
 
 ### Daily flow
 
-1. **Scheduled task** runs on the Mac via the Claude app. It checks the Home-Cook Google Calendar for tonight's recipe, pulls it from the SQLite database, and generates a recipe card (`tonights-meal.html`).
+1. **Reconcile yesterday** — the scheduled task checks if yesterday had a planned meal. If Ger didn't override via chat, it assumes the meal was cooked and deducts ingredients from inventory. Missing items get auto-added to the shopping list.
 
-2. **Recipe card** is served on the local network by a lightweight HTTP server. A home screen shortcut on the phone opens it directly.
+2. **Generate today's card** — checks the Home-Cook Google Calendar for tonight's recipe, pulls it from the SQLite database, and generates a recipe card (`tonights-meal.html`). Cached cards are reused with just the date swapped.
 
-3. **Before cooking**, a "Prep Ahead" section on the card tells you what to prep before the 5:00 PM school pickup, so active cooking after 5:30 PM is minimised. Checkboxes persist across page refreshes.
+3. **View on phone** — the card is served on the local network. A home screen shortcut opens it directly. The "Prep Ahead" section shows what to do before the 5:00 PM school pickup.
 
-4. **After cooking**, feedback goes through the Claude app on mobile (via Despatch/Cowork). Say what you changed, what the kids thought, or that you swapped to takeaway. Claude updates the database and clears the cache so the card regenerates next time that recipe comes up.
+4. **After cooking** — feedback goes through the Claude app on mobile (via Despatch/Cowork). Say what you changed, what the kids thought, or that you swapped to takeaway. Claude updates the database and clears caches.
+
+### Inventory loop
+
+Ingredients are tracked automatically:
+
+- **Out**: When a planned meal is cooked, recipe ingredients are deducted from inventory. Measured items (g, ml, pieces) get precise deductions. Container items (bags, jars) are deducted when fully used, or flagged for a visual stock check when partially used. Staples (spice rack, salt, oil) are never deducted.
+
+- **In** *(future)*: When a Tesco delivery confirmation email arrives, items are parsed and added to inventory.
+
+- **Shopping list**: Missing or low ingredients are auto-added to a draft shopping list. The list is always reviewed by Ger before ordering — the system never auto-purchases.
+
+An `ingredient_map` table translates between recipe ingredient names and inventory names (e.g., "Smoked paprika" in a recipe maps to "Paprika" in inventory). Mappings are resolved once and cached permanently.
 
 ### Caching
 
@@ -87,9 +105,12 @@ Key tables:
 | `recipe_ingredients` | Parsed ingredients per recipe |
 | `recipe_steps` | Method steps per recipe |
 | `recipe_prep_ahead` | Cached prep-ahead analysis (step classifications) |
-| `inventory` | Current kitchen stock (fridge, freezer, pantry, spice rack) |
+| `ingredient_map` | Recipe ingredient name → inventory name mapping |
+| `inventory` | Current kitchen stock with deduction types and Tesco product names |
+| `inventory_log` | Audit trail of all inventory changes (deductions, deliveries, manual) |
 | `meal_plan` | Planned meals by date |
 | `meal_log` | What actually happened (outcome, modifications, notes) |
+| `shopping_list` | Auto-populated draft shopping list for Ger's review |
 | `recipe_notes` | Feedback and tips collected after cooking |
 
 ## Repo structure

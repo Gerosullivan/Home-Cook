@@ -93,6 +93,41 @@ rm -f data/recipe-cards/{recipe_id}.html
 
 This ensures the next scheduled run regenerates the card fresh.
 
+## Inventory & Ingredient Mapping
+
+### How ingredients map between systems
+
+Recipe ingredient names, inventory names, and Tesco product names are all different. The `ingredient_map` table resolves recipe names → inventory names. The `tesco_name` column on `inventory` resolves Tesco names → inventory names.
+
+```sql
+-- Look up mapping
+SELECT inventory_name FROM ingredient_map WHERE recipe_name = 'Smoked paprika';
+-- → 'Paprika'
+```
+
+The map populates lazily — on first encounter, find the best inventory match and save it. If no match exists (staple, or not in stock), set `inventory_name = NULL`.
+
+### Deduction rules
+
+Each inventory item has a `deduction_type`:
+
+| Type | When | How |
+|------|------|-----|
+| `measured` | g, ml, kg, l, pieces | Deduct actual quantity (convert units if needed) |
+| `container` | bag, bottle, jar, tub, can | Full use → deduct 1 container. Partial use (tsp, splash) → log as `check_stock`, don't deduct |
+| `none` | Spice rack, staples | Never deduct |
+
+### When deductions happen
+
+- **Only planned meals** trigger auto-deduction (from `meal_plan` table or Google Calendar)
+- AI-generated suggestions do NOT auto-deduct — Ger must confirm via chat
+- The daily scheduled task reconciles yesterday's meal each morning
+- If Ger already checked in via chat, the task skips deduction
+
+### Shopping list auto-population
+
+When a recipe ingredient has no inventory match at all, it's auto-added to `shopping_list`. The shopping list is always a draft for Ger's review — the system never auto-orders. Items logged as `check_stock` surface at review time as "you've been using X — do you need more?"
+
 ## Kitchen Equipment
 
 - **Wireless thermometers**: 2 available. Use for meat doneness — no guessing.

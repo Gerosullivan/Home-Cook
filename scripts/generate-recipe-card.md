@@ -4,6 +4,61 @@ Scheduled task prompt for the Claude app. Runs daily to produce `tonights-meal.h
 
 ---
 
+## Step 0: Yesterday's Meal Reconciliation
+
+Before generating today's card, reconcile yesterday's meal to keep inventory accurate.
+
+1. Check if yesterday had a **planned** meal:
+   ```sql
+   SELECT recipe_id FROM meal_plan WHERE date = date('now', '-1 day') AND meal_type = 'dinner';
+   ```
+
+2. **No meal plan** → skip entirely. AI-generated suggestions don't trigger inventory changes. Only planned meals auto-deduct.
+
+3. **Meal plan exists** → check if Ger already handled it via chat:
+   ```sql
+   SELECT id FROM meal_log WHERE date = date('now', '-1 day') AND meal_type = 'dinner';
+   ```
+
+4. **Log exists** → already reconciled via Despatch chat → skip.
+
+5. **No log** → assume cooked as planned. Process each recipe ingredient:
+   ```sql
+   SELECT name, quantity, unit FROM recipe_ingredients WHERE recipe_id = ?;
+   ```
+
+   For each ingredient:
+
+   a. **Look up mapping**: `SELECT inventory_name FROM ingredient_map WHERE recipe_name = ?`
+      - Match found with `inventory_name` → proceed to deduction
+      - Match found with `NULL` → skip (staple or not tracked)
+      - No match → resolve it: find the best match in inventory (fuzzy name match), save to `ingredient_map`. If no plausible match, set `inventory_name = NULL`
+
+   b. **Check deduction type**: `SELECT deduction_type, quantity, unit FROM inventory WHERE name = ?`
+      - `none` → skip
+      - `measured` → convert recipe quantity to inventory unit if needed, subtract from inventory. Floor at 0.
+      - `container` + recipe uses full/most of container (whole bag, whole can) → deduct 1 container
+      - `container` + recipe uses small amount (tsp, tbsp, splash) → don't deduct, log as `check_stock`
+
+   c. **No inventory match at all** → log as `not_in_inventory`, auto-add to `shopping_list`:
+      ```sql
+      INSERT INTO shopping_list (item_name, quantity, unit, recipe_id, created_date)
+      VALUES (?, ?, ?, ?, date('now', '-1 day'));
+      ```
+
+   d. **Log every action** to `inventory_log`:
+      ```sql
+      INSERT INTO inventory_log (inventory_name, change_type, quantity_change, unit, source, date)
+      VALUES (?, ?, ?, ?, ?, date('now', '-1 day'));
+      ```
+      - `change_type`: `meal_deduction`, `check_stock`, or `not_in_inventory`
+
+   e. **Record the meal**:
+      ```sql
+      INSERT INTO meal_log (date, meal_type, planned_recipe_id, actual_recipe_id, outcome)
+      VALUES (date('now', '-1 day'), 'dinner', ?, ?, 'as_planned');
+      ```
+
 ## Data Source
 
 Check the **Home-Cook** Google Calendar (ID: `23a1ee918bf80873ea6fd3f845c846083e12d1d9d1b2fe6471f892f2f53d0c55@group.calendar.google.com`) for today's meal plan event.

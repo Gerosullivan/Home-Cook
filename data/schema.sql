@@ -55,7 +55,10 @@ CREATE TABLE IF NOT EXISTS inventory (
     location TEXT,
     bought_date DATE,
     expiry_date DATE,
-    notes TEXT
+    notes TEXT,
+    deduction_type TEXT DEFAULT 'container',
+    tesco_name TEXT,
+    tesco_product_id TEXT
 );
 
 CREATE TABLE IF NOT EXISTS meal_plan (
@@ -111,6 +114,25 @@ CREATE TABLE IF NOT EXISTS recipe_prep_ahead (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS ingredient_map (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    recipe_name TEXT NOT NULL UNIQUE,
+    inventory_name TEXT,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS inventory_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inventory_name TEXT NOT NULL,
+    change_type TEXT NOT NULL,
+    quantity_change REAL NOT NULL,
+    unit TEXT,
+    source TEXT,
+    date DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_recipes_name ON recipes(name);
 CREATE INDEX IF NOT EXISTS idx_recipes_cuisine ON recipes(cuisine);
@@ -126,3 +148,7 @@ CREATE INDEX IF NOT EXISTS idx_shopping_list_checked ON shopping_list(checked);
 CREATE INDEX IF NOT EXISTS idx_inventory_location ON inventory(location);
 CREATE INDEX IF NOT EXISTS idx_inventory_expiry ON inventory(expiry_date);
 CREATE INDEX IF NOT EXISTS idx_recipe_prep_ahead_recipe_id ON recipe_prep_ahead(recipe_id);
+CREATE INDEX IF NOT EXISTS idx_ingredient_map_recipe ON ingredient_map(recipe_name);
+CREATE INDEX IF NOT EXISTS idx_ingredient_map_inventory ON ingredient_map(inventory_name);
+CREATE INDEX IF NOT EXISTS idx_inventory_log_date ON inventory_log(date);
+CREATE INDEX IF NOT EXISTS idx_inventory_log_name ON inventory_log(inventory_name);
