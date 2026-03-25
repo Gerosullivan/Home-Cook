@@ -163,3 +163,16 @@ Add as callouts where relevant:
 - Use `.prep-step-tag.before` (green) or `.prep-step-tag.during` (amber) badges on each step
 - Include `.prep-passive` block with `.prep-passive-header` only if there are `PASSIVE_DURING` tasks
 - If no prep tasks apply, omit the entire `.prep-ahead` div
+
+## Deploy to Website
+
+After writing `tonights-meal.html`, commit and push so Vercel auto-deploys to `cook.gerosullivan.com`:
+
+```bash
+cd /Users/ger/Agents/Home-Cook
+git add tonights-meal.html
+git commit -m "Update tonight's meal card ($(date +%Y-%m-%d))"
+git push
+```
+
+This ensures the recipe card is publicly accessible even if the laptop goes offline later.
