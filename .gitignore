@@ -4,3 +4,4 @@ data/recipe-cards/*.html
 .DS_Store
 __pycache__/
 *.pyc
+.vercel
