@@ -65,7 +65,64 @@ Check the **Home-Cook** Google Calendar (ID: `23a1ee918bf80873ea6fd3f845c846083e
 
 Pull the matching recipe from the SQLite database at `data/homecook.db` (use python3 with sqlite3 module — copy the DB locally first to avoid disk I/O errors on the mounted file).
 
-If there's no meal plan event on the Home-Cook calendar for tonight, fall back to `draft_meal_plan.json` to determine which recipe is planned. If neither has a plan, generate a suggestion based on current inventory.
+If there's no meal plan event on the Home-Cook calendar for tonight, fall back to `draft_meal_plan.json` to determine which recipe is planned. If neither has a plan, **create an original recipe** using the priority system below. Do NOT pick an existing recipe from the database — the 3-week rotation already covers those, and repeating them defeats the purpose.
+
+### No-Plan Recipe Generation (priority order)
+
+When generating a recipe for an unplanned day, work through these considerations in order:
+
+**1. What protein is available?**
+
+```sql
+SELECT name, quantity, unit, location, use_by_date
+FROM inventory
+WHERE category IN ('meat', 'fish', 'poultry', 'protein')
+  AND quantity > 0
+ORDER BY use_by_date ASC;
+```
+
+Pick a protein that's in stock. Prefer anything approaching its use-by date.
+
+**2. What's seasonal or going off?**
+
+Check inventory for perishables nearing their use-by date — veg, dairy, herbs:
+
+```sql
+SELECT name, quantity, unit, location, use_by_date
+FROM inventory
+WHERE use_by_date IS NOT NULL
+  AND use_by_date <= date('now', '+3 days')
+  AND quantity > 0
+ORDER BY use_by_date ASC;
+```
+
+Incorporate these into the recipe where they fit naturally. This reduces waste.
+
+**3. What's seasonally available from the fishmonger?**
+
+If no protein is obvious from inventory, or if it's a good day for fish, suggest a fish-based recipe using what's typically available from an Irish fishmonger in the current season:
+
+- **Spring**: salmon, cod, haddock, mackerel, mussels
+- **Summer**: sea bass, mackerel, crab, prawns, sole
+- **Autumn**: hake, monkfish, plaice, oysters, mussels
+- **Winter**: cod, haddock, hake, smoked fish, prawns
+
+Note: Ger can pick up fish on the day, so fishmonger suggestions don't need to be in inventory.
+
+**4. Avoid recent meals**
+
+Check what's been cooked in the last 2 weeks and avoid those proteins/cuisines:
+
+```sql
+SELECT r.name, r.protein, r.cuisine
+FROM meal_log ml
+JOIN recipes r ON r.id = ml.actual_recipe_id
+WHERE ml.date >= date('now', '-14 days');
+```
+
+**5. Generate an original recipe**
+
+Create a new family-friendly recipe (serves 5, metric, not spicy). Write it directly into the recipe card — do NOT insert it into the database. It's a one-off suggestion, not a permanent addition. Mark the card clearly as "Chef's Pick" or similar so Ger knows it wasn't planned.
 
 ## Recipe Card Output
 
