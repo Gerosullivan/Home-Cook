@@ -170,6 +170,8 @@ After writing `tonights-meal.html`, commit and push so Vercel auto-deploys to `c
 
 ```bash
 cd /Users/ger/Agents/Home-Cook
+# Remove stale lock file if present (left by interrupted git operations)
+rm -f .git/index.lock
 git add tonights-meal.html
 git commit -m "Update tonight's meal card ($(date +%Y-%m-%d))"
 git push
