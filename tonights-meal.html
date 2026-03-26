@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — The Best Spaghetti Bolognese</title>
+<title>Tonight's Meal — Pork Chops</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #C0392B 0%, #922B21 100%);
+    background: linear-gradient(135deg, #8B6914 0%, #6B4F10 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -43,6 +43,18 @@
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.3;
+  }
+  .suggestion-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
   }
   .meta {
     display: flex;
@@ -62,7 +74,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #C0392B;
+    color: #8B6914;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +98,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #C0392B;
+    background: #8B6914;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -97,7 +109,7 @@
     grid-column: 1 / -1;
     font-weight: 700;
     font-size: 0.85rem;
-    color: #C0392B;
+    color: #8B6914;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     padding-top: 0.6rem;
@@ -111,7 +123,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #C0392B;
+    background: #8B6914;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -136,15 +148,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdf0f0;
-    border-left: 3px solid #C0392B;
+    background: #fdf6e3;
+    border-left: 3px solid #8B6914;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #7B241C;
+    color: #6B4F10;
   }
-  .callout strong { color: #C0392B; }
+  .callout strong { color: #8B6914; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -154,7 +166,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdf0f0;
+    background: #fdf6e3;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -167,22 +179,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #C0392B;
+    color: #8B6914;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #C0392B;
+    color: #8B6914;
     text-decoration: none;
-    border-bottom: 1px dashed #C0392B;
+    border-bottom: 1px dashed #8B6914;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #922B21;
-    border-bottom-color: #922B21;
+    color: #6B4F10;
+    border-bottom-color: #6B4F10;
   }
 
   /* Tooltip overlay */
@@ -216,7 +228,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #C0392B;
+    color: #8B6914;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -359,18 +371,19 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #C0392B !important; }
+  .timing-phase-row.cook td { color: #8B6914 !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Wednesday 25 March 2026</div>
-    <h1>The Best Spaghetti Bolognese</h1>
+    <span class="suggestion-badge">AI Suggestion</span>
+    <div class="date">Thursday 26 March 2026</div>
+    <h1>Pan-Seared Pork Chops with Honey-Mustard Butter, Creamed Savoy Cabbage &amp; Potatoes</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~1 hr 50 mins total
+        ~50 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -378,7 +391,7 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Italian
+        Pork
       </div>
     </div>
   </div>
@@ -386,68 +399,58 @@
   <div class="body">
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="section-label">Main</li>
-      <li><a class="ing-link" data-ingredient="mince">500g fresh beef mince</a></li>
-      <li><a class="ing-link" data-ingredient="spaghetti">400g dried spaghetti</a></li>
-      <li><a class="ing-link" data-ingredient="bacon">4 rashers smoked streaky bacon, finely diced</a></li>
-      <li><a class="ing-link" data-ingredient="tinned-tom">2 tins plum/chopped tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="cherry-tom">6 fresh cherry tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="onion">2 medium onions, finely diced</a></li>
-      <li><a class="ing-link" data-ingredient="celery">2 sticks celery, finely diced</a></li>
-      <li><a class="ing-link" data-ingredient="carrot">2 carrots, finely diced</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic, finely diced</a></li>
-      <li><a class="ing-link" data-ingredient="parmesan">75g Parmesan, freshly grated (plus extra)</a></li>
-      <li><a class="ing-link" data-ingredient="puree">2 tbsp tomato pur&eacute;e</a></li>
-      <li><a class="ing-link" data-ingredient="stock">1 beef stock cube</a></li>
-      <li class="section-label">Herbs &amp; Seasoning</li>
-      <li><a class="ing-link" data-ingredient="rosemary">2&ndash;3 sprigs fresh rosemary</a></li>
-      <li><a class="ing-link" data-ingredient="basil">Handful of fresh basil (plus extra)</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="bay">1&ndash;2 fresh bay leaves</a></li>
-      <li><a class="ing-link" data-ingredient="chilli">1 medium chilli, seeded &amp; sliced (optional)</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Sea salt and black pepper</a></li>
-      <li><a class="ing-link" data-ingredient="oil">Olive oil</a></li>
-      <li class="section-label">Optional / To Serve</li>
-      <li><a class="ing-link" data-ingredient="wine">Glass of red wine (optional)</a></li>
-      <li><a class="ing-link" data-ingredient="bread">Crusty bread, to serve</a></li>
+      <li class="section-label">Pork Chops</li>
+      <li><a class="ing-link" data-ingredient="pork">500g pork chops (bone-in or boneless)</a></li>
+      <li><a class="ing-link" data-ingredient="oil-pork">1 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="paprika">1 tsp smoked or sweet paprika</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-powder">1 tsp garlic powder</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1/2 tsp dried thyme or rosemary</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt and black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="butter-pork">20g butter</a></li>
+      <li><a class="ing-link" data-ingredient="mustard">1 tbsp Dijon or wholegrain mustard</a></li>
+      <li><a class="ing-link" data-ingredient="honey">1 tsp honey</a></li>
+      <li class="section-label">Roast Potatoes</li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g&ndash;1kg potatoes, peeled and chopped</a></li>
+      <li><a class="ing-link" data-ingredient="oil-potatoes">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="herbs">Optional: rosemary or thyme sprigs</a></li>
+      <li class="section-label">Creamed Savoy Cabbage</li>
+      <li><a class="ing-link" data-ingredient="cabbage">300&ndash;400g shredded savoy cabbage</a></li>
+      <li><a class="ing-link" data-ingredient="butter-cab">20g butter</a></li>
+      <li><a class="ing-link" data-ingredient="cream">100ml cream</a></li>
+      <li><a class="ing-link" data-ingredient="nutmeg">Optional: pinch of nutmeg</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~50 min prep</span>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
       <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Finely dice the onions, celery, carrots, and garlic. Dice the bacon. Halve the cherry tomatoes. Strip rosemary leaves from sprigs.</span>
+        <span class="prep-step-text">Peel and chop potatoes into chunks</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Heat a lug of olive oil in a large heavy saucepan. Fry bacon until golden and crisp (~5 mins).</span>
+        <span class="prep-step-text">Parboil potatoes in well-salted water for 8&ndash;10 minutes until just tender at the edges. Drain and shake in the pot to rough up.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Reduce heat slightly. Add onions, carrots, celery, garlic, and rosemary. Fry 8&ndash;10 mins until softened.</span>
+        <span class="prep-step-text">Preheat oven to 220&deg;C (fan 200&deg;C)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Increase heat, add mince. Stir until browned all over (~5 mins).</span>
+        <span class="prep-step-text">Toss parboiled potatoes with 2 tbsp olive oil, salt, and herbs. Spread on a roasting tray and into the oven.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Add tinned tomatoes, cherry tomatoes, tomato pur&eacute;e, stock cube, oregano, bay leaves, basil, and wine if using. Stir well, breaking up plum tomatoes. Bring to a gentle simmer.</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Reduce to low&ndash;medium heat, put the lid on. The sauce will simmer while you&rsquo;re away.</span>
+        <span class="prep-step-text">Mix the spice rub: paprika, garlic powder, thyme, salt and pepper. Rub over pork chops with a little olive oil.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -457,7 +460,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Bolognese simmering gently on low&ndash;medium with the lid on &mdash; it&rsquo;ll have about 30 mins done when you get back. Needs another 45 mins or so after that.</div>
+        <div class="prep-passive-item">Potatoes roasting away in the oven &mdash; they'll be about 30 mins in when you get back</div>
+        <div class="prep-passive-item">Pork chops resting at room temp with the rub &mdash; better sear, better flavour</div>
       </div>
     </div>
 
@@ -466,88 +470,75 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Prep the veg and bacon <span class="step-time">15 mins</span></div>
-        <div class="step-text">Finely dice the <a class="ing-link" data-ingredient="onion">onions</a>, <a class="ing-link" data-ingredient="carrot">carrots</a>, <a class="ing-link" data-ingredient="celery">celery</a>, and <a class="ing-link" data-ingredient="garlic">garlic</a>. Finely dice the <a class="ing-link" data-ingredient="bacon">bacon</a>. Halve the <a class="ing-link" data-ingredient="cherry-tom">cherry tomatoes</a>. Strip the leaves from the <a class="ing-link" data-ingredient="rosemary">rosemary</a> sprigs and discard the stalks.</div>
+        <div class="step-title">Prep &amp; roast the potatoes <span class="step-time">10 min prep + 35&ndash;40 min roast</span></div>
+        <div class="step-text">Preheat oven to 220&deg;C (fan 200&deg;C). Parboil <a class="ing-link" data-ingredient="potatoes">potatoes</a> in well-salted water for 8&ndash;10 minutes until just tender at the edges. Drain and shake in the pot to rough up the edges. Toss with <a class="ing-link" data-ingredient="oil-potatoes">olive oil</a>, salt, and <a class="ing-link" data-ingredient="herbs">herbs</a> if using. Roast for 35&ndash;40 minutes, turning once, until golden and crisp.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Tip:</strong> Get the potatoes into the oven before pickup. They'll be nearly done when you're back &mdash; just need a final turn and 10 more minutes for extra crispiness.</div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Fry the bacon <span class="step-time">5 mins</span></div>
-        <div class="step-text">Place a large heavy-bottomed saucepan on a medium heat. Add a good lug of <a class="ing-link" data-ingredient="oil">olive oil</a> and gently fry the <a class="ing-link" data-ingredient="bacon">bacon</a> until golden and crisp.</div>
+        <div class="step-title">Season the pork <span class="step-time">3 mins</span></div>
+        <div class="step-text">Mix <a class="ing-link" data-ingredient="paprika">paprika</a>, <a class="ing-link" data-ingredient="garlic-powder">garlic powder</a>, <a class="ing-link" data-ingredient="thyme">thyme</a>, <a class="ing-link" data-ingredient="salt">salt and pepper</a>. Rub over the <a class="ing-link" data-ingredient="pork">pork chops</a> with <a class="ing-link" data-ingredient="oil-pork">olive oil</a>. Let sit at room temperature while potatoes roast.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the soffritto <span class="step-time">8&ndash;10 mins</span></div>
-        <div class="step-text">Reduce the heat slightly and add the <a class="ing-link" data-ingredient="onion">onions</a>, <a class="ing-link" data-ingredient="carrot">carrots</a>, <a class="ing-link" data-ingredient="celery">celery</a>, <a class="ing-link" data-ingredient="garlic">garlic</a>, and <a class="ing-link" data-ingredient="rosemary">rosemary leaves</a>. Stir everything around and fry for 8&ndash;10 minutes until the veg has softened.</div>
+        <div class="step-title">Sear the pork chops <span class="step-time">8&ndash;10 mins</span></div>
+        <div class="step-text">Heat a wide frying pan over medium-high heat. Sear <a class="ing-link" data-ingredient="pork">pork chops</a> for 2&ndash;3 minutes per side until nicely golden. Lower heat slightly, add <a class="ing-link" data-ingredient="butter-pork">butter</a>, and baste the chops for another 1&ndash;2 minutes per side until just cooked through. Remove to a warm plate and rest for 5 minutes.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Thermometer check:</strong> If you want to probe, pork chops are done at 63&deg;C internal &mdash; they'll carry over to 65&ndash;68&deg;C while resting. No pink fear &mdash; they'll be juicy.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Brown the mince <span class="step-time">5 mins</span></div>
-        <div class="step-text">Increase the heat slightly and add the <a class="ing-link" data-ingredient="mince">beef mince</a>. Stir until the meat is browned all over.</div>
+        <div class="step-title">Make the honey-mustard butter <span class="step-time">2 mins</span></div>
+        <div class="step-text">With the pan off the heat, stir <a class="ing-link" data-ingredient="mustard">mustard</a> and <a class="ing-link" data-ingredient="honey">honey</a> into the buttery pork juices. Add a small squeeze of lemon if using. Spoon over the rested pork chops.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Build the sauce <span class="step-time">3 mins</span></div>
-        <div class="step-text">Stir in the <a class="ing-link" data-ingredient="tinned-tom">tinned tomatoes</a> (plum are best &mdash; less water). Add <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a>, <a class="ing-link" data-ingredient="stock">stock cube</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, <a class="ing-link" data-ingredient="bay">bay leaves</a>, <a class="ing-link" data-ingredient="basil">basil</a>, <a class="ing-link" data-ingredient="chilli">chilli</a> (if using), and the <a class="ing-link" data-ingredient="wine">wine</a> if using. Halve the <a class="ing-link" data-ingredient="cherry-tom">cherry tomatoes</a> and throw them in. Break up the plum tomatoes with a wooden spoon.</div>
+        <div class="step-title">Creamed savoy cabbage <span class="step-time">6 mins</span></div>
+        <div class="step-text">Steam or boil the <a class="ing-link" data-ingredient="cabbage">cabbage</a> for 3&ndash;4 minutes until tender. Drain very well. Return to pan with <a class="ing-link" data-ingredient="butter-cab">butter</a> and <a class="ing-link" data-ingredient="cream">cream</a>. Warm gently for 1&ndash;2 minutes. Season with salt and optional <a class="ing-link" data-ingredient="nutmeg">nutmeg</a>.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> The honey-mustard butter is mild and sweet &mdash; kids usually love it. If anyone's not keen on cabbage, serve theirs with just the potatoes and a little butter on the side.</div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Long simmer <span class="step-time">1 hr 15 mins</span></div>
-        <div class="step-text">Bring to a gentle simmer, then reduce the heat to low&ndash;medium. Put the lid on and leave it blipping away for about 1 hour 15 minutes. Stir occasionally to make sure it doesn&rsquo;t catch. The sauce should develop into a wonderfully rich, tomatoey rag&ugrave;.</div>
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Plate pork chops with crispy roast potatoes and creamed savoy cabbage. Spoon the honey-mustard butter over the pork. Optional extras on the table: apple sauce, gravy, or extra mustard.</div>
       </div>
     </div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Finish and cook spaghetti <span class="step-time">10&ndash;12 mins</span></div>
-        <div class="step-text">When the sauce is nearly ready, stir in the <a class="ing-link" data-ingredient="parmesan">Parmesan</a> and season with <a class="ing-link" data-ingredient="salt">salt and pepper</a> to taste. Meanwhile, cook the <a class="ing-link" data-ingredient="spaghetti">spaghetti</a> in a large pan of salted boiling water according to packet instructions.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Combine and serve</div>
-        <div class="step-text">Drain the spaghetti in a colander and add it to the pan with the sauce. Give it all a good stir, coating the pasta in the lovely tomato sauce. Serve with a little grated <a class="ing-link" data-ingredient="parmesan">Parmesan</a>, fresh <a class="ing-link" data-ingredient="basil">basil</a> leaves, and <a class="ing-link" data-ingredient="bread">crusty bread</a> on the side.</div>
-      </div>
-    </div>
-
-    <div class="callout"><strong>Kid-friendly note:</strong> Skip the chilli entirely for a mild, crowd-pleasing sauce the kids will love. The long simmer makes it lovely and sweet. Serve extra Parmesan on the side for sprinkling.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:10 PM</td><td>Dice onions, celery, carrots, garlic, and bacon. Halve cherry tomatoes. Strip rosemary leaves.</td></tr>
-        <tr><td>4:25 PM</td><td>Heat olive oil. Fry bacon until golden and crisp (~5 mins).</td></tr>
-        <tr><td>4:30 PM</td><td>Add onions, carrots, celery, garlic, rosemary. Fry 8&ndash;10 mins until softened.</td></tr>
-        <tr><td>4:40 PM</td><td>Increase heat. Add mince, brown all over (~5 mins).</td></tr>
-        <tr><td>4:45 PM</td><td>Add tinned tomatoes, pur&eacute;e, stock cube, herbs, chilli, wine, cherry tomatoes. Stir, break up tomatoes.</td></tr>
-        <tr><td>4:48 PM</td><td>Bring to a gentle simmer. Reduce to low&ndash;medium, lid on.</td></tr>
-        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; bolognese simmers away</td></tr>
+        <tr><td>4:35 PM</td><td>Preheat oven to 220&deg;C. Start peeling and chopping potatoes.</td></tr>
+        <tr><td>4:40 PM</td><td>Potatoes into salted boiling water &mdash; parboil 8&ndash;10 mins</td></tr>
+        <tr><td>4:50 PM</td><td>Drain potatoes, rough up, toss with oil and salt. Into the oven.</td></tr>
+        <tr><td>4:52 PM</td><td>Mix spice rub. Season pork chops with rub and olive oil. Leave out at room temp.</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; potatoes roast, pork rests with rub</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Give the sauce a stir. It&rsquo;s been going ~45 mins.</td></tr>
-        <tr><td>5:55 PM</td><td>Put a large pan of salted water on to boil for the spaghetti.</td></tr>
-        <tr><td>6:03 PM</td><td>Sauce at ~1 hr 15 mins. Stir in Parmesan, season to taste. Remove bay leaves.</td></tr>
-        <tr><td>6:05 PM</td><td>Cook spaghetti per packet instructions (~10 mins).</td></tr>
-        <tr><td>6:15 PM</td><td>Drain spaghetti, toss with the sauce. Garnish with basil and extra Parmesan.</td></tr>
-        <tr><td>6:15 PM</td><td>Dinner on the table! Serve with crusty bread.</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Turn potatoes once. They need about 10 more mins.</td></tr>
+        <tr><td>5:32 PM</td><td>Heat frying pan. Sear pork chops 2&ndash;3 mins per side, then baste with butter.</td></tr>
+        <tr><td>5:40 PM</td><td>Pork to a warm plate to rest. Potatoes out of the oven.</td></tr>
+        <tr><td>5:41 PM</td><td>Off heat: stir mustard &amp; honey into the pan juices.</td></tr>
+        <tr><td>5:42 PM</td><td>Boil/steam cabbage 3&ndash;4 mins. Drain, add butter &amp; cream.</td></tr>
+        <tr><td>5:48 PM</td><td>Plate up &mdash; pork, potatoes, creamed cabbage. Spoon sauce over pork.</td></tr>
+        <tr><td>5:50 PM</td><td>Dinner on the table!</td></tr>
       </tbody>
     </table>
   </div>
@@ -559,27 +550,22 @@
 <script>
   // Ingredient data map
   const ingredients = {
-    'mince':      '500g fresh beef mince',
-    'spaghetti':  '400g dried spaghetti',
-    'bacon':      '4 rashers smoked streaky bacon, finely diced',
-    'tinned-tom': '2 tins plum/chopped tomatoes',
-    'cherry-tom': '6 fresh cherry tomatoes, halved',
-    'onion':      '2 medium onions, finely diced',
-    'celery':     '2 sticks celery, finely diced',
-    'carrot':     '2 carrots, finely diced',
-    'garlic':     '2 cloves garlic, finely diced',
-    'parmesan':   '75g Parmesan, freshly grated (plus extra)',
-    'puree':      '2 tbsp tomato purée',
-    'stock':      '1 beef stock cube',
-    'rosemary':   '2–3 sprigs fresh rosemary (leaves stripped)',
-    'basil':      'Handful of fresh basil (plus extra for garnish)',
-    'oregano':    '1 tsp dried oregano',
-    'bay':        '1–2 fresh bay leaves',
-    'chilli':     '1 medium chilli, seeded & sliced (optional — skip for kids)',
-    'salt':       'Sea salt and black pepper',
-    'oil':        'Olive oil',
-    'wine':       'Glass of red wine (optional)',
-    'bread':      'Crusty bread, to serve'
+    'pork':         '500g pork chops (from freezer — defrost today)',
+    'oil-pork':     '1 tbsp olive oil (for seasoning)',
+    'paprika':      '1 tsp smoked or sweet paprika',
+    'garlic-powder':'1 tsp garlic powder',
+    'thyme':        '1/2 tsp dried thyme or rosemary',
+    'salt':         'Salt and black pepper',
+    'butter-pork':  '20g butter (for basting)',
+    'mustard':      '1 tbsp Dijon or wholegrain mustard',
+    'honey':        '1 tsp honey',
+    'potatoes':     '800g\u20131kg potatoes, peeled and chopped',
+    'oil-potatoes': '2 tbsp olive oil (for roasting)',
+    'herbs':        'Optional: rosemary or thyme sprigs',
+    'cabbage':      '300\u2013400g savoy cabbage (from freezer)',
+    'butter-cab':   '20g butter (for cabbage)',
+    'cream':        '100ml cream',
+    'nutmeg':       'Optional: pinch of nutmeg'
   };
 
   const tooltip = document.getElementById('tooltip');
