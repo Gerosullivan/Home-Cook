@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Homemade Pizza</title>
+<title>Tonight's Meal — Pan-Fried Pork Chops with Crushed Baby Potatoes & Honey-Thyme Carrots</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #d35400 0%, #b94600 100%);
+    background: linear-gradient(135deg, #5b7a3a 0%, #3d5a1e 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -43,6 +43,18 @@
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.3;
+  }
+  .chefs-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
   }
   .meta {
     display: flex;
@@ -62,7 +74,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #d35400;
+    color: #5b7a3a;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +98,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #d35400;
+    background: #5b7a3a;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +112,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #d35400;
+    background: #5b7a3a;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +137,22 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fef5f0;
-    border-left: 3px solid #d35400;
+    background: #f4f8f0;
+    border-left: 3px solid #5b7a3a;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #7a5030;
+    color: #4a6530;
   }
-  .callout strong { color: #d35400; }
+  .callout strong { color: #5b7a3a; }
+  .callout.saturday {
+    background: #fef9e7;
+    border-left-color: #d4a017;
+    color: #7a6520;
+    margin: 0 0 1.5rem 0;
+  }
+  .callout.saturday strong { color: #b8860b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -143,7 +162,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fef5f0;
+    background: #f4f8f0;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -156,22 +175,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #d35400;
+    color: #5b7a3a;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #d35400;
+    color: #5b7a3a;
     text-decoration: none;
-    border-bottom: 1px dashed #d35400;
+    border-bottom: 1px dashed #5b7a3a;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #b94600;
-    border-bottom-color: #b94600;
+    color: #3d5a1e;
+    border-bottom-color: #3d5a1e;
   }
 
   /* Tooltip overlay */
@@ -205,7 +224,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #d35400;
+    color: #5b7a3a;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -348,18 +367,19 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #d35400 !important; }
+  .timing-phase-row.cook td { color: #5b7a3a !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Friday 27 March 2026</div>
-    <h1>Homemade Pizza</h1>
+    <span class="chefs-pick">Chef's Pick</span>
+    <div class="date">Saturday 28 March 2026</div>
+    <h1>Pan-Fried Pork Chops with Crushed Baby Potatoes &amp; Honey-Thyme Carrots</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins active
+        ~45 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -367,67 +387,65 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork · Italian
+        Pork · Irish Comfort
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="callout saturday"><strong>Saturday suggestion:</strong> It's takeaway night, but you've got pork chops in the freezer and baby potatoes, carrots &amp; thyme all needing to be used. This is a quick, satisfying dinner if you fancy cooking instead — skip it if you'd rather order in!</div>
+
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="flour">500g 00 flour (Tipo 00)</a></li>
-      <li><a class="ing-link" data-ingredient="salt">10g fine sea salt</a></li>
-      <li><a class="ing-link" data-ingredient="yeast">7g sachet dried yeast</a></li>
-      <li><a class="ing-link" data-ingredient="sugar">1 tsp caster sugar</a></li>
-      <li><a class="ing-link" data-ingredient="water">325ml lukewarm water</a></li>
+      <li><a class="ing-link" data-ingredient="chops">4 pork chops (from freezer — defrost in fridge or microwave)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">1 bag baby potatoes (~500g)</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">4–5 carrots, peeled &amp; halved lengthways</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, crushed</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 bunch fresh thyme</a></li>
+      <li><a class="ing-link" data-ingredient="honey">2 tbsp honey</a></li>
+      <li><a class="ing-link" data-ingredient="butter">40g butter</a></li>
       <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="tomatoes">400g tin plum tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic</a></li>
-      <li><a class="ing-link" data-ingredient="sauce-oil">1 tbsp olive oil (sauce)</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="pepperoni">100g pepperoni slices</a></li>
-      <li><a class="ing-link" data-ingredient="ham">150g ham, sliced or torn</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 jar pickled red onion, drained</a></li>
-      <li><a class="ing-link" data-ingredient="mushrooms">150g mushrooms, sliced</a></li>
-      <li><a class="ing-link" data-ingredient="mozzarella">250g mozzarella, torn</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon, juiced</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 red onion, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt &amp; black pepper</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~40 min prep</span>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
       <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Combine 500g 00 flour and 10g salt in a large bowl</span>
+        <span class="prep-step-text">Defrost pork chops — move from freezer to a plate in the fridge (or use microwave defrost if short on time)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Mix yeast and sugar into 325ml lukewarm water — let sit 5 mins until frothy</span>
+        <span class="prep-step-text">Boil baby potatoes in salted water for 15 mins until tender. Drain and set aside</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Pour yeast water and 2 tbsp olive oil into flour. Mix, then knead 10 mins until smooth and elastic</span>
+        <span class="prep-step-text">Peel carrots and halve lengthways. Toss with 1 tbsp olive oil, honey, and a few thyme sprigs on a baking tray</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Place dough in oiled bowl, cover with cling film, leave to rise</span>
+        <span class="prep-step-text">Cut red onion into wedges and add to the carrot tray</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Make the sauce: crush garlic, fry gently 1 min in olive oil. Add tinned tomatoes, oregano, salt &amp; pepper. Simmer 15–20 mins, then blitz or mash smooth</span>
+        <span class="prep-step-text">Preheat oven to 200°C and put the carrot tray in before you leave</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Slice mushrooms, tear ham, drain pickled red onion, tear mozzarella — set out in bowls</span>
+        <span class="prep-step-text">Crush garlic, juice lemon, strip remaining thyme leaves — set aside in a small bowl</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -437,8 +455,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Dough rises — it'll be well doubled by the time you're back</div>
-        <div class="prep-passive-item">Sauce cools — easier to spread on the bases</div>
+        <div class="prep-passive-item">Carrots &amp; onion roast away in the oven — they'll be golden and caramelised by the time you're back</div>
       </div>
     </div>
 
@@ -447,89 +464,74 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the dough <span class="step-time">15 mins</span></div>
-        <div class="step-text">Combine <a class="ing-link" data-ingredient="flour">500g 00 flour</a> and <a class="ing-link" data-ingredient="salt">10g salt</a> in a large bowl. Mix <a class="ing-link" data-ingredient="yeast">yeast</a> and <a class="ing-link" data-ingredient="sugar">sugar</a> into <a class="ing-link" data-ingredient="water">325ml lukewarm water</a>, let sit 5 minutes until frothy. Pour yeast water and <a class="ing-link" data-ingredient="oil">olive oil</a> into the flour. Mix with a fork, then knead by hand for 10 minutes until smooth and elastic.</div>
+        <div class="step-title">Boil the potatoes <span class="step-time">15 mins</span></div>
+        <div class="step-text">Put <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in a pot of salted boiling water. Cook for 15 minutes until a knife slides through easily. Drain and set aside.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Rise the dough <span class="step-time">1 hour</span></div>
-        <div class="step-text">Place dough in a lightly oiled bowl, cover with cling film, and leave in a warm place for 1 hour until doubled in size. This is your pickup window — the dough does the work while you're gone.</div>
+        <div class="step-title">Prep &amp; roast the carrots <span class="step-time">5 mins prep + 30 mins oven</span></div>
+        <div class="step-text">Preheat oven to 200°C. Peel <a class="ing-link" data-ingredient="carrots">carrots</a>, halve lengthways, and toss on a baking tray with 1 tbsp <a class="ing-link" data-ingredient="oil">olive oil</a>, <a class="ing-link" data-ingredient="honey">honey</a>, <a class="ing-link" data-ingredient="onion">red onion wedges</a>, and a few sprigs of <a class="ing-link" data-ingredient="thyme">thyme</a>. Season well. Roast for 30 minutes until caramelised and tender.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Start the oven before you leave for pickup</strong> — the carrots will be perfectly roasted by the time you're back at 5:30 PM.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Make the sauce <span class="step-time">20 mins</span></div>
-        <div class="step-text">Crush <a class="ing-link" data-ingredient="garlic">2 cloves garlic</a> and fry gently in <a class="ing-link" data-ingredient="sauce-oil">olive oil</a> for 1 minute. Add <a class="ing-link" data-ingredient="tomatoes">tinned tomatoes</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, salt and pepper. Simmer for 15–20 minutes, breaking up tomatoes. Blitz or mash until smooth.</div>
+        <div class="step-title">Season the chops <span class="step-time">2 mins</span></div>
+        <div class="step-text">Pat <a class="ing-link" data-ingredient="chops">pork chops</a> dry with kitchen paper. Season generously on both sides with <a class="ing-link" data-ingredient="salt">salt and pepper</a>.</div>
       </div>
     </div>
-
-    <div class="callout"><strong>Tip:</strong> Make the sauce while the dough is starting its rise — the timing works perfectly. Sauce improves as it sits.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Preheat the oven <span class="step-time">5 mins before rolling</span></div>
-        <div class="step-text">Preheat oven to 250°C (or as hot as it goes). If you have a pizza stone, put it in now — it needs to be screaming hot.</div>
+        <div class="step-title">Pan-fry the pork chops <span class="step-time">8–10 mins</span></div>
+        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">olive oil</a> in a large heavy pan over medium-high heat. Add chops and cook 4–5 minutes per side until golden brown with a good crust. In the last minute, add 20g <a class="ing-link" data-ingredient="butter">butter</a>, crushed <a class="ing-link" data-ingredient="garlic">garlic</a>, and a few sprigs of <a class="ing-link" data-ingredient="thyme">thyme</a>. Baste the chops with the foaming butter.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Thermometer check:</strong> Insert a wireless probe into the thickest part of a chop — you're looking for 68°C internal. Rest the chops for 3–4 minutes once they hit temp.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Roll and shape <span class="step-time">5–8 mins</span></div>
-        <div class="step-text">Punch down the risen dough and divide into 2–3 portions. Roll each out on a floured surface as thin as you can, using extra <a class="ing-link" data-ingredient="flour">00 flour</a> to prevent sticking.</div>
+        <div class="step-title">Crush the potatoes <span class="step-time">5 mins</span></div>
+        <div class="step-text">While chops rest, add 20g <a class="ing-link" data-ingredient="butter">butter</a> to the same pan (keep all those lovely pork juices). Tip in the boiled <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and press each one lightly with a fork to crush and open up. Fry for 3–4 minutes until golden and crispy on the cut sides. Squeeze over <a class="ing-link" data-ingredient="lemon">lemon juice</a>, scatter with stripped <a class="ing-link" data-ingredient="thyme">thyme leaves</a>, and toss.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Assemble <span class="step-time">5 mins</span></div>
-        <div class="step-text">Transfer bases to floured baking trays or parchment. Spread sauce over each base, leaving a 1cm border. Top with torn <a class="ing-link" data-ingredient="mozzarella">mozzarella</a>, <a class="ing-link" data-ingredient="pepperoni">pepperoni</a>, <a class="ing-link" data-ingredient="ham">ham</a>, sliced <a class="ing-link" data-ingredient="mushrooms">mushrooms</a>, and <a class="ing-link" data-ingredient="onion">pickled red onion</a>.</div>
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Serve each plate with a pork chop, a pile of crushed potatoes, and the honey-roasted carrots &amp; onion alongside. Spoon any pan juices over the chops.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Kid-friendly note:</strong> Make one pizza plain cheese or just ham &amp; cheese — the little ones can help place their own toppings. Pickled onion can be strong so keep it to one side or one pizza only.</div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Bake <span class="step-time">10–12 mins per pizza</span></div>
-        <div class="step-text">Bake for 10–12 minutes until the base is crisp and golden and the cheese is bubbling and charred in spots. You'll likely need to do 2 batches — keep the first warm in the turned-off oven while the second bakes.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Rest and serve</div>
-        <div class="step-text">Rest for 2 minutes, then slice and serve. Let the kids pick their slices first — pepperoni is always a winner.</div>
-      </div>
-    </div>
+    <div class="callout"><strong>Kid-friendly note:</strong> This one's a winner for the kids — no heat or spice. The honey carrots go down well. For the younger two, cut the pork off the bone into strips for easier eating.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
-        <tr><td>4:15 PM</td><td>Mix yeast, sugar &amp; water — let sit 5 mins</td></tr>
-        <tr><td>4:20 PM</td><td>Combine flour &amp; salt, add yeast water &amp; oil, start kneading</td></tr>
-        <tr><td>4:30 PM</td><td>Dough in oiled bowl, covered. Start the sauce — garlic, tomatoes, simmer</td></tr>
-        <tr><td>4:40 PM</td><td>While sauce simmers: slice mushrooms, tear ham, drain onion, tear mozzarella</td></tr>
-        <tr><td>4:50 PM</td><td>Blitz/mash sauce smooth, set aside. Toppings in bowls, covered</td></tr>
-        <tr><td>5:00 PM</td><td>Head out for pickup — dough rises while you're gone</td></tr>
+        <tr><td>4:30 PM</td><td>Preheat oven to 200°C. Start boiling baby potatoes in salted water</td></tr>
+        <tr><td>4:35 PM</td><td>While potatoes boil: peel &amp; halve carrots, cut red onion into wedges, toss with oil, honey &amp; thyme on baking tray</td></tr>
+        <tr><td>4:40 PM</td><td>Carrots &amp; onion into the oven</td></tr>
+        <tr><td>4:45 PM</td><td>Drain potatoes and set aside. Crush garlic, juice lemon, strip thyme leaves into a bowl</td></tr>
+        <tr><td>4:50 PM</td><td>Pat pork chops dry (if defrosted). Season with salt &amp; pepper. Everything ready</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup — carrots roasting away in the oven</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
-        <tr><td>5:25 PM</td><td>Preheat oven to 250°C (pizza stone in if you have one)</td></tr>
-        <tr><td>5:30 PM</td><td>Punch down dough, divide into 2–3 portions, roll out thin</td></tr>
-        <tr><td>5:38 PM</td><td>Assemble first pizza(s) — sauce, cheese, toppings</td></tr>
-        <tr><td>5:42 PM</td><td>First pizza in the oven</td></tr>
-        <tr><td>5:52 PM</td><td>First pizza out (keep warm), assemble and bake second</td></tr>
-        <tr><td>6:02 PM</td><td>All pizzas done — rest 2 mins, slice and serve!</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Check carrots — should be nearly done. Heat pan with olive oil over medium-high</td></tr>
+        <tr><td>5:33 PM</td><td>Pork chops in the pan — 4–5 mins first side</td></tr>
+        <tr><td>5:38 PM</td><td>Flip chops. Add butter, garlic &amp; thyme — baste for 4–5 mins. Probe to 68°C</td></tr>
+        <tr><td>5:43 PM</td><td>Chops out to rest. Carrots out of oven. Potatoes into the pan — crush and fry until golden</td></tr>
+        <tr><td>5:48 PM</td><td>Lemon juice &amp; thyme over potatoes. Plate up everything and serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -541,27 +543,22 @@
 <script>
   // Ingredient data map — key matches data-ingredient attribute
   const ingredients = {
-    'flour':      '500g 00 flour (Tipo 00)',
-    'salt':       '10g fine sea salt',
-    'yeast':      '7g sachet dried yeast',
-    'sugar':      '1 tsp caster sugar',
-    'water':      '325ml lukewarm water',
-    'oil':        '2 tbsp olive oil (dough)',
-    'tomatoes':   '400g tin plum tomatoes',
-    'garlic':     '2 cloves garlic, crushed',
-    'sauce-oil':  '1 tbsp olive oil (sauce)',
-    'oregano':    '1 tsp dried oregano',
-    'pepperoni':  '100g pepperoni slices',
-    'ham':        '150g ham, sliced or torn',
-    'onion':      '1 jar pickled red onion, drained',
-    'mushrooms':  '150g mushrooms, sliced',
-    'mozzarella': '250g mozzarella (1 pack), torn'
+    'chops':    '4 pork chops (from freezer)',
+    'potatoes': '1 bag baby potatoes (~500g)',
+    'carrots':  '4–5 carrots, peeled & halved',
+    'garlic':   '3 cloves garlic, crushed',
+    'thyme':    '1 bunch fresh thyme',
+    'honey':    '2 tbsp honey',
+    'butter':   '40g butter (20g for pan, 20g for potatoes)',
+    'oil':      '2 tbsp olive oil',
+    'lemon':    '1 lemon, juiced',
+    'onion':    '1 red onion, cut into wedges',
+    'salt':     'Salt & black pepper to taste'
   };
 
   const tooltip = document.getElementById('tooltip');
   let activeLink = null;
 
-  // Position tooltip above the link
   function showTooltip(link) {
     const key = link.dataset.ingredient;
     const detail = ingredients[key];
@@ -576,7 +573,6 @@
     let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
     let top = rect.top - tipRect.height - 10;
 
-    // Keep within viewport
     if (left < 8) left = 8;
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
@@ -594,7 +590,6 @@
     activeLink = null;
   }
 
-  // Click to toggle tooltip
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -606,14 +601,12 @@
     });
   });
 
-  // Dismiss on click outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
       hideTooltip();
     }
   });
 
-  // Also show on hover for desktop
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('mouseenter', () => showTooltip(link));
     link.addEventListener('mouseleave', (e) => {
@@ -654,7 +647,6 @@
       });
     });
 
-    // Clean up old dates (keep only today)
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('prep-checks-') && k !== storageKey) {
         localStorage.removeItem(k);
