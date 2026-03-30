@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Pork & Fennel Meatball Orzo</title>
+<title>Tonight's Meal — Gochujang Roast Chicken with Spring Greens</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #b34d2a 0%, #8b3a1e 100%);
+    background: linear-gradient(135deg, #c0392b 0%, #8e2218 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -43,18 +43,6 @@
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.3;
-  }
-  .chefs-pick {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 0.2rem 0.65rem;
-    border-radius: 99px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
   }
   .meta {
     display: flex;
@@ -74,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #b34d2a;
+    color: #c0392b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -98,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #b34d2a;
+    background: #c0392b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -112,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #b34d2a;
+    background: #c0392b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -137,15 +125,25 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdf2ee;
-    border-left: 3px solid #b34d2a;
+    background: #fde8e6;
+    border-left: 3px solid #c0392b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #7a3520;
+    color: #6b2318;
   }
-  .callout strong { color: #b34d2a; }
+  .callout strong { color: #c0392b; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #e8f5e9;
+    border-left-color: #2e7d32;
+  }
+  .callout.kid strong { color: #2e7d32; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -155,7 +153,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdf2ee;
+    background: #fde8e6;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -168,22 +166,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #b34d2a;
+    color: #c0392b;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #b34d2a;
+    color: #c0392b;
     text-decoration: none;
-    border-bottom: 1px dashed #b34d2a;
+    border-bottom: 1px dashed #c0392b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #8b3a1e;
-    border-bottom-color: #8b3a1e;
+    color: #8e2218;
+    border-bottom-color: #8e2218;
   }
 
   /* Tooltip overlay */
@@ -217,7 +215,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #b34d2a;
+    color: #c0392b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -329,6 +327,7 @@
     background: #e8f4ed;
     border-radius: 8px;
     padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
   }
   .prep-passive-header {
     font-size: 0.8rem;
@@ -360,19 +359,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #b34d2a !important; }
+  .timing-phase-row.cook td { color: #c0392b !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <span class="chefs-pick">Chef's Pick</span>
-    <div class="date">Sunday 29 March 2026</div>
-    <h1>Pork &amp; Fennel Meatball Orzo</h1>
+    <div class="date">Monday 30 March 2026</div>
+    <h1>🍗 Gochujang Roast Chicken with Spring Greens</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~45 mins total
+        ~1 hr 30 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -380,7 +378,7 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork &middot; Italian
+        Chicken &middot; Korean
       </div>
     </div>
   </div>
@@ -388,20 +386,16 @@
   <div class="body">
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="mince">500g pork mince (from freezer &mdash; defrost first)</a></li>
-      <li><a class="ing-link" data-ingredient="orzo">250g orzo pasta</a></li>
-      <li><a class="ing-link" data-ingredient="tomatoes">2 tins chopped tomatoes (800g)</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 bag frozen diced onions (~150g)</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">4 frozen garlic cubes (or 3 cloves)</a></li>
-      <li><a class="ing-link" data-ingredient="fennel">1 tsp fennel seeds</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="puree">1 tbsp tomato pur&eacute;e</a></li>
-      <li><a class="ing-link" data-ingredient="peas">150g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="honey">1 tsp honey</a></li>
-      <li><a class="ing-link" data-ingredient="oil">2 tbsp rapeseed oil</a></li>
-      <li><a class="ing-link" data-ingredient="stock">300ml chicken stock (from frozen cubes)</a></li>
-      <li><a class="ing-link" data-ingredient="butter">20g butter</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Salt &amp; black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="chicken">1.5kg whole chicken</a></li>
+      <li><a class="ing-link" data-ingredient="gochujang">1 tbsp gochujang</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon, juiced (halves reserved)</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp vegetable or sunflower oil</a></li>
+      <li><a class="ing-link" data-ingredient="onions">2 onions, each cut into 8 wedges</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">A few lemon thyme or oregano sprigs</a></li>
+      <li><a class="ing-link" data-ingredient="stock">250ml chicken stock</a></li>
+      <li><a class="ing-link" data-ingredient="greens">500g spring greens, shredded</a></li>
+      <li><a class="ing-link" data-ingredient="broccoli">250g purple sprouting broccoli</a></li>
+      <li><a class="ing-link" data-ingredient="mustard">1 tbsp wholegrain mustard</a></li>
     </ul>
 
     <div class="prep-ahead">
@@ -410,32 +404,45 @@
         <h2>Prep Ahead</h2>
         <span class="prep-time-pill">~20 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the chicken roasting at high heat before you go</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Defrost pork mince &mdash; move from freezer to fridge this morning (or microwave defrost later)</span>
+        <span class="prep-step-text">Preheat oven to 200&deg;C fan (220&deg;C conventional / gas 7)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Defrost chicken stock cubes (300ml worth) &mdash; microwave or place in a jug of warm water</span>
+        <span class="prep-step-text">Mix the <a class="ing-link" data-ingredient="gochujang">gochujang</a>, half the <a class="ing-link" data-ingredient="lemon">lemon juice</a>, <a class="ing-link" data-ingredient="oil">oil</a>, salt &amp; pepper in a small bowl</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Shape meatballs: mix mince with fennel seeds, half the oregano, a pinch of salt &amp; pepper. Roll into ~20 walnut-sized balls. Place on a plate in the fridge</span>
+        <span class="prep-step-text">Rub the glaze all over the <a class="ing-link" data-ingredient="chicken">chicken</a>. Tuck the <a class="ing-link" data-ingredient="lemon">lemon halves</a> into the cavity with one of the <a class="ing-link" data-ingredient="onions">onions</a> (or as much as fits) and half the <a class="ing-link" data-ingredient="thyme">herbs</a></span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Measure out frozen onions and garlic cubes into a small bowl. They'll part-defrost by cook time</span>
+        <span class="prep-step-text">Pour <a class="ing-link" data-ingredient="stock">stock</a> into the base of the roasting tin. Scatter remaining <a class="ing-link" data-ingredient="onions">onion wedges</a> and <a class="ing-link" data-ingredient="thyme">herbs</a> around the chicken</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Open both tins of tomatoes. Measure orzo, peas, and tomato pur&eacute;e. Set everything by the hob</span>
+        <span class="prep-step-text">Chicken into the oven at 220&deg;C. Insert wireless thermometer into the thickest part of the thigh &mdash; target 68&deg;C</span>
         <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Shred the <a class="ing-link" data-ingredient="greens">spring greens</a> and trim the <a class="ing-link" data-ingredient="broccoli">purple sprouting broccoli</a>. Keep in a bowl in the fridge</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Chicken roasts at high heat for 20 mins, then needs to be reduced to 180&deg;C &mdash; set a timer before you leave so you can drop the temp when you're back</div>
       </div>
     </div>
 
@@ -444,71 +451,61 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Brown the meatballs <span class="step-time">8 mins</span></div>
-        <div class="step-text">Heat <a class="ing-link" data-ingredient="oil">rapeseed oil</a> in a large deep pan or casserole over medium-high heat. Add the <a class="ing-link" data-ingredient="mince">meatballs</a> and brown on all sides &mdash; about 3&ndash;4 minutes, turning occasionally. They don't need to be cooked through. Remove to a plate.</div>
+        <div class="step-title">Glaze &amp; roast the chicken at high heat <span class="step-time">before pickup &mdash; 20 mins at 220&deg;C</span></div>
+        <div class="step-text">Heat the oven to 220&deg;C/200&deg;C fan/gas 7. Combine the <a class="ing-link" data-ingredient="gochujang">gochujang</a>, half the <a class="ing-link" data-ingredient="lemon">lemon juice</a>, the <a class="ing-link" data-ingredient="oil">oil</a>, salt and pepper, and rub all over the <a class="ing-link" data-ingredient="chicken">chicken</a>. Tuck the <a class="ing-link" data-ingredient="lemon">lemon halves</a> into the cavity along with one of the <a class="ing-link" data-ingredient="onions">onions</a> and half the <a class="ing-link" data-ingredient="thyme">herbs</a>. Pour <a class="ing-link" data-ingredient="stock">stock</a> into the base of the tin, scatter in the remaining onion and herbs, and roast for 20 minutes.</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Thermometer reminder:</strong> Insert the wireless probe into the thickest part of the thigh, avoiding bone. Target 68&deg;C internal temperature. The thermometer will alert you &mdash; no guessing.</div>
+
+    <div class="callout"><strong>⚠️ Wash up:</strong> Wash your hands, board, and anything that touched raw chicken thoroughly before you leave.</div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Soften the onions <span class="step-time">4 mins</span></div>
-        <div class="step-text">In the same pan, add the <a class="ing-link" data-ingredient="onion">frozen onions</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Cook for 3&ndash;4 minutes over medium heat until softened and the water has cooked off. Add <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> and remaining <a class="ing-link" data-ingredient="oregano">oregano</a>, stir for 30 seconds.</div>
+        <div class="step-title">Reduce heat &amp; continue roasting <span class="step-time">30 mins at 180&deg;C</span></div>
+        <div class="step-text">Reduce the oven to 180&deg;C/160&deg;C fan/gas 4 and cook for a further 30 minutes. The glaze should be turning sticky and dark.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Build the sauce &amp; add orzo <span class="step-time">2 mins</span></div>
-        <div class="step-text">Pour in the <a class="ing-link" data-ingredient="tomatoes">chopped tomatoes</a> and <a class="ing-link" data-ingredient="stock">chicken stock</a>. Add <a class="ing-link" data-ingredient="honey">honey</a> and season with <a class="ing-link" data-ingredient="salt">salt &amp; pepper</a>. Stir well. Bring to a simmer, then stir in the <a class="ing-link" data-ingredient="orzo">orzo pasta</a>.</div>
+        <div class="step-title">Add the greens &amp; broccoli <span class="step-time">20 mins</span></div>
+        <div class="step-text">Lift the <a class="ing-link" data-ingredient="chicken">chicken</a> out of the tin. Mix the <a class="ing-link" data-ingredient="greens">spring greens</a> and <a class="ing-link" data-ingredient="broccoli">purple sprouting broccoli</a> through the stock and onions in the tin. Sit the chicken back on top and return to the oven for a further 20 minutes until the chicken is cooked through and the veg is tender.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Simmer with meatballs <span class="step-time">15 mins</span></div>
-        <div class="step-text">Nestle the browned <a class="ing-link" data-ingredient="mince">meatballs</a> back into the sauce. Reduce heat to medium-low, cover with a lid, and simmer for 12 minutes, stirring every few minutes to prevent the orzo from sticking. The orzo absorbs the sauce as it cooks.</div>
+        <div class="step-title">Finish &amp; serve</div>
+        <div class="step-text">Remove from the oven. Stir the <a class="ing-link" data-ingredient="mustard">wholegrain mustard</a> and remaining <a class="ing-link" data-ingredient="lemon">lemon juice</a> through the greens. Carve the chicken and serve with the mustardy greens and broccoli spooned alongside.</div>
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-content">
-        <div class="step-title">Add peas &amp; finish <span class="step-time">3 mins</span></div>
-        <div class="step-text">Scatter in the <a class="ing-link" data-ingredient="peas">frozen peas</a> and stir through. Cook for a further 3 minutes uncovered until the peas are bright green and the orzo is tender with a rich, saucy consistency. Stir in <a class="ing-link" data-ingredient="butter">butter</a> to give it a glossy finish.</div>
-      </div>
-    </div>
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Gochujang has a mild-to-medium heat. For the kids, carve their portions from the breast where less glaze collects. Wipe off excess glaze before plating, or serve their chicken pieces with a little butter instead. The mustardy greens are also punchy &mdash; serve the kids' greens before stirring in the mustard.</div>
 
-    <div class="callout"><strong>Consistency tip:</strong> The orzo thickens as it sits. If it looks too thick, splash in a little hot water or extra stock. You want it saucy, not stodgy.</div>
-
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-content">
-        <div class="step-title">Serve</div>
-        <div class="step-text">Ladle into bowls. This is a one-pot dish &mdash; everything's in there. Great with a chunk of bread on the side if you have any.</div>
-      </div>
-    </div>
-
-    <div class="callout"><strong>Kid-friendly note:</strong> No heat or spice in this one. The fennel seeds give a gentle, slightly sweet flavour that kids tend to like. The meatballs and orzo are a foolproof combination &mdash; good finger food for the younger two if they want to pick at meatballs.</div>
+    <div class="callout"><strong>Leftovers:</strong> Strip any remaining chicken off the bone tonight. The gochujang flavour is brilliant in a wrap with leftover greens for tomorrow's lunch. The carcass makes a good stock with the roasted onion and lemon in the cavity.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:35 PM</td><td>Defrost stock cubes if not already done. Mix mince with fennel seeds, oregano, salt &amp; pepper</td></tr>
-        <tr><td>4:40 PM</td><td>Roll ~20 meatballs (walnut-sized). Place on a plate in the fridge</td></tr>
-        <tr><td>4:48 PM</td><td>Measure out frozen onions &amp; garlic. Open tins. Measure orzo, peas, pur&eacute;e. Everything by the hob</td></tr>
-        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; all prep done, nothing cooking</td></tr>
+        <tr><td>4:30 PM</td><td>Preheat oven to 220&deg;C (200&deg;C fan)</td></tr>
+        <tr><td>4:32 PM</td><td>Mix gochujang glaze. Rub all over chicken. Stuff cavity with lemon halves, onion &amp; herbs</td></tr>
+        <tr><td>4:38 PM</td><td>Pour stock into tin, scatter remaining onion &amp; herbs. Chicken into oven. Insert wireless thermometer &mdash; target 68&deg;C</td></tr>
+        <tr><td>4:40 PM</td><td>Shred spring greens, trim purple sprouting broccoli. Store in fridge</td></tr>
+        <tr><td>4:50 PM</td><td>Wash up everything that touched raw chicken. Kitchen tidy</td></tr>
+        <tr><td>4:55 PM</td><td>Set a timer for 4:58 PM to remind you to reduce oven to 180&deg;C before leaving</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; chicken is roasting at 180&deg;C</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Heat oil in large pan over medium-high. Brown meatballs on all sides (~4 mins)</td></tr>
-        <tr><td>5:34 PM</td><td>Meatballs out. Soften onions &amp; garlic in same pan (3&ndash;4 mins). Add pur&eacute;e &amp; oregano</td></tr>
-        <tr><td>5:38 PM</td><td>Add tomatoes, stock, honey, orzo. Stir well. Bring to simmer</td></tr>
-        <tr><td>5:40 PM</td><td>Nestle meatballs back in. Lid on, simmer for 12 mins (stir every few mins)</td></tr>
-        <tr><td>5:52 PM</td><td>Add frozen peas. Cook 3 mins uncovered. Stir in butter</td></tr>
-        <tr><td>5:55 PM</td><td>Serve into bowls. Dinner on the table!</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Chicken has been in ~50 mins. About 20 mins left</td></tr>
+        <tr><td>5:30 PM</td><td>Lift chicken out. Mix greens &amp; broccoli through the stock in the tin. Sit chicken back on top. Return to oven</td></tr>
+        <tr><td>5:50 PM</td><td>Chicken should be hitting 68&deg;C. Remove from oven. Rest under foil for 10 mins</td></tr>
+        <tr><td>5:55 PM</td><td>Stir wholegrain mustard &amp; remaining lemon juice through the greens</td></tr>
+        <tr><td>6:00 PM</td><td>Carve chicken. Plate up with mustardy greens &amp; broccoli. Serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -520,20 +517,16 @@
 <script>
   // Ingredient data map
   const ingredients = {
-    'mince':    '500g pork mince (from freezer)',
-    'orzo':     '250g orzo pasta',
-    'tomatoes': '2 tins chopped tomatoes (800g)',
-    'onion':    '1 bag frozen diced onions (~150g)',
-    'garlic':   '4 frozen garlic cubes (or 3 cloves)',
-    'fennel':   '1 tsp fennel seeds',
-    'oregano':  '1 tsp dried oregano',
-    'puree':    '1 tbsp tomato puree',
-    'peas':     '150g frozen peas',
-    'honey':    '1 tsp honey',
-    'oil':      '2 tbsp rapeseed oil',
-    'stock':    '300ml chicken stock (from frozen cubes)',
-    'butter':   '20g butter',
-    'salt':     'Salt & black pepper to taste'
+    'chicken':    '1.5kg whole chicken',
+    'gochujang':  '1 tbsp gochujang paste',
+    'lemon':      '1 lemon — juice + halves for cavity',
+    'oil':        '1 tbsp vegetable or sunflower oil',
+    'onions':     '2 onions, each cut into 8 wedges',
+    'thyme':      'A few lemon thyme or oregano sprigs',
+    'stock':      '250ml chicken stock',
+    'greens':     '500g spring greens, shredded',
+    'broccoli':   '250g purple sprouting broccoli',
+    'mustard':    '1 tbsp wholegrain mustard'
   };
 
   const tooltip = document.getElementById('tooltip');
