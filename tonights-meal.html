@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Gochujang Roast Chicken with Spring Greens</title>
+<title>Tonight's Meal — Next Level Paella</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c0392b 0%, #8e2218 100%);
+    background: linear-gradient(135deg, #d4860b 0%, #8a5520 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -62,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c0392b;
+    color: #d4860b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #c0392b;
+    background: #d4860b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #c0392b;
+    background: #d4860b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +125,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fde8e6;
-    border-left: 3px solid #c0392b;
+    background: #fef3e0;
+    border-left: 3px solid #d4860b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #6b2318;
+    color: #6b4e18;
   }
-  .callout strong { color: #c0392b; }
+  .callout strong { color: #d4860b; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -144,6 +144,11 @@
     border-left-color: #2e7d32;
   }
   .callout.kid strong { color: #2e7d32; }
+  .callout.safety {
+    background: #fde8e6;
+    border-left-color: #c0392b;
+  }
+  .callout.safety strong { color: #c0392b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,7 +158,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fde8e6;
+    background: #fef3e0;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -166,22 +171,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c0392b;
+    color: #d4860b;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c0392b;
+    color: #d4860b;
     text-decoration: none;
-    border-bottom: 1px dashed #c0392b;
+    border-bottom: 1px dashed #d4860b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #8e2218;
-    border-bottom-color: #8e2218;
+    color: #8a5520;
+    border-bottom-color: #8a5520;
   }
 
   /* Tooltip overlay */
@@ -215,7 +220,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c0392b;
+    color: #d4860b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -359,14 +364,14 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c0392b !important; }
+  .timing-phase-row.cook td { color: #d4860b !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Monday 30 March 2026</div>
-    <h1>🍗 Gochujang Roast Chicken with Spring Greens</h1>
+    <div class="date">Tuesday 31 March 2026</div>
+    <h1>🥘 Next Level Paella</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -378,62 +383,68 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Chicken &middot; Korean
+        Seafood &middot; Spanish
       </div>
     </div>
   </div>
 
   <div class="body">
     <h2>Ingredients</h2>
+    <p style="font-size: 0.82rem; color: #999; margin-bottom: 0.75rem;">Scaled to 5 servings (recipe is 4)</p>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="chicken">1.5kg whole chicken</a></li>
-      <li><a class="ing-link" data-ingredient="gochujang">1 tbsp gochujang</a></li>
-      <li><a class="ing-link" data-ingredient="lemon">1 lemon, juiced (halves reserved)</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp vegetable or sunflower oil</a></li>
-      <li><a class="ing-link" data-ingredient="onions">2 onions, each cut into 8 wedges</a></li>
-      <li><a class="ing-link" data-ingredient="thyme">A few lemon thyme or oregano sprigs</a></li>
-      <li><a class="ing-link" data-ingredient="stock">250ml chicken stock</a></li>
-      <li><a class="ing-link" data-ingredient="greens">500g spring greens, shredded</a></li>
-      <li><a class="ing-link" data-ingredient="broccoli">250g purple sprouting broccoli</a></li>
-      <li><a class="ing-link" data-ingredient="mustard">1 tbsp wholegrain mustard</a></li>
+      <li><a class="ing-link" data-ingredient="oil">4 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="prawns">~400g large raw tiger prawns in shells</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 good bunch of parsley, stalks &amp; leaves separated</a></li>
+      <li><a class="ing-link" data-ingredient="sherry">125ml dry sherry or white wine</a></li>
+      <li><a class="ing-link" data-ingredient="mussels">625g mussels, cleaned &amp; debearded</a></li>
+      <li><a class="ing-link" data-ingredient="saffron">Large pinch of saffron strands</a></li>
+      <li><a class="ing-link" data-ingredient="chorizo">190g cooking chorizo, cut into chunks</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 large onion, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">4 garlic cloves, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="squid">~375g medium squid, cleaned, cut into rings</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">4 ripe tomatoes, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="rice">310g paella rice</a></li>
+      <li><a class="ing-link" data-ingredient="beans">125g frozen broad beans or peas, defrosted</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon, zested then cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Smoked sea salt (optional)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~20 min prep</span>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the chicken roasting at high heat before you go</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; make the saffron prawn stock and cook mussels ahead</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Preheat oven to 200&deg;C fan (220&deg;C conventional / gas 7)</span>
+        <span class="prep-step-text">Remove prawn heads and set aside (keep shells on tails). Separate <a class="ing-link" data-ingredient="parsley">parsley</a> stalks from leaves &mdash; roughly chop both</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Mix the <a class="ing-link" data-ingredient="gochujang">gochujang</a>, half the <a class="ing-link" data-ingredient="lemon">lemon juice</a>, <a class="ing-link" data-ingredient="oil">oil</a>, salt &amp; pepper in a small bowl</span>
+        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Roughly chop <a class="ing-link" data-ingredient="tomatoes">tomatoes</a>. Cut <a class="ing-link" data-ingredient="chorizo">chorizo</a> into chunks. Zest the <a class="ing-link" data-ingredient="lemon">lemon</a></span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Rub the glaze all over the <a class="ing-link" data-ingredient="chicken">chicken</a>. Tuck the <a class="ing-link" data-ingredient="lemon">lemon halves</a> into the cavity with one of the <a class="ing-link" data-ingredient="onions">onions</a> (or as much as fits) and half the <a class="ing-link" data-ingredient="thyme">herbs</a></span>
+        <span class="prep-step-text">Clean <a class="ing-link" data-ingredient="squid">squid</a> and cut into rings, keep tentacles intact</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Pour <a class="ing-link" data-ingredient="stock">stock</a> into the base of the roasting tin. Scatter remaining <a class="ing-link" data-ingredient="onions">onion wedges</a> and <a class="ing-link" data-ingredient="thyme">herbs</a> around the chicken</span>
+        <span class="prep-step-text">Make prawn stock: heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a>, sizzle prawn heads + parsley stalks until pink. Mash with potato masher. Add <a class="ing-link" data-ingredient="sherry">sherry</a> + 375ml water. Simmer 10 mins, mashing as they cook</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Chicken into the oven at 220&deg;C. Insert wireless thermometer into the thickest part of the thigh &mdash; target 68&deg;C</span>
+        <span class="prep-step-text">Add <a class="ing-link" data-ingredient="mussels">mussels</a> to the stock pan. Cover, high heat 3&ndash;4 mins until open. Strain contents through colander into a large bowl with <a class="ing-link" data-ingredient="saffron">saffron</a>. Pick out mussels and set aside. Top stock up to 875ml with water if needed</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Shred the <a class="ing-link" data-ingredient="greens">spring greens</a> and trim the <a class="ing-link" data-ingredient="broccoli">purple sprouting broccoli</a>. Keep in a bowl in the fridge</span>
+        <span class="prep-step-text">Defrost <a class="ing-link" data-ingredient="beans">broad beans/peas</a> in a bowl of warm water</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -442,70 +453,87 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Chicken roasts at high heat for 20 mins, then needs to be reduced to 180&deg;C &mdash; set a timer before you leave so you can drop the temp when you're back</div>
+        <div class="prep-passive-item">Saffron steeps in the prawn stock, deepening the colour and flavour. Put the mussels in the fridge while you're away.</div>
       </div>
     </div>
+
+    <div class="callout safety"><strong>⚠️ Wash up:</strong> Wash your board and knife thoroughly after handling raw squid and prawns before you leave.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Glaze &amp; roast the chicken at high heat <span class="step-time">before pickup &mdash; 20 mins at 220&deg;C</span></div>
-        <div class="step-text">Heat the oven to 220&deg;C/200&deg;C fan/gas 7. Combine the <a class="ing-link" data-ingredient="gochujang">gochujang</a>, half the <a class="ing-link" data-ingredient="lemon">lemon juice</a>, the <a class="ing-link" data-ingredient="oil">oil</a>, salt and pepper, and rub all over the <a class="ing-link" data-ingredient="chicken">chicken</a>. Tuck the <a class="ing-link" data-ingredient="lemon">lemon halves</a> into the cavity along with one of the <a class="ing-link" data-ingredient="onions">onions</a> and half the <a class="ing-link" data-ingredient="thyme">herbs</a>. Pour <a class="ing-link" data-ingredient="stock">stock</a> into the base of the tin, scatter in the remaining onion and herbs, and roast for 20 minutes.</div>
+        <div class="step-title">Make the prawn head stock <span class="step-time">~15 mins (before pickup)</span></div>
+        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a> in a wide, shallow pan. Add the prawn heads and <a class="ing-link" data-ingredient="parsley">parsley stalks</a>, sizzle until the heads turn pink, then mash with a potato masher. Pour over the <a class="ing-link" data-ingredient="sherry">sherry or wine</a> and 375ml water, season with salt and simmer for 10 minutes, mashing the prawn heads as they cook.</div>
       </div>
     </div>
-
-    <div class="callout thermometer"><strong>🌡️ Thermometer reminder:</strong> Insert the wireless probe into the thickest part of the thigh, avoiding bone. Target 68&deg;C internal temperature. The thermometer will alert you &mdash; no guessing.</div>
-
-    <div class="callout"><strong>⚠️ Wash up:</strong> Wash your hands, board, and anything that touched raw chicken thoroughly before you leave.</div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Reduce heat &amp; continue roasting <span class="step-time">30 mins at 180&deg;C</span></div>
-        <div class="step-text">Reduce the oven to 180&deg;C/160&deg;C fan/gas 4 and cook for a further 30 minutes. The glaze should be turning sticky and dark.</div>
+        <div class="step-title">Cook the mussels &amp; make saffron stock <span class="step-time">~5 mins (before pickup)</span></div>
+        <div class="step-text">Scatter the <a class="ing-link" data-ingredient="mussels">mussels</a> into the pan, cover loosely with a lid or tea towel, put over high heat for 3&ndash;4 minutes until the mussels just open. Stir to release mussel juices, then pour contents into a colander set over a large bowl containing the <a class="ing-link" data-ingredient="saffron">saffron</a>. Let the saffron steep in the stock &mdash; you need about 875ml total (scaled for 5), top up with water if needed. Pick the mussels out and set aside in the fridge.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Add the greens &amp; broccoli <span class="step-time">20 mins</span></div>
-        <div class="step-text">Lift the <a class="ing-link" data-ingredient="chicken">chicken</a> out of the tin. Mix the <a class="ing-link" data-ingredient="greens">spring greens</a> and <a class="ing-link" data-ingredient="broccoli">purple sprouting broccoli</a> through the stock and onions in the tin. Sit the chicken back on top and return to the oven for a further 20 minutes until the chicken is cooked through and the veg is tender.</div>
+        <div class="step-title">Chorizo, soffritto &amp; rice <span class="step-time">~10 mins (after pickup)</span></div>
+        <div class="step-text">Wipe out the pan and add the rest of the <a class="ing-link" data-ingredient="oil">olive oil</a>. Sizzle the <a class="ing-link" data-ingredient="chorizo">chorizo</a> until it releases its oil, then add the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> and cook until softened. Add the <a class="ing-link" data-ingredient="squid">squid</a> and turn until it turns white. Add the <a class="ing-link" data-ingredient="tomatoes">tomatoes</a> and cook for a few minutes until pulpy. Tip in the <a class="ing-link" data-ingredient="rice">rice</a> and stir until coated, then pour in the saffron stock. Bring to a simmer.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>💡 Tip:</strong> Once the stock is in, resist stirring too much &mdash; you want a slight crust (socarrat) to form on the bottom. Stir gently a couple of times early on, then leave it alone.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Finish &amp; serve</div>
-        <div class="step-text">Remove from the oven. Stir the <a class="ing-link" data-ingredient="mustard">wholegrain mustard</a> and remaining <a class="ing-link" data-ingredient="lemon">lemon juice</a> through the greens. Carve the chicken and serve with the mustardy greens and broccoli spooned alongside.</div>
+        <div class="step-title">Simmer the rice <span class="step-time">~15 mins</span></div>
+        <div class="step-text">Cook uncovered for about 15 minutes, stirring occasionally at first then leaving it alone. The stock should be almost absorbed and the rice almost cooked.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Gochujang has a mild-to-medium heat. For the kids, carve their portions from the breast where less glaze collects. Wipe off excess glaze before plating, or serve their chicken pieces with a little butter instead. The mustardy greens are also punchy &mdash; serve the kids' greens before stirring in the mustard.</div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Add prawns, beans &amp; mussels <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Tuck the <a class="ing-link" data-ingredient="prawns">prawn tails</a> into the rice and simmer for 5 minutes, turning them over until cooked through. Stir through the <a class="ing-link" data-ingredient="beans">beans or peas</a> to heat through, and nestle the <a class="ing-link" data-ingredient="mussels">mussels</a> into the rice to warm.</div>
+      </div>
+    </div>
 
-    <div class="callout"><strong>Leftovers:</strong> Strip any remaining chicken off the bone tonight. The gochujang flavour is brilliant in a wrap with leftover greens for tomorrow's lunch. The carcass makes a good stock with the roasted onion and lemon in the cavity.</div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Rest &amp; serve</div>
+        <div class="step-text">Once the rice is just cooked, turn off the heat and cover with a tea towel for a few minutes. Scatter over the <a class="ing-link" data-ingredient="parsley">parsley leaves</a>, <a class="ing-link" data-ingredient="lemon">lemon zest</a>, and <a class="ing-link" data-ingredient="salt">smoked sea salt</a> if using. Serve with <a class="ing-link" data-ingredient="lemon">lemon wedges</a>.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> This paella is mild &mdash; the chorizo adds warmth but not heat. Serve the kids' portions from the centre of the pan where the rice is softest. Let any mussels cool a moment &mdash; they hold heat. Show the kids how to eat mussels from the shell!</div>
+
+    <div class="callout"><strong>Leftovers:</strong> Paella reheats well &mdash; splash in a little water, cover with foil, and warm in the oven at 160&deg;C for 15 mins. Don't microwave the mussels though &mdash; pick them out and eat cold or discard.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:30 PM</td><td>Preheat oven to 220&deg;C (200&deg;C fan)</td></tr>
-        <tr><td>4:32 PM</td><td>Mix gochujang glaze. Rub all over chicken. Stuff cavity with lemon halves, onion &amp; herbs</td></tr>
-        <tr><td>4:38 PM</td><td>Pour stock into tin, scatter remaining onion &amp; herbs. Chicken into oven. Insert wireless thermometer &mdash; target 68&deg;C</td></tr>
-        <tr><td>4:40 PM</td><td>Shred spring greens, trim purple sprouting broccoli. Store in fridge</td></tr>
-        <tr><td>4:50 PM</td><td>Wash up everything that touched raw chicken. Kitchen tidy</td></tr>
-        <tr><td>4:55 PM</td><td>Set a timer for 4:58 PM to remind you to reduce oven to 180&deg;C before leaving</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; chicken is roasting at 180&deg;C</td></tr>
+        <tr><td>4:35 PM</td><td>Remove prawn heads, separate parsley stalks &amp; leaves. Chop onion, garlic, tomatoes. Cut chorizo. Clean &amp; slice squid. Zest lemon</td></tr>
+        <tr><td>4:42 PM</td><td>Start prawn stock: sizzle heads + stalks in 1 tbsp oil, mash, add sherry + 375ml water. Simmer 10 mins</td></tr>
+        <tr><td>4:52 PM</td><td>Add mussels to stock. Cover, high heat 3&ndash;4 mins. Strain over saffron in bowl. Pick mussels out, fridge them. Top stock to 875ml</td></tr>
+        <tr><td>4:56 PM</td><td>Defrost broad beans/peas in warm water. Wash board &amp; knife (raw seafood). Tidy up</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; saffron steeps in the prawn stock</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Chicken has been in ~50 mins. About 20 mins left</td></tr>
-        <tr><td>5:30 PM</td><td>Lift chicken out. Mix greens &amp; broccoli through the stock in the tin. Sit chicken back on top. Return to oven</td></tr>
-        <tr><td>5:50 PM</td><td>Chicken should be hitting 68&deg;C. Remove from oven. Rest under foil for 10 mins</td></tr>
-        <tr><td>5:55 PM</td><td>Stir wholegrain mustard &amp; remaining lemon juice through the greens</td></tr>
-        <tr><td>6:00 PM</td><td>Carve chicken. Plate up with mustardy greens &amp; broccoli. Serve!</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Wipe out pan. Heat remaining olive oil. Sizzle chorizo until oils release</td></tr>
+        <tr><td>5:33 PM</td><td>Add onion &amp; garlic, cook until soft. Add squid, turn until white</td></tr>
+        <tr><td>5:37 PM</td><td>Add tomatoes, cook until pulpy. Tip in rice, stir to coat. Pour in saffron stock. Bring to simmer</td></tr>
+        <tr><td>5:40 PM</td><td>Simmer uncovered ~15 mins. Stir gently early on, then leave alone for socarrat</td></tr>
+        <tr><td>5:55 PM</td><td>Tuck prawn tails into rice. Simmer 5 mins, turning once</td></tr>
+        <tr><td>6:00 PM</td><td>Stir through beans/peas. Nestle mussels in to warm through</td></tr>
+        <tr><td>6:02 PM</td><td>Heat off. Cover with tea towel for 3&ndash;4 mins</td></tr>
+        <tr><td>6:05 PM</td><td>Scatter parsley, lemon zest &amp; smoked salt. Lemon wedges on table. Serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -517,16 +545,21 @@
 <script>
   // Ingredient data map
   const ingredients = {
-    'chicken':    '1.5kg whole chicken',
-    'gochujang':  '1 tbsp gochujang paste',
-    'lemon':      '1 lemon — juice + halves for cavity',
-    'oil':        '1 tbsp vegetable or sunflower oil',
-    'onions':     '2 onions, each cut into 8 wedges',
-    'thyme':      'A few lemon thyme or oregano sprigs',
-    'stock':      '250ml chicken stock',
-    'greens':     '500g spring greens, shredded',
-    'broccoli':   '250g purple sprouting broccoli',
-    'mustard':    '1 tbsp wholegrain mustard'
+    'oil':       '4 tbsp olive oil (scaled for 5)',
+    'prawns':    '~400g large raw tiger prawns in shells',
+    'parsley':   '1 good bunch flat-leaf parsley — stalks for stock, leaves for garnish',
+    'sherry':    '125ml dry sherry or white wine',
+    'mussels':   '625g mussels, cleaned & debearded',
+    'saffron':   'Large pinch of saffron strands',
+    'chorizo':   '190g cooking chorizo, cut into chunks',
+    'onion':     '1 large onion, finely chopped',
+    'garlic':    '4 garlic cloves, finely chopped',
+    'squid':     '~375g medium squid, cleaned, rings + tentacles',
+    'tomatoes':  '4 ripe tomatoes, roughly chopped',
+    'rice':      '310g paella rice (bomba or calasparra)',
+    'beans':     '125g frozen broad beans or peas, defrosted',
+    'lemon':     '1 lemon — zest for garnish, wedges for serving',
+    'salt':      'Smoked sea salt (optional)'
   };
 
   const tooltip = document.getElementById('tooltip');
