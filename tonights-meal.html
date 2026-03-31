@@ -365,6 +365,17 @@
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
   .timing-phase-row.cook td { color: #d4860b !important; }
+
+  .adaptation-note {
+    background: #f3e8ff;
+    border-left: 3px solid #7c3aed;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.82rem;
+    color: #5b21b6;
+  }
+  .adaptation-note strong { color: #7c3aed; }
 </style>
 </head>
 <body>
@@ -375,7 +386,7 @@
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~1 hr 30 mins total
+        ~1 hr 10 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -389,22 +400,24 @@
   </div>
 
   <div class="body">
+    <div class="adaptation-note"><strong>Ger's version:</strong> Adapted from BBC Good Food. Frozen prawns (no shells), leftover roast chicken from Monday instead of mussels/squid, sherry vinegar instead of dry sherry, frozen fine beans instead of broad beans.</div>
+
     <h2>Ingredients</h2>
-    <p style="font-size: 0.82rem; color: #999; margin-bottom: 0.75rem;">Scaled to 5 servings (recipe is 4)</p>
+    <p style="font-size: 0.82rem; color: #999; margin-bottom: 0.75rem;">Scaled to 5 servings (recipe base is 4)</p>
     <ul class="ingredients">
       <li><a class="ing-link" data-ingredient="oil">4 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="prawns">~400g large raw tiger prawns in shells</a></li>
-      <li><a class="ing-link" data-ingredient="parsley">1 good bunch of parsley, stalks &amp; leaves separated</a></li>
-      <li><a class="ing-link" data-ingredient="sherry">125ml dry sherry or white wine</a></li>
-      <li><a class="ing-link" data-ingredient="mussels">625g mussels, cleaned &amp; debearded</a></li>
+      <li><a class="ing-link" data-ingredient="prawns">375g frozen prawns, de-shelled and deveined</a></li>
+      <li><a class="ing-link" data-ingredient="chicken">375g leftover roast chicken, shredded</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 bunch of parsley, stalks &amp; leaves separated</a></li>
+      <li><a class="ing-link" data-ingredient="vinegar">2&frac12; tbsp sherry vinegar</a></li>
       <li><a class="ing-link" data-ingredient="saffron">Large pinch of saffron strands</a></li>
       <li><a class="ing-link" data-ingredient="chorizo">190g cooking chorizo, cut into chunks</a></li>
       <li><a class="ing-link" data-ingredient="onion">1 large onion, finely chopped</a></li>
       <li><a class="ing-link" data-ingredient="garlic">4 garlic cloves, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="squid">~375g medium squid, cleaned, cut into rings</a></li>
       <li><a class="ing-link" data-ingredient="tomatoes">4 ripe tomatoes, roughly chopped</a></li>
       <li><a class="ing-link" data-ingredient="rice">310g paella rice</a></li>
-      <li><a class="ing-link" data-ingredient="beans">125g frozen broad beans or peas, defrosted</a></li>
+      <li><a class="ing-link" data-ingredient="beans">125g frozen fine beans</a></li>
+      <li><a class="ing-link" data-ingredient="stock">750ml chicken stock (or water)</a></li>
       <li><a class="ing-link" data-ingredient="lemon">1 lemon, zested then cut into wedges</a></li>
       <li><a class="ing-link" data-ingredient="salt">Smoked sea salt (optional)</a></li>
     </ul>
@@ -413,38 +426,28 @@
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~25 min prep</span>
+        <span class="prep-time-pill">~20 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; make the saffron prawn stock and cook mussels ahead</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; make the saffron stock and prep all your veg</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Remove prawn heads and set aside (keep shells on tails). Separate <a class="ing-link" data-ingredient="parsley">parsley</a> stalks from leaves &mdash; roughly chop both</span>
+        <span class="prep-step-text">Take <a class="ing-link" data-ingredient="prawns">frozen prawns</a> out of the freezer to defrost in a bowl of cold water</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Roughly chop <a class="ing-link" data-ingredient="tomatoes">tomatoes</a>. Cut <a class="ing-link" data-ingredient="chorizo">chorizo</a> into chunks. Zest the <a class="ing-link" data-ingredient="lemon">lemon</a></span>
+        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Roughly chop <a class="ing-link" data-ingredient="tomatoes">tomatoes</a>. Cut <a class="ing-link" data-ingredient="chorizo">chorizo</a> into chunks. Zest the <a class="ing-link" data-ingredient="lemon">lemon</a>, then cut into wedges</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Clean <a class="ing-link" data-ingredient="squid">squid</a> and cut into rings, keep tentacles intact</span>
+        <span class="prep-step-text">Separate <a class="ing-link" data-ingredient="parsley">parsley</a> stalks from leaves. Roughly chop the leaves. Shred the <a class="ing-link" data-ingredient="chicken">leftover roast chicken</a></span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Make prawn stock: heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a>, sizzle prawn heads + parsley stalks until pink. Mash with potato masher. Add <a class="ing-link" data-ingredient="sherry">sherry</a> + 375ml water. Simmer 10 mins, mashing as they cook</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Add <a class="ing-link" data-ingredient="mussels">mussels</a> to the stock pan. Cover, high heat 3&ndash;4 mins until open. Strain contents through colander into a large bowl with <a class="ing-link" data-ingredient="saffron">saffron</a>. Pick out mussels and set aside. Top stock up to 875ml with water if needed</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Defrost <a class="ing-link" data-ingredient="beans">broad beans/peas</a> in a bowl of warm water</span>
+        <span class="prep-step-text">Make the stock: heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a>, sizzle parsley stalks for a minute. Add <a class="ing-link" data-ingredient="vinegar">sherry vinegar</a> and 750ml <a class="ing-link" data-ingredient="stock">chicken stock</a>. Add <a class="ing-link" data-ingredient="saffron">saffron</a>, season with salt, simmer 10 mins. Strain into a bowl &mdash; top up to ~875ml with water if needed</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -453,42 +456,32 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Saffron steeps in the prawn stock, deepening the colour and flavour. Put the mussels in the fridge while you're away.</div>
+        <div class="prep-passive-item">Saffron steeps in the stock, deepening the colour and flavour. Prawns continue to defrost.</div>
       </div>
     </div>
-
-    <div class="callout safety"><strong>⚠️ Wash up:</strong> Wash your board and knife thoroughly after handling raw squid and prawns before you leave.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the prawn head stock <span class="step-time">~15 mins (before pickup)</span></div>
-        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a> in a wide, shallow pan. Add the prawn heads and <a class="ing-link" data-ingredient="parsley">parsley stalks</a>, sizzle until the heads turn pink, then mash with a potato masher. Pour over the <a class="ing-link" data-ingredient="sherry">sherry or wine</a> and 375ml water, season with salt and simmer for 10 minutes, mashing the prawn heads as they cook.</div>
+        <div class="step-title">Make the saffron stock <span class="step-time">~12 mins (before pickup)</span></div>
+        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a> in a wide, shallow pan. Add the <a class="ing-link" data-ingredient="parsley">parsley stalks</a> and sizzle for a minute. Add 2&frac12; tbsp <a class="ing-link" data-ingredient="vinegar">sherry vinegar</a> and 750ml <a class="ing-link" data-ingredient="stock">chicken stock</a> (or water). Add the <a class="ing-link" data-ingredient="saffron">saffron</a>, season with salt and simmer for 10 minutes. Strain into a bowl &mdash; you need about 875ml total (scaled for 5), top up with water if needed. Let the saffron steep.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Cook the mussels &amp; make saffron stock <span class="step-time">~5 mins (before pickup)</span></div>
-        <div class="step-text">Scatter the <a class="ing-link" data-ingredient="mussels">mussels</a> into the pan, cover loosely with a lid or tea towel, put over high heat for 3&ndash;4 minutes until the mussels just open. Stir to release mussel juices, then pour contents into a colander set over a large bowl containing the <a class="ing-link" data-ingredient="saffron">saffron</a>. Let the saffron steep in the stock &mdash; you need about 875ml total (scaled for 5), top up with water if needed. Pick the mussels out and set aside in the fridge.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
         <div class="step-title">Chorizo, soffritto &amp; rice <span class="step-time">~10 mins (after pickup)</span></div>
-        <div class="step-text">Wipe out the pan and add the rest of the <a class="ing-link" data-ingredient="oil">olive oil</a>. Sizzle the <a class="ing-link" data-ingredient="chorizo">chorizo</a> until it releases its oil, then add the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> and cook until softened. Add the <a class="ing-link" data-ingredient="squid">squid</a> and turn until it turns white. Add the <a class="ing-link" data-ingredient="tomatoes">tomatoes</a> and cook for a few minutes until pulpy. Tip in the <a class="ing-link" data-ingredient="rice">rice</a> and stir until coated, then pour in the saffron stock. Bring to a simmer.</div>
+        <div class="step-text">Wipe out the pan and add the rest of the <a class="ing-link" data-ingredient="oil">olive oil</a>. Sizzle the <a class="ing-link" data-ingredient="chorizo">chorizo</a> until it releases its oil, then add the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> and cook until softened. Add the <a class="ing-link" data-ingredient="tomatoes">tomatoes</a> and cook for a few minutes until pulpy. Tip in the <a class="ing-link" data-ingredient="rice">rice</a> and stir until coated, then pour in the saffron stock. Bring to a simmer.</div>
       </div>
     </div>
 
     <div class="callout"><strong>💡 Tip:</strong> Once the stock is in, resist stirring too much &mdash; you want a slight crust (socarrat) to form on the bottom. Stir gently a couple of times early on, then leave it alone.</div>
 
     <div class="step">
-      <div class="step-num">4</div>
+      <div class="step-num">3</div>
       <div class="step-content">
         <div class="step-title">Simmer the rice <span class="step-time">~15 mins</span></div>
         <div class="step-text">Cook uncovered for about 15 minutes, stirring occasionally at first then leaving it alone. The stock should be almost absorbed and the rice almost cooked.</div>
@@ -496,44 +489,42 @@
     </div>
 
     <div class="step">
-      <div class="step-num">5</div>
+      <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Add prawns, beans &amp; mussels <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Tuck the <a class="ing-link" data-ingredient="prawns">prawn tails</a> into the rice and simmer for 5 minutes, turning them over until cooked through. Stir through the <a class="ing-link" data-ingredient="beans">beans or peas</a> to heat through, and nestle the <a class="ing-link" data-ingredient="mussels">mussels</a> into the rice to warm.</div>
+        <div class="step-title">Add prawns, beans &amp; chicken <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Tuck the defrosted <a class="ing-link" data-ingredient="prawns">prawns</a> into the rice and simmer for 3&ndash;4 minutes until pink and cooked through. Stir through the <a class="ing-link" data-ingredient="beans">frozen fine beans</a> to heat through, and scatter the shredded <a class="ing-link" data-ingredient="chicken">leftover roast chicken</a> over the top to warm.</div>
       </div>
     </div>
 
     <div class="step">
-      <div class="step-num">6</div>
+      <div class="step-num">5</div>
       <div class="step-content">
         <div class="step-title">Rest &amp; serve</div>
         <div class="step-text">Once the rice is just cooked, turn off the heat and cover with a tea towel for a few minutes. Scatter over the <a class="ing-link" data-ingredient="parsley">parsley leaves</a>, <a class="ing-link" data-ingredient="lemon">lemon zest</a>, and <a class="ing-link" data-ingredient="salt">smoked sea salt</a> if using. Serve with <a class="ing-link" data-ingredient="lemon">lemon wedges</a>.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> This paella is mild &mdash; the chorizo adds warmth but not heat. Serve the kids' portions from the centre of the pan where the rice is softest. Let any mussels cool a moment &mdash; they hold heat. Show the kids how to eat mussels from the shell!</div>
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> This paella is mild &mdash; the chorizo adds warmth but no heat. Serve the kids' portions from the centre of the pan where the rice is softest. The leftover chicken makes it familiar for the little ones.</div>
 
-    <div class="callout"><strong>Leftovers:</strong> Paella reheats well &mdash; splash in a little water, cover with foil, and warm in the oven at 160&deg;C for 15 mins. Don't microwave the mussels though &mdash; pick them out and eat cold or discard.</div>
+    <div class="callout"><strong>Leftovers:</strong> Paella reheats well &mdash; splash in a little water, cover with foil, and warm in the oven at 160&deg;C for 15 mins.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:35 PM</td><td>Remove prawn heads, separate parsley stalks &amp; leaves. Chop onion, garlic, tomatoes. Cut chorizo. Clean &amp; slice squid. Zest lemon</td></tr>
-        <tr><td>4:42 PM</td><td>Start prawn stock: sizzle heads + stalks in 1 tbsp oil, mash, add sherry + 375ml water. Simmer 10 mins</td></tr>
-        <tr><td>4:52 PM</td><td>Add mussels to stock. Cover, high heat 3&ndash;4 mins. Strain over saffron in bowl. Pick mussels out, fridge them. Top stock to 875ml</td></tr>
-        <tr><td>4:56 PM</td><td>Defrost broad beans/peas in warm water. Wash board &amp; knife (raw seafood). Tidy up</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; saffron steeps in the prawn stock</td></tr>
+        <tr><td>4:40 PM</td><td>Take frozen prawns out to defrost in cold water. Chop onion, garlic, tomatoes. Cut chorizo into chunks. Zest lemon. Separate parsley stalks and leaves. Shred leftover chicken</td></tr>
+        <tr><td>4:48 PM</td><td>Start saffron stock: sizzle parsley stalks in 1 tbsp oil, add sherry vinegar + 750ml chicken stock + saffron. Simmer 10 mins</td></tr>
+        <tr><td>4:58 PM</td><td>Strain stock into bowl. Leave saffron steeping. Tidy up, drain prawns</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; saffron steeps in the stock</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
         <tr><td>5:30 PM</td><td>Back home. Wipe out pan. Heat remaining olive oil. Sizzle chorizo until oils release</td></tr>
-        <tr><td>5:33 PM</td><td>Add onion &amp; garlic, cook until soft. Add squid, turn until white</td></tr>
+        <tr><td>5:33 PM</td><td>Add onion &amp; garlic, cook until soft</td></tr>
         <tr><td>5:37 PM</td><td>Add tomatoes, cook until pulpy. Tip in rice, stir to coat. Pour in saffron stock. Bring to simmer</td></tr>
         <tr><td>5:40 PM</td><td>Simmer uncovered ~15 mins. Stir gently early on, then leave alone for socarrat</td></tr>
-        <tr><td>5:55 PM</td><td>Tuck prawn tails into rice. Simmer 5 mins, turning once</td></tr>
-        <tr><td>6:00 PM</td><td>Stir through beans/peas. Nestle mussels in to warm through</td></tr>
-        <tr><td>6:02 PM</td><td>Heat off. Cover with tea towel for 3&ndash;4 mins</td></tr>
-        <tr><td>6:05 PM</td><td>Scatter parsley, lemon zest &amp; smoked salt. Lemon wedges on table. Serve!</td></tr>
+        <tr><td>5:55 PM</td><td>Tuck prawns into rice. Simmer 3&ndash;4 mins until pink. Stir through fine beans. Scatter chicken on top</td></tr>
+        <tr><td>6:00 PM</td><td>Heat off. Cover with tea towel for 3&ndash;4 mins</td></tr>
+        <tr><td>6:03 PM</td><td>Scatter parsley, lemon zest &amp; smoked salt. Lemon wedges on table. Serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -546,18 +537,18 @@
   // Ingredient data map
   const ingredients = {
     'oil':       '4 tbsp olive oil (scaled for 5)',
-    'prawns':    '~400g large raw tiger prawns in shells',
-    'parsley':   '1 good bunch flat-leaf parsley — stalks for stock, leaves for garnish',
-    'sherry':    '125ml dry sherry or white wine',
-    'mussels':   '625g mussels, cleaned & debearded',
+    'prawns':    '375g frozen prawns, de-shelled and deveined — defrost before cooking',
+    'chicken':   '375g leftover roast chicken, shredded (from Monday\'s roast)',
+    'parsley':   '1 bunch flat-leaf parsley — stalks for stock, leaves for garnish',
+    'vinegar':   '2½ tbsp sherry vinegar',
     'saffron':   'Large pinch of saffron strands',
     'chorizo':   '190g cooking chorizo, cut into chunks',
     'onion':     '1 large onion, finely chopped',
     'garlic':    '4 garlic cloves, finely chopped',
-    'squid':     '~375g medium squid, cleaned, rings + tentacles',
     'tomatoes':  '4 ripe tomatoes, roughly chopped',
     'rice':      '310g paella rice (bomba or calasparra)',
-    'beans':     '125g frozen broad beans or peas, defrosted',
+    'beans':     '125g frozen fine beans',
+    'stock':     '750ml chicken stock (or water) — top up to 875ml after simmering',
     'lemon':     '1 lemon — zest for garnish, wedges for serving',
     'salt':      'Smoked sea salt (optional)'
   };
