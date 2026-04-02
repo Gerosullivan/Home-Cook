@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Ger's Bolognese</title>
+<title>Tonight's Meal — Authentic Pad Thai (Hot Thai Kitchen)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c0392b 0%, #7b241c 100%);
+    background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -62,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c0392b;
+    color: #c2185b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #c0392b;
+    background: #c2185b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #c0392b;
+    background: #c2185b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,25 +125,25 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fde8e6;
-    border-left: 3px solid #c0392b;
+    background: #fce4ec;
+    border-left: 3px solid #c2185b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #6b1a14;
+    color: #6a1b3a;
   }
-  .callout strong { color: #c0392b; }
+  .callout strong { color: #c2185b; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
   .callout.kid {
     background: #e8f5e9;
     border-left-color: #2e7d32;
   }
   .callout.kid strong { color: #2e7d32; }
-  .callout.safety {
-    background: #fde8e6;
-    border-left-color: #c0392b;
-  }
-  .callout.safety strong { color: #c0392b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,7 +153,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fde8e6;
+    background: #fce4ec;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -166,22 +166,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c0392b;
+    color: #c2185b;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c0392b;
+    color: #c2185b;
     text-decoration: none;
-    border-bottom: 1px dashed #c0392b;
+    border-bottom: 1px dashed #c2185b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #7b241c;
-    border-bottom-color: #7b241c;
+    color: #7b1fa2;
+    border-bottom-color: #7b1fa2;
   }
 
   /* Tooltip overlay */
@@ -215,7 +215,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c0392b;
+    color: #c2185b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -359,18 +359,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c0392b !important; }
+  .timing-phase-row.cook td { color: #c2185b !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Wednesday 1 April 2026</div>
-    <h1>🍝 Ger's Bolognese</h1>
+    <div class="date">Thursday 2 April 2026</div>
+    <h1>🍜 Authentic Pad Thai (Prawn)</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~1 hr 50 mins total
+        ~40 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -378,67 +378,66 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Italian
+        Prawns &middot; Thai
       </div>
     </div>
   </div>
 
   <div class="body">
     <h2>Ingredients</h2>
+    <p style="font-size:0.82rem; color:#999; margin-bottom:0.75rem;">Scaled to 5 servings (original serves 2). Cook in 2&ndash;3 batches &mdash; a wok can only handle 2 portions at a time.</p>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="pancetta">1 pack pancetta</a></li>
-      <li><a class="ing-link" data-ingredient="mince">800g lean beef mince</a></li>
-      <li><a class="ing-link" data-ingredient="carrots">2 medium carrots, diced</a></li>
-      <li><a class="ing-link" data-ingredient="celery">3 sticks celery, diced</a></li>
-      <li><a class="ing-link" data-ingredient="onions">3 medium onions, diced</a></li>
-      <li><a class="ing-link" data-ingredient="rosemary">2 sprigs fresh rosemary</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="puree">&#188; tube tomato pur&eacute;e</a></li>
-      <li><a class="ing-link" data-ingredient="vinegar">Splash of red wine vinegar</a></li>
-      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock (homemade)</a></li>
-      <li><a class="ing-link" data-ingredient="bouillon">1 beef bouillon cube</a></li>
-      <li><a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="worcestershire">Splash of Worcestershire sauce</a></li>
-      <li><a class="ing-link" data-ingredient="soy">Splash of dark soy sauce</a></li>
-      <li><a class="ing-link" data-ingredient="chipotle">Smoked chipotle flakes, to taste</a></li>
-      <li><a class="ing-link" data-ingredient="rind">1 Parmesan rind</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="pasta">500g pasta (rigatoni or pappardelle)</a></li>
-      <li><a class="ing-link" data-ingredient="parmesan">Parmesan, shredded, for serving</a></li>
-      <li><a class="ing-link" data-ingredient="basil">Fresh basil for serving</a></li>
+      <li><a class="ing-link" data-ingredient="palmsugar">90g palm sugar, chopped</a></li>
+      <li><a class="ing-link" data-ingredient="water">120ml water (for sauce)</a></li>
+      <li><a class="ing-link" data-ingredient="tamarind">8 tbsp Thai tamarind paste</a></li>
+      <li><a class="ing-link" data-ingredient="fishsauce">5 tbsp fish sauce</a></li>
+      <li><a class="ing-link" data-ingredient="noodles">290g dry rice noodles (medium), soaked 1 hr</a></li>
+      <li><a class="ing-link" data-ingredient="driedshrimp">5 tbsp dried shrimp, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">8 cloves garlic, chopped</a></li>
+      <li><a class="ing-link" data-ingredient="shallots">150g shallots, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="tofu">210g pressed tofu, small pieces</a></li>
+      <li><a class="ing-link" data-ingredient="radish">8 tbsp sweet preserved daikon radish</a></li>
+      <li><a class="ing-link" data-ingredient="chilli">Dried chilli flakes (adults only)</a></li>
+      <li><a class="ing-link" data-ingredient="oil">8 tbsp vegetable oil</a></li>
+      <li><a class="ing-link" data-ingredient="prawns">25 medium prawns</a></li>
+      <li><a class="ing-link" data-ingredient="eggs">5 eggs</a></li>
+      <li><a class="ing-link" data-ingredient="beansprouts">300g bean sprouts</a></li>
+      <li><a class="ing-link" data-ingredient="chives">175g garlic chives, cut into 5cm pieces</a></li>
+      <li><a class="ing-link" data-ingredient="peanuts">60g roasted peanuts, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="lime">3 limes, cut into wedges</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~40 min before pickup</span>
+        <span class="prep-time-pill">~20 min prep</span>
       </div>
-      <div class="prep-context">Get the Bolognese simmering before you leave at 5:00 PM &mdash; it'll have 30+ minutes of hands-free cooking while you're on pickup</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get all the chopping and sauce done so it's pure wok work when you're back</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Dice <a class="ing-link" data-ingredient="onions">3 onions</a>, <a class="ing-link" data-ingredient="carrots">2 carrots</a>, and <a class="ing-link" data-ingredient="celery">3 sticks celery</a></span>
+        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in room temperature water (need 1 hour minimum &mdash; start by 4:00 PM at latest)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Fry <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan until crispy. Remove and set aside</span>
+        <span class="prep-step-text">Make the sauce: melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat, stir until it darkens. Add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind</a>. Simmer briefly, then turn off heat. Leave to dissolve.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">In the same pan, brown <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball clumps &mdash; sear underneath, then mash and break apart</span>
+        <span class="prep-step-text">Chop <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="radish">preserved radish</a>. Cut <a class="ing-link" data-ingredient="tofu">tofu</a> into small pieces. Combine in a bowl with chilli flakes.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">In a separate pan, soften the diced veg with <a class="ing-link" data-ingredient="oil">olive oil</a>, <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Add <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> and caramelise. Deglaze with <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a></span>
+        <span class="prep-step-text">Cut <a class="ing-link" data-ingredient="chives">garlic chives</a> into 5cm pieces. Chop <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Cut <a class="ing-link" data-ingredient="lime">limes</a> into wedges.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Combine mince, pancetta, and veg in a large casserole. Add <a class="ing-link" data-ingredient="stock">chicken stock</a> with dissolved <a class="ing-link" data-ingredient="bouillon">bouillon</a>, <a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a>, <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a>, <a class="ing-link" data-ingredient="soy">dark soy</a>, <a class="ing-link" data-ingredient="chipotle">chipotle flakes</a>, and <a class="ing-link" data-ingredient="rind">Parmesan rind</a>. Bring to a simmer</span>
+        <span class="prep-step-text">Drain <a class="ing-link" data-ingredient="noodles">noodles</a> and snip once with scissors so they're half-length. Divide noodles, sauce, and stir-fry bowl into 3 roughly equal batches.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -447,101 +446,101 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Bolognese simmers low and slow on the hob, getting richer and thicker. 30+ minutes of unattended cooking time.</div>
+        <div class="prep-passive-item">Sauce continues to dissolve and the noodles sit drained &mdash; both are fine at room temp for 30 minutes</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>&#9888;&#65039; Before you leave:</strong> Make sure the hob is on the lowest heat setting. Give the sauce a good stir so nothing catches on the bottom. Lid slightly ajar.</div>
-
     <h2>Method</h2>
+    <p style="font-size:0.85rem; color:#888; margin-bottom:1rem;">This recipe is cooked in 2&ndash;3 batches. A wok only does 2 portions properly &mdash; overcrowding steams instead of fries. Each batch takes ~5 minutes. Keep finished batches warm in a low oven (100&deg;C).</p>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Crisp the pancetta <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Fry the <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan over medium-high heat until crispy. Remove and set aside.</div>
+        <div class="step-title">Make the sauce <span class="step-time">~5 mins (done in prep)</span></div>
+        <div class="step-text">Melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat. Stir until it darkens in colour. Immediately add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind paste</a>. The sugar will harden &mdash; this is fine. Bring to a simmer, then turn off heat. Let it sit while you prep; the sugar will dissolve by the time you need it.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Brown the mince <span class="step-time">~10 mins</span></div>
-        <div class="step-text">In the same pan, place <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball sized clumps. Let them sear underneath without moving &mdash; get a good crust. Then mash down and break apart until fully browned.</div>
+        <div class="step-title">Prep noodles &amp; aromatics <span class="step-time">done in prep</span></div>
+        <div class="step-text">Cut drained <a class="ing-link" data-ingredient="noodles">noodles</a> once with scissors so they're half as long (easier to toss). In a bowl, combine <a class="ing-link" data-ingredient="tofu">tofu</a>, <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="radish">preserved radish</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="chilli">chilli flakes</a>.</div>
       </div>
     </div>
-
-    <div class="callout"><strong>&#128161; Tip:</strong> Don't crowd the pan. If needed, brown in two batches for a better crust. This is where the deep flavour comes from.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the soffritto <span class="step-time">~10 mins</span></div>
-        <div class="step-text">In a separate pan, heat a little <a class="ing-link" data-ingredient="oil">olive oil</a>. Add the diced <a class="ing-link" data-ingredient="onions">onions</a>, <a class="ing-link" data-ingredient="carrots">carrots</a>, and <a class="ing-link" data-ingredient="celery">celery</a> with the <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Cook until softened.</div>
+        <div class="step-title">Sear the prawns <span class="step-time">~3 mins per batch</span></div>
+        <div class="step-text">Heat a wok or large non-stick skillet over high heat. Add enough <a class="ing-link" data-ingredient="oil">oil</a> to coat the bottom. Sear 8&ndash;9 <a class="ing-link" data-ingredient="prawns">prawns</a> until just done, then remove. Repeat for remaining prawns. Set all aside.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Caramelise and deglaze <span class="step-time">~3 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="puree">&#188; tube of tomato pur&eacute;e</a> to the veg. Let it cook on the bottom of the pan for a minute or two to caramelise. Add a good splash of <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a> and stir through.</div>
+        <div class="step-title">Fry the aromatics <span class="step-time">~2 mins per batch</span></div>
+        <div class="step-text">In the same wok over medium heat, add a little more <a class="ing-link" data-ingredient="oil">oil</a>. Add one batch of the tofu/garlic/shallot mixture. Saut&eacute; for a few minutes until garlic starts to turn golden and shallots wilt. Don't skimp on oil or the noodles will clump.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Combine and build the sauce <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Combine the <a class="ing-link" data-ingredient="mince">mince</a>, <a class="ing-link" data-ingredient="pancetta">pancetta</a>, and softened veg in a large casserole pan. Mix <a class="ing-link" data-ingredient="stock">400ml chicken stock</a> with <a class="ing-link" data-ingredient="bouillon">beef bouillon</a> until dissolved. Pour into the casserole.</div>
+        <div class="step-title">Add noodles &amp; sauce <span class="step-time">~2 mins per batch</span></div>
+        <div class="step-text">Turn heat to high, add one batch of <a class="ing-link" data-ingredient="noodles">noodles</a> and sauce. Toss until all the sauce is absorbed. If noodles are still undercooked, add a splash of water and keep cooking.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Add the flavour bombs <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="tomatoes">3 tins of plum tomatoes</a>, a good splash of <a class="ing-link" data-ingredient="worcestershire">Worcestershire sauce</a>, a good splash of <a class="ing-link" data-ingredient="soy">dark soy sauce</a>, <a class="ing-link" data-ingredient="chipotle">smoked chipotle flakes</a> to taste, and the <a class="ing-link" data-ingredient="rind">Parmesan rind</a>.</div>
+        <div class="step-title">Add the eggs <span class="step-time">~1 min per batch</span></div>
+        <div class="step-text">Push noodles to one side. Add a little oil to the empty space, crack in 1&ndash;2 <a class="ing-link" data-ingredient="eggs">eggs</a>, break the yolks. Put noodles on top of the eggs and cook for about 30 seconds. Flip and toss to mix eggs through.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">7</div>
       <div class="step-content">
-        <div class="step-title">Simmer low and slow <span class="step-time">~60+ mins</span></div>
-        <div class="step-text">Bring to a simmer on the hob. Cook low and slow, stirring occasionally, until rich and thickened. At least 1 hour &mdash; longer is better. The sauce will simmer while you're on pickup.</div>
+        <div class="step-title">Finish each batch <span class="step-time">~1 min</span></div>
+        <div class="step-text">Add that batch's <a class="ing-link" data-ingredient="prawns">prawns</a> back in plus any juices, then <a class="ing-link" data-ingredient="beansprouts">bean sprouts</a>, <a class="ing-link" data-ingredient="chives">garlic chives</a>, and some <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Turn off heat and toss until well mixed. Transfer to serving dish (or keep warm in low oven). Repeat steps 4&ndash;7 for remaining batches.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">8</div>
       <div class="step-content">
-        <div class="step-title">Cook pasta and serve <span class="step-time">~12 mins (after pickup)</span></div>
-        <div class="step-text">Remove the <a class="ing-link" data-ingredient="rind">Parmesan rind</a> and rosemary stalks. Cook <a class="ing-link" data-ingredient="pasta">500g pasta</a> in plenty of salted boiling water. Drain and toss with the sauce. Serve with shredded <a class="ing-link" data-ingredient="parmesan">Parmesan</a>, torn <a class="ing-link" data-ingredient="basil">fresh basil</a>, and a drizzle of olive oil.</div>
+        <div class="step-title">Serve</div>
+        <div class="step-text">Serve immediately with <a class="ing-link" data-ingredient="lime">lime wedges</a> and extra <a class="ing-link" data-ingredient="peanuts">peanuts</a> on top. Squeeze lime over before eating.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>&#128103; Kid-friendly note:</strong> The chipotle is mild at 1 tsp &mdash; it adds smokiness, not heat. If the kids are particularly sensitive, hold the chipotle from their portions and stir it into the adults' bowls at the table. The Parmesan rind melts in and gives the sauce a lovely richness they'll love.</div>
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Pad Thai shouldn't be spicy for the kids &mdash; just leave the dried chilli flakes out of their batches entirely. The palm sugar sauce is sweet and tangy which kids usually love. If the fish sauce smell bothers them, don't worry &mdash; it mellows completely when cooked.</div>
 
-    <div class="callout"><strong>Leftovers:</strong> Bolognese freezes brilliantly. Portion into containers and freeze for up to 3 months. Reheat gently with a splash of water.</div>
+    <div class="callout"><strong>💡 Wok tip:</strong> The secret to good pad thai is a screaming hot wok and not overcrowding it. Two portions per batch max. If the noodles start clumping, add a splash of water and a bit more oil.</div>
+
+    <div class="callout"><strong>🥜 Peanut note:</strong> Keep chopped peanuts on the side for topping &mdash; easier for the kids to skip if they prefer.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:15 PM</td><td>Dice onions, carrots, and celery. Set aside</td></tr>
-        <tr><td>4:25 PM</td><td>Fry pancetta until crispy. Remove and set aside</td></tr>
-        <tr><td>4:28 PM</td><td>Brown mince in golf-ball clumps &mdash; sear hard, then break apart. Set aside with pancetta</td></tr>
-        <tr><td>4:38 PM</td><td>Soffritto: cook diced veg with rosemary, oregano, salt. Add tomato pur&eacute;e, caramelise. Deglaze with red wine vinegar</td></tr>
-        <tr><td>4:48 PM</td><td>Combine everything in casserole. Add stock + bouillon, tinned tomatoes, Worcestershire, dark soy, chipotle, Parmesan rind. Bring to simmer</td></tr>
-        <tr><td>4:55 PM</td><td>Sauce simmering &mdash; turn heat to lowest setting, stir well, lid slightly ajar. Tidy up</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; Bolognese simmers unattended</td></tr>
+        <tr><td>4:00 PM</td><td>Put rice noodles in room-temp water to soak (need at least 1 hour)</td></tr>
+        <tr><td>4:35 PM</td><td>Make the pad thai sauce: caramelise palm sugar, add water, fish sauce &amp; tamarind. Leave to dissolve</td></tr>
+        <tr><td>4:40 PM</td><td>Chop garlic, shallots, dried shrimp, preserved radish. Cut tofu. Combine in a bowl</td></tr>
+        <tr><td>4:48 PM</td><td>Cut garlic chives into 5cm pieces. Chop peanuts. Cut limes into wedges</td></tr>
+        <tr><td>4:53 PM</td><td>Drain noodles, snip once with scissors. Divide noodles, sauce &amp; aromatics into 3 batches</td></tr>
+        <tr><td>4:57 PM</td><td>Tidy up, ready to leave</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; everything prepped and waiting</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Give the sauce a stir &mdash; it should be thick and rich. Taste and adjust seasoning</td></tr>
-        <tr><td>5:32 PM</td><td>Put a large pot of water on to boil. Salt generously once boiling</td></tr>
-        <tr><td>5:38 PM</td><td>Cook 500g pasta (check packet timing). Remove Parmesan rind and rosemary stalks from sauce</td></tr>
-        <tr><td>5:48 PM</td><td>Drain pasta. Toss with sauce. Serve with shredded Parmesan, torn basil, and a drizzle of olive oil</td></tr>
+        <tr><td>5:30 PM</td><td>Preheat oven to 100&deg;C (warming). Heat wok over high. Sear all prawns in batches, set aside</td></tr>
+        <tr><td>5:36 PM</td><td>Batch 1: saut&eacute; aromatics &rarr; add noodles &amp; sauce &rarr; eggs &rarr; prawns, sprouts, chives. Transfer to oven</td></tr>
+        <tr><td>5:43 PM</td><td>Batch 2: repeat. Transfer to oven</td></tr>
+        <tr><td>5:50 PM</td><td>Batch 3: repeat (or combine with batch 2 if wok is large enough)</td></tr>
+        <tr><td>5:55 PM</td><td>Plate up all batches. Top with peanuts &amp; lime wedges. Serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -551,28 +550,26 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map
+  // Ingredient data map (scaled to 5 servings)
   const ingredients = {
-    'pancetta':      '1 pack pancetta — crisp it first for deep savoury flavour',
-    'mince':         '800g lean beef mince — sear in clumps for maximum crust',
-    'carrots':       '2 medium carrots, diced — about ⅔ the usual Bolognese amount',
-    'celery':        '3 sticks celery, diced',
-    'onions':        '3 medium onions, diced',
-    'rosemary':      '2 sprigs fresh rosemary — remove stalks before serving',
-    'oregano':       '1 tsp dried oregano (or fresh)',
-    'puree':         '¼ tube tomato purée — caramelise on the pan base',
-    'vinegar':       'Good splash of red wine vinegar',
-    'stock':         '400ml chicken stock (homemade)',
-    'bouillon':      '1 beef bouillon cube — dissolve in the chicken stock',
-    'tomatoes':      '3 tins plum tomatoes',
-    'worcestershire':'Good splash of Worcestershire sauce',
-    'soy':           'Good splash of dark soy sauce — adds deep umami colour',
-    'chipotle':      'Smoked chipotle flakes to taste — smokiness, not heat',
-    'rind':          '1 Parmesan rind — melts into the sauce, remove before serving',
-    'oil':           '1 tbsp olive oil',
-    'pasta':         '500g pasta — rigatoni, pappardelle, or anything that holds sauce',
-    'parmesan':      'Parmesan, shredded, for serving',
-    'basil':         'Fresh basil, torn, for serving'
+    'palmsugar':   '90g palm sugar, chopped',
+    'water':       '120ml water (for sauce)',
+    'tamarind':    '8 tbsp Thai cooking tamarind',
+    'fishsauce':   '5 tbsp fish sauce',
+    'noodles':     '290g dry rice noodles (medium) — soaked 1 hr in room-temp water',
+    'driedshrimp': '5 tbsp dried shrimp, roughly chopped',
+    'garlic':      '8 cloves garlic, chopped',
+    'shallots':    '150g shallots, roughly chopped (~¾ cup)',
+    'tofu':        '210g pressed tofu, small pieces',
+    'radish':      '8 tbsp sweet preserved daikon radish, finely chopped',
+    'chilli':      'Dried chilli flakes — adults only, skip for kids',
+    'oil':         '8 tbsp vegetable oil (for wok across all batches)',
+    'prawns':      '25 medium prawns',
+    'eggs':        '5 eggs (1–2 per batch)',
+    'beansprouts': '300g bean sprouts',
+    'chives':      '175g garlic chives, cut 5cm',
+    'peanuts':     '60g roasted peanuts, roughly chopped',
+    'lime':        '3 limes, cut into wedges'
   };
 
   const tooltip = document.getElementById('tooltip');
