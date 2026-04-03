@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Authentic Pad Thai (Hot Thai Kitchen)</title>
+<title>Tonight's Meal — Cider-Glazed Pork Chops with Crushed Baby Potatoes</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%);
+    background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -43,6 +43,18 @@
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.3;
+  }
+  .chefs-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
   }
   .meta {
     display: flex;
@@ -62,7 +74,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c2185b;
+    color: #5d4037;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +98,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #c2185b;
+    background: #5d4037;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +112,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #c2185b;
+    background: #5d4037;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +137,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fce4ec;
-    border-left: 3px solid #c2185b;
+    background: #efebe9;
+    border-left: 3px solid #5d4037;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #6a1b3a;
+    color: #4e342e;
   }
-  .callout strong { color: #c2185b; }
+  .callout strong { color: #5d4037; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -144,6 +156,11 @@
     border-left-color: #2e7d32;
   }
   .callout.kid strong { color: #2e7d32; }
+  .callout.friday {
+    background: #e3f2fd;
+    border-left-color: #1565c0;
+  }
+  .callout.friday strong { color: #1565c0; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,7 +170,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fce4ec;
+    background: #efebe9;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -166,22 +183,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c2185b;
+    color: #5d4037;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c2185b;
+    color: #5d4037;
     text-decoration: none;
-    border-bottom: 1px dashed #c2185b;
+    border-bottom: 1px dashed #5d4037;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #7b1fa2;
-    border-bottom-color: #7b1fa2;
+    color: #3e2723;
+    border-bottom-color: #3e2723;
   }
 
   /* Tooltip overlay */
@@ -215,7 +232,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c2185b;
+    color: #8d6e63;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -359,18 +376,19 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c2185b !important; }
+  .timing-phase-row.cook td { color: #5d4037 !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Thursday 2 April 2026</div>
-    <h1>🍜 Authentic Pad Thai (Prawn)</h1>
+    <span class="chefs-pick">Chef's Pick</span>
+    <div class="date">Friday 3 April 2026</div>
+    <h1>🥩 Cider-Glazed Pork Chops with Crushed Baby Potatoes &amp; Buttered Carrots</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins total
+        ~45 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -378,66 +396,62 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Prawns &middot; Thai
+        Pork &middot; Irish
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="callout friday"><strong>🍕 Friday note:</strong> Tonight's usually takeaway night &mdash; but if you fancy cooking, here's a lovely one using the pork chops from the freezer and the baby potatoes that need using up. Quick to prep, and the kids will love it.</div>
+
     <h2>Ingredients</h2>
-    <p style="font-size:0.82rem; color:#999; margin-bottom:0.75rem;">Scaled to 5 servings (original serves 2). Cook in 2&ndash;3 batches &mdash; a wok can only handle 2 portions at a time.</p>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="palmsugar">90g palm sugar, chopped</a></li>
-      <li><a class="ing-link" data-ingredient="water">120ml water (for sauce)</a></li>
-      <li><a class="ing-link" data-ingredient="tamarind">8 tbsp Thai tamarind paste</a></li>
-      <li><a class="ing-link" data-ingredient="fishsauce">5 tbsp fish sauce</a></li>
-      <li><a class="ing-link" data-ingredient="noodles">290g dry rice noodles (medium), soaked 1 hr</a></li>
-      <li><a class="ing-link" data-ingredient="driedshrimp">5 tbsp dried shrimp, roughly chopped</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">8 cloves garlic, chopped</a></li>
-      <li><a class="ing-link" data-ingredient="shallots">150g shallots, roughly chopped</a></li>
-      <li><a class="ing-link" data-ingredient="tofu">210g pressed tofu, small pieces</a></li>
-      <li><a class="ing-link" data-ingredient="radish">8 tbsp sweet preserved daikon radish</a></li>
-      <li><a class="ing-link" data-ingredient="chilli">Dried chilli flakes (adults only)</a></li>
-      <li><a class="ing-link" data-ingredient="oil">8 tbsp vegetable oil</a></li>
-      <li><a class="ing-link" data-ingredient="prawns">25 medium prawns</a></li>
-      <li><a class="ing-link" data-ingredient="eggs">5 eggs</a></li>
-      <li><a class="ing-link" data-ingredient="beansprouts">300g bean sprouts</a></li>
-      <li><a class="ing-link" data-ingredient="chives">175g garlic chives, cut into 5cm pieces</a></li>
-      <li><a class="ing-link" data-ingredient="peanuts">60g roasted peanuts, roughly chopped</a></li>
-      <li><a class="ing-link" data-ingredient="lime">3 limes, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="porkchops">4 pork chops (from freezer &mdash; defrost in fridge from morning)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">1 bag baby potatoes (~500g), halved</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">1 bag carrots (~400g), peeled &amp; sliced into rounds</a></li>
+      <li><a class="ing-link" data-ingredient="cider">200ml dry cider (or apple juice)</a></li>
+      <li><a class="ing-link" data-ingredient="mustard">2 tbsp wholegrain mustard</a></li>
+      <li><a class="ing-link" data-ingredient="honey">2 tbsp honey</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, minced</a></li>
+      <li><a class="ing-link" data-ingredient="butter">40g butter</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">Fresh thyme (a few sprigs)</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt &amp; pepper</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon (juice &amp; zest)</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">Fresh parsley, chopped (optional garnish)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~20 min prep</span>
+        <span class="prep-time-pill">~15 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get all the chopping and sauce done so it's pure wok work when you're back</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the potatoes started and the glaze ready</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in room temperature water (need 1 hour minimum &mdash; start by 4:00 PM at latest)</span>
+        <span class="prep-step-text">Put <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> into a pot of salted water. Bring to the boil, then reduce to a simmer. They'll par-boil while you prep the rest.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Make the sauce: melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat, stir until it darkens. Add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind</a>. Simmer briefly, then turn off heat. Leave to dissolve.</span>
+        <span class="prep-step-text">Peel and slice <a class="ing-link" data-ingredient="carrots">carrots</a> into rounds (~1cm thick). Set aside in a bowl.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Chop <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="radish">preserved radish</a>. Cut <a class="ing-link" data-ingredient="tofu">tofu</a> into small pieces. Combine in a bowl with chilli flakes.</span>
+        <span class="prep-step-text">Make the glaze: whisk together <a class="ing-link" data-ingredient="cider">cider</a>, <a class="ing-link" data-ingredient="mustard">wholegrain mustard</a>, <a class="ing-link" data-ingredient="honey">honey</a>, and minced <a class="ing-link" data-ingredient="garlic">garlic</a> in a jug. Set aside.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Cut <a class="ing-link" data-ingredient="chives">garlic chives</a> into 5cm pieces. Chop <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Cut <a class="ing-link" data-ingredient="lime">limes</a> into wedges.</span>
+        <span class="prep-step-text">Take <a class="ing-link" data-ingredient="porkchops">pork chops</a> out of the fridge 15 mins before cooking. Season generously with salt &amp; pepper on both sides.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Drain <a class="ing-link" data-ingredient="noodles">noodles</a> and snip once with scissors so they're half-length. Divide noodles, sauce, and stir-fry bowl into 3 roughly equal batches.</span>
+        <span class="prep-step-text">Drain par-boiled potatoes (they should be just fork-tender). Leave in the colander to steam dry.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -446,101 +460,83 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Sauce continues to dissolve and the noodles sit drained &mdash; both are fine at room temp for 30 minutes</div>
+        <div class="prep-passive-item">Pork chops come to room temperature &mdash; better sear. Potatoes steam dry in the colander &mdash; drier potatoes crush better.</div>
       </div>
     </div>
 
     <h2>Method</h2>
-    <p style="font-size:0.85rem; color:#888; margin-bottom:1rem;">This recipe is cooked in 2&ndash;3 batches. A wok only does 2 portions properly &mdash; overcrowding steams instead of fries. Each batch takes ~5 minutes. Keep finished batches warm in a low oven (100&deg;C).</p>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the sauce <span class="step-time">~5 mins (done in prep)</span></div>
-        <div class="step-text">Melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat. Stir until it darkens in colour. Immediately add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind paste</a>. The sugar will harden &mdash; this is fine. Bring to a simmer, then turn off heat. Let it sit while you prep; the sugar will dissolve by the time you need it.</div>
+        <div class="step-title">Sear the pork chops <span class="step-time">~6 mins</span></div>
+        <div class="step-text">Heat <a class="ing-link" data-ingredient="oil">olive oil</a> in a large skillet or heavy pan over medium-high heat. Sear <a class="ing-link" data-ingredient="porkchops">pork chops</a> for 3 minutes per side until golden brown. Remove and set aside on a plate.</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Thermometer reminder:</strong> Insert a wireless probe into the thickest chop before it goes back in the pan. Target: 63&deg;C internal (it'll carry over to 65&deg;C while resting). Pork is safe and juicy at this temp.</div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Prep noodles &amp; aromatics <span class="step-time">done in prep</span></div>
-        <div class="step-text">Cut drained <a class="ing-link" data-ingredient="noodles">noodles</a> once with scissors so they're half as long (easier to toss). In a bowl, combine <a class="ing-link" data-ingredient="tofu">tofu</a>, <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="radish">preserved radish</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="chilli">chilli flakes</a>.</div>
+        <div class="step-title">Deglaze with the cider glaze <span class="step-time">~5 mins</span></div>
+        <div class="step-text">In the same pan, pour in the <a class="ing-link" data-ingredient="cider">cider-mustard-honey glaze</a>. Scrape up all the browned bits from the pork. Add <a class="ing-link" data-ingredient="thyme">thyme sprigs</a>. Let it bubble and reduce by about half &mdash; it'll thicken into a glossy sauce.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Sear the prawns <span class="step-time">~3 mins per batch</span></div>
-        <div class="step-text">Heat a wok or large non-stick skillet over high heat. Add enough <a class="ing-link" data-ingredient="oil">oil</a> to coat the bottom. Sear 8&ndash;9 <a class="ing-link" data-ingredient="prawns">prawns</a> until just done, then remove. Repeat for remaining prawns. Set all aside.</div>
+        <div class="step-title">Return chops to the glaze <span class="step-time">~8 mins</span></div>
+        <div class="step-text">Nestle the <a class="ing-link" data-ingredient="porkchops">pork chops</a> back into the sauce. Reduce heat to medium-low. Spoon the glaze over the chops every couple of minutes. Cook until the probe reads 63&deg;C. Remove chops and rest on a board, loosely tented with foil.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Fry the aromatics <span class="step-time">~2 mins per batch</span></div>
-        <div class="step-text">In the same wok over medium heat, add a little more <a class="ing-link" data-ingredient="oil">oil</a>. Add one batch of the tofu/garlic/shallot mixture. Saut&eacute; for a few minutes until garlic starts to turn golden and shallots wilt. Don't skimp on oil or the noodles will clump.</div>
+        <div class="step-title">Crush the baby potatoes <span class="step-time">~8 mins</span></div>
+        <div class="step-text">While chops rest, heat 20g <a class="ing-link" data-ingredient="butter">butter</a> and a drizzle of oil in a separate pan. Add the par-boiled <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and press each one with a fork or the back of a spatula to flatten slightly. Fry for 3&ndash;4 mins each side until crispy and golden. Season with salt and a squeeze of <a class="ing-link" data-ingredient="lemon">lemon</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Add noodles &amp; sauce <span class="step-time">~2 mins per batch</span></div>
-        <div class="step-text">Turn heat to high, add one batch of <a class="ing-link" data-ingredient="noodles">noodles</a> and sauce. Toss until all the sauce is absorbed. If noodles are still undercooked, add a splash of water and keep cooking.</div>
+        <div class="step-title">Butter the carrots <span class="step-time">~8 mins (parallel with step 4)</span></div>
+        <div class="step-text">Boil <a class="ing-link" data-ingredient="carrots">carrot rounds</a> in salted water for 5&ndash;6 minutes until just tender. Drain. Toss with 20g <a class="ing-link" data-ingredient="butter">butter</a>, a pinch of salt, and a little <a class="ing-link" data-ingredient="lemon">lemon zest</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Add the eggs <span class="step-time">~1 min per batch</span></div>
-        <div class="step-text">Push noodles to one side. Add a little oil to the empty space, crack in 1&ndash;2 <a class="ing-link" data-ingredient="eggs">eggs</a>, break the yolks. Put noodles on top of the eggs and cook for about 30 seconds. Flip and toss to mix eggs through.</div>
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Divide crushed potatoes and buttered carrots among plates. Slice the rested <a class="ing-link" data-ingredient="porkchops">pork chops</a> (optional &mdash; or serve whole). Spoon the reduced cider glaze over the chops. Scatter with <a class="ing-link" data-ingredient="parsley">fresh parsley</a> if you have it.</div>
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Finish each batch <span class="step-time">~1 min</span></div>
-        <div class="step-text">Add that batch's <a class="ing-link" data-ingredient="prawns">prawns</a> back in plus any juices, then <a class="ing-link" data-ingredient="beansprouts">bean sprouts</a>, <a class="ing-link" data-ingredient="chives">garlic chives</a>, and some <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Turn off heat and toss until well mixed. Transfer to serving dish (or keep warm in low oven). Repeat steps 4&ndash;7 for remaining batches.</div>
-      </div>
-    </div>
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> This is naturally mild &mdash; the mustard mellows right out in the glaze and the honey sweetness appeals to kids. The crushed potatoes are a fun texture for small hands. Cut the pork into strips for the younger ones.</div>
 
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Serve</div>
-        <div class="step-text">Serve immediately with <a class="ing-link" data-ingredient="lime">lime wedges</a> and extra <a class="ing-link" data-ingredient="peanuts">peanuts</a> on top. Squeeze lime over before eating.</div>
-      </div>
-    </div>
-
-    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Pad Thai shouldn't be spicy for the kids &mdash; just leave the dried chilli flakes out of their batches entirely. The palm sugar sauce is sweet and tangy which kids usually love. If the fish sauce smell bothers them, don't worry &mdash; it mellows completely when cooked.</div>
-
-    <div class="callout"><strong>💡 Wok tip:</strong> The secret to good pad thai is a screaming hot wok and not overcrowding it. Two portions per batch max. If the noodles start clumping, add a splash of water and a bit more oil.</div>
-
-    <div class="callout"><strong>🥜 Peanut note:</strong> Keep chopped peanuts on the side for topping &mdash; easier for the kids to skip if they prefer.</div>
+    <div class="callout"><strong>💡 Tip:</strong> If you don't have cider to hand, apple juice works grand &mdash; add a splash of cider vinegar for a bit of tang. Or just use chicken stock with a spoon of honey.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:00 PM</td><td>Put rice noodles in room-temp water to soak (need at least 1 hour)</td></tr>
-        <tr><td>4:35 PM</td><td>Make the pad thai sauce: caramelise palm sugar, add water, fish sauce &amp; tamarind. Leave to dissolve</td></tr>
-        <tr><td>4:40 PM</td><td>Chop garlic, shallots, dried shrimp, preserved radish. Cut tofu. Combine in a bowl</td></tr>
-        <tr><td>4:48 PM</td><td>Cut garlic chives into 5cm pieces. Chop peanuts. Cut limes into wedges</td></tr>
-        <tr><td>4:53 PM</td><td>Drain noodles, snip once with scissors. Divide noodles, sauce &amp; aromatics into 3 batches</td></tr>
-        <tr><td>4:57 PM</td><td>Tidy up, ready to leave</td></tr>
+        <tr><td>4:35 PM</td><td>Put baby potatoes on to par-boil in salted water</td></tr>
+        <tr><td>4:38 PM</td><td>Peel &amp; slice carrots. Whisk the cider-mustard-honey glaze in a jug</td></tr>
+        <tr><td>4:45 PM</td><td>Season pork chops with salt &amp; pepper. Leave out to come to room temp</td></tr>
+        <tr><td>4:50 PM</td><td>Drain par-boiled potatoes into colander. Leave to steam dry</td></tr>
+        <tr><td>4:55 PM</td><td>Tidy up, ready to go</td></tr>
         <tr><td>5:00 PM</td><td>Leave for pickup &mdash; everything prepped and waiting</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Preheat oven to 100&deg;C (warming). Heat wok over high. Sear all prawns in batches, set aside</td></tr>
-        <tr><td>5:36 PM</td><td>Batch 1: saut&eacute; aromatics &rarr; add noodles &amp; sauce &rarr; eggs &rarr; prawns, sprouts, chives. Transfer to oven</td></tr>
-        <tr><td>5:43 PM</td><td>Batch 2: repeat. Transfer to oven</td></tr>
-        <tr><td>5:50 PM</td><td>Batch 3: repeat (or combine with batch 2 if wok is large enough)</td></tr>
-        <tr><td>5:55 PM</td><td>Plate up all batches. Top with peanuts &amp; lime wedges. Serve!</td></tr>
+        <tr><td>5:30 PM</td><td>Sear pork chops (3 mins per side). Remove and set aside. Insert thermometer probe</td></tr>
+        <tr><td>5:36 PM</td><td>Deglaze pan with cider glaze. Reduce by half. Return chops, baste &amp; cook to 63&deg;C</td></tr>
+        <tr><td>5:44 PM</td><td>Remove chops to rest. Start crushing &amp; frying potatoes in butter. Put carrots on to boil</td></tr>
+        <tr><td>5:52 PM</td><td>Drain carrots, toss with butter &amp; lemon zest. Flip potatoes for final crisp</td></tr>
+        <tr><td>5:55 PM</td><td>Plate up: potatoes, carrots, sliced chops with glaze spooned over. Serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -550,26 +546,21 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map (scaled to 5 servings)
+  // Ingredient data map
   const ingredients = {
-    'palmsugar':   '90g palm sugar, chopped',
-    'water':       '120ml water (for sauce)',
-    'tamarind':    '8 tbsp Thai cooking tamarind',
-    'fishsauce':   '5 tbsp fish sauce',
-    'noodles':     '290g dry rice noodles (medium) — soaked 1 hr in room-temp water',
-    'driedshrimp': '5 tbsp dried shrimp, roughly chopped',
-    'garlic':      '8 cloves garlic, chopped',
-    'shallots':    '150g shallots, roughly chopped (~¾ cup)',
-    'tofu':        '210g pressed tofu, small pieces',
-    'radish':      '8 tbsp sweet preserved daikon radish, finely chopped',
-    'chilli':      'Dried chilli flakes — adults only, skip for kids',
-    'oil':         '8 tbsp vegetable oil (for wok across all batches)',
-    'prawns':      '25 medium prawns',
-    'eggs':        '5 eggs (1–2 per batch)',
-    'beansprouts': '300g bean sprouts',
-    'chives':      '175g garlic chives, cut 5cm',
-    'peanuts':     '60g roasted peanuts, roughly chopped',
-    'lime':        '3 limes, cut into wedges'
+    'porkchops':  '4 pork chops (defrosted from freezer)',
+    'potatoes':   '~500g baby potatoes, halved',
+    'carrots':    '~400g carrots, peeled & sliced into rounds',
+    'cider':      '200ml dry cider (or apple juice + splash of vinegar)',
+    'mustard':    '2 tbsp wholegrain mustard',
+    'honey':      '2 tbsp honey',
+    'garlic':     '3 cloves garlic, minced',
+    'butter':     '40g butter (20g for potatoes, 20g for carrots)',
+    'oil':        '2 tbsp olive oil',
+    'thyme':      'A few sprigs fresh thyme',
+    'salt':       'Salt & pepper to taste',
+    'lemon':      '1 lemon — juice for potatoes, zest for carrots',
+    'parsley':    'Fresh parsley, chopped (optional garnish)'
   };
 
   const tooltip = document.getElementById('tooltip');
