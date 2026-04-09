@@ -4,98 +4,557 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tonight's Meal">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
-<title>Tonight's Meal — Honey-Mustard Pork Chops</title>
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌯</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌯</text></svg>">
+<title>Tonight's Meal — Beef Fajita Wraps</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #faf8f5; color: #2d2a26; line-height: 1.6; padding: 2rem 1rem; }
-  .card { max-width: 680px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); overflow: hidden; }
-  .header { background: linear-gradient(135deg, #b5651d 0%, #5a2f0a 100%); color: white; padding: 2rem 2rem 1.5rem; }
-  .date { font-size: 0.85rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-  .chef-pick { display: inline-block; background: rgba(255,255,255,0.18); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 99px; margin-bottom: 0.6rem; }
-  .header h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.3; }
-  .meta { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.9; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #C44536 0%, #8B2B1F 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
   .body { padding: 1.5rem 2rem 2rem; }
-  h2 { font-size: 1.1rem; font-weight: 700; color: #8a4a16; margin: 1.5rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  ul, ol { padding-left: 1.2rem; }
-  li { margin-bottom: 0.4rem; }
-  .callout { background: #fff8e8; border-left: 4px solid #d9a441; padding: 0.8rem 1rem; border-radius: 6px; margin: 1rem 0; font-size: 0.95rem; }
-  .kids { background: #eef7ee; border-left-color: #5a9a5a; }
-  table.timing { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.95rem; }
-  table.timing td { padding: 0.4rem 0.5rem; border-bottom: 1px solid #eee; }
-  table.timing td:first-child { font-weight: 600; color: #8a4a16; width: 5.5rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #C44536;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #C44536;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #C44536;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #fdeeea;
+    border-left: 3px solid #C44536;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #8B2B1F;
+  }
+  .callout strong { color: #C44536; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #fdeeea;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #C44536;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  .ing-link {
+    color: #C44536;
+    text-decoration: none;
+    border-bottom: 1px dashed #C44536;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #8B2B1F;
+    border-bottom-color: #8B2B1F;
+  }
+
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #C44536;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked { background: #2a7a5b; }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before { background: #d4edda; color: #1e6e42; }
+  .prep-step-tag.during { background: #fff3cd; color: #856404; }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #C44536 !important; }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <div class="date">Wednesday 8 April 2026</div>
-      <div class="chef-pick">⭐ Chef's Pick</div>
-      <h1>Honey-Mustard Pork Chops with Crushed Baby Potatoes & Buttered Peas</h1>
-      <div class="meta">
-        <span>👨‍👩‍👧‍👦 Serves 5</span>
-        <span>⏱ 40 min</span>
-        <span>🌡 Pork 63°C</span>
+<div class="card">
+  <div class="header">
+    <div class="date">Thursday 9 April 2026</div>
+    <h1>Family Beef Fajita Wraps</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~25 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Beef &middot; Mexican
       </div>
     </div>
-    <div class="body">
-      <div class="callout">No meal plan found for tonight — original recipe using the <strong>4 pork chops</strong> in the freezer (not recent in rotation) plus baby potatoes and frozen peas on hand.</div>
-
-      <h2>Ingredients</h2>
-      <ul>
-        <li>4 pork chops (bone-in, ~200 g each) — defrost in fridge or cold water</li>
-        <li>600 g baby potatoes</li>
-        <li>300 g frozen peas</li>
-        <li>3 tbsp honey</li>
-        <li>2 tbsp wholegrain mustard (or Dijon)</li>
-        <li>1 tbsp cider vinegar (or white wine vinegar)</li>
-        <li>2 cloves garlic, crushed</li>
-        <li>1 tsp fresh thyme leaves (use the bunch in the fridge)</li>
-        <li>30 g butter + 1 tbsp olive oil</li>
-        <li>Salt, black pepper</li>
-      </ul>
-
-      <h2>Prep Ahead <span style="font-weight:400;font-size:0.85rem;color:#666;">(before 5:00 PM pickup)</span></h2>
-      <ul>
-        <li>☐ Take pork chops out to defrost/come to room temp (move to fridge in the morning)</li>
-        <li>☐ Mix the glaze: honey + mustard + vinegar + garlic + thyme — whisk in a small bowl</li>
-        <li>☐ Wash baby potatoes, halve any large ones</li>
-        <li>☐ Pat chops dry, season both sides with salt and pepper</li>
-      </ul>
-      <div class="callout">🔪 Wash board and knife after handling raw pork before touching anything else.</div>
-
-      <h2>Timing Plan</h2>
-      <table class="timing">
-        <tr><td>4:40 PM</td><td>Prep glaze, potatoes, season chops (before school run)</td></tr>
-        <tr><td>5:30 PM</td><td>Put potatoes on to boil (salted water, ~18 min)</td></tr>
-        <tr><td>5:40 PM</td><td>Heat heavy pan — sear chops 3 min each side</td></tr>
-        <tr><td>5:46 PM</td><td>Pour in glaze, spoon over chops, reduce 3–4 min until sticky. Probe to 63°C.</td></tr>
-        <tr><td>5:50 PM</td><td>Rest chops 5 min. Drain spuds, crush lightly with butter & salt.</td></tr>
-        <tr><td>5:53 PM</td><td>Peas into boiling water 3 min, drain, toss with a knob of butter.</td></tr>
-        <tr><td>6:00 PM</td><td>Plate up.</td></tr>
-      </table>
-
-      <h2>Method</h2>
-      <ol>
-        <li>Bring a pan of salted water to the boil. Add baby potatoes and simmer 15–18 min until a knife slides through easily.</li>
-        <li>Meanwhile, heat 1 tbsp olive oil in a heavy frying pan over medium-high heat. Sear the seasoned pork chops for 3 minutes each side until well browned.</li>
-        <li>Reduce the heat to medium. Pour in the honey-mustard glaze and let it bubble. Spoon over the chops for 3–4 minutes until thickened and sticky. Probe the thickest chop — pull at <strong>63°C</strong> internal.</li>
-        <li>Lift the chops onto a warm plate to rest for 5 minutes (they'll carry on to ~65°C).</li>
-        <li>Drain the potatoes, return to the pan, add 20 g butter and a pinch of salt. Crush each lightly with a fork.</li>
-        <li>Boil the peas for 3 minutes, drain, toss with the remaining butter.</li>
-        <li>Plate chops, spoon any pan glaze over the top, serve with crushed potatoes and peas.</li>
-      </ol>
-
-      <div class="callout kids">👶 <strong>For the younger two:</strong> the glaze is sweet, not spicy, so it's kid-friendly. Slice their chop off the bone and cut into strips. Serve the glaze on the side if they prefer plain.</div>
-
-      <h2>Notes</h2>
-      <ul>
-        <li>Uses fresh thyme that's close to expiry — good waste reduction.</li>
-        <li>Original recipe, not saved to the database — one-off Chef's Pick.</li>
-        <li>Pork chops will be deducted from inventory only if logged via /checkin.</li>
-      </ul>
-    </div>
   </div>
+
+  <div class="body">
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="mince">500g beef mince (5&ndash;10% fat)</a></li>
+      <li><a class="ing-link" data-ingredient="veg">500g Tesco Mexican-style veg mix (frozen)</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="paprika">1 tsp smoked paprika</a></li>
+      <li><a class="ing-link" data-ingredient="cumin">&frac12; tsp ground cumin</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">&frac12; tsp garlic powder</a></li>
+      <li><a class="ing-link" data-ingredient="puree">1 tbsp tomato pur&eacute;e</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Small pinch of salt</a></li>
+      <li><a class="ing-link" data-ingredient="wraps">8&ndash;10 soft tortilla wraps</a></li>
+      <li><a class="ing-link" data-ingredient="cheese">150&ndash;200g grated cheddar</a></li>
+      <li><a class="ing-link" data-ingredient="avocado">1 ripe avocado, sliced or mashed</a></li>
+      <li><a class="ing-link" data-ingredient="sour">150&ndash;200g sour cream or Greek yoghurt</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~12 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Measure the spice mix into a small bowl: smoked paprika, cumin, garlic powder, pinch of salt.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Grate 150&ndash;200g cheddar into a bowl, cover.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Brown the mince: 5&ndash;6 mins in a large pan until fully cooked. Tip off excess fat. Stir in the spice mix and tomato pur&eacute;e for 30 seconds. Leave in the pan off the heat.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Scoop sour cream/yoghurt into a serving bowl; set out the tortilla pack.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <hr class="prep-divider">
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Seasoned mince resting in the pan &mdash; just needs reheating and the veg added</div>
+        <div class="prep-passive-item">Cheese grated and ready &mdash; covered to stop it drying out</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Food safety:</strong> Wash the board, knife and hands after handling the raw mince. If the kitchen is warm, pop the cooked mince in the fridge until you're back. Leave the avocado until cook phase &mdash; a squeeze of lemon will stop it browning if you prep it early.</div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Brown the mince <span class="step-time">5&ndash;6 mins</span></div>
+        <div class="step-text">Heat a large pan over medium-high heat. Add the <a class="ing-link" data-ingredient="mince">mince</a> (and a splash of <a class="ing-link" data-ingredient="oil">oil</a> if needed). Break it up well and cook until fully browned. Tip off excess fat so it's not greasy for the kids.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Add the spices <span class="step-time">1 min</span></div>
+        <div class="step-text">Stir in the <a class="ing-link" data-ingredient="paprika">paprika</a>, <a class="ing-link" data-ingredient="cumin">cumin</a>, <a class="ing-link" data-ingredient="garlic">garlic powder</a> and <a class="ing-link" data-ingredient="salt">salt</a> for 30 seconds to cook out. Stir in the <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> for richness (no heat).</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">In with the veg <span class="step-time">6&ndash;8 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="veg">frozen veg mix</a> straight into the pan. Cook until hot and most of the moisture has cooked off. Let it sizzle at the end for better flavour &mdash; don't stew it.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Warm the wraps <span class="step-time">2 mins</span></div>
+        <div class="step-text">Warm the <a class="ing-link" data-ingredient="wraps">tortillas</a> in a dry frying pan or microwave until soft and flexible. Wrap in a tea towel to keep warm.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Build-your-own on the table</div>
+        <div class="step-text">Serve everything in bowls: wraps, beef &amp; veg, <a class="ing-link" data-ingredient="cheese">cheese</a>, <a class="ing-link" data-ingredient="sour">sour cream</a>, <a class="ing-link" data-ingredient="avocado">avocado</a>. Let the kids build their own. Optional: fold filled wraps and toast in a dry pan 1&ndash;2 mins per side, then cut in half for smaller hands.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> This is mild as written. Put hot sauce, jalape&ntilde;os, chilli flakes and a squeeze of lime on the table separately for the adults.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:48 PM</td><td>Measure spices into a small bowl. Grate cheddar.</td></tr>
+        <tr><td>4:52 PM</td><td>Heat pan, brown the mince (5&ndash;6 mins), tip off fat.</td></tr>
+        <tr><td>4:58 PM</td><td>Stir spices and tomato pur&eacute;e through the mince. Pan off heat (fridge if kitchen is warm).</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; seasoned mince ready to go.</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Pan back on the heat, tip in the frozen veg mix.</td></tr>
+        <tr><td>5:36 PM</td><td>Slice/mash avocado, scoop sour cream into a bowl.</td></tr>
+        <tr><td>5:38 PM</td><td>Warm the wraps in a dry pan or microwave; keep in a tea towel.</td></tr>
+        <tr><td>5:40 PM</td><td>Everything to the table &mdash; build-your-own wraps. Dinner on!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  const ingredients = {
+    'mince':   '500g beef mince (5\u201310% fat is ideal)',
+    'veg':     '500g Tesco Mexican-style veg mix (from the freezer)',
+    'oil':     '1 tbsp olive oil (only if mince is very lean)',
+    'paprika': '1 tsp smoked paprika',
+    'cumin':   '\u00bd tsp ground cumin',
+    'garlic':  '\u00bd tsp garlic powder',
+    'puree':   '1 tbsp tomato pur\u00e9e',
+    'salt':    'Small pinch of salt',
+    'wraps':   '8\u201310 soft tortilla wraps',
+    'cheese':  '150\u2013200g grated cheddar',
+    'avocado': '1 ripe avocado, sliced or lightly mashed',
+    'sour':    '150\u2013200g sour cream or Greek yoghurt'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) top = rect.bottom + 10;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+  function hideTooltip() { tooltip.classList.remove('visible'); activeLink = null; }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) hideTooltip(); else showTooltip(link);
+    });
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', () => {
+      setTimeout(() => { if (activeLink === link && !link.matches(':hover')) hideTooltip(); }, 100);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) hideTooltip();
+  });
+
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+    function loadChecks() { try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch { return {}; } }
+    function saveChecks(state) { localStorage.setItem(storageKey, JSON.stringify(state)); }
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) localStorage.removeItem(k);
+    });
+  })();
+</script>
 </body>
 </html>
