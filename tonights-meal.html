@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Homemade Pizza</title>
+<title>Tonight's Meal — Honey-Garlic Pork Chop Traybake</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #d35400 0%, #b94600 100%);
+    background: linear-gradient(135deg, #b8860b 0%, #96700a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -38,6 +38,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
+  }
+  .chef-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.6rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
   }
   .header h1 {
     font-size: 1.6rem;
@@ -62,7 +73,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #d35400;
+    color: #b8860b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +97,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #d35400;
+    background: #b8860b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +111,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #d35400;
+    background: #b8860b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +136,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fef5f0;
-    border-left: 3px solid #d35400;
+    background: #fdf6e8;
+    border-left: 3px solid #b8860b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #7a5030;
+    color: #6b5520;
   }
-  .callout strong { color: #d35400; }
+  .callout strong { color: #b8860b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -143,7 +154,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fef5f0;
+    background: #fdf6e8;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -156,22 +167,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #d35400;
+    color: #b8860b;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #d35400;
+    color: #b8860b;
     text-decoration: none;
-    border-bottom: 1px dashed #d35400;
+    border-bottom: 1px dashed #b8860b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #b94600;
-    border-bottom-color: #b94600;
+    color: #96700a;
+    border-bottom-color: #96700a;
   }
 
   /* Tooltip overlay */
@@ -205,7 +216,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #d35400;
+    color: #b8860b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -273,7 +284,7 @@
     background: #2a7a5b;
   }
   .prep-step-check:checked::after {
-    content: '✓';
+    content: '\2713';
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
@@ -348,18 +359,32 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #d35400 !important; }
+  .timing-phase-row.cook td { color: #b8860b !important; }
+
+  /* Saturday note */
+  .saturday-note {
+    background: #f5f0ff;
+    border: 1px solid #e0d6f5;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: #5b4a8a;
+    line-height: 1.5;
+  }
+  .saturday-note strong { color: #6b42b0; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Friday 10 April 2026</div>
-    <h1>Homemade Pizza</h1>
+    <div class="date">Saturday 11 April 2026</div>
+    <div class="chef-pick">Chef's Pick</div>
+    <h1>Honey-Garlic Pork Chop Traybake</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins active
+        ~15 min prep + 30 min oven
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -367,67 +392,61 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork · Italian
+        Pork &middot; Home Comfort
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="saturday-note">
+      <strong>Saturday Chef's Pick:</strong> It's normally takeaway night, but you've 4 pork chops in the freezer calling your name. Dead easy traybake &mdash; everything on one tray, oven does the work. Grand if you'd rather order in though!
+    </div>
+
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="flour">500g 00 flour (Tipo 00)</a></li>
-      <li><a class="ing-link" data-ingredient="salt">10g fine sea salt</a></li>
-      <li><a class="ing-link" data-ingredient="yeast">7g sachet dried yeast</a></li>
-      <li><a class="ing-link" data-ingredient="sugar">1 tsp caster sugar</a></li>
-      <li><a class="ing-link" data-ingredient="water">325ml lukewarm water</a></li>
-      <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="tomatoes">400g tin plum tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic</a></li>
-      <li><a class="ing-link" data-ingredient="sauce-oil">1 tbsp olive oil (sauce)</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="pepperoni">100g pepperoni slices</a></li>
-      <li><a class="ing-link" data-ingredient="ham">150g ham, sliced or torn</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 jar pickled red onion, drained</a></li>
-      <li><a class="ing-link" data-ingredient="mushrooms">150g mushrooms, sliced</a></li>
-      <li><a class="ing-link" data-ingredient="mozzarella">250g mozzarella, torn</a></li>
+      <li><a class="ing-link" data-ingredient="chops">4 pork chops (from freezer &mdash; defrost in fridge from morning)</a></li>
+      <li><a class="ing-link" data-ingredient="broccoli">1 bag frozen broccoli florets (~350g)</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">1 bag frozen sliced carrots (~300g)</a></li>
+      <li><a class="ing-link" data-ingredient="honey">2 tbsp honey</a></li>
+      <li><a class="ing-link" data-ingredient="soy">2 tbsp light soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, minced (or 1 tsp garlic powder)</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="paprika">1 tsp paprika</a></li>
+      <li><a class="ing-link" data-ingredient="pepper">Freshly ground black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="sesame">1 tsp sesame seeds (to finish)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~40 min prep</span>
+        <span class="prep-time-pill">~15 min prep</span>
       </div>
       <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Combine 500g 00 flour and 10g salt in a large bowl</span>
+        <span class="prep-step-text">Mix the glaze: combine 2 tbsp honey, 2 tbsp soy sauce, minced garlic, 1 tsp paprika, and 1 tbsp rapeseed oil in a small bowl</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Mix yeast and sugar into 325ml lukewarm water — let sit 5 mins until frothy</span>
+        <span class="prep-step-text">Pat pork chops dry with kitchen paper and season with black pepper</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Pour yeast water and 2 tbsp olive oil into flour. Mix, then knead 10 mins until smooth and elastic</span>
+        <span class="prep-step-text">Coat chops generously with half the glaze, set the rest aside for basting</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Place dough in oiled bowl, cover with cling film, leave to rise</span>
+        <span class="prep-step-text">Spread frozen broccoli and carrots on a large roasting tray. Drizzle with 1 tbsp rapeseed oil, season with pepper</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Make the sauce: crush garlic, fry gently 1 min in olive oil. Add tinned tomatoes, oregano, salt &amp; pepper. Simmer 15–20 mins, then blitz or mash smooth</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Slice mushrooms, tear ham, drain pickled red onion, tear mozzarella — set out in bowls</span>
+        <span class="prep-step-text">Nestle glazed chops on top of the vegetables. Cover tray with cling film, pop in the fridge</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -437,8 +456,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Dough rises — it'll be well doubled by the time you're back</div>
-        <div class="prep-passive-item">Sauce cools — easier to spread on the bases</div>
+        <div class="prep-passive-item">Glaze marinates into the chops &mdash; even 30 minutes makes a difference</div>
       </div>
     </div>
 
@@ -447,89 +465,71 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the dough <span class="step-time">15 mins</span></div>
-        <div class="step-text">Combine <a class="ing-link" data-ingredient="flour">500g 00 flour</a> and <a class="ing-link" data-ingredient="salt">10g salt</a> in a large bowl. Mix <a class="ing-link" data-ingredient="yeast">yeast</a> and <a class="ing-link" data-ingredient="sugar">sugar</a> into <a class="ing-link" data-ingredient="water">325ml lukewarm water</a>, let sit 5 minutes until frothy. Pour yeast water and <a class="ing-link" data-ingredient="oil">olive oil</a> into the flour. Mix with a fork, then knead by hand for 10 minutes until smooth and elastic.</div>
+        <div class="step-title">Defrost the chops <span class="step-time">morning job</span></div>
+        <div class="step-text">Move the <a class="ing-link" data-ingredient="chops">4 pork chops</a> from the freezer to the fridge first thing in the morning. They'll be fully defrosted by evening.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Rise the dough <span class="step-time">1 hour</span></div>
-        <div class="step-text">Place dough in a lightly oiled bowl, cover with cling film, and leave in a warm place for 1 hour until doubled in size. This is your pickup window — the dough does the work while you're gone.</div>
+        <div class="step-title">Make the glaze <span class="step-time">3 mins</span></div>
+        <div class="step-text">In a small bowl, whisk together <a class="ing-link" data-ingredient="honey">2 tbsp honey</a>, <a class="ing-link" data-ingredient="soy">2 tbsp light soy sauce</a>, minced <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="paprika">1 tsp paprika</a>, and <a class="ing-link" data-ingredient="oil">1 tbsp rapeseed oil</a>. Set half aside for basting later.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Make the sauce <span class="step-time">20 mins</span></div>
-        <div class="step-text">Crush <a class="ing-link" data-ingredient="garlic">2 cloves garlic</a> and fry gently in <a class="ing-link" data-ingredient="sauce-oil">olive oil</a> for 1 minute. Add <a class="ing-link" data-ingredient="tomatoes">tinned tomatoes</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, salt and pepper. Simmer for 15–20 minutes, breaking up tomatoes. Blitz or mash until smooth.</div>
+        <div class="step-title">Prep the tray <span class="step-time">5 mins</span></div>
+        <div class="step-text">Spread the frozen <a class="ing-link" data-ingredient="broccoli">broccoli</a> and <a class="ing-link" data-ingredient="carrots">carrots</a> across a large roasting tray. Drizzle with <a class="ing-link" data-ingredient="oil">1 tbsp rapeseed oil</a> and season with pepper. Pat chops dry, season with pepper, coat with the first half of the glaze, and nestle them on top of the veg.</div>
       </div>
     </div>
-
-    <div class="callout"><strong>Tip:</strong> Make the sauce while the dough is starting its rise — the timing works perfectly. Sauce improves as it sits.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Preheat the oven <span class="step-time">5 mins before rolling</span></div>
-        <div class="step-text">Preheat oven to 250°C (or as hot as it goes). If you have a pizza stone, put it in now — it needs to be screaming hot.</div>
+        <div class="step-title">Preheat the oven <span class="step-time">after pickup</span></div>
+        <div class="step-text">Preheat oven to 200&deg;C fan (220&deg;C conventional). Take the tray out of the fridge while the oven heats &mdash; 5 minutes at room temp is fine.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Roll and shape <span class="step-time">5–8 mins</span></div>
-        <div class="step-text">Punch down the risen dough and divide into 2–3 portions. Roll each out on a floured surface as thin as you can, using extra <a class="ing-link" data-ingredient="flour">00 flour</a> to prevent sticking.</div>
+        <div class="step-title">Roast <span class="step-time">25&ndash;30 mins</span></div>
+        <div class="step-text">Roast for 15 minutes, then pull the tray out and brush the reserved glaze over the chops. Return to the oven for another 10&ndash;15 minutes until the pork is cooked through and the edges are sticky and caramelised.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Thermometer reminder:</strong> Probe the thickest part of a chop &mdash; you're looking for 68&deg;C internal temp. No guessing with the wireless thermometers!</div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Assemble <span class="step-time">5 mins</span></div>
-        <div class="step-text">Transfer bases to floured baking trays or parchment. Spread sauce over each base, leaving a 1cm border. Top with torn <a class="ing-link" data-ingredient="mozzarella">mozzarella</a>, <a class="ing-link" data-ingredient="pepperoni">pepperoni</a>, <a class="ing-link" data-ingredient="ham">ham</a>, sliced <a class="ing-link" data-ingredient="mushrooms">mushrooms</a>, and <a class="ing-link" data-ingredient="onion">pickled red onion</a>.</div>
+        <div class="step-title">Rest and serve <span class="step-time">5 mins</span></div>
+        <div class="step-text">Rest the chops on the tray for 5 minutes (the juices redistribute and the glaze gets even stickier). Sprinkle with <a class="ing-link" data-ingredient="sesame">sesame seeds</a> and serve straight from the tray.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Kid-friendly note:</strong> Make one pizza plain cheese or just ham &amp; cheese — the little ones can help place their own toppings. Pickled onion can be strong so keep it to one side or one pizza only.</div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Bake <span class="step-time">10–12 mins per pizza</span></div>
-        <div class="step-text">Bake for 10–12 minutes until the base is crisp and golden and the cheese is bubbling and charred in spots. You'll likely need to do 2 batches — keep the first warm in the turned-off oven while the second bakes.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Rest and serve</div>
-        <div class="step-text">Rest for 2 minutes, then slice and serve. Let the kids pick their slices first — pepperoni is always a winner.</div>
-      </div>
-    </div>
+    <div class="callout"><strong>Kid-friendly note:</strong> The glaze is sweet and mild &mdash; the little ones will love it. Cut the youngest two's portions into strips. One chop between the two of them is plenty.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
-        <tr><td>4:15 PM</td><td>Mix yeast, sugar &amp; water — let sit 5 mins</td></tr>
-        <tr><td>4:20 PM</td><td>Combine flour &amp; salt, add yeast water &amp; oil, start kneading</td></tr>
-        <tr><td>4:30 PM</td><td>Dough in oiled bowl, covered. Start the sauce — garlic, tomatoes, simmer</td></tr>
-        <tr><td>4:40 PM</td><td>While sauce simmers: slice mushrooms, tear ham, drain onion, tear mozzarella</td></tr>
-        <tr><td>4:50 PM</td><td>Blitz/mash sauce smooth, set aside. Toppings in bowls, covered</td></tr>
-        <tr><td>5:00 PM</td><td>Head out for pickup — dough rises while you're gone</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
-        <tr><td>5:25 PM</td><td>Preheat oven to 250°C (pizza stone in if you have one)</td></tr>
-        <tr><td>5:30 PM</td><td>Punch down dough, divide into 2–3 portions, roll out thin</td></tr>
-        <tr><td>5:38 PM</td><td>Assemble first pizza(s) — sauce, cheese, toppings</td></tr>
-        <tr><td>5:42 PM</td><td>First pizza in the oven</td></tr>
-        <tr><td>5:52 PM</td><td>First pizza out (keep warm), assemble and bake second</td></tr>
-        <tr><td>6:02 PM</td><td>All pizzas done — rest 2 mins, slice and serve!</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:45 PM</td><td>Mix the honey-garlic glaze</td></tr>
+        <tr><td>4:48 PM</td><td>Season chops, coat with half the glaze</td></tr>
+        <tr><td>4:50 PM</td><td>Spread frozen veg on tray, drizzle with oil, place chops on top</td></tr>
+        <tr><td>4:55 PM</td><td>Cover tray, into the fridge. Clean up and head out</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; glaze marinates while you're gone</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:25 PM</td><td>Preheat oven to 200&deg;C fan. Take tray from fridge</td></tr>
+        <tr><td>5:30 PM</td><td>Tray into the oven</td></tr>
+        <tr><td>5:45 PM</td><td>Brush reserved glaze over chops, return to oven</td></tr>
+        <tr><td>5:55 PM</td><td>Check internal temp &mdash; target 68&deg;C. Rest 5 mins on tray</td></tr>
+        <tr><td>6:00 PM</td><td>Sprinkle sesame seeds &mdash; dinner is served!</td></tr>
       </tbody>
     </table>
   </div>
@@ -539,29 +539,23 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map — key matches data-ingredient attribute
+  // Ingredient data map
   const ingredients = {
-    'flour':      '500g 00 flour (Tipo 00)',
-    'salt':       '10g fine sea salt',
-    'yeast':      '7g sachet dried yeast',
-    'sugar':      '1 tsp caster sugar',
-    'water':      '325ml lukewarm water',
-    'oil':        '2 tbsp olive oil (dough)',
-    'tomatoes':   '400g tin plum tomatoes',
-    'garlic':     '2 cloves garlic, crushed',
-    'sauce-oil':  '1 tbsp olive oil (sauce)',
-    'oregano':    '1 tsp dried oregano',
-    'pepperoni':  '100g pepperoni slices',
-    'ham':        '150g ham, sliced or torn',
-    'onion':      '1 jar pickled red onion, drained',
-    'mushrooms':  '150g mushrooms, sliced',
-    'mozzarella': '250g mozzarella (1 pack), torn'
+    'chops':    '4 pork chops (from freezer)',
+    'broccoli': '1 bag frozen broccoli florets (~350g)',
+    'carrots':  '1 bag frozen sliced carrots (~300g)',
+    'honey':    '2 tbsp honey',
+    'soy':      '2 tbsp light soy sauce',
+    'garlic':   '3 cloves garlic, minced (or 1 tsp garlic powder)',
+    'oil':      '2 tbsp rapeseed oil (total)',
+    'paprika':  '1 tsp paprika',
+    'pepper':   'Freshly ground black pepper',
+    'sesame':   '1 tsp sesame seeds'
   };
 
   const tooltip = document.getElementById('tooltip');
   let activeLink = null;
 
-  // Position tooltip above the link
   function showTooltip(link) {
     const key = link.dataset.ingredient;
     const detail = ingredients[key];
@@ -576,12 +570,10 @@
     let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
     let top = rect.top - tipRect.height - 10;
 
-    // Keep within viewport
     if (left < 8) left = 8;
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
       top = rect.bottom + 10;
-      tooltip.style.setProperty('--arrow', 'top');
     }
 
     tooltip.style.left = left + 'px';
@@ -594,7 +586,6 @@
     activeLink = null;
   }
 
-  // Click to toggle tooltip
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -606,14 +597,12 @@
     });
   });
 
-  // Dismiss on click outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
       hideTooltip();
     }
   });
 
-  // Also show on hover for desktop
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('mouseenter', () => showTooltip(link));
     link.addEventListener('mouseleave', (e) => {
@@ -625,7 +614,7 @@
     });
   });
 
-  // Prep-ahead checkbox persistence (keyed by today's date)
+  // Prep-ahead checkbox persistence
   (function() {
     const today = new Date().toISOString().slice(0, 10);
     const storageKey = 'prep-checks-' + today;
@@ -654,7 +643,6 @@
       });
     });
 
-    // Clean up old dates (keep only today)
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('prep-checks-') && k !== storageKey) {
         localStorage.removeItem(k);
