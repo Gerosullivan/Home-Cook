@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Steak Meal</title>
+<title>Tonight's Meal — Ger's Bolognese</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
+    background: linear-gradient(135deg, #c0392b 0%, #7b241c 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -62,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #5d4037;
+    color: #c0392b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #5d4037;
+    background: #c0392b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #5d4037;
+    background: #c0392b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,25 +125,25 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #efebe9;
-    border-left: 3px solid #5d4037;
+    background: #fde8e6;
+    border-left: 3px solid #c0392b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #4e342e;
+    color: #6b1a14;
   }
-  .callout strong { color: #5d4037; }
-  .callout.thermometer {
-    background: #fff3e0;
-    border-left-color: #e65100;
-  }
-  .callout.thermometer strong { color: #e65100; }
+  .callout strong { color: #c0392b; }
   .callout.kid {
     background: #e8f5e9;
     border-left-color: #2e7d32;
   }
   .callout.kid strong { color: #2e7d32; }
+  .callout.safety {
+    background: #fde8e6;
+    border-left-color: #c0392b;
+  }
+  .callout.safety strong { color: #c0392b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,7 +153,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #efebe9;
+    background: #fde8e6;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -166,21 +166,25 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #5d4037;
+    color: #c0392b;
     white-space: nowrap;
     width: 60px;
   }
+
+  /* Ingredient tooltip links */
   .ing-link {
-    color: #5d4037;
+    color: #c0392b;
     text-decoration: none;
-    border-bottom: 1px dashed #5d4037;
+    border-bottom: 1px dashed #c0392b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #3e2723;
-    border-bottom-color: #3e2723;
+    color: #7b241c;
+    border-bottom-color: #7b241c;
   }
+
+  /* Tooltip overlay */
   .ing-tooltip {
     display: none;
     position: fixed;
@@ -192,9 +196,10 @@
     font-weight: 500;
     z-index: 1000;
     pointer-events: none;
-    white-space: normal;
+    white-space: nowrap;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     max-width: 300px;
+    white-space: normal;
     line-height: 1.4;
   }
   .ing-tooltip::after {
@@ -210,13 +215,15 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #8d6e63;
+    color: #c0392b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: block;
     margin-bottom: 0.15rem;
   }
+
+  /* Prep Ahead section */
   .prep-ahead {
     background: #f0f7f4;
     border: 1px solid #c8e6d8;
@@ -339,6 +346,8 @@
     color: #555;
     padding: 0.2rem 0;
   }
+
+  /* Timing phase rows */
   .timing-phase-row td {
     background: #f5f5f5;
     font-weight: 700 !important;
@@ -350,18 +359,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #5d4037 !important; }
+  .timing-phase-row.cook td { color: #c0392b !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Tuesday 14 April 2026</div>
-    <h1>🥩 Steak with Buttery Mash, Fried Onions &amp; Veg</h1>
+    <div class="date">Wednesday 15 April 2026</div>
+    <h1>🍝 Ger's Bolognese</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins total
+        ~1 hr 50 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -369,7 +378,7 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Classic
+        Beef &middot; Italian
       </div>
     </div>
   </div>
@@ -377,47 +386,59 @@
   <div class="body">
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="steak">2 large sirloin or striploin steaks (~300g each)</a></li>
-      <li><a class="ing-link" data-ingredient="potatoes">1kg potatoes (Maris Piper or Rooster), peeled &amp; quartered</a></li>
-      <li><a class="ing-link" data-ingredient="frozen-veg">1 bag frozen vegetables (peas, sweetcorn &amp; carrots work well)</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 large onion, sliced into rings</a></li>
-      <li><a class="ing-link" data-ingredient="butter">60g butter (40g for mash, 20g for onions)</a></li>
-      <li><a class="ing-link" data-ingredient="milk">80ml milk, warmed</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed or sunflower oil</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Salt &amp; freshly ground black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="pancetta">1 pack pancetta</a></li>
+      <li><a class="ing-link" data-ingredient="mince">800g lean beef mince</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">2 medium carrots, diced</a></li>
+      <li><a class="ing-link" data-ingredient="celery">3 sticks celery, diced</a></li>
+      <li><a class="ing-link" data-ingredient="onions">3 medium onions, diced</a></li>
+      <li><a class="ing-link" data-ingredient="rosemary">2 sprigs fresh rosemary</a></li>
+      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
+      <li><a class="ing-link" data-ingredient="puree">&#188; tube tomato pur&eacute;e</a></li>
+      <li><a class="ing-link" data-ingredient="vinegar">Splash of red wine vinegar</a></li>
+      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock (homemade)</a></li>
+      <li><a class="ing-link" data-ingredient="bouillon">1 beef bouillon cube</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a></li>
+      <li><a class="ing-link" data-ingredient="worcestershire">Splash of Worcestershire sauce</a></li>
+      <li><a class="ing-link" data-ingredient="soy">Splash of dark soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="chipotle">Smoked chipotle flakes, to taste</a></li>
+      <li><a class="ing-link" data-ingredient="rind">1 Parmesan rind</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="pasta">500g pasta (rigatoni or pappardelle)</a></li>
+      <li><a class="ing-link" data-ingredient="parmesan">Parmesan, shredded, for serving</a></li>
+      <li><a class="ing-link" data-ingredient="basil">Fresh basil for serving</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~25 min prep</span>
+        <span class="prep-time-pill">~40 min before pickup</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the potatoes cooked and steaks to room temp</div>
+      <div class="prep-context">Get the Bolognese simmering before you leave at 5:00 PM &mdash; it'll have 30+ minutes of hands-free cooking while you're on pickup</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Take <a class="ing-link" data-ingredient="steak">steaks</a> out of the fridge. Leave on a plate on the counter to come to room temperature. Pat dry with kitchen paper.</span>
+        <span class="prep-step-text">Dice <a class="ing-link" data-ingredient="onions">3 onions</a>, <a class="ing-link" data-ingredient="carrots">2 carrots</a>, and <a class="ing-link" data-ingredient="celery">3 sticks celery</a></span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Peel and quarter <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Put into a large pot of salted cold water. Bring to the boil, then simmer for 15&ndash;20 mins until fork-tender.</span>
+        <span class="prep-step-text">Fry <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan until crispy. Remove and set aside</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Peel and slice <a class="ing-link" data-ingredient="onion">onion</a> into rings. Set aside.</span>
+        <span class="prep-step-text">In the same pan, brown <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball clumps &mdash; sear underneath, then mash and break apart</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Season <a class="ing-link" data-ingredient="steak">steaks</a> generously with <a class="ing-link" data-ingredient="salt">salt and pepper</a> on both sides.</span>
+        <span class="prep-step-text">In a separate pan, soften the diced veg with <a class="ing-link" data-ingredient="oil">olive oil</a>, <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Add <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> and caramelise. Deglaze with <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a></span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Drain cooked <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Leave in the pot with the lid off to steam dry for a minute. Turn off heat.</span>
+        <span class="prep-step-text">Combine mince, pancetta, and veg in a large casserole. Add <a class="ing-link" data-ingredient="stock">chicken stock</a> with dissolved <a class="ing-link" data-ingredient="bouillon">bouillon</a>, <a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a>, <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a>, <a class="ing-link" data-ingredient="soy">dark soy</a>, <a class="ing-link" data-ingredient="chipotle">chipotle flakes</a>, and <a class="ing-link" data-ingredient="rind">Parmesan rind</a>. Bring to a simmer</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -426,83 +447,101 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Steaks continue coming to room temperature &mdash; this ensures an even cook and better sear. Potatoes steam dry in the pot &mdash; drier potatoes make fluffier mash.</div>
+        <div class="prep-passive-item">Bolognese simmers low and slow on the hob, getting richer and thicker. 30+ minutes of unattended cooking time.</div>
       </div>
     </div>
+
+    <div class="callout safety"><strong>&#9888;&#65039; Before you leave:</strong> Make sure the hob is on the lowest heat setting. Give the sauce a good stir so nothing catches on the bottom. Lid slightly ajar.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the mash <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Mash the drained <a class="ing-link" data-ingredient="potatoes">potatoes</a> with 40g <a class="ing-link" data-ingredient="butter">butter</a> and the warm <a class="ing-link" data-ingredient="milk">milk</a>. Season well with salt and pepper. Beat until smooth and creamy. Cover and set aside &mdash; it stays warm.</div>
+        <div class="step-title">Crisp the pancetta <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Fry the <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan over medium-high heat until crispy. Remove and set aside.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Fry the onions <span class="step-time">~8 mins</span></div>
-        <div class="step-text">Melt 20g <a class="ing-link" data-ingredient="butter">butter</a> in a frying pan over medium heat. Add the sliced <a class="ing-link" data-ingredient="onion">onion rings</a> and cook, stirring occasionally, until soft and golden brown. Season with a pinch of salt. Remove to a bowl and keep warm.</div>
+        <div class="step-title">Brown the mince <span class="step-time">~10 mins</span></div>
+        <div class="step-text">In the same pan, place <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball sized clumps. Let them sear underneath without moving &mdash; get a good crust. Then mash down and break apart until fully browned.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>&#128161; Tip:</strong> Don't crowd the pan. If needed, brown in two batches for a better crust. This is where the deep flavour comes from.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the steaks <span class="step-time">~6&ndash;8 mins</span></div>
-        <div class="step-text">Get the same pan smoking hot. Add a splash of <a class="ing-link" data-ingredient="oil">oil</a>. Lay the <a class="ing-link" data-ingredient="steak">steaks</a> in and cook without moving for 3&ndash;4 minutes until a deep golden crust forms. Flip and cook the other side for 3&ndash;4 minutes for medium. Add a knob of butter to the pan in the last minute and baste the steaks.</div>
+        <div class="step-title">Cook the soffritto <span class="step-time">~10 mins</span></div>
+        <div class="step-text">In a separate pan, heat a little <a class="ing-link" data-ingredient="oil">olive oil</a>. Add the diced <a class="ing-link" data-ingredient="onions">onions</a>, <a class="ing-link" data-ingredient="carrots">carrots</a>, and <a class="ing-link" data-ingredient="celery">celery</a> with the <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Cook until softened.</div>
       </div>
     </div>
-
-    <div class="callout thermometer"><strong>🌡️ Thermometer:</strong> Probe your steaks &mdash; pull at 55&ndash;58°C for medium. They'll carry over a few degrees while resting. Use one of your wireless thermometers to get it right.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Rest the steaks <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Transfer <a class="ing-link" data-ingredient="steak">steaks</a> to a warm plate and tent loosely with foil. Resting lets the juices redistribute &mdash; don't skip this step. Meanwhile, cook the veg.</div>
+        <div class="step-title">Caramelise and deglaze <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="puree">&#188; tube of tomato pur&eacute;e</a> to the veg. Let it cook on the bottom of the pan for a minute or two to caramelise. Add a good splash of <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a> and stir through.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Heat the veg <span class="step-time">~4 mins (during rest)</span></div>
-        <div class="step-text">Cook the <a class="ing-link" data-ingredient="frozen-veg">frozen veg</a> according to packet instructions &mdash; microwave or a quick boil. Drain and add a small knob of butter.</div>
+        <div class="step-title">Combine and build the sauce <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Combine the <a class="ing-link" data-ingredient="mince">mince</a>, <a class="ing-link" data-ingredient="pancetta">pancetta</a>, and softened veg in a large casserole pan. Mix <a class="ing-link" data-ingredient="stock">400ml chicken stock</a> with <a class="ing-link" data-ingredient="bouillon">beef bouillon</a> until dissolved. Pour into the casserole.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Slice and serve</div>
-        <div class="step-text">Slice each <a class="ing-link" data-ingredient="steak">steak</a> against the grain into strips. Serve on plates with a generous scoop of <a class="ing-link" data-ingredient="potatoes">buttery mash</a>, a pile of <a class="ing-link" data-ingredient="onion">fried onions</a> on top, and the <a class="ing-link" data-ingredient="frozen-veg">veg</a> alongside. Pour any resting juices from the plate over the steak.</div>
+        <div class="step-title">Add the flavour bombs <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="tomatoes">3 tins of plum tomatoes</a>, a good splash of <a class="ing-link" data-ingredient="worcestershire">Worcestershire sauce</a>, a good splash of <a class="ing-link" data-ingredient="soy">dark soy sauce</a>, <a class="ing-link" data-ingredient="chipotle">smoked chipotle flakes</a> to taste, and the <a class="ing-link" data-ingredient="rind">Parmesan rind</a>.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Slice the kids' steak into small, thin strips so it cools quickly and is easy to eat. The fried onions and buttery mash are always a hit. If the younger two are fussy about veg, mix the peas into the mash &mdash; they'll never know.</div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Simmer low and slow <span class="step-time">~60+ mins</span></div>
+        <div class="step-text">Bring to a simmer on the hob. Cook low and slow, stirring occasionally, until rich and thickened. At least 1 hour &mdash; longer is better. The sauce will simmer while you're on pickup.</div>
+      </div>
+    </div>
 
-    <div class="callout"><strong>💡 Tip:</strong> Two large steaks between five is about right &mdash; give the adults larger portions and cut smaller strips for the three kids. If you fancy a sauce, deglaze the steak pan with a splash of stock and a teaspoon of mustard for a quick pan sauce.</div>
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Cook pasta and serve <span class="step-time">~12 mins (after pickup)</span></div>
+        <div class="step-text">Remove the <a class="ing-link" data-ingredient="rind">Parmesan rind</a> and rosemary stalks. Cook <a class="ing-link" data-ingredient="pasta">500g pasta</a> in plenty of salted boiling water. Drain and toss with the sauce. Serve with shredded <a class="ing-link" data-ingredient="parmesan">Parmesan</a>, torn <a class="ing-link" data-ingredient="basil">fresh basil</a>, and a drizzle of olive oil.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>&#128103; Kid-friendly note:</strong> The chipotle is mild at 1 tsp &mdash; it adds smokiness, not heat. If the kids are particularly sensitive, hold the chipotle from their portions and stir it into the adults' bowls at the table. The Parmesan rind melts in and gives the sauce a lovely richness they'll love.</div>
+
+    <div class="callout"><strong>Leftovers:</strong> Bolognese freezes brilliantly. Portion into containers and freeze for up to 3 months. Reheat gently with a splash of water.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:30 PM</td><td>Take steaks out of fridge. Pat dry with kitchen paper</td></tr>
-        <tr><td>4:33 PM</td><td>Peel and quarter potatoes. Into salted cold water, bring to boil</td></tr>
-        <tr><td>4:38 PM</td><td>Slice onion into rings. Set aside</td></tr>
-        <tr><td>4:40 PM</td><td>Season steaks generously with salt and pepper on both sides</td></tr>
-        <tr><td>4:52 PM</td><td>Drain potatoes when fork-tender. Leave to steam dry in the pot, lid off</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; steaks at room temp, potatoes drained, onions prepped</td></tr>
+        <tr><td>4:15 PM</td><td>Dice onions, carrots, and celery. Set aside</td></tr>
+        <tr><td>4:25 PM</td><td>Fry pancetta until crispy. Remove and set aside</td></tr>
+        <tr><td>4:28 PM</td><td>Brown mince in golf-ball clumps &mdash; sear hard, then break apart. Set aside with pancetta</td></tr>
+        <tr><td>4:38 PM</td><td>Soffritto: cook diced veg with rosemary, oregano, salt. Add tomato pur&eacute;e, caramelise. Deglaze with red wine vinegar</td></tr>
+        <tr><td>4:48 PM</td><td>Combine everything in casserole. Add stock + bouillon, tinned tomatoes, Worcestershire, dark soy, chipotle, Parmesan rind. Bring to simmer</td></tr>
+        <tr><td>4:55 PM</td><td>Sauce simmering &mdash; turn heat to lowest setting, stir well, lid slightly ajar. Tidy up</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; Bolognese simmers unattended</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Mash potatoes with butter &amp; warm milk. Cover and set aside</td></tr>
-        <tr><td>5:35 PM</td><td>Fry onions in butter over medium heat until golden</td></tr>
-        <tr><td>5:43 PM</td><td>Remove onions. Get pan smoking hot. Sear steaks 3&ndash;4 mins per side</td></tr>
-        <tr><td>5:51 PM</td><td>Rest steaks under foil. Cook frozen veg during rest</td></tr>
-        <tr><td>5:56 PM</td><td>Slice steaks against the grain. Plate up: mash, steak strips, fried onions, veg</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Give the sauce a stir &mdash; it should be thick and rich. Taste and adjust seasoning</td></tr>
+        <tr><td>5:32 PM</td><td>Put a large pot of water on to boil. Salt generously once boiling</td></tr>
+        <tr><td>5:38 PM</td><td>Cook 500g pasta (check packet timing). Remove Parmesan rind and rosemary stalks from sauce</td></tr>
+        <tr><td>5:48 PM</td><td>Drain pasta. Toss with sauce. Serve with shredded Parmesan, torn basil, and a drizzle of olive oil</td></tr>
       </tbody>
     </table>
   </div>
@@ -512,15 +551,28 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
+  // Ingredient data map
   const ingredients = {
-    'steak':      '2 large sirloin/striploin steaks (~300g each)',
-    'potatoes':   '1kg potatoes, peeled & quartered',
-    'frozen-veg': '1 bag frozen vegetables',
-    'onion':      '1 large onion, sliced into rings',
-    'butter':     '60g butter (40g mash, 20g onions)',
-    'milk':       '80ml milk, warmed',
-    'oil':        '1 tbsp rapeseed or sunflower oil',
-    'salt':       'Salt & freshly ground black pepper'
+    'pancetta':      '1 pack pancetta — crisp it first for deep savoury flavour',
+    'mince':         '800g lean beef mince — sear in clumps for maximum crust',
+    'carrots':       '2 medium carrots, diced — about ⅔ the usual Bolognese amount',
+    'celery':        '3 sticks celery, diced',
+    'onions':        '3 medium onions, diced',
+    'rosemary':      '2 sprigs fresh rosemary — remove stalks before serving',
+    'oregano':       '1 tsp dried oregano (or fresh)',
+    'puree':         '¼ tube tomato purée — caramelise on the pan base',
+    'vinegar':       'Good splash of red wine vinegar',
+    'stock':         '400ml chicken stock (homemade)',
+    'bouillon':      '1 beef bouillon cube — dissolve in the chicken stock',
+    'tomatoes':      '3 tins plum tomatoes',
+    'worcestershire':'Good splash of Worcestershire sauce',
+    'soy':           'Good splash of dark soy sauce — adds deep umami colour',
+    'chipotle':      'Smoked chipotle flakes to taste — smokiness, not heat',
+    'rind':          '1 Parmesan rind — melts into the sauce, remove before serving',
+    'oil':           '1 tbsp olive oil',
+    'pasta':         '500g pasta — rigatoni, pappardelle, or anything that holds sauce',
+    'parmesan':      'Parmesan, shredded, for serving',
+    'basil':         'Fresh basil, torn, for serving'
   };
 
   const tooltip = document.getElementById('tooltip');
@@ -544,6 +596,7 @@
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
       top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
     }
 
     tooltip.style.left = left + 'px';
@@ -584,6 +637,7 @@
     });
   });
 
+  // Prep-ahead checkbox persistence (keyed by today's date)
   (function() {
     const today = new Date().toISOString().slice(0, 10);
     const storageKey = 'prep-checks-' + today;
