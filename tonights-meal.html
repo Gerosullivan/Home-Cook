@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Lemon & Thyme Butter Salmon</title>
+<title>Tonight's Meal — Irish Pork &amp; Apple Skillet with Colcannon</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #d97757 0%, #a9472c 100%);
+    background: linear-gradient(135deg, #5a8a4e 0%, #2f5d2a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
@@ -78,7 +78,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #a9472c;
+    color: #2f5d2a;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -102,13 +102,23 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #a9472c;
+    background: #2f5d2a;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
     position: relative;
     top: -1px;
   }
+  .ingredients-group {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #2f5d2a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.4rem;
+    grid-column: 1 / -1;
+  }
+  .ingredients-group:first-child { margin-top: 0; }
   .step {
     display: flex;
     gap: 1rem;
@@ -116,7 +126,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #a9472c;
+    background: #2f5d2a;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -141,35 +151,35 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fbeee7;
-    border-left: 3px solid #a9472c;
+    background: #eef5ea;
+    border-left: 3px solid #2f5d2a;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #5d2e1d;
+    color: #1f3b1c;
   }
-  .callout strong { color: #a9472c; }
+  .callout strong { color: #2f5d2a; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
   }
   .callout.thermometer strong { color: #e65100; }
   .callout.kid {
-    background: #e8f5e9;
-    border-left-color: #2e7d32;
+    background: #fff8e1;
+    border-left-color: #c28c00;
   }
-  .callout.kid strong { color: #2e7d32; }
+  .callout.kid strong { color: #8a6200; }
   .callout.safety {
     background: #e3f2fd;
     border-left-color: #1565c0;
   }
   .callout.safety strong { color: #1565c0; }
-  .callout.fishmonger {
-    background: #e0f2f1;
-    border-left-color: #00796b;
+  .callout.pantry {
+    background: #f3ede1;
+    border-left-color: #8a6b2a;
   }
-  .callout.fishmonger strong { color: #00796b; }
+  .callout.pantry strong { color: #8a6b2a; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -179,7 +189,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fbeee7;
+    background: #eef5ea;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -192,20 +202,20 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #a9472c;
+    color: #2f5d2a;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #a9472c;
+    color: #2f5d2a;
     text-decoration: none;
-    border-bottom: 1px dashed #a9472c;
+    border-bottom: 1px dashed #2f5d2a;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #7f2f1a;
-    border-bottom-color: #7f2f1a;
+    color: #1e3f1a;
+    border-bottom-color: #1e3f1a;
   }
   .ing-tooltip {
     display: none;
@@ -236,7 +246,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #d97757;
+    color: #a8d29a;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -376,19 +386,19 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #a9472c !important; }
+  .timing-phase-row.cook td { color: #2f5d2a !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
     <div class="chefs-pick-badge">Chef's Pick</div>
-    <div class="date">Wednesday 22 April 2026</div>
-    <h1>🐟 Lemon &amp; Thyme Butter Salmon with Crushed Baby Potatoes &amp; Peas</h1>
+    <div class="date">Thursday 23 April 2026</div>
+    <h1>🍏 Irish Pork, Apple &amp; Thyme Skillet with Colcannon Mash &amp; Buttered Peas</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~45 mins total
+        ~55 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -396,24 +406,36 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Salmon &middot; Spring &middot; Irish
+        Pork &middot; Irish &middot; Freezer-first
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout fishmonger"><strong>🐟 Fishmonger pickup:</strong> Call in on the way home and ask for 5 salmon fillets, skin on, about 130&ndash;140g each. Spring salmon is in peak season right now &mdash; the fishmonger will be able to tell you what came in this morning. If salmon isn't available, fresh cod or hake fillets work just as well with this butter (pull them 2 mins earlier).</div>
+    <div class="callout pantry"><strong>🧊 Freezer-first:</strong> Tonight leans on what's already in the house &mdash; <a class="ing-link" data-ingredient="pork">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> from the freezer, <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> from the pantry, a couple of <a class="ing-link" data-ingredient="apples">apples</a>, <a class="ing-link" data-ingredient="peas">frozen peas</a> and a knob of <a class="ing-link" data-ingredient="butter">butter</a>. No shopping run needed. Pull the pork mince out of the freezer onto a plate in the fridge when you read this &mdash; it needs a head start to defrost.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, skin on (~130&ndash;140g each)</a></li>
-      <li><a class="ing-link" data-ingredient="potatoes">800g baby potatoes, scrubbed</a></li>
-      <li><a class="ing-link" data-ingredient="peas">250g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="butter">90g butter, softened (plus 15g for peas)</a></li>
-      <li><a class="ing-link" data-ingredient="lemon">2 lemons (1 zested &amp; juiced, 1 sliced into thin rounds)</a></li>
-      <li><a class="ing-link" data-ingredient="thyme">1 small bunch fresh thyme (leaves picked)</a></li>
+      <li class="ingredients-group">Pork &amp; apple skillet</li>
+      <li><a class="ing-link" data-ingredient="pork">500g pork mince, defrosted</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 large white onion, finely chopped</a></li>
       <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="apples">2 eating apples, cored &amp; coarsely grated</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 tsp dried thyme (or a few sprigs fresh)</a></li>
+      <li><a class="ing-link" data-ingredient="worcestershire">1 tbsp Worcestershire sauce</a></li>
+      <li><a class="ing-link" data-ingredient="stock">250ml chicken stock</a></li>
+      <li><a class="ing-link" data-ingredient="vinegar">1 tsp white wine vinegar</a></li>
       <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed oil</a></li>
+
+      <li class="ingredients-group">Colcannon mash</li>
+      <li><a class="ing-link" data-ingredient="potatoes">900g baby potatoes, skins on</a></li>
+      <li><a class="ing-link" data-ingredient="cabbage">200g savoy cabbage (frozen is grand)</a></li>
+      <li><a class="ing-link" data-ingredient="butter">80g butter (plus 20g for finishing)</a></li>
+      <li><a class="ing-link" data-ingredient="milk">100ml whole milk, warm</a></li>
+
+      <li class="ingredients-group">Buttered peas &amp; to finish</li>
+      <li><a class="ing-link" data-ingredient="peas">250g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter">15g butter</a></li>
       <li><a class="ing-link" data-ingredient="salt">Sea salt &amp; freshly ground black pepper</a></li>
     </ul>
 
@@ -421,33 +443,33 @@
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~20 min prep</span>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; par-boil spuds, build the butter, assemble the salmon tray</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; build the pork base, par-boil the potatoes, get the cabbage ready</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Scrub the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a>. Into a pot of salted cold water, bring to the boil, then simmer 10&ndash;12 mins until just tender (a knife slides in with a little resistance). Drain, tip onto a tray to steam-dry.</span>
+        <span class="prep-step-text">Chop the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Core and coarsely grate the <a class="ing-link" data-ingredient="apples">apples</a> (skins on is fine).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Pick the leaves from the <a class="ing-link" data-ingredient="thyme">thyme</a>. Zest 1 <a class="ing-link" data-ingredient="lemon">lemon</a> and juice half of it. Slice the other lemon into thin rounds. Finely chop the <a class="ing-link" data-ingredient="garlic">garlic</a>.</span>
+        <span class="prep-step-text">Heat the <a class="ing-link" data-ingredient="oil">oil</a> in a wide heavy pan over medium-high. Brown the <a class="ing-link" data-ingredient="pork">pork mince</a> in two batches, breaking it up until it's got real colour &mdash; 6&ndash;8 minutes total. Transfer to a bowl.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Mash the softened <a class="ing-link" data-ingredient="butter">butter</a> in a bowl with the lemon zest, half the juice, the chopped garlic, most of the thyme leaves (save a few for garnish) and a good pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Keep at room temp so it stays spoonable.</span>
+        <span class="prep-step-text">Drop the heat to medium. Soften the <a class="ing-link" data-ingredient="onion">onion</a> in the pork fat, 5 minutes. Add <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="thyme">thyme</a>, 30 seconds. Stir in the grated <a class="ing-link" data-ingredient="apples">apple</a>, <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a>, <a class="ing-link" data-ingredient="vinegar">vinegar</a> and <a class="ing-link" data-ingredient="stock">stock</a>. Return the pork, season, simmer gently 10 minutes until most liquid is gone. Taste, adjust. Lid on, off the heat.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Line a baking tray with parchment. Lay the <a class="ing-link" data-ingredient="salmon">salmon fillets</a> skin-down, spaced apart. Dot a generous spoon of the <a class="ing-link" data-ingredient="butter">lemon-thyme butter</a> on each. Tuck <a class="ing-link" data-ingredient="lemon">lemon slices</a> around the fillets. Cover with foil and put the tray in the fridge.</span>
+        <span class="prep-step-text">Scrub the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a>. Halve any larger ones. Into a big pot of well-salted cold water, bring to the boil, then simmer 15&ndash;18 minutes until a knife slides straight through. Drain, return to the pot, lid on, off the heat &mdash; they'll stay warm enough.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Tip the steam-dried <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> onto a second oiled tray. Leave uncovered &mdash; you'll crush &amp; roast them later.</span>
+        <span class="prep-step-text">Tip the <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> into a colander in the sink so it starts to thaw. Measure out <a class="ing-link" data-ingredient="butter">80g butter</a> for the mash and pour <a class="ing-link" data-ingredient="milk">100ml milk</a> into a mug ready to warm later.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -456,70 +478,75 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Salmon sits in the fridge under its butter blanket &mdash; the flavours infuse and it stays safely cold. Potatoes dry out on the tray so they'll crisp up beautifully when crushed and roasted.</div>
+        <div class="prep-passive-item">The pork and apple sit quietly in the pan soaking up each other's flavour &mdash; it actually tastes better after a 30-minute rest. Potatoes stay warm under the lid. Cabbage defrosts slowly in the sink so it's ready to wilt in seconds when you're back.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife after handling the raw salmon. The tray goes into the fridge (not left on the counter) while you're away &mdash; the kitchen can warm up and fish doesn't forgive that.</div>
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife after handling the raw pork. Once the mince is browned and in the sauce it's safe to leave covered at room temp for 30&ndash;40 minutes. If you're gone longer, slide the pan into the fridge and give it a proper reheat when you're back.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Preheat &amp; start the potatoes <span class="step-time">~15 mins</span></div>
-        <div class="step-text">Crank the oven to 200°C fan. Drizzle the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> with the <a class="ing-link" data-ingredient="oil">rapeseed oil</a>, season with <a class="ing-link" data-ingredient="salt">salt and pepper</a>, and use the base of a glass or a fork to crush each one flat so you get craggy edges. Into the hot oven &mdash; they need a ~10&nbsp;minute head start before the salmon joins them.</div>
+        <div class="step-title">Reheat the pork &amp; apple <span class="step-time">~6 mins</span></div>
+        <div class="step-text">Back from pickup &mdash; set the <a class="ing-link" data-ingredient="pork">pork pan</a> on medium heat with the lid on to come back up to a gentle bubble. Stir once or twice. If it looks dry, splash in 2 tbsp water or extra <a class="ing-link" data-ingredient="stock">stock</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Salmon into the oven <span class="step-time">12&ndash;14 mins</span></div>
-        <div class="step-text">Take the <a class="ing-link" data-ingredient="salmon">salmon tray</a> out of the fridge. Remove the foil. Slide it onto the rack above (or beside) the potatoes. Bake 12&ndash;14 minutes depending on thickness &mdash; the butter will melt and baste the fillets as they cook.</div>
+        <div class="step-title">Wilt the cabbage <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Squeeze excess water from the thawed <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a>. Melt a knob of the mash <a class="ing-link" data-ingredient="butter">butter</a> (about 20g) in a small pan, add the cabbage with a pinch of salt and toss over medium heat until it's hot and glossy &mdash; about 2&ndash;3 minutes. Off the heat.</div>
       </div>
     </div>
-
-    <div class="callout thermometer"><strong>🌡️ Thermometer:</strong> Probe the thickest part of the biggest fillet. Pull at <strong>50°C</strong> for pale pink and flaky &mdash; it'll carry to 52&ndash;54°C on the tray. Don't go past 58°C or the fish turns dry. Use one of your wireless probes &mdash; no guessing.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the peas <span class="step-time">~4 mins</span></div>
-        <div class="step-text">In the last few minutes of the salmon cook, tip the <a class="ing-link" data-ingredient="peas">peas</a> into a small pot of boiling salted water. 3 minutes is plenty. Drain, return to the pot, toss with 15g <a class="ing-link" data-ingredient="butter">butter</a> and a pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Lid on.</div>
+        <div class="step-title">Mash the spuds <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Warm the <a class="ing-link" data-ingredient="milk">milk</a> in the microwave 30 seconds. Back on a low hob, mash the <a class="ing-link" data-ingredient="potatoes">potatoes</a> (skins on, rustic is fine) with the remaining <a class="ing-link" data-ingredient="butter">60g butter</a>, working it in until glossy. Loosen with the warm milk, bit by bit, until you like the texture. Fold the buttery <a class="ing-link" data-ingredient="cabbage">cabbage</a> through. Season generously.</div>
       </div>
     </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you fold the cabbage through the mash, scoop out a plain-mash portion for Child 3 (the 2-year-old) &mdash; plain buttery spud is often more popular than green-flecked spud at that age. Serve theirs on the side of a small pork-apple spoonful and add a few peas around it.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Rest &amp; plate up <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pull the <a class="ing-link" data-ingredient="salmon">salmon</a> out and let it sit for 2 minutes &mdash; this finishes the cook. Spoon some <a class="ing-link" data-ingredient="potatoes">crushed potatoes</a>, a generous scoop of buttery <a class="ing-link" data-ingredient="peas">peas</a>, and a fillet onto each plate. Spoon the melted <a class="ing-link" data-ingredient="butter">lemon-thyme butter</a> from the salmon tray over the top. Scatter the reserved thyme leaves.</div>
+        <div class="step-title">Peas on the go <span class="step-time">~4 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="peas">peas</a> into a small pot of boiling salted water. 3 minutes is enough. Drain, return to the hot pot, toss with 15g <a class="ing-link" data-ingredient="butter">butter</a> and a pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Lid on.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly notes:</strong> For Child 2 &amp; 3 (the younger two), flake the salmon off the skin into small pieces and stir a spoon of the lemon-thyme butter through their peas &mdash; they'll eat more of each that way. The flavours are mild, buttery and non-spicy, which is exactly what they like. The crushed potatoes are basically roast potato edges &mdash; always a winner.</div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">A generous scoop of <a class="ing-link" data-ingredient="potatoes">colcannon</a> on each plate, pressed into a nest with the back of the spoon. Spoon the <a class="ing-link" data-ingredient="pork">pork &amp; apple</a> into the nest so the gravy pools in the mash. Buttery <a class="ing-link" data-ingredient="peas">peas</a> to the side. A final crack of pepper.</div>
+      </div>
+    </div>
 
-    <div class="callout"><strong>💡 Tip:</strong> This is a <strong>Chef's Pick</strong> &mdash; not part of the 3-week rotation. Nothing was planned for tonight so I picked something that uses the expiring <a class="ing-link" data-ingredient="thyme">fresh thyme</a>, <a class="ing-link" data-ingredient="lemon">lemons</a>, <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and <a class="ing-link" data-ingredient="butter">butter</a> already in the fridge and pantry, leans on spring Irish salmon from the fishmonger, and stays clear of the Italian/Thai/Korean proteins from earlier in the month.</div>
+    <div class="callout"><strong>💡 Tip:</strong> This is a <strong>Chef's Pick</strong> &mdash; nothing was on the plan for Thursday Week&nbsp;3, so I pulled this together from what's already in the house. It uses the <a class="ing-link" data-ingredient="pork">pork mince</a> and <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> sitting in the freezer, a couple of <a class="ing-link" data-ingredient="apples">apples</a> from the pantry, and the last of the <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a> (0.2 bottle left &mdash; time to use it). It's also a completely different direction from yesterday's salmon and steers well clear of the chicken and steak already booked for the rest of this week.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:38 PM</td><td>Scrub baby potatoes, into salted cold water, bring to boil then simmer 10&ndash;12 mins</td></tr>
-        <tr><td>4:42 PM</td><td>Pick thyme leaves. Zest 1 lemon, juice half. Slice second lemon into rounds. Chop garlic</td></tr>
-        <tr><td>4:48 PM</td><td>Mash softened butter with lemon zest, juice, garlic, most thyme leaves, pinch salt</td></tr>
-        <tr><td>4:52 PM</td><td>Drain potatoes, tip onto tray to steam-dry</td></tr>
-        <tr><td>4:55 PM</td><td>Line tray, lay salmon skin-down, dot butter, tuck lemon slices. Foil on &mdash; into fridge</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for school pickup &mdash; salmon tray in fridge, potatoes steam-drying on tray</td></tr>
+        <tr><td>4:35 PM</td><td>Chop onion &amp; garlic. Core and grate the apples</td></tr>
+        <tr><td>4:40 PM</td><td>Heat oil in heavy pan, brown pork mince in two batches (6&ndash;8 mins)</td></tr>
+        <tr><td>4:48 PM</td><td>Soften onion in pork fat, add garlic &amp; thyme, stir in apple, Worcestershire, vinegar, stock. Return pork, simmer 10 mins. Lid on, off the heat</td></tr>
+        <tr><td>4:50 PM</td><td>Baby potatoes scrubbed into salted cold water, bring to boil &mdash; simmer 15&ndash;18 mins</td></tr>
+        <tr><td>4:58 PM</td><td>Tip savoy cabbage into colander in the sink to thaw. Measure 80g butter, 100ml milk</td></tr>
+        <tr><td>5:00 PM</td><td>Drain potatoes, lid on, off the heat. Leave for school pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Oven on, 200°C fan</td></tr>
-        <tr><td>5:40 PM</td><td>Oil &amp; season baby potatoes, crush flat, into the hot oven</td></tr>
-        <tr><td>5:50 PM</td><td>Salmon tray out of fridge, foil off, into oven above the potatoes (probe the biggest fillet)</td></tr>
-        <tr><td>5:58 PM</td><td>Peas into boiling salted water, 3 mins. Drain, toss with 15g butter</td></tr>
-        <tr><td>6:02 PM</td><td>Salmon at 50°C &mdash; pull, rest 2 mins</td></tr>
-        <tr><td>6:05 PM</td><td>Plate up: potatoes, peas, salmon, spoon over the lemon-thyme butter</td></tr>
+        <tr><td>5:30 PM</td><td>Pork pan back on medium, lid on, reheat gently (splash of water if needed)</td></tr>
+        <tr><td>5:36 PM</td><td>Squeeze cabbage, wilt in 20g butter &mdash; 2&ndash;3 mins. Off the heat</td></tr>
+        <tr><td>5:40 PM</td><td>Warm milk 30 secs. Mash potatoes with 60g butter, loosen with milk, fold cabbage through</td></tr>
+        <tr><td>5:45 PM</td><td>Peas into boiling salted water, 3 mins. Drain, toss with 15g butter</td></tr>
+        <tr><td>5:49 PM</td><td>Plate: colcannon nest, pork &amp; apple in the middle, peas to the side</td></tr>
       </tbody>
     </table>
   </div>
@@ -530,15 +557,21 @@
 
 <script>
   const ingredients = {
-    'salmon':   '5 salmon fillets, skin on (~130–140g each) — from the fishmonger today',
-    'potatoes': '800g baby potatoes, scrubbed',
-    'peas':     '250g frozen peas',
-    'butter':   '90g butter softened for the sauce + 15g for the peas',
-    'lemon':    '2 lemons — 1 zested & half-juiced, 1 sliced into rounds',
-    'thyme':    '1 small bunch fresh thyme, leaves picked',
-    'garlic':   '3 cloves garlic, finely chopped',
-    'oil':      '1 tbsp rapeseed oil',
-    'salt':     'Sea salt & freshly ground black pepper'
+    'pork':           '500g pork mince, defrosted (from the freezer — pull it out early)',
+    'onion':          '1 large white onion, finely chopped',
+    'garlic':         '3 cloves garlic, finely chopped',
+    'apples':         '2 eating apples, cored & coarsely grated (skins on is fine)',
+    'thyme':          '1 tsp dried thyme (or a few sprigs fresh, leaves picked)',
+    'worcestershire': '1 tbsp Worcestershire sauce — uses the last of the open bottle',
+    'stock':          '250ml chicken stock (from the 2L portion in the freezer)',
+    'vinegar':        '1 tsp white wine vinegar — brightens the sauce',
+    'oil':            '1 tbsp rapeseed oil for browning',
+    'potatoes':       '900g baby potatoes, skins on, scrubbed, larger ones halved',
+    'cabbage':        '200g savoy cabbage — the bag in the freezer is perfect',
+    'butter':         '115g butter total: 80g for the mash + 20g for the cabbage + 15g for the peas',
+    'milk':           '100ml whole milk, warmed (microwave 30s)',
+    'peas':           '250g frozen peas',
+    'salt':           'Sea salt & freshly ground black pepper, throughout'
   };
 
   const tooltip = document.getElementById('tooltip');
