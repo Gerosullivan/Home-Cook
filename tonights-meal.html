@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Chicken Pad Thai (RecipeTin Eats)</title>
+<title>Tonight's Meal — Sticky Honey-Garlic Pork Bowls (Chef's Pick)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,11 +28,27 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #e07b3b 0%, #a2262c 100%);
+    background: linear-gradient(135deg, #2d8068 0%, #b8860b 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
   }
+  .chefs-pick-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    margin-bottom: 0.6rem;
+  }
+  .chefs-pick-badge svg { width: 12px; height: 12px; }
   .date {
     font-size: 0.85rem;
     opacity: 0.9;
@@ -63,7 +79,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #a2262c;
+    color: #1f6b5c;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -87,7 +103,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #a2262c;
+    background: #1f6b5c;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -97,7 +113,7 @@
   .ingredients-group {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #a2262c;
+    color: #1f6b5c;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 1rem 0 0.4rem;
@@ -112,7 +128,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #a2262c;
+    background: #1f6b5c;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -137,15 +153,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdeee6;
-    border-left: 3px solid #d94f3c;
+    background: #fdf6e3;
+    border-left: 3px solid #b8860b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #5a1a1e;
+    color: #5a4a1e;
   }
-  .callout strong { color: #a2262c; }
+  .callout strong { color: #b8860b; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -166,6 +182,12 @@
     border-left-color: #8a6b2a;
   }
   .callout.pantry strong { color: #8a6b2a; }
+  .callout.chefspick {
+    background: #e8f5ee;
+    border-left-color: #2d8068;
+    margin-left: 0;
+  }
+  .callout.chefspick strong { color: #1f6b5c; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -175,7 +197,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdeee6;
+    background: #e8f5ee;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -188,20 +210,20 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #a2262c;
+    color: #1f6b5c;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #a2262c;
+    color: #1f6b5c;
     text-decoration: none;
-    border-bottom: 1px dashed #a2262c;
+    border-bottom: 1px dashed #1f6b5c;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #6e161b;
-    border-bottom-color: #6e161b;
+    color: #144239;
+    border-bottom-color: #144239;
   }
   .ing-tooltip {
     display: none;
@@ -232,7 +254,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #f5b894;
+    color: #f3d287;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -240,9 +262,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #fdf4ec;
-    border: 1px solid #f4d4b8;
-    border-left: 4px solid #d94f3c;
+    background: #f0f8f4;
+    border: 1px solid #c4dfd0;
+    border-left: 4px solid #2d8068;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -253,14 +275,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #d94f3c; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2d8068; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #d94f3c;
+    color: #2d8068;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #d94f3c;
+    background: #2d8068;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -271,7 +293,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #8a3a2a;
+    color: #1f5f4f;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -279,14 +301,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #f4d4b8;
+    border-bottom: 1px solid #c4dfd0;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #d94f3c;
+    border: 2px solid #2d8068;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -295,7 +317,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #d94f3c;
+    background: #2d8068;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -326,8 +348,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #fce2d0;
-    color: #8a3a2a;
+    background: #d4ebde;
+    color: #1f5f4f;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -335,7 +357,7 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #f4b88a;
+    border-top: 1px dashed #8ab8a4;
     margin: 0.75rem 0;
   }
   .prep-passive {
@@ -371,22 +393,26 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #d94f3c !important; }
-  .timing-phase-row.cook td { color: #a2262c !important; }
+  .timing-phase-row.prep td { color: #2d8068 !important; }
+  .timing-phase-row.cook td { color: #1f6b5c !important; }
   .source-link {
     font-size: 0.8rem;
     color: #888;
     margin-top: 1.25rem;
     text-align: center;
   }
-  .source-link a { color: #a2262c; text-decoration: none; }
+  .source-link a { color: #1f6b5c; text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Friday 24 April 2026</div>
-    <h1>🍜 Chicken Pad Thai</h1>
+    <div class="chefs-pick-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+      Chef's Pick
+    </div>
+    <div class="date">Saturday 25 April 2026</div>
+    <h1>🍯 Sticky Honey-Garlic Pork Mince Rice Bowls</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -398,143 +424,156 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Chicken &middot; Thai &middot; Week 3 Friday
+        Pork &middot; Asian fakeaway
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout"><strong>🍜 Week 3 Friday:</strong> Homemade takeaway night &mdash; RecipeTin Eats&rsquo; <a class="ing-link" data-ingredient="padthai">Chicken Pad Thai</a>, scaled up from 3 to 5 servings. All the prep fits comfortably before pickup so you&rsquo;re just tossing a wok for ten minutes when you&rsquo;re back.</div>
+    <div class="callout chefspick"><strong>👨‍🍳 Chef's Pick &mdash; Saturday fakeaway:</strong> Saturdays are normally takeaway night. This is a homemade alternative built entirely from what's on the shelf: <a class="ing-link" data-ingredient="pork-mince">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="rice">sushi rice</a>, frozen veg, and the well-stocked Asian sauce drawer. Sticky, sweet, mild &mdash; tailor-made for the kids. If you fancy ordering in instead, no harm done.</div>
+
+    <div class="callout pantry"><strong>🧊 Defrost note:</strong> The <a class="ing-link" data-ingredient="pork-mince">pork mince</a> needs defrosting. Pull 700g from the freezer first thing this morning into the fridge. If it&rsquo;s late in the day, run it under cold water in its bag for 30&ndash;40 mins, or fall back to the takeaway.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="ingredients-group">Sauce</li>
-      <li><a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind puree (not concentrate)</a></li>
-      <li><a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar, packed</a></li>
-      <li><a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a></li>
-      <li><a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a></li>
+      <li class="ingredients-group">Bowls</li>
+      <li><a class="ing-link" data-ingredient="pork-mince">700g pork mince</a></li>
+      <li><a class="ing-link" data-ingredient="rice">350g sushi rice</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">4 cloves garlic, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed/groundnut oil</a></li>
+      <li><a class="ing-link" data-ingredient="sesame-oil-pork">1 tbsp sesame oil</a></li>
 
-      <li class="ingredients-group">Stir-fry</li>
-      <li><a class="ing-link" data-ingredient="noodles">210g dried rice stick (pad thai) noodles</a></li>
-      <li><a class="ing-link" data-ingredient="oil">5 tbsp vegetable oil</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 medium onion, finely sliced</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="chicken">250g chicken breast or thigh, thinly sliced</a></li>
-      <li><a class="ing-link" data-ingredient="eggs">3 eggs, lightly whisked</a></li>
-      <li><a class="ing-link" data-ingredient="tofu">210g firm tofu, cut into 3cm batons</a></li>
-      <li><a class="ing-link" data-ingredient="beansprouts">125g beansprouts</a></li>
-      <li><a class="ing-link" data-ingredient="chives">40g garlic chives, cut into 3cm pieces</a></li>
+      <li class="ingredients-group">Sticky honey-garlic sauce</li>
+      <li><a class="ing-link" data-ingredient="honey">4 tbsp honey</a></li>
+      <li><a class="ing-link" data-ingredient="light-soy">4 tbsp light soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="dark-soy">1 tbsp dark soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="mirin">2 tbsp mirin</a></li>
+      <li><a class="ing-link" data-ingredient="oyster-sauce">2 tbsp oyster sauce</a></li>
+      <li><a class="ing-link" data-ingredient="rice-vinegar">1 tsp rice vinegar</a></li>
+      <li><a class="ing-link" data-ingredient="cornflour">1 tsp cornflour + 2 tbsp cold water (slurry)</a></li>
+
+      <li class="ingredients-group">Sesame veg side</li>
+      <li><a class="ing-link" data-ingredient="broccoli">300g frozen broccoli florets</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">150g frozen sliced carrots</a></li>
+      <li><a class="ing-link" data-ingredient="peas">150g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="sesame-oil-veg">½ tbsp sesame oil</a></li>
+      <li><a class="ing-link" data-ingredient="veg-soy">1 tbsp light soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="veg-honey">1 tsp honey</a></li>
 
       <li class="ingredients-group">To finish</li>
-      <li><a class="ing-link" data-ingredient="peanuts">60g peanuts, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="lime">1 lime, cut into wedges</a></li>
-      <li><a class="ing-link" data-ingredient="chilli">Ground chilli or cayenne (on the side, optional)</a></li>
+      <li><a class="ing-link" data-ingredient="sesame-seeds">2 tbsp toasted sesame seeds</a></li>
+      <li><a class="ing-link" data-ingredient="chives">Pinch of dried chives (optional)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~20 min prep</span>
+        <span class="prep-time-pill">~12 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; everything chopped, sauced and measured so the wok is 10 minutes flat when you&rsquo;re home.</div>
+      <div class="prep-context">Saturday is gentler than a school night &mdash; no 5:00 PM pickup pressure. But everything below can be done any time before dinner so the cook is a calm 25 minutes start to finish.</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind</a>, <a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar</a>, <a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a>, <a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a> in a small bowl until the sugar dissolves.</span>
+        <span class="prep-step-text">Pull <a class="ing-link" data-ingredient="pork-mince">700g pork mince</a> from the freezer to the fridge first thing &mdash; ideally a full day ahead, otherwise as early as possible.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Slice the <a class="ing-link" data-ingredient="onion">onion</a> finely and chop the <a class="ing-link" data-ingredient="garlic">garlic</a>. Cube the <a class="ing-link" data-ingredient="tofu">tofu</a> into 3cm batons and pat dry. Cut the <a class="ing-link" data-ingredient="chives">garlic chives</a> into 3cm lengths.</span>
+        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="honey">4 tbsp honey</a>, <a class="ing-link" data-ingredient="light-soy">4 tbsp light soy</a>, <a class="ing-link" data-ingredient="dark-soy">1 tbsp dark soy</a>, <a class="ing-link" data-ingredient="mirin">2 tbsp mirin</a>, <a class="ing-link" data-ingredient="oyster-sauce">2 tbsp oyster sauce</a>, <a class="ing-link" data-ingredient="rice-vinegar">1 tsp rice vinegar</a>. Cover.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="chicken">chicken</a> (easier when fridge-cold). Season with a pinch of salt, cover and return to the fridge.</span>
+        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="garlic">4 cloves of garlic</a>. In a tiny bowl, mix <a class="ing-link" data-ingredient="cornflour">1 tsp cornflour with 2 tbsp cold water</a> &mdash; this is your slurry, set aside.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Lightly whisk the <a class="ing-link" data-ingredient="eggs">3 eggs</a> in a small bowl. Rinse the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and leave draining in a colander. Finely chop the <a class="ing-link" data-ingredient="peanuts">peanuts</a>, cut the <a class="ing-link" data-ingredient="lime">lime</a> into wedges.</span>
+        <span class="prep-step-text">Rinse <a class="ing-link" data-ingredient="rice">350g sushi rice</a> in cold water until it runs almost clear (3&ndash;4 changes). Drain well, leave in the rice pot ready to switch on.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in a bowl of just-boiled water for 5 minutes, then drain and rinse well under cold water. Toss with ½ tsp oil so they don&rsquo;t stick, cover.</span>
+        <span class="prep-step-text">Toast <a class="ing-link" data-ingredient="sesame-seeds">2 tbsp sesame seeds</a> in a dry pan over medium heat, shaking 1&ndash;2 mins until golden. Tip into a small bowl &mdash; do this now so the pan&rsquo;s free for the pork.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Measure veg into one bowl: <a class="ing-link" data-ingredient="broccoli">300g broccoli</a>, <a class="ing-link" data-ingredient="carrots">150g carrots</a>, <a class="ing-link" data-ingredient="peas">150g peas</a>. Mix the veg dressing in another tiny bowl: <a class="ing-link" data-ingredient="sesame-oil-veg">½ tbsp sesame oil</a> + <a class="ing-link" data-ingredient="veg-soy">1 tbsp light soy</a> + <a class="ing-link" data-ingredient="veg-honey">1 tsp honey</a>.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
       <div class="prep-passive">
         <div class="prep-passive-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          While you&rsquo;re at pickup
+          What sits well
         </div>
-        <div class="prep-passive-item">Raw chicken in the fridge, sauce on the counter, noodles covered and oiled. The wok stays cold &mdash; this dish wants one hot, fast pass when you&rsquo;re back.</div>
+        <div class="prep-passive-item">Sauce, slurry, garlic, dressed veg can all live in the fridge for hours. Rinsed rice in the pot is fine on the counter for an hour or two before you switch it on.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife right after slicing the raw chicken. The kitchen can be warm this time of year &mdash; keep the sliced chicken in the fridge while you&rsquo;re on the school run, not on the counter.</div>
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash hands, board and the bowl after handling raw <a class="ing-link" data-ingredient="pork-mince">pork mince</a>. Defrosted mince should go straight into the fridge until cook time &mdash; don&rsquo;t leave it on the counter.</div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you add the sauce to the wok, scoop out a small portion of plain buttered noodles with a bit of chicken and egg for Child 3 (2 yo). Tamarind and fish sauce are punchy &mdash; the plain version is more her speed. Keep the <a class="ing-link" data-ingredient="chilli">chilli</a> and extra peanuts strictly on the side for the grown-ups.</div>
+    <div class="callout kid"><strong>👶 Kid-friendly trick:</strong> Before you stir the sauce into the mince, scoop out a small portion of plain browned mince + plain rice for Child 3 (2 yo) and Child 2 (3 yo) if needed. The sauce is sweet and mild but salty &mdash; the youngest two often prefer the plain version. Sesame seeds on top of theirs is fine.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Fire up the wok <span class="step-time">~1 min</span></div>
-        <div class="step-text">Get your biggest non-stick pan or wok screaming hot over high heat. Have every bowl lined up beside it &mdash; sauce, chicken, egg, noodles, chives, beansprouts. Once you start, you don&rsquo;t stop.</div>
+        <div class="step-title">Rice on first <span class="step-time">~12 mins active, then 10 mins rest</span></div>
+        <div class="step-text">Tip the rinsed <a class="ing-link" data-ingredient="rice">sushi rice</a> into the pot with 525ml cold water (1.5&times; the rice volume) and a small pinch of salt. Lid on, bring to a boil, then drop to the lowest simmer for 12 minutes. Off the heat, lid still on, leave 10 minutes to steam. Don&rsquo;t lift the lid in between.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Garlic, onion &amp; chicken <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="oil">3 tbsp of the oil</a>. Tip in the <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="onion">onion</a>, toss 30 seconds until fragrant. Add the <a class="ing-link" data-ingredient="chicken">chicken</a> and stir-fry 1½ minutes until it&rsquo;s mostly cooked through &mdash; still a hint of pink is fine, it finishes in a moment.</div>
+        <div class="step-title">Brown the pork <span class="step-time">~6 mins</span></div>
+        <div class="step-text">While the rice simmers: heat a wide heavy pan over medium-high. Add the <a class="ing-link" data-ingredient="oil">rapeseed oil</a>, then the <a class="ing-link" data-ingredient="pork-mince">pork mince</a>. Break it up with a wooden spoon and let it sit for 2 minutes to take colour, then start stirring. Cook 4&ndash;5 minutes more until no pink remains and any liquid has steamed off. Drain off excess fat if it looks oily &mdash; you want about a tablespoon left.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Scramble the eggs <span class="step-time">~1 min</span></div>
-        <div class="step-text">Push everything to one side of the pan. Pour the last <a class="ing-link" data-ingredient="oil">2 tbsp oil</a> and the whisked <a class="ing-link" data-ingredient="eggs">eggs</a> into the cleared side. Let them set for 20 seconds, then scramble with the back of the spoon and fold the chicken back through.</div>
+        <div class="step-title">Garlic + sesame oil <span class="step-time">~30 secs</span></div>
+        <div class="step-text">Drop the heat to medium. Push the mince to one side, add the <a class="ing-link" data-ingredient="sesame-oil-pork">sesame oil</a> and <a class="ing-link" data-ingredient="garlic">chopped garlic</a> to the cleared spot. Sizzle 30 seconds until fragrant but not browning, then stir through the mince.</div>
       </div>
     </div>
+
+    <div class="callout kid"><strong>🥄 Scoop-out moment:</strong> Right now, before any sauce hits the pan, lift out a portion of plain mince for the youngest if they&rsquo;d prefer. Pair it with plain rice and a few peas.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Tofu, noodles &amp; sauce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add the <a class="ing-link" data-ingredient="tofu">tofu</a>, most of the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> (hold a handful back for the table) and the <a class="ing-link" data-ingredient="noodles">noodles</a>. Pour in all of the <a class="ing-link" data-ingredient="sauce">sauce</a>. Toss with tongs or two spatulas so every strand picks up colour.</div>
+        <div class="step-title">Sauce in &mdash; reduce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pour in the whisked <a class="ing-link" data-ingredient="sauce">sauce</a>. Stir, bring to a bubble, simmer 1&ndash;2 minutes &mdash; you&rsquo;ll see it thicken and start to glaze the meat.</div>
       </div>
     </div>
-
-    <div class="callout kid"><strong>🍜 Scoop-out moment:</strong> Right before you pour the sauce in, lift out a portion of plain noodles + chicken + egg into a small bowl &mdash; that&rsquo;s Child 3&rsquo;s dinner sorted. Then pour the sauce for the rest.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Toss until glossy <span class="step-time">~1½ mins</span></div>
-        <div class="step-text">Keep tossing for about a minute and a half &mdash; the noodles drink up the sauce and turn glossy reddish-brown. If it looks dry, a splash of water loosens things without watering down the flavour.</div>
+        <div class="step-title">Slurry &mdash; gloss it up <span class="step-time">~1 min</span></div>
+        <div class="step-text">Stir the <a class="ing-link" data-ingredient="cornflour">cornflour slurry</a> (it settles, so re-mix it). Pour it in while stirring &mdash; the sauce will instantly tighten into a glossy, sticky coat. Take off the heat once it clings to the mince.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Chives &amp; half the peanuts <span class="step-time">~30 secs</span></div>
-        <div class="step-text">Scatter in the <a class="ing-link" data-ingredient="chives">garlic chives</a> and half of the <a class="ing-link" data-ingredient="peanuts">chopped peanuts</a>. Toss once or twice &mdash; the chives should wilt but still have bite. Off the heat.</div>
+        <div class="step-title">Steam the veg <span class="step-time">~5 mins, in parallel</span></div>
+        <div class="step-text">While the sauce reduces (step 4), microwave-steam the <a class="ing-link" data-ingredient="broccoli">broccoli</a>, <a class="ing-link" data-ingredient="carrots">carrots</a> and <a class="ing-link" data-ingredient="peas">peas</a> in a covered bowl with 2 tbsp water for 4&ndash;5 mins on full power until tender but bright. Drain. Toss with the veg dressing (<a class="ing-link" data-ingredient="sesame-oil-veg">sesame oil</a> + <a class="ing-link" data-ingredient="veg-soy">soy</a> + <a class="ing-link" data-ingredient="veg-honey">honey</a>).</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">7</div>
       <div class="step-content">
-        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pile into bowls. Top with the remaining <a class="ing-link" data-ingredient="peanuts">peanuts</a>, the reserved fresh <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and a <a class="ing-link" data-ingredient="lime">lime wedge</a>. A little pot of <a class="ing-link" data-ingredient="chilli">chilli</a> on the side for Ger and Maura.</div>
+        <div class="step-title">Build the bowls <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Fluff the rice with a fork. Bowl up: a bed of rice, a generous spoon of sticky pork mince on top, the sesame veg tucked alongside. Shower with the <a class="ing-link" data-ingredient="sesame-seeds">toasted sesame seeds</a> and a pinch of <a class="ing-link" data-ingredient="chives">dried chives</a> if you fancy. Serve right away.</div>
       </div>
     </div>
 
@@ -542,25 +581,28 @@
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:40 PM</td><td>Whisk the sauce (tamarind, brown sugar, fish sauce, oyster sauce)</td></tr>
-        <tr><td>4:43 PM</td><td>Slice onion, chop garlic, cube tofu, cut garlic chives</td></tr>
-        <tr><td>4:50 PM</td><td>Thinly slice chicken, season, back into the fridge. Wash board &amp; knife</td></tr>
-        <tr><td>4:54 PM</td><td>Whisk eggs, rinse beansprouts, chop peanuts, cut lime wedges</td></tr>
-        <tr><td>4:58 PM</td><td>Soak noodles 5 mins, drain, rinse cold, toss with ½ tsp oil, cover</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Wok on high, line up every bowl beside the hob</td></tr>
-        <tr><td>5:32 PM</td><td>3 tbsp oil, garlic + onion 30 secs, chicken 1½ mins</td></tr>
-        <tr><td>5:34 PM</td><td>Push aside, 2 tbsp oil, pour in eggs, scramble, fold chicken back</td></tr>
-        <tr><td>5:35 PM</td><td>Add tofu, most beansprouts, noodles. Scoop out Child 3&rsquo;s portion. Pour sauce</td></tr>
-        <tr><td>5:37 PM</td><td>Toss 1½ mins until glossy</td></tr>
-        <tr><td>5:39 PM</td><td>Garlic chives + half the peanuts, toss 30 secs. Off the heat</td></tr>
-        <tr><td>5:40 PM</td><td>Plate: peanuts, fresh beansprouts, lime wedges, chilli on the side</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; any time before dinner</td></tr>
+        <tr><td>Morning</td><td>Pork mince freezer &rarr; fridge to defrost</td></tr>
+        <tr><td>+0 min</td><td>Whisk the sauce, cover</td></tr>
+        <tr><td>+2 min</td><td>Chop garlic, mix cornflour slurry</td></tr>
+        <tr><td>+5 min</td><td>Rinse sushi rice, drain, leave in pot</td></tr>
+        <tr><td>+8 min</td><td>Toast sesame seeds 1&ndash;2 mins, set aside</td></tr>
+        <tr><td>+10 min</td><td>Measure frozen veg, mix veg dressing</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; ~25 mins to the table</td></tr>
+        <tr><td>0:00</td><td>Rice on: 525ml cold water + pinch salt, lid, bring to boil</td></tr>
+        <tr><td>0:02</td><td>Drop rice to lowest simmer, set 12-min timer</td></tr>
+        <tr><td>0:03</td><td>Heat wide pan, add oil + pork mince, break up</td></tr>
+        <tr><td>0:09</td><td>Drain excess fat. Garlic + sesame oil, 30 secs</td></tr>
+        <tr><td>0:10</td><td>Pour in sauce, simmer 1&ndash;2 mins. Microwave veg in parallel</td></tr>
+        <tr><td>0:12</td><td>Cornflour slurry into pork &mdash; glossy, off the heat</td></tr>
+        <tr><td>0:14</td><td>Rice timer ends &mdash; off heat, lid on, 10-min steam</td></tr>
+        <tr><td>0:14</td><td>Drain veg, toss with dressing</td></tr>
+        <tr><td>0:24</td><td>Fluff rice, build bowls, sesame seeds + chives</td></tr>
+        <tr><td>0:25</td><td>To the table</td></tr>
       </tbody>
     </table>
 
-    <div class="source-link">Adapted from <a href="https://www.recipetineats.com/chicken-pad-thai/" target="_blank" rel="noopener">RecipeTin Eats &mdash; Chicken Pad Thai</a> &middot; scaled 3 &rarr; 5 servings</div>
+    <div class="source-link">Chef's Pick &mdash; original recipe built from inventory &middot; Saturday 25 April 2026</div>
   </div>
 </div>
 
@@ -569,24 +611,27 @@
 
 <script>
   const ingredients = {
-    'padthai':      'Chicken Pad Thai — RecipeTin Eats recipe, scaled from 3 → 5 servings',
-    'tamarind':     '2½ tbsp tamarind puree (not concentrate). Thick brown paste — check the Asian aisle or pantry',
-    'brown-sugar':  '5 tbsp brown sugar, firmly packed',
-    'fish-sauce':   '3½ tbsp fish sauce',
-    'oyster-sauce': '2½ tbsp oyster sauce',
-    'sauce':        'The whisked tamarind + brown sugar + fish sauce + oyster sauce mix',
-    'noodles':      '210g dried rice stick (pad thai) noodles — flat, about 5mm wide',
-    'oil':          '5 tbsp vegetable oil total — 3 tbsp for garlic/onion/chicken, 2 tbsp with the eggs',
-    'onion':        '1 medium onion, finely sliced into half-moons',
-    'garlic':       '3 cloves garlic, finely chopped',
-    'chicken':      '250g chicken breast or thigh, thinly sliced against the grain',
-    'eggs':         '3 eggs, lightly whisked in a small bowl',
-    'tofu':         '210g firm tofu, cut into 3cm batons, patted dry',
-    'beansprouts':  '125g beansprouts — hold back a handful raw for the top',
-    'chives':       '40g garlic chives, cut into 3cm lengths (regular chives or spring onion greens if unavailable)',
-    'peanuts':      '60g peanuts, finely chopped — half go in at the end, half on top',
-    'lime':         '1 lime, cut into 5 wedges for the table',
-    'chilli':       'Ground chilli or cayenne pepper, served on the side for the adults'
+    'pork-mince':    '700g pork mince &mdash; from the freezer (1kg pack). Defrost in the fridge ideally; cold-water bath as backup',
+    'rice':          '350g sushi rice (short-grain). Rinse until water runs almost clear. Cooked with 525ml water (1.5&times; volume)',
+    'garlic':        '4 cloves garlic, finely chopped &mdash; goes in after the pork has browned',
+    'oil':           '1 tbsp rapeseed or groundnut oil &mdash; for browning the mince',
+    'sesame-oil-pork': '1 tbsp toasted sesame oil &mdash; goes in with the garlic, not at the start (it burns)',
+    'honey':         '4 tbsp honey &mdash; the sticky base of the sauce',
+    'light-soy':     '4 tbsp light soy sauce &mdash; for salt and umami',
+    'dark-soy':      '1 tbsp dark soy sauce &mdash; for colour and depth',
+    'mirin':         '2 tbsp mirin &mdash; sweet rice wine, balances the soy',
+    'oyster-sauce':  '2 tbsp oyster sauce &mdash; rounds out the umami',
+    'rice-vinegar':  '1 tsp rice vinegar &mdash; just a hint of brightness',
+    'cornflour':     '1 tsp cornflour stirred into 2 tbsp cold water &mdash; this slurry tightens the sauce into a glaze',
+    'sauce':         'The whisked honey + soys + mirin + oyster + rice vinegar mix',
+    'broccoli':      '300g frozen broccoli florets &mdash; straight from the freezer to the microwave bowl',
+    'carrots':       '150g frozen sliced carrots',
+    'peas':          '150g frozen peas',
+    'sesame-oil-veg': '½ tbsp toasted sesame oil &mdash; for the veg dressing',
+    'veg-soy':       '1 tbsp light soy sauce &mdash; for the veg dressing',
+    'veg-honey':     '1 tsp honey &mdash; for the veg dressing',
+    'sesame-seeds':  '2 tbsp sesame seeds, toasted dry until golden',
+    'chives':        'A pinch of dried chives from the spice rack &mdash; optional finishing touch'
   };
 
   const tooltip = document.getElementById('tooltip');
