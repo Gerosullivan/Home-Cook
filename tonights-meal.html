@@ -9,12 +9,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Sticky Honey-Garlic Pork Bowls (Chef's Pick)</title>
+<title>Tonight's Meal — Pork &amp; Lemon Polpette with Orzo (Chef's Pick)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #faf8f5;
+    background: #f6f8f1;
     color: #2d2a26;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -28,27 +28,26 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #2d8068 0%, #b8860b 100%);
+    background: linear-gradient(135deg, #8eaf67 0%, #4a6b3a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
   }
-  .chefs-pick-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.35);
+  .chef-pill {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
     color: #fff;
     font-size: 0.7rem;
     font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.2rem 0.6rem;
+    padding: 0.3rem 0.7rem;
     border-radius: 99px;
-    margin-bottom: 0.6rem;
+    border: 1px solid rgba(255,255,255,0.3);
   }
-  .chefs-pick-badge svg { width: 12px; height: 12px; }
   .date {
     font-size: 0.85rem;
     opacity: 0.9;
@@ -79,7 +78,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1f6b5c;
+    color: #4a6b3a;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -95,7 +94,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #ecefdf;
     display: flex;
     align-items: baseline;
   }
@@ -103,7 +102,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #1f6b5c;
+    background: #4a6b3a;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -113,7 +112,7 @@
   .ingredients-group {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #1f6b5c;
+    color: #4a6b3a;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 1rem 0 0.4rem;
@@ -128,7 +127,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #1f6b5c;
+    background: #4a6b3a;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -153,15 +152,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdf6e3;
-    border-left: 3px solid #b8860b;
+    background: #f0f4e2;
+    border-left: 3px solid #6b8a4a;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #5a4a1e;
+    color: #2e3e1d;
   }
-  .callout strong { color: #b8860b; }
+  .callout strong { color: #4a6b3a; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -182,12 +181,11 @@
     border-left-color: #8a6b2a;
   }
   .callout.pantry strong { color: #8a6b2a; }
-  .callout.chefspick {
-    background: #e8f5ee;
-    border-left-color: #2d8068;
-    margin-left: 0;
+  .callout.chef {
+    background: #f0ece6;
+    border-left-color: #6e5a3a;
   }
-  .callout.chefspick strong { color: #1f6b5c; }
+  .callout.chef strong { color: #6e5a3a; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -197,7 +195,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #e8f5ee;
+    background: #f0f4e2;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -206,24 +204,24 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #ecefdf;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #1f6b5c;
+    color: #4a6b3a;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #1f6b5c;
+    color: #4a6b3a;
     text-decoration: none;
-    border-bottom: 1px dashed #1f6b5c;
+    border-bottom: 1px dashed #4a6b3a;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #144239;
-    border-bottom-color: #144239;
+    color: #2f4a23;
+    border-bottom-color: #2f4a23;
   }
   .ing-tooltip {
     display: none;
@@ -254,7 +252,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #f3d287;
+    color: #c4dba0;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -262,9 +260,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #f0f8f4;
-    border: 1px solid #c4dfd0;
-    border-left: 4px solid #2d8068;
+    background: #f0f4e2;
+    border: 1px solid #cfdca5;
+    border-left: 4px solid #6b8a4a;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -275,14 +273,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #2d8068; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #6b8a4a; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #2d8068;
+    color: #6b8a4a;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #2d8068;
+    background: #6b8a4a;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -293,7 +291,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #1f5f4f;
+    color: #4a5b30;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -301,14 +299,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #c4dfd0;
+    border-bottom: 1px solid #cfdca5;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #2d8068;
+    border: 2px solid #6b8a4a;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -317,7 +315,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #2d8068;
+    background: #6b8a4a;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -348,8 +346,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #d4ebde;
-    color: #1f5f4f;
+    background: #d8e6b8;
+    color: #4a5b30;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -357,11 +355,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #8ab8a4;
+    border-top: 1px dashed #b8cc88;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #fbe6d4;
+    background: #e2ecc8;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -369,7 +367,7 @@
   .prep-passive-header {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #856404;
+    color: #4a5b30;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: 0.4rem;
@@ -393,30 +391,27 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #2d8068 !important; }
-  .timing-phase-row.cook td { color: #1f6b5c !important; }
+  .timing-phase-row.prep td { color: #6b8a4a !important; }
+  .timing-phase-row.cook td { color: #4a6b3a !important; }
   .source-link {
     font-size: 0.8rem;
     color: #888;
     margin-top: 1.25rem;
     text-align: center;
   }
-  .source-link a { color: #1f6b5c; text-decoration: none; }
+  .source-link a { color: #4a6b3a; text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="chefs-pick-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
-      Chef's Pick
-    </div>
-    <div class="date">Saturday 25 April 2026</div>
-    <h1>🍯 Sticky Honey-Garlic Pork Mince Rice Bowls</h1>
+    <span class="chef-pill">Chef's Pick</span>
+    <div class="date">Sunday 26 April 2026</div>
+    <h1>🌿 Pork &amp; Lemon Polpette with Orzo, Peas &amp; Brown Butter</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~30 mins total
+        ~40 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -424,156 +419,154 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork &middot; Asian fakeaway
+        Pork &middot; Italian-ish &middot; Spring
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout chefspick"><strong>👨‍🍳 Chef's Pick &mdash; Saturday fakeaway:</strong> Saturdays are normally takeaway night. This is a homemade alternative built entirely from what's on the shelf: <a class="ing-link" data-ingredient="pork-mince">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="rice">sushi rice</a>, frozen veg, and the well-stocked Asian sauce drawer. Sticky, sweet, mild &mdash; tailor-made for the kids. If you fancy ordering in instead, no harm done.</div>
-
-    <div class="callout pantry"><strong>🧊 Defrost note:</strong> The <a class="ing-link" data-ingredient="pork-mince">pork mince</a> needs defrosting. Pull 700g from the freezer first thing this morning into the fridge. If it&rsquo;s late in the day, run it under cold water in its bag for 30&ndash;40 mins, or fall back to the takeaway.</div>
+    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, so this is an off-rotation original built around what&rsquo;s in your kitchen &mdash; <a class="ing-link" data-ingredient="pork-mince">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="lemons">lemons</a> in the fruit bowl, and the bag of <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a>. Tender little polpette in a glossy lemon-butter sauce, tossed through orzo. Light, springy, Sunday-tea food. Not in the database &mdash; if you like it, give it a thumbs up at check-in and we&rsquo;ll add it.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="ingredients-group">Bowls</li>
-      <li><a class="ing-link" data-ingredient="pork-mince">700g pork mince</a></li>
-      <li><a class="ing-link" data-ingredient="rice">350g sushi rice</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">4 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed/groundnut oil</a></li>
-      <li><a class="ing-link" data-ingredient="sesame-oil-pork">1 tbsp sesame oil</a></li>
+      <li class="ingredients-group">Polpette</li>
+      <li><a class="ing-link" data-ingredient="pork-mince">500g pork mince (defrosted)</a></li>
+      <li><a class="ing-link" data-ingredient="onion">½ white onion, finely grated</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic, finely minced</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-zest">Zest of 1 lemon</a></li>
+      <li><a class="ing-link" data-ingredient="egg">1 egg, beaten</a></li>
+      <li><a class="ing-link" data-ingredient="flour-binder">2 tbsp plain flour</a></li>
+      <li><a class="ing-link" data-ingredient="parsley-mix">1 tsp dried parsley</a></li>
+      <li><a class="ing-link" data-ingredient="oregano">½ tsp dried oregano</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper">½ tsp salt, good twist of pepper</a></li>
 
-      <li class="ingredients-group">Sticky honey-garlic sauce</li>
-      <li><a class="ing-link" data-ingredient="honey">4 tbsp honey</a></li>
-      <li><a class="ing-link" data-ingredient="light-soy">4 tbsp light soy sauce</a></li>
-      <li><a class="ing-link" data-ingredient="dark-soy">1 tbsp dark soy sauce</a></li>
-      <li><a class="ing-link" data-ingredient="mirin">2 tbsp mirin</a></li>
-      <li><a class="ing-link" data-ingredient="oyster-sauce">2 tbsp oyster sauce</a></li>
-      <li><a class="ing-link" data-ingredient="rice-vinegar">1 tsp rice vinegar</a></li>
-      <li><a class="ing-link" data-ingredient="cornflour">1 tsp cornflour + 2 tbsp cold water (slurry)</a></li>
+      <li class="ingredients-group">Sauce &amp; Orzo</li>
+      <li><a class="ing-link" data-ingredient="orzo">350g orzo</a></li>
+      <li><a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="butter">60g butter (40g sauce + 20g orzo)</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic, thinly sliced</a></li>
+      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-juice">Juice of 1 lemon (~3 tbsp)</a></li>
+      <li><a class="ing-link" data-ingredient="frozen-peas">200g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="parsley-finish">1 tsp dried parsley, to finish</a></li>
 
-      <li class="ingredients-group">Sesame veg side</li>
-      <li><a class="ing-link" data-ingredient="broccoli">300g frozen broccoli florets</a></li>
-      <li><a class="ing-link" data-ingredient="carrots">150g frozen sliced carrots</a></li>
-      <li><a class="ing-link" data-ingredient="peas">150g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="sesame-oil-veg">½ tbsp sesame oil</a></li>
-      <li><a class="ing-link" data-ingredient="veg-soy">1 tbsp light soy sauce</a></li>
-      <li><a class="ing-link" data-ingredient="veg-honey">1 tsp honey</a></li>
-
-      <li class="ingredients-group">To finish</li>
-      <li><a class="ing-link" data-ingredient="sesame-seeds">2 tbsp toasted sesame seeds</a></li>
-      <li><a class="ing-link" data-ingredient="chives">Pinch of dried chives (optional)</a></li>
+      <li class="ingredients-group">To serve (optional)</li>
+      <li><a class="ing-link" data-ingredient="lemons">1 extra lemon, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="pesto">1 tbsp basil pesto, swirled in</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~12 min prep</span>
+        <span class="prep-time-pill">~22 min prep</span>
       </div>
-      <div class="prep-context">Saturday is gentler than a school night &mdash; no 5:00 PM pickup pressure. But everything below can be done any time before dinner so the cook is a calm 25 minutes start to finish.</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; meatballs rolled and browned, sauce ready to finish in 8 minutes flat after pickup.</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Pull <a class="ing-link" data-ingredient="pork-mince">700g pork mince</a> from the freezer to the fridge first thing &mdash; ideally a full day ahead, otherwise as early as possible.</span>
+        <span class="prep-step-text">Defrost the <a class="ing-link" data-ingredient="pork-mince">pork mince</a> if you haven&rsquo;t already &mdash; cold-water bath in the sink for 30 mins works. Defrost <a class="ing-link" data-ingredient="stock">2 chicken stock cubes</a> from the freezer (microwave 1 min) and dilute to ~400ml with hot water.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="honey">4 tbsp honey</a>, <a class="ing-link" data-ingredient="light-soy">4 tbsp light soy</a>, <a class="ing-link" data-ingredient="dark-soy">1 tbsp dark soy</a>, <a class="ing-link" data-ingredient="mirin">2 tbsp mirin</a>, <a class="ing-link" data-ingredient="oyster-sauce">2 tbsp oyster sauce</a>, <a class="ing-link" data-ingredient="rice-vinegar">1 tsp rice vinegar</a>. Cover.</span>
+        <span class="prep-step-text">Finely grate <a class="ing-link" data-ingredient="onion">½ a white onion</a>, mince <a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic</a> for the polpette, and thinly slice <a class="ing-link" data-ingredient="garlic-sauce">2 more cloves</a> for the sauce. Zest 1 <a class="ing-link" data-ingredient="lemon-zest">lemon</a> and juice it (set juice aside in a small bowl).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="garlic">4 cloves of garlic</a>. In a tiny bowl, mix <a class="ing-link" data-ingredient="cornflour">1 tsp cornflour with 2 tbsp cold water</a> &mdash; this is your slurry, set aside.</span>
+        <span class="prep-step-text">Mix the polpette: <a class="ing-link" data-ingredient="pork-mince">pork mince</a>, grated onion, minced garlic, lemon zest, beaten <a class="ing-link" data-ingredient="egg">egg</a>, <a class="ing-link" data-ingredient="flour-binder">2 tbsp flour</a>, dried <a class="ing-link" data-ingredient="parsley-mix">parsley</a> and <a class="ing-link" data-ingredient="oregano">oregano</a>, ½ tsp <a class="ing-link" data-ingredient="salt-pepper">salt</a> and pepper. Mix gently with your hands &mdash; don&rsquo;t overwork it. Roll into about 20 walnut-sized balls (~25g each).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Rinse <a class="ing-link" data-ingredient="rice">350g sushi rice</a> in cold water until it runs almost clear (3&ndash;4 changes). Drain well, leave in the rice pot ready to switch on.</span>
+        <span class="prep-step-text">Heat <a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a> in a wide sauté pan or deep frying pan over medium-high. Brown the polpette in 2 batches, ~2 mins per side, just until they have a golden crust (still pink inside &mdash; they&rsquo;ll finish in the sauce). Transfer to a plate, cover loosely with foil, leave on the hob (off the heat).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Toast <a class="ing-link" data-ingredient="sesame-seeds">2 tbsp sesame seeds</a> in a dry pan over medium heat, shaking 1&ndash;2 mins until golden. Tip into a small bowl &mdash; do this now so the pan&rsquo;s free for the pork.</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Measure veg into one bowl: <a class="ing-link" data-ingredient="broccoli">300g broccoli</a>, <a class="ing-link" data-ingredient="carrots">150g carrots</a>, <a class="ing-link" data-ingredient="peas">150g peas</a>. Mix the veg dressing in another tiny bowl: <a class="ing-link" data-ingredient="sesame-oil-veg">½ tbsp sesame oil</a> + <a class="ing-link" data-ingredient="veg-soy">1 tbsp light soy</a> + <a class="ing-link" data-ingredient="veg-honey">1 tsp honey</a>.</span>
+        <span class="prep-step-text">Wash the meatball board, knife and your hands. Tip the <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a> into a bowl and leave on the counter to take the chill off. Cut <a class="ing-link" data-ingredient="lemons">lemon wedges</a> for the table.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
       <div class="prep-passive">
         <div class="prep-passive-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          What sits well
+          While you&rsquo;re at pickup
         </div>
-        <div class="prep-passive-item">Sauce, slurry, garlic, dressed veg can all live in the fridge for hours. Rinsed rice in the pot is fine on the counter for an hour or two before you switch it on.</div>
+        <div class="prep-passive-item">Browned polpette resting on the plate, sliced garlic + stock + lemon juice on the counter, peas warming up. The pan keeps a head start of fond on the bottom &mdash; that&rsquo;s the flavour base for the sauce.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash hands, board and the bowl after handling raw <a class="ing-link" data-ingredient="pork-mince">pork mince</a>. Defrosted mince should go straight into the fridge until cook time &mdash; don&rsquo;t leave it on the counter.</div>
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, the board and your knife thoroughly after handling the raw mince. If the kitchen is warm, slide the browned polpette into the fridge while you&rsquo;re on the school run instead of leaving them on the hob.</div>
 
-    <div class="callout kid"><strong>👶 Kid-friendly trick:</strong> Before you stir the sauce into the mince, scoop out a small portion of plain browned mince + plain rice for Child 3 (2 yo) and Child 2 (3 yo) if needed. The sauce is sweet and mild but salty &mdash; the youngest two often prefer the plain version. Sesame seeds on top of theirs is fine.</div>
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> The polpette are mild &mdash; just lemon, herbs and garlic, no chilli. For Child 3 (2yo) you can plate a couple of meatballs straight from the pan with plain orzo and butter, before stirring in the lemon sauce, if she finds the lemon too tangy. The peas are a soft win.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Rice on first <span class="step-time">~12 mins active, then 10 mins rest</span></div>
-        <div class="step-text">Tip the rinsed <a class="ing-link" data-ingredient="rice">sushi rice</a> into the pot with 525ml cold water (1.5&times; the rice volume) and a small pinch of salt. Lid on, bring to a boil, then drop to the lowest simmer for 12 minutes. Off the heat, lid still on, leave 10 minutes to steam. Don&rsquo;t lift the lid in between.</div>
+        <div class="step-title">Boil water for the orzo <span class="step-time">~5 mins to boil</span></div>
+        <div class="step-text">First thing back in the door: a big pan of well-salted water on for the <a class="ing-link" data-ingredient="orzo">orzo</a>. While it heats, do the next step.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Brown the pork <span class="step-time">~6 mins</span></div>
-        <div class="step-text">While the rice simmers: heat a wide heavy pan over medium-high. Add the <a class="ing-link" data-ingredient="oil">rapeseed oil</a>, then the <a class="ing-link" data-ingredient="pork-mince">pork mince</a>. Break it up with a wooden spoon and let it sit for 2 minutes to take colour, then start stirring. Cook 4&ndash;5 minutes more until no pink remains and any liquid has steamed off. Drain off excess fat if it looks oily &mdash; you want about a tablespoon left.</div>
+        <div class="step-title">Build the sauce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Lift the rested polpette onto a plate. Put the same pan on medium heat &mdash; there&rsquo;ll be flavourful fond in the bottom. Add 40g of the <a class="ing-link" data-ingredient="butter">butter</a> and the <a class="ing-link" data-ingredient="garlic-sauce">sliced garlic</a>. Sizzle gently 30 seconds &mdash; don&rsquo;t let the garlic colour past pale gold.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Garlic + sesame oil <span class="step-time">~30 secs</span></div>
-        <div class="step-text">Drop the heat to medium. Push the mince to one side, add the <a class="ing-link" data-ingredient="sesame-oil-pork">sesame oil</a> and <a class="ing-link" data-ingredient="garlic">chopped garlic</a> to the cleared spot. Sizzle 30 seconds until fragrant but not browning, then stir through the mince.</div>
+        <div class="step-title">Deglaze and simmer <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pour in the <a class="ing-link" data-ingredient="stock">chicken stock</a> and the <a class="ing-link" data-ingredient="lemon-juice">lemon juice</a>. Scrape the bottom of the pan with a wooden spoon to lift the brown bits. Bring to a gentle simmer.</div>
       </div>
     </div>
-
-    <div class="callout kid"><strong>🥄 Scoop-out moment:</strong> Right now, before any sauce hits the pan, lift out a portion of plain mince for the youngest if they&rsquo;d prefer. Pair it with plain rice and a few peas.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Sauce in &mdash; reduce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pour in the whisked <a class="ing-link" data-ingredient="sauce">sauce</a>. Stir, bring to a bubble, simmer 1&ndash;2 minutes &mdash; you&rsquo;ll see it thicken and start to glaze the meat.</div>
+        <div class="step-title">Drop the orzo <span class="step-time">~9 mins</span></div>
+        <div class="step-text">Once the water&rsquo;s at a rolling boil, tip in the <a class="ing-link" data-ingredient="orzo">350g orzo</a>. Stir for the first 30 seconds so it doesn&rsquo;t clump. Cook 8&ndash;9 minutes for al dente &mdash; check the packet.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Slurry &mdash; gloss it up <span class="step-time">~1 min</span></div>
-        <div class="step-text">Stir the <a class="ing-link" data-ingredient="cornflour">cornflour slurry</a> (it settles, so re-mix it). Pour it in while stirring &mdash; the sauce will instantly tighten into a glossy, sticky coat. Take off the heat once it clings to the mince.</div>
+        <div class="step-title">Finish the polpette in the sauce <span class="step-time">~6 mins</span></div>
+        <div class="step-text">Slide the browned <a class="ing-link" data-ingredient="pork-mince">polpette</a> back into the simmering sauce. Cover and cook 5 minutes, turning halfway, until they&rsquo;re cooked through (no pink at the centre, juices clear &mdash; the wireless thermometer should read 71°C if you&rsquo;re probing).</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you&rsquo;re using a wireless thermometer, push it into the largest meatball before you cover the pan. Pork polpette want <strong>71°C</strong> internal &mdash; whip them out the moment they hit it so they don&rsquo;t dry.</div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Steam the veg <span class="step-time">~5 mins, in parallel</span></div>
-        <div class="step-text">While the sauce reduces (step 4), microwave-steam the <a class="ing-link" data-ingredient="broccoli">broccoli</a>, <a class="ing-link" data-ingredient="carrots">carrots</a> and <a class="ing-link" data-ingredient="peas">peas</a> in a covered bowl with 2 tbsp water for 4&ndash;5 mins on full power until tender but bright. Drain. Toss with the veg dressing (<a class="ing-link" data-ingredient="sesame-oil-veg">sesame oil</a> + <a class="ing-link" data-ingredient="veg-soy">soy</a> + <a class="ing-link" data-ingredient="veg-honey">honey</a>).</div>
+        <div class="step-title">Add the peas <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="frozen-peas">peas</a> into the pan around the polpette. Let them simmer 1&ndash;2 minutes until vibrant green and just hot through. The sauce should be glossy and lightly thickened &mdash; if it&rsquo;s thin, raise the heat for 30 seconds; if it&rsquo;s tight, splash in a ladle of orzo cooking water.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">7</div>
       <div class="step-content">
-        <div class="step-title">Build the bowls <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Fluff the rice with a fork. Bowl up: a bed of rice, a generous spoon of sticky pork mince on top, the sesame veg tucked alongside. Shower with the <a class="ing-link" data-ingredient="sesame-seeds">toasted sesame seeds</a> and a pinch of <a class="ing-link" data-ingredient="chives">dried chives</a> if you fancy. Serve right away.</div>
+        <div class="step-title">Drain &amp; toss the orzo <span class="step-time">~1 min</span></div>
+        <div class="step-text">Reserve a cup of the orzo cooking water, then drain. Tip the orzo back into the dry pot with the remaining 20g <a class="ing-link" data-ingredient="butter">butter</a> and a small splash of cooking water. Stir until glossy.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Spoon the buttery orzo into shallow bowls. Top with 4 polpette per adult plate (3 for the kids), spoon the lemony sauce and peas over the top. Scatter the finishing <a class="ing-link" data-ingredient="parsley-finish">dried parsley</a> across. A wedge of <a class="ing-link" data-ingredient="lemons">lemon</a> on the side, and a small swirl of <a class="ing-link" data-ingredient="pesto">basil pesto</a> in the adult bowls if you fancy a herby lift.</div>
       </div>
     </div>
 
@@ -581,28 +574,26 @@
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; any time before dinner</td></tr>
-        <tr><td>Morning</td><td>Pork mince freezer &rarr; fridge to defrost</td></tr>
-        <tr><td>+0 min</td><td>Whisk the sauce, cover</td></tr>
-        <tr><td>+2 min</td><td>Chop garlic, mix cornflour slurry</td></tr>
-        <tr><td>+5 min</td><td>Rinse sushi rice, drain, leave in pot</td></tr>
-        <tr><td>+8 min</td><td>Toast sesame seeds 1&ndash;2 mins, set aside</td></tr>
-        <tr><td>+10 min</td><td>Measure frozen veg, mix veg dressing</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; ~25 mins to the table</td></tr>
-        <tr><td>0:00</td><td>Rice on: 525ml cold water + pinch salt, lid, bring to boil</td></tr>
-        <tr><td>0:02</td><td>Drop rice to lowest simmer, set 12-min timer</td></tr>
-        <tr><td>0:03</td><td>Heat wide pan, add oil + pork mince, break up</td></tr>
-        <tr><td>0:09</td><td>Drain excess fat. Garlic + sesame oil, 30 secs</td></tr>
-        <tr><td>0:10</td><td>Pour in sauce, simmer 1&ndash;2 mins. Microwave veg in parallel</td></tr>
-        <tr><td>0:12</td><td>Cornflour slurry into pork &mdash; glossy, off the heat</td></tr>
-        <tr><td>0:14</td><td>Rice timer ends &mdash; off heat, lid on, 10-min steam</td></tr>
-        <tr><td>0:14</td><td>Drain veg, toss with dressing</td></tr>
-        <tr><td>0:24</td><td>Fluff rice, build bowls, sesame seeds + chives</td></tr>
-        <tr><td>0:25</td><td>To the table</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Defrost mince &amp; stock cubes (if not done earlier)</td></tr>
+        <tr><td>4:38 PM</td><td>Grate onion, mince &amp; slice garlic, zest &amp; juice lemon</td></tr>
+        <tr><td>4:42 PM</td><td>Mix polpette, roll ~20 walnut-sized balls</td></tr>
+        <tr><td>4:50 PM</td><td>Brown polpette in 2 batches (~5 mins). Off heat, cover loose foil</td></tr>
+        <tr><td>4:56 PM</td><td>Wash board, knife and hands. Tip peas into a bowl. Cut lemon wedges</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Big pot of well-salted water on for orzo</td></tr>
+        <tr><td>5:31 PM</td><td>Polpette pan back on medium. Butter + sliced garlic 30 secs</td></tr>
+        <tr><td>5:32 PM</td><td>Stock + lemon juice in. Scrape the bottom. Simmer</td></tr>
+        <tr><td>5:35 PM</td><td>Water boiling &mdash; tip in orzo, stir, set 9 min timer</td></tr>
+        <tr><td>5:36 PM</td><td>Polpette back into the sauce. Cover, simmer 5 mins</td></tr>
+        <tr><td>5:41 PM</td><td>Probe largest polpette &mdash; 71°C. Add peas, simmer 2 mins</td></tr>
+        <tr><td>5:43 PM</td><td>Reserve orzo water, drain. Toss orzo with butter &amp; a splash of water</td></tr>
+        <tr><td>5:45 PM</td><td>Plate: orzo, polpette &amp; sauce, parsley, lemon wedge, optional pesto swirl</td></tr>
       </tbody>
     </table>
 
-    <div class="source-link">Chef's Pick &mdash; original recipe built from inventory &middot; Saturday 25 April 2026</div>
+    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe based on tonight&rsquo;s inventory &middot; not yet in the rotation</div>
   </div>
 </div>
 
@@ -611,27 +602,25 @@
 
 <script>
   const ingredients = {
-    'pork-mince':    '700g pork mince &mdash; from the freezer (1kg pack). Defrost in the fridge ideally; cold-water bath as backup',
-    'rice':          '350g sushi rice (short-grain). Rinse until water runs almost clear. Cooked with 525ml water (1.5&times; volume)',
-    'garlic':        '4 cloves garlic, finely chopped &mdash; goes in after the pork has browned',
-    'oil':           '1 tbsp rapeseed or groundnut oil &mdash; for browning the mince',
-    'sesame-oil-pork': '1 tbsp toasted sesame oil &mdash; goes in with the garlic, not at the start (it burns)',
-    'honey':         '4 tbsp honey &mdash; the sticky base of the sauce',
-    'light-soy':     '4 tbsp light soy sauce &mdash; for salt and umami',
-    'dark-soy':      '1 tbsp dark soy sauce &mdash; for colour and depth',
-    'mirin':         '2 tbsp mirin &mdash; sweet rice wine, balances the soy',
-    'oyster-sauce':  '2 tbsp oyster sauce &mdash; rounds out the umami',
-    'rice-vinegar':  '1 tsp rice vinegar &mdash; just a hint of brightness',
-    'cornflour':     '1 tsp cornflour stirred into 2 tbsp cold water &mdash; this slurry tightens the sauce into a glaze',
-    'sauce':         'The whisked honey + soys + mirin + oyster + rice vinegar mix',
-    'broccoli':      '300g frozen broccoli florets &mdash; straight from the freezer to the microwave bowl',
-    'carrots':       '150g frozen sliced carrots',
-    'peas':          '150g frozen peas',
-    'sesame-oil-veg': '½ tbsp toasted sesame oil &mdash; for the veg dressing',
-    'veg-soy':       '1 tbsp light soy sauce &mdash; for the veg dressing',
-    'veg-honey':     '1 tsp honey &mdash; for the veg dressing',
-    'sesame-seeds':  '2 tbsp sesame seeds, toasted dry until golden',
-    'chives':        'A pinch of dried chives from the spice rack &mdash; optional finishing touch'
+    'pork-mince':     '500g pork mince — half a 1kg block from the freezer. Defrost in the fridge or a cold-water bath',
+    'onion':          '½ white onion, finely grated on a box grater. Grating gives a wetter, gentler bind than chopping',
+    'garlic-mince':   '2 cloves garlic, finely minced (or grated on a microplane) for the meatballs',
+    'garlic-sauce':   '2 more cloves garlic, thinly sliced for the pan sauce',
+    'lemon-zest':     'Zest of 1 lemon — yellow only, no white pith',
+    'lemon-juice':    'Juice of the same lemon, about 3 tbsp. Strain out pips',
+    'lemons':         '1 lemon for the polpette + 1 extra cut into 5 wedges for the table',
+    'egg':            '1 egg, beaten — binds the polpette and keeps them tender',
+    'flour-binder':   '2 tbsp plain flour — extra binder since there are no breadcrumbs in the house',
+    'parsley-mix':    '1 tsp dried parsley for the polpette mix',
+    'parsley-finish': '1 tsp dried parsley scattered on top to finish',
+    'oregano':        '½ tsp dried oregano',
+    'salt-pepper':    '½ tsp fine sea salt + a good twist of black pepper',
+    'orzo':           '350g orzo (rice-shaped pasta, in the pantry)',
+    'rapeseed-oil':   '2 tbsp rapeseed oil for browning the polpette',
+    'butter':         '60g salted butter — 40g for the sauce, 20g to gloss the orzo',
+    'stock':          '400ml chicken stock — defrost 2 frozen stock cubes and dilute with hot water',
+    'frozen-peas':    '200g frozen peas (about half a small bag). No need to defrost fully — they hit the hot sauce',
+    'pesto':          '1 tbsp basil pesto from the half jar in the fridge — optional swirl on the adult plates'
   };
 
   const tooltip = document.getElementById('tooltip');
