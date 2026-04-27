@@ -9,12 +9,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Pork &amp; Lemon Polpette with Orzo (Chef's Pick)</title>
+<title>Tonight's Meal — Pan-Roasted Cod with Crushed Potatoes, Peas &amp; Caper-Lemon Butter (Chef's Pick)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #f6f8f1;
+    background: #f3f7fa;
     color: #2d2a26;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #8eaf67 0%, #4a6b3a 100%);
+    background: linear-gradient(135deg, #6ba1c0 0%, #2c5d7a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
@@ -78,7 +78,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #4a6b3a;
+    color: #2c5d7a;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -94,7 +94,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #ecefdf;
+    border-bottom: 1px solid #dfe7ec;
     display: flex;
     align-items: baseline;
   }
@@ -102,7 +102,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #4a6b3a;
+    background: #2c5d7a;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -112,7 +112,7 @@
   .ingredients-group {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #4a6b3a;
+    color: #2c5d7a;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 1rem 0 0.4rem;
@@ -127,7 +127,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #4a6b3a;
+    background: #2c5d7a;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -152,15 +152,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #f0f4e2;
-    border-left: 3px solid #6b8a4a;
+    background: #e7f0f6;
+    border-left: 3px solid #6ba1c0;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #2e3e1d;
+    color: #1c3d52;
   }
-  .callout strong { color: #4a6b3a; }
+  .callout strong { color: #2c5d7a; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -186,6 +186,11 @@
     border-left-color: #6e5a3a;
   }
   .callout.chef strong { color: #6e5a3a; }
+  .callout.shop {
+    background: #f5e9f1;
+    border-left-color: #a14c8a;
+  }
+  .callout.shop strong { color: #7e3a6c; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -195,7 +200,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #f0f4e2;
+    background: #e7f0f6;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -204,24 +209,24 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #ecefdf;
+    border-bottom: 1px solid #dfe7ec;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #4a6b3a;
+    color: #2c5d7a;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #4a6b3a;
+    color: #2c5d7a;
     text-decoration: none;
-    border-bottom: 1px dashed #4a6b3a;
+    border-bottom: 1px dashed #2c5d7a;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #2f4a23;
-    border-bottom-color: #2f4a23;
+    color: #1a3f55;
+    border-bottom-color: #1a3f55;
   }
   .ing-tooltip {
     display: none;
@@ -252,7 +257,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c4dba0;
+    color: #9bc7e0;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -260,9 +265,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #f0f4e2;
-    border: 1px solid #cfdca5;
-    border-left: 4px solid #6b8a4a;
+    background: #e7f0f6;
+    border: 1px solid #b9d3e2;
+    border-left: 4px solid #6ba1c0;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -273,14 +278,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #6b8a4a; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #6ba1c0; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #6b8a4a;
+    color: #2c5d7a;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #6b8a4a;
+    background: #2c5d7a;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -291,7 +296,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #4a5b30;
+    color: #1c3d52;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -299,14 +304,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #cfdca5;
+    border-bottom: 1px solid #b9d3e2;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #6b8a4a;
+    border: 2px solid #6ba1c0;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -315,7 +320,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #6b8a4a;
+    background: #6ba1c0;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -346,8 +351,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #d8e6b8;
-    color: #4a5b30;
+    background: #c5dce8;
+    color: #1c3d52;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -355,11 +360,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #b8cc88;
+    border-top: 1px dashed #9bc0d5;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #e2ecc8;
+    background: #d4e3ee;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -367,7 +372,7 @@
   .prep-passive-header {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #4a5b30;
+    color: #1c3d52;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: 0.4rem;
@@ -391,27 +396,27 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #6b8a4a !important; }
-  .timing-phase-row.cook td { color: #4a6b3a !important; }
+  .timing-phase-row.prep td { color: #6ba1c0 !important; }
+  .timing-phase-row.cook td { color: #2c5d7a !important; }
   .source-link {
     font-size: 0.8rem;
     color: #888;
     margin-top: 1.25rem;
     text-align: center;
   }
-  .source-link a { color: #4a6b3a; text-decoration: none; }
+  .source-link a { color: #2c5d7a; text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
     <span class="chef-pill">Chef's Pick</span>
-    <div class="date">Sunday 26 April 2026</div>
-    <h1>🌿 Pork &amp; Lemon Polpette with Orzo, Peas &amp; Brown Butter</h1>
+    <div class="date">Monday 27 April 2026</div>
+    <h1>🐟 Pan-Roasted Cod with Crushed Potatoes, Peas &amp; Caper-Lemon Butter</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins total
+        ~35 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -419,73 +424,72 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork &middot; Italian-ish &middot; Spring
+        Cod &middot; Coastal &middot; Spring
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, so this is an off-rotation original built around what&rsquo;s in your kitchen &mdash; <a class="ing-link" data-ingredient="pork-mince">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="lemons">lemons</a> in the fruit bowl, and the bag of <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a>. Tender little polpette in a glossy lemon-butter sauce, tossed through orzo. Light, springy, Sunday-tea food. Not in the database &mdash; if you like it, give it a thumbs up at check-in and we&rsquo;ll add it.</div>
+    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, and yesterday was already a pork-mince supper. Spring cod is excellent at the fishmonger right now, so this one leans on a quick stop on the way home &mdash; five thick fillets, a bag of new potatoes, and a brown-butter sauce built from the pantry. Light, fast, springy. Not in the database &mdash; give it a thumbs up at check-in if you want it added to the rotation.</div>
+
+    <div class="callout shop"><strong>🛒 Pick up on the way home:</strong> 5 &times; thick cod fillets (~150g each, skin on if possible) and 700g baby/new potatoes. Everything else is in the kitchen. Tesco fish counter or Caviston&rsquo;s on the way back from school will both work &mdash; cod is in good nick mid-spring.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="ingredients-group">Polpette</li>
-      <li><a class="ing-link" data-ingredient="pork-mince">500g pork mince (defrosted)</a></li>
-      <li><a class="ing-link" data-ingredient="onion">½ white onion, finely grated</a></li>
-      <li><a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic, finely minced</a></li>
-      <li><a class="ing-link" data-ingredient="lemon-zest">Zest of 1 lemon</a></li>
-      <li><a class="ing-link" data-ingredient="egg">1 egg, beaten</a></li>
-      <li><a class="ing-link" data-ingredient="flour-binder">2 tbsp plain flour</a></li>
-      <li><a class="ing-link" data-ingredient="parsley-mix">1 tsp dried parsley</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">½ tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="salt-pepper">½ tsp salt, good twist of pepper</a></li>
+      <li class="ingredients-group">Fish</li>
+      <li><a class="ing-link" data-ingredient="cod">5 cod fillets (~150g each, ~750g total)</a></li>
+      <li><a class="ing-link" data-ingredient="rapeseed-oil">1 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper-fish">½ tsp sea salt, twist of pepper</a></li>
+      <li><a class="ing-link" data-ingredient="flour-dust">2 tbsp plain flour, for dusting</a></li>
 
-      <li class="ingredients-group">Sauce &amp; Orzo</li>
-      <li><a class="ing-link" data-ingredient="orzo">350g orzo</a></li>
-      <li><a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a></li>
-      <li><a class="ing-link" data-ingredient="butter">60g butter (40g sauce + 20g orzo)</a></li>
+      <li class="ingredients-group">Crushed Potatoes</li>
+      <li><a class="ing-link" data-ingredient="potatoes">700g baby/new potatoes</a></li>
+      <li><a class="ing-link" data-ingredient="butter-spuds">25g butter</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">½ tsp dried thyme</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper-spuds">½ tsp salt, pepper</a></li>
+
+      <li class="ingredients-group">Caper-Lemon Butter</li>
+      <li><a class="ing-link" data-ingredient="butter-sauce">75g butter</a></li>
       <li><a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic, thinly sliced</a></li>
-      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock</a></li>
-      <li><a class="ing-link" data-ingredient="lemon-juice">Juice of 1 lemon (~3 tbsp)</a></li>
-      <li><a class="ing-link" data-ingredient="frozen-peas">200g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="parsley-finish">1 tsp dried parsley, to finish</a></li>
+      <li><a class="ing-link" data-ingredient="capers">1 tbsp capers, drained &amp; lightly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">Zest + juice of 1 lemon (~3 tbsp juice)</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 tsp dried parsley</a></li>
 
-      <li class="ingredients-group">To serve (optional)</li>
-      <li><a class="ing-link" data-ingredient="lemons">1 extra lemon, cut into wedges</a></li>
-      <li><a class="ing-link" data-ingredient="pesto">1 tbsp basil pesto, swirled in</a></li>
+      <li class="ingredients-group">Peas</li>
+      <li><a class="ing-link" data-ingredient="frozen-peas">250g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter-peas">10g butter</a></li>
+      <li><a class="ing-link" data-ingredient="mint">¼ tsp dried mint (optional)</a></li>
+
+      <li class="ingredients-group">To serve</li>
+      <li><a class="ing-link" data-ingredient="lemon-wedges">1 extra lemon, cut into wedges</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~22 min prep</span>
+        <span class="prep-time-pill">~18 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; meatballs rolled and browned, sauce ready to finish in 8 minutes flat after pickup.</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; potatoes par-boiled, sauce ingredients ready in a bowl, cod patted &amp; seasoned. After pickup, it&rsquo;s an 18-minute finish.</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Defrost the <a class="ing-link" data-ingredient="pork-mince">pork mince</a> if you haven&rsquo;t already &mdash; cold-water bath in the sink for 30 mins works. Defrost <a class="ing-link" data-ingredient="stock">2 chicken stock cubes</a> from the freezer (microwave 1 min) and dilute to ~400ml with hot water.</span>
+        <span class="prep-step-text">Pop the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in well-salted cold water in a wide pan. Bring to the boil, then simmer for ~12 minutes until just tender to a knife tip. Drain, return to the dry pan, lid on, leave on the counter to steam-dry.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Finely grate <a class="ing-link" data-ingredient="onion">½ a white onion</a>, mince <a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic</a> for the polpette, and thinly slice <a class="ing-link" data-ingredient="garlic-sauce">2 more cloves</a> for the sauce. Zest 1 <a class="ing-link" data-ingredient="lemon-zest">lemon</a> and juice it (set juice aside in a small bowl).</span>
+        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic</a>, drain &amp; lightly chop the <a class="ing-link" data-ingredient="capers">capers</a>, zest 1 <a class="ing-link" data-ingredient="lemon">lemon</a> into a small bowl and juice it into another. Cut the second lemon into <a class="ing-link" data-ingredient="lemon-wedges">5 wedges</a> for the table. Group all the sauce bits on one corner of the counter.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Mix the polpette: <a class="ing-link" data-ingredient="pork-mince">pork mince</a>, grated onion, minced garlic, lemon zest, beaten <a class="ing-link" data-ingredient="egg">egg</a>, <a class="ing-link" data-ingredient="flour-binder">2 tbsp flour</a>, dried <a class="ing-link" data-ingredient="parsley-mix">parsley</a> and <a class="ing-link" data-ingredient="oregano">oregano</a>, ½ tsp <a class="ing-link" data-ingredient="salt-pepper">salt</a> and pepper. Mix gently with your hands &mdash; don&rsquo;t overwork it. Roll into about 20 walnut-sized balls (~25g each).</span>
+        <span class="prep-step-text">Pat the <a class="ing-link" data-ingredient="cod">cod fillets</a> very dry with kitchen paper (this is the difference between a crisp top and a soggy one). Season both sides with <a class="ing-link" data-ingredient="salt-pepper-fish">salt &amp; pepper</a>, dust the top with a fine layer of <a class="ing-link" data-ingredient="flour-dust">plain flour</a>, set on a plate skin-side down.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Heat <a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a> in a wide sauté pan or deep frying pan over medium-high. Brown the polpette in 2 batches, ~2 mins per side, just until they have a golden crust (still pink inside &mdash; they&rsquo;ll finish in the sauce). Transfer to a plate, cover loosely with foil, leave on the hob (off the heat).</span>
-        <span class="prep-step-tag before">before</span>
-      </div>
-      <div class="prep-step">
-        <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Wash the meatball board, knife and your hands. Tip the <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a> into a bowl and leave on the counter to take the chill off. Cut <a class="ing-link" data-ingredient="lemons">lemon wedges</a> for the table.</span>
+        <span class="prep-step-text">Tip the <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a> into a bowl on the counter to take the chill off &mdash; they&rsquo;ll cook faster. Wash the board, knife and your hands.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -494,79 +498,71 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you&rsquo;re at pickup
         </div>
-        <div class="prep-passive-item">Browned polpette resting on the plate, sliced garlic + stock + lemon juice on the counter, peas warming up. The pan keeps a head start of fond on the bottom &mdash; that&rsquo;s the flavour base for the sauce.</div>
+        <div class="prep-passive-item">Potatoes steam-drying in their pan, cod resting seasoned on its plate, sauce ingredients lined up, peas thawing on the counter. Nothing&rsquo;s warming up to a danger zone &mdash; if the kitchen is over 22°C, slide the cod plate into the fridge for the half hour.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, the board and your knife thoroughly after handling the raw mince. If the kitchen is warm, slide the browned polpette into the fridge while you&rsquo;re on the school run instead of leaving them on the hob.</div>
+    <div class="callout safety"><strong>🧊 Food safety:</strong> Cod is delicate &mdash; if there&rsquo;s any chance the kitchen will sit warm, put the seasoned fillets in the fridge while you&rsquo;re on the school run rather than leaving them out. They&rsquo;ll go straight from fridge to hot pan.</div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> The polpette are mild &mdash; just lemon, herbs and garlic, no chilli. For Child 3 (2yo) you can plate a couple of meatballs straight from the pan with plain orzo and butter, before stirring in the lemon sauce, if she finds the lemon too tangy. The peas are a soft win.</div>
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Cod is mild and flaky &mdash; perfect for the younger two. Pull off a piece for each kid before you spoon over the caper butter (capers can be a hard sell for the 2-year-old). Plain crushed potatoes &amp; buttered peas alongside, and a squeeze of lemon optional. The 8-year-old should love the lemony butter on top.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Boil water for the orzo <span class="step-time">~5 mins to boil</span></div>
-        <div class="step-text">First thing back in the door: a big pan of well-salted water on for the <a class="ing-link" data-ingredient="orzo">orzo</a>. While it heats, do the next step.</div>
+        <div class="step-title">Heat the oven and a pan <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Set the oven to 200°C fan. Put a wide oven-safe frying pan on medium-high heat with the <a class="ing-link" data-ingredient="rapeseed-oil">rapeseed oil</a>. Get it hot &mdash; you want a shimmer, not smoke.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Build the sauce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Lift the rested polpette onto a plate. Put the same pan on medium heat &mdash; there&rsquo;ll be flavourful fond in the bottom. Add 40g of the <a class="ing-link" data-ingredient="butter">butter</a> and the <a class="ing-link" data-ingredient="garlic-sauce">sliced garlic</a>. Sizzle gently 30 seconds &mdash; don&rsquo;t let the garlic colour past pale gold.</div>
+        <div class="step-title">Crush the potatoes <span class="step-time">~3 mins</span></div>
+        <div class="step-text">In the par-boiled <a class="ing-link" data-ingredient="potatoes">potato pan</a>, add 25g <a class="ing-link" data-ingredient="butter-spuds">butter</a>, the <a class="ing-link" data-ingredient="thyme">dried thyme</a>, and a pinch of <a class="ing-link" data-ingredient="salt-pepper-spuds">salt &amp; pepper</a>. Use a potato masher or the back of a spoon to gently crush each one so it splits open but holds its shape. Lid on, off the heat, ready to go.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Deglaze and simmer <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pour in the <a class="ing-link" data-ingredient="stock">chicken stock</a> and the <a class="ing-link" data-ingredient="lemon-juice">lemon juice</a>. Scrape the bottom of the pan with a wooden spoon to lift the brown bits. Bring to a gentle simmer.</div>
+        <div class="step-title">Sear the cod <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Lay the <a class="ing-link" data-ingredient="cod">cod fillets</a> floured-side down in the hot pan. Don&rsquo;t crowd &mdash; do them in 2 batches if your pan&rsquo;s small. Press each fillet down gently for 5 seconds so they don&rsquo;t curl. Sear undisturbed for 3 minutes until a proper golden crust forms.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Drop the orzo <span class="step-time">~9 mins</span></div>
-        <div class="step-text">Once the water&rsquo;s at a rolling boil, tip in the <a class="ing-link" data-ingredient="orzo">350g orzo</a>. Stir for the first 30 seconds so it doesn&rsquo;t clump. Cook 8&ndash;9 minutes for al dente &mdash; check the packet.</div>
+        <div class="step-title">Flip &amp; finish in the oven <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Flip the fillets carefully with a fish slice. Slide the whole pan into the oven for 4&ndash;5 minutes &mdash; cod is done when it flakes apart with light pressure (~52°C internal). Pull it out the moment it flakes; it&rsquo;ll keep cooking on the way to the plate.</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you want to be precise, push the wireless thermometer into the thickest fillet before it goes in the oven. Cod wants <strong>52°C</strong> internal &mdash; whip the pan out the moment it hits, since fish goes from perfect to dry in 30 seconds.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Finish the polpette in the sauce <span class="step-time">~6 mins</span></div>
-        <div class="step-text">Slide the browned <a class="ing-link" data-ingredient="pork-mince">polpette</a> back into the simmering sauce. Cover and cook 5 minutes, turning halfway, until they&rsquo;re cooked through (no pink at the centre, juices clear &mdash; the wireless thermometer should read 71°C if you&rsquo;re probing).</div>
+        <div class="step-title">Cook the peas <span class="step-time">~3 mins</span></div>
+        <div class="step-text">While the cod is in the oven, drop the <a class="ing-link" data-ingredient="frozen-peas">peas</a> into a small pan with 50ml water and 10g <a class="ing-link" data-ingredient="butter-peas">butter</a>. Lid on, medium heat, 2&ndash;3 minutes until vibrant green and just hot through. Drain off any excess water, finish with a pinch of salt and the <a class="ing-link" data-ingredient="mint">dried mint</a> if using.</div>
       </div>
     </div>
-
-    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you&rsquo;re using a wireless thermometer, push it into the largest meatball before you cover the pan. Pork polpette want <strong>71°C</strong> internal &mdash; whip them out the moment they hit it so they don&rsquo;t dry.</div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Add the peas <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Tip the <a class="ing-link" data-ingredient="frozen-peas">peas</a> into the pan around the polpette. Let them simmer 1&ndash;2 minutes until vibrant green and just hot through. The sauce should be glossy and lightly thickened &mdash; if it&rsquo;s thin, raise the heat for 30 seconds; if it&rsquo;s tight, splash in a ladle of orzo cooking water.</div>
+        <div class="step-title">Make the brown-butter sauce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Lift the cooked cod to a warm plate (don&rsquo;t cover &mdash; you don&rsquo;t want it to steam). Wipe the pan briefly, drop in 75g <a class="ing-link" data-ingredient="butter-sauce">butter</a>, melt over medium heat. Add the <a class="ing-link" data-ingredient="garlic-sauce">sliced garlic</a>, swirl 30 seconds. As soon as the butter goes foamy and smells nutty, kill the heat and add the <a class="ing-link" data-ingredient="capers">capers</a>, <a class="ing-link" data-ingredient="lemon">lemon zest &amp; juice</a> and dried <a class="ing-link" data-ingredient="parsley">parsley</a>. The juice will sputter &mdash; stand back. Swirl until glossy.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">7</div>
       <div class="step-content">
-        <div class="step-title">Drain &amp; toss the orzo <span class="step-time">~1 min</span></div>
-        <div class="step-text">Reserve a cup of the orzo cooking water, then drain. Tip the orzo back into the dry pot with the remaining 20g <a class="ing-link" data-ingredient="butter">butter</a> and a small splash of cooking water. Stir until glossy.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
         <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Spoon the buttery orzo into shallow bowls. Top with 4 polpette per adult plate (3 for the kids), spoon the lemony sauce and peas over the top. Scatter the finishing <a class="ing-link" data-ingredient="parsley-finish">dried parsley</a> across. A wedge of <a class="ing-link" data-ingredient="lemons">lemon</a> on the side, and a small swirl of <a class="ing-link" data-ingredient="pesto">basil pesto</a> in the adult bowls if you fancy a herby lift.</div>
+        <div class="step-text">Spoon a mound of <a class="ing-link" data-ingredient="potatoes">crushed potatoes</a> onto each plate. Top with a fillet of <a class="ing-link" data-ingredient="cod">cod</a>, then ladle the warm caper-lemon butter generously over the fish (and a little onto the spuds &mdash; it&rsquo;s the best bit). A scattering of <a class="ing-link" data-ingredient="frozen-peas">peas</a> alongside, a <a class="ing-link" data-ingredient="lemon-wedges">lemon wedge</a> on each plate, and you&rsquo;re away.</div>
       </div>
     </div>
 
@@ -575,25 +571,25 @@
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:30 PM</td><td>Defrost mince &amp; stock cubes (if not done earlier)</td></tr>
-        <tr><td>4:38 PM</td><td>Grate onion, mince &amp; slice garlic, zest &amp; juice lemon</td></tr>
-        <tr><td>4:42 PM</td><td>Mix polpette, roll ~20 walnut-sized balls</td></tr>
-        <tr><td>4:50 PM</td><td>Brown polpette in 2 batches (~5 mins). Off heat, cover loose foil</td></tr>
-        <tr><td>4:56 PM</td><td>Wash board, knife and hands. Tip peas into a bowl. Cut lemon wedges</td></tr>
+        <tr><td>4:30 PM</td><td>Potatoes in cold salted water; bring to the boil</td></tr>
+        <tr><td>4:38 PM</td><td>Slice garlic, chop capers, zest &amp; juice 1 lemon, cut wedges from the 2nd</td></tr>
+        <tr><td>4:42 PM</td><td>Drain potatoes when tender (~12 min total), lid on, off the heat</td></tr>
+        <tr><td>4:45 PM</td><td>Pat cod dry, season both sides, dust top with flour, plate &amp; set aside</td></tr>
+        <tr><td>4:53 PM</td><td>Tip frozen peas into a bowl. Wash board, knife &amp; hands</td></tr>
+        <tr><td>4:56 PM</td><td>Cod plate into the fridge if the kitchen is warm</td></tr>
         <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Big pot of well-salted water on for orzo</td></tr>
-        <tr><td>5:31 PM</td><td>Polpette pan back on medium. Butter + sliced garlic 30 secs</td></tr>
-        <tr><td>5:32 PM</td><td>Stock + lemon juice in. Scrape the bottom. Simmer</td></tr>
-        <tr><td>5:35 PM</td><td>Water boiling &mdash; tip in orzo, stir, set 9 min timer</td></tr>
-        <tr><td>5:36 PM</td><td>Polpette back into the sauce. Cover, simmer 5 mins</td></tr>
-        <tr><td>5:41 PM</td><td>Probe largest polpette &mdash; 71°C. Add peas, simmer 2 mins</td></tr>
-        <tr><td>5:43 PM</td><td>Reserve orzo water, drain. Toss orzo with butter &amp; a splash of water</td></tr>
-        <tr><td>5:45 PM</td><td>Plate: orzo, polpette &amp; sauce, parsley, lemon wedge, optional pesto swirl</td></tr>
+        <tr><td>5:30 PM</td><td>Oven on 200°C fan. Wide oven-safe frying pan on medium-high with oil</td></tr>
+        <tr><td>5:34 PM</td><td>Crush the potatoes with butter, thyme, salt &amp; pepper. Lid on, off heat</td></tr>
+        <tr><td>5:37 PM</td><td>Sear cod floured-side down for 3 mins, then flip</td></tr>
+        <tr><td>5:40 PM</td><td>Slide pan into oven (4&ndash;5 mins). Probe largest fillet &mdash; target 52°C</td></tr>
+        <tr><td>5:41 PM</td><td>Peas: 50ml water + 10g butter, lid on, medium heat, 2&ndash;3 mins</td></tr>
+        <tr><td>5:45 PM</td><td>Cod out. Brown butter, garlic, capers, lemon zest &amp; juice in pan</td></tr>
+        <tr><td>5:47 PM</td><td>Plate: spuds, cod, ladle caper butter over, peas alongside, lemon wedge</td></tr>
       </tbody>
     </table>
 
-    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe based on tonight&rsquo;s inventory &middot; not yet in the rotation</div>
+    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe based on tonight&rsquo;s inventory + a quick fishmonger stop &middot; not yet in the rotation</div>
   </div>
 </div>
 
@@ -602,25 +598,23 @@
 
 <script>
   const ingredients = {
-    'pork-mince':     '500g pork mince — half a 1kg block from the freezer. Defrost in the fridge or a cold-water bath',
-    'onion':          '½ white onion, finely grated on a box grater. Grating gives a wetter, gentler bind than chopping',
-    'garlic-mince':   '2 cloves garlic, finely minced (or grated on a microplane) for the meatballs',
-    'garlic-sauce':   '2 more cloves garlic, thinly sliced for the pan sauce',
-    'lemon-zest':     'Zest of 1 lemon — yellow only, no white pith',
-    'lemon-juice':    'Juice of the same lemon, about 3 tbsp. Strain out pips',
-    'lemons':         '1 lemon for the polpette + 1 extra cut into 5 wedges for the table',
-    'egg':            '1 egg, beaten — binds the polpette and keeps them tender',
-    'flour-binder':   '2 tbsp plain flour — extra binder since there are no breadcrumbs in the house',
-    'parsley-mix':    '1 tsp dried parsley for the polpette mix',
-    'parsley-finish': '1 tsp dried parsley scattered on top to finish',
-    'oregano':        '½ tsp dried oregano',
-    'salt-pepper':    '½ tsp fine sea salt + a good twist of black pepper',
-    'orzo':           '350g orzo (rice-shaped pasta, in the pantry)',
-    'rapeseed-oil':   '2 tbsp rapeseed oil for browning the polpette',
-    'butter':         '60g salted butter — 40g for the sauce, 20g to gloss the orzo',
-    'stock':          '400ml chicken stock — defrost 2 frozen stock cubes and dilute with hot water',
-    'frozen-peas':    '200g frozen peas (about half a small bag). No need to defrost fully — they hit the hot sauce',
-    'pesto':          '1 tbsp basil pesto from the half jar in the fridge — optional swirl on the adult plates'
+    'cod':                '5 thick cod fillets, ~150g each (~750g total). Skin on if you can — it crisps beautifully',
+    'rapeseed-oil':       '1 tbsp rapeseed oil — high smoke point, neutral flavour, perfect for searing fish',
+    'salt-pepper-fish':   '½ tsp fine sea salt + a good twist of black pepper, both sides of the fillets',
+    'flour-dust':         '2 tbsp plain flour for dusting the top of the fillets — gives a crisp golden crust',
+    'potatoes':           '700g baby/new potatoes, skins on. Halve any larger ones so they cook evenly',
+    'butter-spuds':       '25g salted butter for the crushed potatoes',
+    'thyme':              '½ tsp dried thyme from the spice rack — earthy, springy note for the spuds',
+    'salt-pepper-spuds':  '½ tsp salt + a twist of pepper for seasoning the crushed potatoes',
+    'butter-sauce':       '75g salted butter — the heart of the brown-butter sauce',
+    'garlic-sauce':       '2 cloves garlic, thinly sliced (not minced) so they sizzle gently and don\u2019t burn',
+    'capers':             '1 tbsp capers, drained from the jar in the pantry, lightly chopped to release their salty pop',
+    'lemon':              'Zest + juice of 1 lemon — yellow zest only, no white pith. Strain pips out of the juice',
+    'lemon-wedges':       '1 extra lemon, cut into 5 wedges for the table',
+    'parsley':            '1 tsp dried parsley to lift the brown butter',
+    'frozen-peas':        '250g frozen peas (about half a small bag). Cook in a splash of water + butter, lid on',
+    'butter-peas':        '10g butter to enrich the peas at the end',
+    'mint':               '¼ tsp dried mint, optional — classic with peas, very lightly does it'
   };
 
   const tooltip = document.getElementById('tooltip');
