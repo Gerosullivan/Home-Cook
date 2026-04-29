@@ -9,13 +9,13 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Pork &amp; Fennel Meatballs in Tomato Orzo (Chef's Pick)</title>
+<title>Tonight's Meal — Spring Salmon Tray Bake with Lemon-Thyme Butter (Chef's Pick)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #fbf3ef;
-    color: #2d2a26;
+    background: #f1f5f0;
+    color: #25302a;
     line-height: 1.6;
     padding: 2rem 1rem;
   }
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c8694e 0%, #7a3325 100%);
+    background: linear-gradient(135deg, #7ba892 0%, #2f5a48 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
@@ -78,7 +78,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #7a3325;
+    color: #2f5a48;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -94,7 +94,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #ecdfd7;
+    border-bottom: 1px solid #d8e5d9;
     display: flex;
     align-items: baseline;
   }
@@ -102,7 +102,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #7a3325;
+    background: #2f5a48;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -112,7 +112,7 @@
   .ingredients-group {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #7a3325;
+    color: #2f5a48;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 1rem 0 0.4rem;
@@ -127,7 +127,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #7a3325;
+    background: #2f5a48;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -152,15 +152,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #f7e8df;
-    border-left: 3px solid #c8694e;
+    background: #e6efe5;
+    border-left: 3px solid #5a8470;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #4a2118;
+    color: #1f3a2e;
   }
-  .callout strong { color: #7a3325; }
+  .callout strong { color: #2f5a48; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -177,15 +177,15 @@
   }
   .callout.safety strong { color: #1565c0; }
   .callout.pantry {
-    background: #f3ede1;
-    border-left-color: #8a6b2a;
+    background: #f0ede1;
+    border-left-color: #8a8030;
   }
-  .callout.pantry strong { color: #8a6b2a; }
+  .callout.pantry strong { color: #6e6428; }
   .callout.chef {
-    background: #f0ece6;
-    border-left-color: #6e5a3a;
+    background: #ecf2ec;
+    border-left-color: #5a8470;
   }
-  .callout.chef strong { color: #6e5a3a; }
+  .callout.chef strong { color: #2f5a48; }
   .callout.shop {
     background: #f5e9f1;
     border-left-color: #a14c8a;
@@ -205,7 +205,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #f7e8df;
+    background: #e6efe5;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -214,29 +214,29 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #ecdfd7;
+    border-bottom: 1px solid #d8e5d9;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #7a3325;
+    color: #2f5a48;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #7a3325;
+    color: #2f5a48;
     text-decoration: none;
-    border-bottom: 1px dashed #7a3325;
+    border-bottom: 1px dashed #2f5a48;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #5a241a;
-    border-bottom-color: #5a241a;
+    color: #1f3a2e;
+    border-bottom-color: #1f3a2e;
   }
   .ing-tooltip {
     display: none;
     position: fixed;
-    background: #2d2a26;
+    background: #25302a;
     color: #fff;
     padding: 0.5rem 0.85rem;
     border-radius: 8px;
@@ -258,11 +258,11 @@
     width: 0; height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #2d2a26;
+    border-top: 6px solid #25302a;
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #e8a98e;
+    color: #a8d4ba;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -270,9 +270,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #f7e8df;
-    border: 1px solid #e8c8b6;
-    border-left: 4px solid #c8694e;
+    background: #e6efe5;
+    border: 1px solid #c9dcca;
+    border-left: 4px solid #5a8470;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -283,14 +283,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #c8694e; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #5a8470; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #7a3325;
+    color: #2f5a48;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #7a3325;
+    background: #2f5a48;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -301,7 +301,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #4a2118;
+    color: #1f3a2e;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -309,14 +309,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #e8c8b6;
+    border-bottom: 1px solid #c9dcca;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #c8694e;
+    border: 2px solid #5a8470;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -325,7 +325,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #c8694e;
+    background: #5a8470;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -342,7 +342,7 @@
   }
   .prep-step-text {
     font-size: 0.9rem;
-    color: #2d2a26;
+    color: #25302a;
     flex: 1;
     transition: color 0.15s;
   }
@@ -356,8 +356,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #ecc8b6;
-    color: #5a241a;
+    background: #c4dcc7;
+    color: #1f3a2e;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -365,11 +365,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #d4a591;
+    border-top: 1px dashed #a8c4ad;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #ecd0c2;
+    background: #d2e2d3;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -377,7 +377,7 @@
   .prep-passive-header {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #5a241a;
+    color: #1f3a2e;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: 0.4rem;
@@ -401,27 +401,27 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #c8694e !important; }
-  .timing-phase-row.cook td { color: #7a3325 !important; }
+  .timing-phase-row.prep td { color: #5a8470 !important; }
+  .timing-phase-row.cook td { color: #2f5a48 !important; }
   .source-link {
     font-size: 0.8rem;
     color: #888;
     margin-top: 1.25rem;
     text-align: center;
   }
-  .source-link a { color: #7a3325; text-decoration: none; }
+  .source-link a { color: #2f5a48; text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
     <span class="chef-pill">Chef's Pick</span>
-    <div class="date">Tuesday 28 April 2026</div>
-    <h1>🍅 Pork &amp; Fennel Meatballs in Tomato Orzo</h1>
+    <div class="date">Wednesday 29 April 2026</div>
+    <h1>🐟 Spring Salmon Tray Bake with Lemon-Thyme Butter</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~45 mins total
+        ~50 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -429,88 +429,86 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Pork &middot; Tuscan-style &middot; One pan
+        Salmon &middot; Spring &middot; One tray
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, and last night was cod. Time for something hearty &mdash; the freezer has 2 &times; 500g of pork mince and the pantry is thick with tinned tomatoes &amp; orzo. This is a one-pan job: fennel-spiked little pork meatballs simmered in tomato orzo until silky and the pasta has soaked up all the sauce. No shopping run, no oven, no fuss. Not in the database &mdash; thumbs up at check-in if you want it added to the rotation.</div>
+    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> No meal on the plan tonight, and yesterday was the pork meatball orzo &mdash; time to lighten things up. Spring salmon is bang in season at the fishmonger, and the kitchen has the perfect supporting cast: baby potatoes in the pantry, frozen peas in the freezer, fresh thyme, lemons and butter all ready to go. One tray, one oven, very little washing up. Not in the database &mdash; thumbs up at check-in if you want it added to the rotation.</div>
 
-    <div class="callout defrost"><strong>❄️ Defrost first:</strong> Take 1 &times; 500g <a class="ing-link" data-ingredient="pork-mince">pork mince</a> out of the freezer first thing this morning and put it in the fridge. If you&rsquo;ve forgotten, sit it in a sealed bag in a bowl of cold tap water from ~3:00 PM &mdash; change the water every 30 mins. It&rsquo;ll be ready by prep time.</div>
+    <div class="callout shop"><strong>🐟 Quick stop on the way:</strong> Pop into the fishmonger this afternoon for <strong>5 salmon fillets (~150g each), skin on</strong>. Spring fish is excellent right now &mdash; ask for centre-cut if available so they cook evenly. Everything else is already in the kitchen.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="ingredients-group">Meatballs</li>
-      <li><a class="ing-link" data-ingredient="pork-mince">500g pork mince</a></li>
-      <li><a class="ing-link" data-ingredient="fennel-seeds">1 tsp fennel seeds, lightly crushed</a></li>
-      <li><a class="ing-link" data-ingredient="oregano-mb">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="onion-mb">½ small white onion, very finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="garlic-mb">2 cloves garlic, finely grated</a></li>
-      <li><a class="ing-link" data-ingredient="egg-mb">1 large egg, lightly beaten</a></li>
-      <li><a class="ing-link" data-ingredient="flour-mb">30g plain flour</a></li>
-      <li><a class="ing-link" data-ingredient="salt-mb">½ tsp fine sea salt, twist of pepper</a></li>
-      <li><a class="ing-link" data-ingredient="oil-brown">1 tbsp rapeseed oil, for browning</a></li>
+      <li class="ingredients-group">Tray</li>
+      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, ~150g each, skin on</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g baby potatoes, halved</a></li>
+      <li><a class="ing-link" data-ingredient="peas">300g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt-tray">1 tsp fine sea salt + black pepper</a></li>
 
-      <li class="ingredients-group">One-pan tomato orzo</li>
-      <li><a class="ing-link" data-ingredient="onion-sauce">1 large white onion, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="garlic-sauce">3 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="tomato-puree">1 tbsp tomato purée</a></li>
-      <li><a class="ing-link" data-ingredient="tinned-tomatoes">1 &times; 400g tin chopped tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="orzo">300g orzo pasta</a></li>
-      <li><a class="ing-link" data-ingredient="stock">800ml hot chicken stock</a></li>
-      <li><a class="ing-link" data-ingredient="oregano-sauce">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="salt-sauce">½ tsp salt, twist of pepper</a></li>
+      <li class="ingredients-group">Lemon-thyme butter</li>
+      <li><a class="ing-link" data-ingredient="butter">50g butter, soft</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 tbsp fresh thyme leaves</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-zest">Zest of 1 lemon</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic, finely grated</a></li>
+      <li><a class="ing-link" data-ingredient="salt-butter">Pinch of salt</a></li>
 
       <li class="ingredients-group">To finish</li>
-      <li><a class="ing-link" data-ingredient="frozen-spinach">100g frozen spinach (small handful)</a></li>
-      <li><a class="ing-link" data-ingredient="vinegar">1 tsp red wine vinegar</a></li>
-      <li><a class="ing-link" data-ingredient="butter-finish">25g butter, off the heat</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-juice">Juice of ½ lemon (the second one)</a></li>
+      <li><a class="ing-link" data-ingredient="rocket">A handful of fresh rocket</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-wedges">½ lemon, cut into wedges, for the table</a></li>
     </ul>
 
-    <div class="callout pantry"><strong>🥫 All from the kitchen:</strong> Every ingredient is already in stock &mdash; no shop run needed. Pork mince + tinned tomatoes + orzo + frozen stock cubes + frozen spinach + the spice rack do the heavy lifting.</div>
+    <div class="callout pantry"><strong>🥫 In stock already:</strong> Baby potatoes, frozen peas, butter, fresh thyme, lemons, rocket, garlic, rapeseed oil &mdash; all in the kitchen. Just the salmon to grab.</div>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~22 min prep</span>
+        <span class="prep-time-pill">~17 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; meatballs rolled and chilling, sauce ingredients lined up. After pickup it&rsquo;s a 30-minute one-pan finish.</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; tray loaded, butter mixed, salmon resting in the fridge. After pickup the oven does almost everything.</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Boil the kettle. In a measuring jug, melt 2 frozen <a class="ing-link" data-ingredient="stock">chicken-stock cubes</a> with 800ml just-boiled water. Set aside on the counter to cool.</span>
+        <span class="prep-step-text">Halve the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> &mdash; cut any larger ones into quarters so they&rsquo;re all roughly the same size and cook evenly. Tip onto a large baking tray.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Finely chop 1 large white onion + 3 cloves garlic for the sauce, and ½ small white onion + 2 cloves garlic (grated) for the meatballs. Keep the two piles separate.</span>
+        <span class="prep-step-text">Drizzle the potatoes with the <a class="ing-link" data-ingredient="oil">rapeseed oil</a>, scatter ½ tsp <a class="ing-link" data-ingredient="salt-tray">salt</a> and a few twists of pepper, toss with your hands so each piece is glossy. Spread cut-side down for max crisp.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Lightly crush the <a class="ing-link" data-ingredient="fennel-seeds">fennel seeds</a> in a mortar (or under a heavy pan) &mdash; just bruise them, don&rsquo;t powder them.</span>
+        <span class="prep-step-text">Strip the leaves off the <a class="ing-link" data-ingredient="thyme">fresh thyme</a> sprigs &mdash; aim for about 1 tbsp loose leaves. Roughly chop them.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">In a big bowl, combine the <a class="ing-link" data-ingredient="pork-mince">pork mince</a>, finely chopped meatball onion, grated <a class="ing-link" data-ingredient="garlic-mb">garlic</a>, crushed <a class="ing-link" data-ingredient="fennel-seeds">fennel seeds</a>, <a class="ing-link" data-ingredient="oregano-mb">oregano</a>, beaten <a class="ing-link" data-ingredient="egg-mb">egg</a>, <a class="ing-link" data-ingredient="flour-mb">flour</a>, <a class="ing-link" data-ingredient="salt-mb">salt &amp; pepper</a>. Mix gently with your hands &mdash; just until uniform, no longer (overmixing = tough meatballs).</span>
+        <span class="prep-step-text">Zest 1 <a class="ing-link" data-ingredient="lemon-zest">lemon</a> with a microplane (yellow only, none of the bitter white pith). Set the bare lemon aside &mdash; you&rsquo;ll juice half of it later.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Roll into ~20 even meatballs (about 25g each, walnut size). Set on a tray lined with baking paper. Cover loosely and slide into the fridge.</span>
+        <span class="prep-step-text">In a small bowl, mash the soft <a class="ing-link" data-ingredient="butter">butter</a> with the thyme, lemon zest, finely grated <a class="ing-link" data-ingredient="garlic">garlic</a> and a pinch of <a class="ing-link" data-ingredient="salt-butter">salt</a>. Cover with cling film and leave on the counter (so it stays soft and spreadable).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="5">
-        <span class="prep-step-text">Open the tin of <a class="ing-link" data-ingredient="tinned-tomatoes">chopped tomatoes</a>, measure out the <a class="ing-link" data-ingredient="tomato-puree">tomato purée</a> into a small dish, weigh out 300g <a class="ing-link" data-ingredient="orzo">orzo</a>. Group everything by the hob.</span>
+        <span class="prep-step-text">Cut the second lemon in half. Slice one half into <a class="ing-link" data-ingredient="lemon-wedges">wedges</a> for the table. Set both halves aside.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="6">
-        <span class="prep-step-text">Wash the board, knife and your hands thoroughly &mdash; raw pork mince has been everywhere.</span>
+        <span class="prep-step-text">Wash the <a class="ing-link" data-ingredient="rocket">rocket</a> in cold water, spin or pat dry, leave loosely on a plate covered with a clean tea towel.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="7">
+        <span class="prep-step-text">Wipe down the board, knife and counter. Tray of potatoes can sit out &mdash; the salmon stays in the fridge until you&rsquo;re back.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -519,71 +517,55 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you&rsquo;re at pickup
         </div>
-        <div class="prep-passive-item">Meatballs firming up in the fridge (the chill helps them hold their shape when they hit the pan), stock cooling on the counter, sauce ingredients lined up. Nothing&rsquo;s left out at risk.</div>
+        <div class="prep-passive-item">Tray of seasoned potatoes resting on the counter, lemon-thyme butter softening (it should be room temp by the time you&rsquo;re back), salmon chilling safely in the fridge. Nothing needs your attention.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧊 Food safety:</strong> Raw pork mince &mdash; wash boards, knives, sink and your hands very well after rolling the meatballs. Don&rsquo;t leave the meatball tray on the counter; the fridge is the right home for them while you&rsquo;re on the school run.</div>
+    <div class="callout safety"><strong>🧊 Food safety:</strong> Keep the salmon in the fridge until the moment it goes on the tray &mdash; raw fish doesn&rsquo;t love sitting at room temp. Wash hands and board after handling it.</div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly:</strong> Mild and tomato-y &mdash; perfect for the younger two. The fennel is gentle, no chilli, no heat. Plate up the 2- and 3-year-olds&rsquo; portions <em>before</em> you stir in the spinach if greens are a hard sell tonight; stir it into the rest for the grown-ups and the 8-year-old.</div>
+    <div class="callout kid"><strong>👧 Kid-friendly:</strong> Mild, buttery, no spice. The 2- and 3-year-olds will likely prefer plain salmon and potatoes &mdash; serve their portions before the rocket goes on. The 8-year-old usually does well with peas and the lemon-buttery juices.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Brown the meatballs <span class="step-time">~6&ndash;8 mins</span></div>
-        <div class="step-text">Heat a wide deep sauté pan or shallow casserole over medium-high with the <a class="ing-link" data-ingredient="oil-brown">rapeseed oil</a>. Take the meatball tray out of the fridge. Brown the <a class="ing-link" data-ingredient="pork-mince">meatballs</a> in 2 batches &mdash; don&rsquo;t crowd the pan. ~3 minutes per batch, turning once or twice, just until golden on the outside (they don&rsquo;t need to be cooked through &mdash; they&rsquo;ll finish in the sauce). Lift to a plate.</div>
+        <div class="step-title">Preheat the oven <span class="step-time">~5 mins</span></div>
+        <div class="step-text">As soon as you&rsquo;re back from pickup, set the oven to <strong>200°C fan</strong> (220°C conventional). Get the tray of <a class="ing-link" data-ingredient="potatoes">potatoes</a> ready by the door.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Soften the onion <span class="step-time">~4 mins</span></div>
-        <div class="step-text">Drop the heat to medium. Tip the chopped <a class="ing-link" data-ingredient="onion-sauce">large onion</a> into the same pan with a pinch of salt. Stir through the meaty bits stuck to the bottom &mdash; they&rsquo;re flavour. Soften 4 minutes until translucent.</div>
+        <div class="step-title">Roast the potatoes <span class="step-time">~25 mins</span></div>
+        <div class="step-text">Slide the tray onto the middle shelf. Roast for 25 minutes &mdash; you&rsquo;re looking for golden, crisp cut sides and tender insides. Toss once at the halfway mark with a fish slice if you remember.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Garlic + tomato purée <span class="step-time">~1 min</span></div>
-        <div class="step-text">Add the chopped <a class="ing-link" data-ingredient="garlic-sauce">sauce garlic</a> and the <a class="ing-link" data-ingredient="tomato-puree">tomato purée</a>. Stir for 1 minute until the purée darkens slightly and smells deep and savoury &mdash; this little step makes a big difference.</div>
+        <div class="step-title">Add the salmon <span class="step-time">~1 min hands-on</span></div>
+        <div class="step-text">Take the tray out. Push the potatoes to the edges to clear five spots in the middle. Pat the <a class="ing-link" data-ingredient="salmon">salmon fillets</a> dry with kitchen paper, lay them <strong>skin-side down</strong> on the tray, and dollop a generous spoon of the <a class="ing-link" data-ingredient="butter">lemon-thyme butter</a> onto each fillet. Season the tops with a pinch of salt and a twist of pepper.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Build the sauce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Tip in the <a class="ing-link" data-ingredient="tinned-tomatoes">tinned tomatoes</a>. Half-fill the empty tin with water, swirl, and add that too. Stir in the <a class="ing-link" data-ingredient="orzo">orzo</a>, the <a class="ing-link" data-ingredient="stock">stock</a>, <a class="ing-link" data-ingredient="oregano-sauce">oregano</a>, and <a class="ing-link" data-ingredient="salt-sauce">salt &amp; pepper</a>. Bring to a gentle bubble.</div>
+        <div class="step-title">Roast salmon + peas <span class="step-time">~10&ndash;12 mins</span></div>
+        <div class="step-text">Tray back into the oven for 8 minutes. Then pull it, scatter the <a class="ing-link" data-ingredient="peas">frozen peas</a> straight into the gaps and around the fish, and return for a final 3&ndash;4 minutes &mdash; just long enough for the peas to thaw, brighten and warm through.</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> Salmon is ready at <strong>52°C</strong> internal for tender, just-set fillets (it&rsquo;ll carry-over to ~55°C off the heat). Push the wireless thermometer into the thickest part of the centre fillet at the 8-minute mark. If it&rsquo;s under, give it the extra 2&ndash;3 minutes with the peas. If it&rsquo;s already there, keep the peas in for just 2 minutes.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Nestle in the meatballs <span class="step-time">~12&ndash;14 mins</span></div>
-        <div class="step-text">Tuck the browned <a class="ing-link" data-ingredient="pork-mince">meatballs</a> back into the pan along with any juices from the plate. Lid on loosely (not fully sealed &mdash; you want a touch of evaporation). Simmer on medium-low for 12&ndash;14 minutes, stirring gently every few minutes so the orzo doesn&rsquo;t catch on the bottom. It&rsquo;s ready when the orzo is tender, the sauce is silky, and the meatballs are firm and cooked through.</div>
-      </div>
-    </div>
-
-    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you want certainty on the meatballs, push the wireless thermometer into the largest one. Pork wants <strong>71°C</strong> internal &mdash; it should be there comfortably after the simmer. Pull off the heat the moment they hit it.</div>
-
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-content">
-        <div class="step-title">Spinach + finish <span class="step-time">~3 mins</span></div>
-        <div class="step-text">Plate up the kids&rsquo; portions now if they&rsquo;re anti-greens (see the kid note). Then stir the <a class="ing-link" data-ingredient="frozen-spinach">frozen spinach</a> straight into the pan &mdash; the residual heat will thaw and wilt it in 1&ndash;2 minutes. Splash in the <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a> to lift the tomato, then take off the heat and swirl in the <a class="ing-link" data-ingredient="butter-finish">butter</a> for gloss. Taste &mdash; adjust salt.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Serve <span class="step-time">~1 min</span></div>
-        <div class="step-text">Spoon into shallow bowls &mdash; ~4 meatballs per adult, 2&ndash;3 for the kids, plenty of orzo. A grind of black pepper on top. If anyone&rsquo;s asking for cheese, parmesan would land beautifully here &mdash; none in stock tonight, so add it to the next shopping list.</div>
+        <div class="step-title">Finish + serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Tray out. Squeeze the <a class="ing-link" data-ingredient="lemon-juice">juice of half the second lemon</a> over the salmon and peas &mdash; you&rsquo;ll see the buttery juices brighten instantly. Plate the youngest two&rsquo;s portions first, plain (salmon + potatoes + a few peas, no rocket). Scatter <a class="ing-link" data-ingredient="rocket">rocket</a> over the rest of the tray and bring it straight to the table with the <a class="ing-link" data-ingredient="lemon-wedges">lemon wedges</a>.</div>
       </div>
     </div>
 
@@ -592,28 +574,28 @@
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:38 PM</td><td>Boil kettle, melt stock cubes in 800ml water, leave to cool</td></tr>
-        <tr><td>4:42 PM</td><td>Chop sauce onion + garlic; chop meatball onion + grate garlic</td></tr>
-        <tr><td>4:48 PM</td><td>Crush fennel seeds</td></tr>
-        <tr><td>4:50 PM</td><td>Mix mince, onion, garlic, fennel, oregano, egg, flour, S&amp;P</td></tr>
-        <tr><td>4:52 PM</td><td>Roll ~20 walnut-size meatballs onto a lined tray</td></tr>
-        <tr><td>4:56 PM</td><td>Tray of meatballs into the fridge</td></tr>
-        <tr><td>4:57 PM</td><td>Open tomatoes, measure purée, weigh orzo. Wash up the raw-pork mess</td></tr>
+        <tr><td>4:43 PM</td><td>Halve baby potatoes onto a large tray</td></tr>
+        <tr><td>4:48 PM</td><td>Oil + salt + pepper, toss potatoes cut-side down</td></tr>
+        <tr><td>4:50 PM</td><td>Strip thyme leaves, roughly chop</td></tr>
+        <tr><td>4:52 PM</td><td>Zest 1 lemon, set bare lemon aside</td></tr>
+        <tr><td>4:54 PM</td><td>Mash butter with thyme, zest, grated garlic, pinch of salt</td></tr>
+        <tr><td>4:57 PM</td><td>Halve second lemon &mdash; wedges for the table</td></tr>
+        <tr><td>4:58 PM</td><td>Wash + dry rocket</td></tr>
+        <tr><td>4:59 PM</td><td>Wipe down. Salmon stays in the fridge</td></tr>
         <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Wide pan on medium-high, oil in. Meatballs out of fridge</td></tr>
-        <tr><td>5:32 PM</td><td>Brown meatballs in 2 batches (~3 mins each), set aside</td></tr>
-        <tr><td>5:39 PM</td><td>Reduce heat to medium. Soften the onion (4 mins)</td></tr>
-        <tr><td>5:43 PM</td><td>Garlic + tomato purée, stir 1 min</td></tr>
-        <tr><td>5:44 PM</td><td>Tinned tomatoes + can of water + orzo + stock + oregano + S&amp;P</td></tr>
-        <tr><td>5:46 PM</td><td>Meatballs back in. Lid on loosely. Simmer 12&ndash;14 mins, stir gently</td></tr>
-        <tr><td>5:59 PM</td><td>Plate kids&rsquo; portions if dodging spinach. Stir spinach into the pan</td></tr>
-        <tr><td>6:01 PM</td><td>Vinegar in, off heat, swirl in butter. Taste, adjust salt</td></tr>
-        <tr><td>6:03 PM</td><td>Serve into shallow bowls, black pepper on top</td></tr>
+        <tr><td>5:30 PM</td><td>Oven on, 200°C fan</td></tr>
+        <tr><td>5:35 PM</td><td>Potatoes in &mdash; 25 minutes</td></tr>
+        <tr><td>5:48 PM</td><td>Toss potatoes once with a fish slice</td></tr>
+        <tr><td>6:00 PM</td><td>Tray out. Salmon on, butter dolloped, season</td></tr>
+        <tr><td>6:01 PM</td><td>Tray back in for 8 minutes</td></tr>
+        <tr><td>6:09 PM</td><td>Probe thickest fillet. Scatter peas around the salmon</td></tr>
+        <tr><td>6:12 PM</td><td>Out. Lemon squeeze. Plate kids&rsquo; portions plain</td></tr>
+        <tr><td>6:14 PM</td><td>Rocket on, lemon wedges to the table, serve</td></tr>
       </tbody>
     </table>
 
-    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe built from tonight&rsquo;s inventory &middot; not yet in the rotation</div>
+    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe built from tonight&rsquo;s inventory + a quick fishmonger run &middot; not yet in the rotation</div>
   </div>
 </div>
 
@@ -622,26 +604,19 @@
 
 <script>
   const ingredients = {
-    'pork-mince':       '500g pork mince — half of one of the 500g freezer packs. Defrost in the fridge from the morning, or cold-water bath from ~3 PM',
-    'fennel-seeds':     '1 tsp fennel seeds from the spice rack, lightly crushed — gives the meatballs a sweet, anisey, sausage-y backbone',
-    'oregano-mb':       '1 tsp dried oregano in the meatball mix',
-    'onion-mb':         '½ small white onion, very finely chopped — it has to be tiny so it cooks through inside the meatball',
-    'garlic-mb':        '2 cloves garlic, grated on a microplane (not chopped) so it disappears into the mince',
-    'egg-mb':           '1 large egg, lightly beaten — the binder. Eggs from the pantry, BBE 16 March but still good if they sink in water',
-    'flour-mb':         '30g plain flour from the pantry — helps soak up moisture and keep meatballs tender',
-    'salt-mb':          '½ tsp fine sea salt + a good twist of black pepper, in the meatball mix',
-    'oil-brown':        '1 tbsp rapeseed oil — high smoke point, neutral, ideal for searing',
-    'onion-sauce':      '1 large white onion, finely chopped — the base of the sauce',
-    'garlic-sauce':     '3 cloves garlic, finely chopped (this lot can be chopped, not grated)',
-    'tomato-puree':     '1 tbsp tomato purée from the tube in the pantry — fried briefly to deepen its flavour',
-    'tinned-tomatoes':  '1 × 400g tin chopped tomatoes (we have 7 cans in the pantry, so plenty in reserve)',
-    'orzo':             '300g orzo pasta from the pantry — cooks in the sauce, soaking up tomato and stock',
-    'stock':            '800ml hot chicken stock — 2 frozen cubes melted with just-boiled water',
-    'oregano-sauce':    '1 tsp dried oregano in the sauce — Italian herb of choice for tomato',
-    'salt-sauce':       '½ tsp salt + a twist of pepper, seasoning the sauce. Taste again at the end',
-    'frozen-spinach':   '100g frozen spinach (one ice-cube-block-ish) straight from the freezer — wilts into the sauce in 1–2 mins',
-    'vinegar':          '1 tsp red wine vinegar — a splash at the end lifts the tomato and brightens everything',
-    'butter-finish':    '25g butter swirled in off the heat for gloss and richness'
+    'salmon':         '5 salmon fillets, ~150g each, skin on. From the fishmonger today &mdash; spring salmon is in season. Centre-cut is best for even cooking',
+    'potatoes':       '800g baby potatoes from the pantry &mdash; the whole bag. Halve them so they crisp on the cut side',
+    'peas':           '300g frozen peas (about ½ a bag from the freezer) &mdash; they thaw in the residual oven heat at the very end',
+    'oil':            '2 tbsp rapeseed oil &mdash; high smoke point, ideal for high-heat roasting',
+    'salt-tray':      '1 tsp fine sea salt + a good twist of black pepper for the potatoes',
+    'butter':         '50g butter from the fridge (450g block in stock). Take it out 20 minutes before so it&rsquo;s soft and easy to mash',
+    'thyme':          '1 tbsp fresh thyme leaves stripped from the bunch in the fridge &mdash; small leaves, no woody stems',
+    'lemon-zest':     'Zest of 1 lemon (microplaned). Yellow only &mdash; the white pith is bitter',
+    'garlic':         '2 cloves garlic, microplaned so they melt into the butter without raw bite',
+    'salt-butter':    'A small pinch of salt to season the compound butter',
+    'lemon-juice':    'Juice of ½ a lemon (the second one) squeezed over the tray to lift the buttery juices',
+    'rocket':         'A handful of fresh rocket from the fridge &mdash; piled on the tray at the end for a peppery, fresh contrast. Skip for the youngest two',
+    'lemon-wedges':   '½ lemon cut into wedges, brought to the table for anyone who wants extra zing'
   };
 
   const tooltip = document.getElementById('tooltip');
