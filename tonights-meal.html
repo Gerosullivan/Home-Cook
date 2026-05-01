@@ -7,14 +7,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tonight's Meal">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌯</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌯</text></svg>">
-<title>Tonight's Meal — Beef Fajita Wraps</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<title>Tonight's Meal &mdash; Pan-fried Salmon with Crushed Minted Peas</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #faf8f5;
+    background: #f5f8fa;
     color: #2d2a26;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -28,9 +28,21 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #C44536 0%, #8B2B1F 100%);
+    background: linear-gradient(135deg, #2f7a8c 0%, #1a4a5c 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
+  }
+  .chefs-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 99px;
+    margin-bottom: 0.75rem;
   }
   .date {
     font-size: 0.85rem;
@@ -62,7 +74,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #C44536;
+    color: #2f7a8c;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -78,7 +90,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #eaf0f3;
     display: flex;
     align-items: baseline;
   }
@@ -86,7 +98,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #C44536;
+    background: #2f7a8c;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +112,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #C44536;
+    background: #2f7a8c;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +137,22 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdeeea;
-    border-left: 3px solid #C44536;
+    background: #e6f1f5;
+    border-left: 3px solid #2f7a8c;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #8B2B1F;
+    color: #1a4a5c;
   }
-  .callout strong { color: #C44536; }
+  .callout strong { color: #2f7a8c; }
+  .callout.chefs-note {
+    margin-left: 0;
+    background: #fff8ec;
+    border-left-color: #c89b3c;
+    color: #6b4f1d;
+  }
+  .callout.chefs-note strong { color: #a37718; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -143,7 +162,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdeeea;
+    background: #e6f1f5;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -152,25 +171,25 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #eaf0f3;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #C44536;
+    color: #2f7a8c;
     white-space: nowrap;
     width: 60px;
   }
 
   .ing-link {
-    color: #C44536;
+    color: #2f7a8c;
     text-decoration: none;
-    border-bottom: 1px dashed #C44536;
+    border-bottom: 1px dashed #2f7a8c;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #8B2B1F;
-    border-bottom-color: #8B2B1F;
+    color: #1a4a5c;
+    border-bottom-color: #1a4a5c;
   }
 
   .ing-tooltip {
@@ -202,7 +221,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #C44536;
+    color: #5fb0c4;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -335,18 +354,19 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #C44536 !important; }
+  .timing-phase-row.cook td { color: #2f7a8c !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Thursday 30 April 2026</div>
-    <h1>Family Beef Fajita Wraps</h1>
+    <span class="chefs-pick">&#127859; Chef's Pick</span>
+    <div class="date">Friday 1 May 2026</div>
+    <h1>Pan-fried Salmon with Crushed Minted Peas &amp; Lemon Butter Potatoes</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~25 mins total
+        ~30 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -354,55 +374,60 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Mexican
+        Salmon &middot; Spring
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="callout chefs-note"><strong>No plan tonight</strong> &mdash; nothing on the calendar or in the meal plan, so this is a Chef's Pick. Salmon is in season at the fishmonger, so pick up five fillets on the way home if you fancy it. Otherwise, swap in cod or hake &mdash; both work the same way.</div>
+
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="mince">500g beef mince (5&ndash;10% fat)</a></li>
-      <li><a class="ing-link" data-ingredient="veg">500g Tesco Mexican-style veg mix (frozen)</a></li>
+      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, skin on (~140g each)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g baby potatoes (or Maris Piper, chunked)</a></li>
+      <li><a class="ing-link" data-ingredient="peas">400g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="mint">Small bunch of fresh mint</a></li>
+      <li><a class="ing-link" data-ingredient="butter">60g butter (plus extra for the pan)</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon (zest + juice)</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">1 small clove of garlic</a></li>
+      <li><a class="ing-link" data-ingredient="cream">2 tbsp cr&egrave;me fra&icirc;che or double cream (optional)</a></li>
       <li><a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="paprika">1 tsp smoked paprika</a></li>
-      <li><a class="ing-link" data-ingredient="cumin">&frac12; tsp ground cumin</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">&frac12; tsp garlic powder</a></li>
-      <li><a class="ing-link" data-ingredient="puree">1 tbsp tomato pur&eacute;e</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Small pinch of salt</a></li>
-      <li><a class="ing-link" data-ingredient="wraps">8&ndash;10 soft tortilla wraps</a></li>
-      <li><a class="ing-link" data-ingredient="cheese">150&ndash;200g grated cheddar</a></li>
-      <li><a class="ing-link" data-ingredient="avocado">1 ripe avocado, sliced or mashed</a></li>
-      <li><a class="ing-link" data-ingredient="sour">150&ndash;200g sour cream or Greek yoghurt</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Flaky sea salt &amp; black pepper</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~12 min prep</span>
+        <span class="prep-time-pill">~15 min prep</span>
       </div>
       <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Measure the spice mix into a small bowl: smoked paprika, cumin, garlic powder, pinch of salt.</span>
+        <span class="prep-step-text">Wash and halve the baby potatoes (or chunk the Maris Pipers into 3cm pieces).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Grate 150&ndash;200g cheddar into a bowl, cover.</span>
+        <span class="prep-step-text">Pick the mint leaves off the stems and finely chop. Crush the garlic clove. Zest the lemon, then cut into wedges.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Brown the mince: 5&ndash;6 mins in a large pan until fully cooked. Tip off excess fat. Stir in the spice mix and tomato pur&eacute;e for 30 seconds. Leave in the pan off the heat.</span>
+        <span class="prep-step-text">Boil the potatoes in well-salted water for 15&ndash;18 mins until knife-tender. Drain, return to the warm pan, lid on. They'll keep grand for half an hour.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Scoop sour cream/yoghurt into a serving bowl; set out the tortilla pack.</span>
+        <span class="prep-step-text">Pat the salmon fillets dry with kitchen paper. Season the flesh side with salt and pepper. Pop back in the fridge until you're ready to fry.</span>
         <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Tip the frozen peas into a bowl on the counter so they start thawing while you're at pickup.</span>
+        <span class="prep-step-tag during">during</span>
       </div>
 
       <hr class="prep-divider">
@@ -411,71 +436,84 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Seasoned mince resting in the pan &mdash; just needs reheating and the veg added</div>
-        <div class="prep-passive-item">Cheese grated and ready &mdash; covered to stop it drying out</div>
+        <div class="prep-passive-item">Potatoes drained and resting in the warm pan &mdash; ready to crush in butter</div>
+        <div class="prep-passive-item">Salmon seasoned and chilled &mdash; just needs a hot pan</div>
+        <div class="prep-passive-item">Peas thawing on the counter &mdash; one less thing to wait on</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Food safety:</strong> Wash the board, knife and hands after handling the raw mince. If the kitchen is warm, pop the cooked mince in the fridge until you're back. Leave the avocado until cook phase &mdash; a squeeze of lemon will stop it browning if you prep it early.</div>
+    <div class="callout"><strong>Food safety:</strong> Wash the board and knife after handling raw fish. If the kitchen is warm, keep the seasoned salmon in the fridge until you're back. Probe-thermometer target: salmon at 52&ndash;55&deg;C in the thickest part for moist, just-cooked.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Brown the mince <span class="step-time">5&ndash;6 mins</span></div>
-        <div class="step-text">Heat a large pan over medium-high heat. Add the <a class="ing-link" data-ingredient="mince">mince</a> (and a splash of <a class="ing-link" data-ingredient="oil">oil</a> if needed). Break it up well and cook until fully browned. Tip off excess fat so it's not greasy for the kids.</div>
+        <div class="step-title">Crush the potatoes <span class="step-time">3&ndash;4 mins</span></div>
+        <div class="step-text">Add 30g of <a class="ing-link" data-ingredient="butter">butter</a>, a squeeze of <a class="ing-link" data-ingredient="lemon">lemon</a> and a pinch of <a class="ing-link" data-ingredient="salt">salt</a> to the pan of <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Use a fork to half-crush them so they soak up the butter &mdash; rough, not mashed. Lid back on, low heat to keep warm.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Add the spices <span class="step-time">1 min</span></div>
-        <div class="step-text">Stir in the <a class="ing-link" data-ingredient="paprika">paprika</a>, <a class="ing-link" data-ingredient="cumin">cumin</a>, <a class="ing-link" data-ingredient="garlic">garlic powder</a> and <a class="ing-link" data-ingredient="salt">salt</a> for 30 seconds to cook out. Stir in the <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> for richness (no heat).</div>
+        <div class="step-title">Get the salmon pan ripping hot <span class="step-time">2 mins</span></div>
+        <div class="step-text">Put a non-stick or heavy frying pan on a high heat with the <a class="ing-link" data-ingredient="oil">olive oil</a>. You want it shimmering before the fish goes in &mdash; that's how you get crispy skin.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">In with the veg <span class="step-time">6&ndash;8 mins</span></div>
-        <div class="step-text">Tip the <a class="ing-link" data-ingredient="veg">frozen veg mix</a> straight into the pan. Cook until hot and most of the moisture has cooked off. Let it sizzle at the end for better flavour &mdash; don't stew it.</div>
+        <div class="step-title">Fry the salmon, skin-side down <span class="step-time">4&ndash;5 mins</span></div>
+        <div class="step-text">Lay the <a class="ing-link" data-ingredient="salmon">salmon</a> fillets in skin-side down. Press each one gently with a fish slice for the first 10 seconds so the skin stays flat. Don't move them. Cook 4&ndash;5 mins until the skin is crisp and the flesh has gone opaque about two-thirds of the way up the side.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Warm the wraps <span class="step-time">2 mins</span></div>
-        <div class="step-text">Warm the <a class="ing-link" data-ingredient="wraps">tortillas</a> in a dry frying pan or microwave until soft and flexible. Wrap in a tea towel to keep warm.</div>
+        <div class="step-title">Crush the peas <span class="step-time">3 mins (in parallel)</span></div>
+        <div class="step-text">While the salmon's frying, melt 30g <a class="ing-link" data-ingredient="butter">butter</a> in a second small pan. Add the crushed <a class="ing-link" data-ingredient="garlic">garlic</a> for 30 seconds, then tip in the <a class="ing-link" data-ingredient="peas">peas</a>. Cook 2 mins until hot through. Off the heat, add the chopped <a class="ing-link" data-ingredient="mint">mint</a>, a squeeze of <a class="ing-link" data-ingredient="lemon">lemon</a>, and the <a class="ing-link" data-ingredient="cream">cr&egrave;me fra&icirc;che</a> if using. Crush with a potato masher to a rough texture &mdash; not a pur&eacute;e.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Build-your-own on the table</div>
-        <div class="step-text">Serve everything in bowls: wraps, beef &amp; veg, <a class="ing-link" data-ingredient="cheese">cheese</a>, <a class="ing-link" data-ingredient="sour">sour cream</a>, <a class="ing-link" data-ingredient="avocado">avocado</a>. Let the kids build their own. Optional: fold filled wraps and toast in a dry pan 1&ndash;2 mins per side, then cut in half for smaller hands.</div>
+        <div class="step-title">Flip and finish the salmon <span class="step-time">1&ndash;2 mins</span></div>
+        <div class="step-text">Flip the salmon and cook another 1&ndash;2 mins on the flesh side &mdash; aim for 52&ndash;55&deg;C internal with the thermometer. Off the heat, squeeze over a little more <a class="ing-link" data-ingredient="lemon">lemon</a>.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>Kid-friendly note:</strong> This is mild as written. Put hot sauce, jalape&ntilde;os, chilli flakes and a squeeze of lime on the table separately for the adults.</div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Spoon the minted peas onto each plate, lay a salmon fillet on top, skin-side up so it stays crisp. Crushed lemon-butter potatoes on the side. Scatter with the <a class="ing-link" data-ingredient="lemon">lemon zest</a> and a few mint leaves.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> The little ones often prefer salmon flaked off the skin and into the buttery potatoes. For the 2- and 3-year-olds, mash a portion of peas straight into the spuds &mdash; takes the edge off the mint and they hoover it up. Skip the cr&egrave;me fra&icirc;che on their portion if you'd rather.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:48 PM</td><td>Measure spices into a small bowl. Grate cheddar.</td></tr>
-        <tr><td>4:52 PM</td><td>Heat pan, brown the mince (5&ndash;6 mins), tip off fat.</td></tr>
-        <tr><td>4:58 PM</td><td>Stir spices and tomato pur&eacute;e through the mince. Pan off heat (fridge if kitchen is warm).</td></tr>
-        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; seasoned mince ready to go.</td></tr>
+        <tr><td>4:45 PM</td><td>Wash and halve potatoes. Get a pan of salted water on to boil.</td></tr>
+        <tr><td>4:48 PM</td><td>Pick &amp; chop mint, crush garlic, zest &amp; wedge the lemon.</td></tr>
+        <tr><td>4:50 PM</td><td>Potatoes into the boiling water (15&ndash;18 mins).</td></tr>
+        <tr><td>4:52 PM</td><td>Pat salmon dry, season the flesh side, return to fridge.</td></tr>
+        <tr><td>4:58 PM</td><td>Drain the potatoes, return to the warm pan, lid on. Tip peas into a bowl on the counter to thaw.</td></tr>
+        <tr><td>5:00 PM</td><td>Out the door for pickup &mdash; everything ready to go.</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Pan back on the heat, tip in the frozen veg mix.</td></tr>
-        <tr><td>5:36 PM</td><td>Slice/mash avocado, scoop sour cream into a bowl.</td></tr>
-        <tr><td>5:38 PM</td><td>Warm the wraps in a dry pan or microwave; keep in a tea towel.</td></tr>
-        <tr><td>5:40 PM</td><td>Everything to the table &mdash; build-your-own wraps. Dinner on!</td></tr>
+        <tr><td>5:30 PM</td><td>Crush the potatoes with butter, lemon and salt. Lid on, low heat.</td></tr>
+        <tr><td>5:33 PM</td><td>Heat the salmon pan with oil &mdash; get it really hot.</td></tr>
+        <tr><td>5:35 PM</td><td>Salmon in skin-side down. Press flat 10 seconds, then leave alone.</td></tr>
+        <tr><td>5:36 PM</td><td>Second pan: butter + garlic, then peas. Off heat, mint &amp; lemon, crush.</td></tr>
+        <tr><td>5:40 PM</td><td>Flip the salmon. Probe to 52&ndash;55&deg;C, then off the heat.</td></tr>
+        <tr><td>5:42 PM</td><td>Plate up &mdash; peas down first, salmon on top, potatoes alongside. Dinner on!</td></tr>
       </tbody>
     </table>
   </div>
@@ -485,18 +523,16 @@
 
 <script>
   const ingredients = {
-    'mince':   '500g beef mince (5\u201310% fat is ideal)',
-    'veg':     '500g Tesco Mexican-style veg mix (from the freezer)',
-    'oil':     '1 tbsp olive oil (only if mince is very lean)',
-    'paprika': '1 tsp smoked paprika',
-    'cumin':   '\u00bd tsp ground cumin',
-    'garlic':  '\u00bd tsp garlic powder',
-    'puree':   '1 tbsp tomato pur\u00e9e',
-    'salt':    'Small pinch of salt',
-    'wraps':   '8\u201310 soft tortilla wraps',
-    'cheese':  '150\u2013200g grated cheddar',
-    'avocado': '1 ripe avocado, sliced or lightly mashed',
-    'sour':    '150\u2013200g sour cream or Greek yoghurt'
+    'salmon':   '5 salmon fillets, skin on (~140g each). Cod or hake fillets work the same way.',
+    'potatoes': '800g baby potatoes (or Maris Piper cut into 3cm chunks)',
+    'peas':     '400g frozen peas (or fresh if you can find them)',
+    'mint':     'Small bunch of fresh mint, leaves picked and finely chopped',
+    'butter':   '60g butter total — 30g for the potatoes, 30g for the peas',
+    'lemon':    '1 lemon — zest first, then juice for finishing',
+    'garlic':   '1 small clove of garlic, crushed',
+    'cream':    '2 tbsp crème fraîche or double cream (optional, makes the peas extra lush)',
+    'oil':      '1 tbsp olive oil for the salmon pan',
+    'salt':     'Flaky sea salt and freshly ground black pepper'
   };
 
   const tooltip = document.getElementById('tooltip');
