@@ -7,14 +7,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tonight's Meal">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Ger's Bolognese</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<title>Tonight's Meal — Pan-Roasted Salmon, Smashed Potatoes &amp; Buttered Peas</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #faf8f5;
+    background: #f6f9f7;
     color: #2d2a26;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -28,9 +28,24 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #c0392b 0%, #7b241c 100%);
+    background: linear-gradient(135deg, #2a7a5b 0%, #133a2c 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
+    position: relative;
+  }
+  .chefs-pick {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(4px);
   }
   .date {
     font-size: 0.85rem;
@@ -62,7 +77,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c0392b;
+    color: #2a7a5b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -78,7 +93,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #ecf2ee;
     display: flex;
     align-items: baseline;
   }
@@ -86,7 +101,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #c0392b;
+    background: #2a7a5b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -100,7 +115,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #c0392b;
+    background: #2a7a5b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,15 +140,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fde8e6;
-    border-left: 3px solid #c0392b;
+    background: #eaf3ee;
+    border-left: 3px solid #2a7a5b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #6b1a14;
+    color: #1e4d3a;
   }
-  .callout strong { color: #c0392b; }
+  .callout strong { color: #2a7a5b; }
   .callout.kid {
     background: #e8f5e9;
     border-left-color: #2e7d32;
@@ -142,8 +157,15 @@
   .callout.safety {
     background: #fde8e6;
     border-left-color: #c0392b;
+    color: #6b1a14;
   }
   .callout.safety strong { color: #c0392b; }
+  .callout.tip {
+    background: #fff8e1;
+    border-left-color: #c08a2b;
+    color: #7a5310;
+  }
+  .callout.tip strong { color: #c08a2b; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,8 +175,8 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fde8e6;
-    color: #999;
+    background: #eaf3ee;
+    color: #777;
     font-weight: 600;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -162,26 +184,26 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #f0ece6;
+    border-bottom: 1px solid #ecf2ee;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c0392b;
+    color: #2a7a5b;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c0392b;
+    color: #2a7a5b;
     text-decoration: none;
-    border-bottom: 1px dashed #c0392b;
+    border-bottom: 1px dashed #2a7a5b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #7b241c;
-    border-bottom-color: #7b241c;
+    color: #1e4d3a;
+    border-bottom-color: #1e4d3a;
   }
 
   /* Tooltip overlay */
@@ -215,7 +237,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #c0392b;
+    color: #6dbf99;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -365,12 +387,13 @@
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Wednesday 6 May 2026</div>
-    <h1>🍝 Ger's Bolognese</h1>
+    <span class="chefs-pick">Chef's Pick</span>
+    <div class="date">Thursday 7 May 2026</div>
+    <h1>🐟 Pan-Roasted Salmon with Smashed Baby Potatoes, Buttered Peas &amp; Lemon-Caper Butter</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~1 hr 50 mins total
+        ~50 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -378,67 +401,59 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Italian
+        Salmon &middot; Spring
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="callout"><strong>Why this tonight?</strong> Week 2 Thursday in the rotation is open. Mon&ndash;Wed leaned beef and pork, so a fresh salmon supper is a lighter pivot. Pick up 5 salmon fillets from the fishmonger on the way home &mdash; Irish spring salmon is in good nick right now. Everything else is already in the press or freezer.</div>
+
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="pancetta">1 pack pancetta</a></li>
-      <li><a class="ing-link" data-ingredient="mince">800g lean beef mince</a></li>
-      <li><a class="ing-link" data-ingredient="carrots">2 medium carrots, diced</a></li>
-      <li><a class="ing-link" data-ingredient="celery">3 sticks celery, diced</a></li>
-      <li><a class="ing-link" data-ingredient="onions">3 medium onions, diced</a></li>
-      <li><a class="ing-link" data-ingredient="rosemary">2 sprigs fresh rosemary</a></li>
-      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
-      <li><a class="ing-link" data-ingredient="puree">&#188; tube tomato pur&eacute;e</a></li>
-      <li><a class="ing-link" data-ingredient="vinegar">Splash of red wine vinegar</a></li>
-      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock (homemade)</a></li>
-      <li><a class="ing-link" data-ingredient="bouillon">1 beef bouillon cube</a></li>
-      <li><a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a></li>
-      <li><a class="ing-link" data-ingredient="worcestershire">Splash of Worcestershire sauce</a></li>
-      <li><a class="ing-link" data-ingredient="soy">Splash of dark soy sauce</a></li>
-      <li><a class="ing-link" data-ingredient="chipotle">Smoked chipotle flakes, to taste</a></li>
-      <li><a class="ing-link" data-ingredient="rind">1 Parmesan rind</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="pasta">500g pasta (rigatoni or pappardelle)</a></li>
-      <li><a class="ing-link" data-ingredient="parmesan">Parmesan, shredded, for serving</a></li>
-      <li><a class="ing-link" data-ingredient="basil">Fresh basil for serving</a></li>
+      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, skin-on (~150&ndash;180g each)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">900g baby potatoes</a></li>
+      <li><a class="ing-link" data-ingredient="peas">350g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter">60g butter (split)</a></li>
+      <li><a class="ing-link" data-ingredient="lemons">2 lemons</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="capers">2 tbsp capers, drained</a></li>
+      <li><a class="ing-link" data-ingredient="oil">3 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Sea salt &amp; black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">Small handful flat-leaf parsley (optional)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~40 min before pickup</span>
+        <span class="prep-time-pill">~25 min before pickup</span>
       </div>
-      <div class="prep-context">Get the Bolognese simmering before you leave at 5:00 PM &mdash; it'll have 30+ minutes of hands-free cooking while you're on pickup</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the potatoes par-boiled and smashed so the post-pickup window is just oven + pan-fry</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Dice <a class="ing-link" data-ingredient="onions">3 onions</a>, <a class="ing-link" data-ingredient="carrots">2 carrots</a>, and <a class="ing-link" data-ingredient="celery">3 sticks celery</a></span>
+        <span class="prep-step-text">Put a pan of well-salted water on for the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and bring to the boil</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Fry <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan until crispy. Remove and set aside</span>
+        <span class="prep-step-text">Boil the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> for 12&ndash;14 mins until just tender to a knife. Drain and let them dry off in the colander</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">In the same pan, brown <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball clumps &mdash; sear underneath, then mash and break apart</span>
+        <span class="prep-step-text">Tip onto an oiled tray, smash each one flat with the bottom of a glass, drizzle with <a class="ing-link" data-ingredient="oil">rapeseed oil</a> and a good pinch of salt. Set aside on the worktop, ready for the oven</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">In a separate pan, soften the diced veg with <a class="ing-link" data-ingredient="oil">olive oil</a>, <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Add <a class="ing-link" data-ingredient="puree">tomato pur&eacute;e</a> and caramelise. Deglaze with <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a></span>
+        <span class="prep-step-text">Mise en place: chop <a class="ing-link" data-ingredient="garlic">2 cloves garlic</a>, juice 1 <a class="ing-link" data-ingredient="lemons">lemon</a>, slice the other into wedges, drain <a class="ing-link" data-ingredient="capers">capers</a>. Put it all on a small plate together</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Combine mince, pancetta, and veg in a large casserole. Add <a class="ing-link" data-ingredient="stock">chicken stock</a> with dissolved <a class="ing-link" data-ingredient="bouillon">bouillon</a>, <a class="ing-link" data-ingredient="tomatoes">3 tins plum tomatoes</a>, <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a>, <a class="ing-link" data-ingredient="soy">dark soy</a>, <a class="ing-link" data-ingredient="chipotle">chipotle flakes</a>, and <a class="ing-link" data-ingredient="rind">Parmesan rind</a>. Bring to a simmer</span>
+        <span class="prep-step-text">Pat the <a class="ing-link" data-ingredient="salmon">salmon</a> dry with kitchen paper, score the skin lightly (3 shallow slashes per fillet), salt the skin generously and leave fridge-side until you're back</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
@@ -447,101 +462,88 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Bolognese simmers low and slow on the hob, getting richer and thicker. 30+ minutes of unattended cooking time.</div>
+        <div class="prep-passive-item">Smashed potatoes sit on the worktop drying out (good for crisping). Salmon sits salted, drawing moisture from the skin so it crisps up properly when it hits the pan.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>&#9888;&#65039; Before you leave:</strong> Make sure the hob is on the lowest heat setting. Give the sauce a good stir so nothing catches on the bottom. Lid slightly ajar.</div>
+    <div class="callout safety"><strong>&#9888;&#65039; Before you leave:</strong> Hob off, oven off. Wash the board and knife you used for prepping &mdash; even though there's no raw meat, anything that touched raw fish gets a hot soapy rinse. Salted salmon goes back in the fridge if the kitchen's warm.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Crisp the pancetta <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Fry the <a class="ing-link" data-ingredient="pancetta">pancetta</a> in a wide stainless steel pan over medium-high heat until crispy. Remove and set aside.</div>
+        <div class="step-title">Oven on, potatoes in <span class="step-time">~2 mins active, 18 mins roast</span></div>
+        <div class="step-text">Heat the oven to 220&deg;C fan. Slide the tray of smashed <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in once it's up to temperature. Roast 18&ndash;20 mins until the edges are deep golden and crispy.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Brown the mince <span class="step-time">~10 mins</span></div>
-        <div class="step-text">In the same pan, place <a class="ing-link" data-ingredient="mince">800g mince</a> in golf-ball sized clumps. Let them sear underneath without moving &mdash; get a good crust. Then mash down and break apart until fully browned.</div>
+        <div class="step-title">Pan on, salmon in <span class="step-time">~6&ndash;8 mins</span></div>
+        <div class="step-text">Heat your heaviest frying pan over medium-high. Add 2 tbsp <a class="ing-link" data-ingredient="oil">rapeseed oil</a>. When it shimmers, lay the <a class="ing-link" data-ingredient="salmon">salmon</a> in skin-side down, away from you. Press each fillet flat for the first 30 seconds with a fish slice so the skin makes full contact. Cook undisturbed for 4&ndash;5 mins until the skin is crisp and the flesh is opaque about two-thirds of the way up.</div>
       </div>
     </div>
 
-    <div class="callout"><strong>&#128161; Tip:</strong> Don't crowd the pan. If needed, brown in two batches for a better crust. This is where the deep flavour comes from.</div>
+    <div class="callout tip"><strong>&#128161; Probe it:</strong> Pop a wireless thermometer into the thickest fillet through the side. Pull at <strong>55&deg;C internal</strong> for a moist, just-cooked centre &mdash; it'll carry up to 58&ndash;60&deg;C while resting. The toddlers will get the slimmer tail-end pieces, which cook through fully.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the soffritto <span class="step-time">~10 mins</span></div>
-        <div class="step-text">In a separate pan, heat a little <a class="ing-link" data-ingredient="oil">olive oil</a>. Add the diced <a class="ing-link" data-ingredient="onions">onions</a>, <a class="ing-link" data-ingredient="carrots">carrots</a>, and <a class="ing-link" data-ingredient="celery">celery</a> with the <a class="ing-link" data-ingredient="rosemary">rosemary</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, and salt. Cook until softened.</div>
+        <div class="step-title">Flip and finish <span class="step-time">~2&ndash;3 mins</span></div>
+        <div class="step-text">Flip the fillets and cook 2&ndash;3 mins more until done (see probe note above). Lift onto a warm plate, skin-side up so it stays crisp. Tip the pan oil into the bin.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Caramelise and deglaze <span class="step-time">~3 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="puree">&#188; tube of tomato pur&eacute;e</a> to the veg. Let it cook on the bottom of the pan for a minute or two to caramelise. Add a good splash of <a class="ing-link" data-ingredient="vinegar">red wine vinegar</a> and stir through.</div>
+        <div class="step-title">Build the lemon-caper butter <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Lower the heat to medium. Drop 50g <a class="ing-link" data-ingredient="butter">butter</a> into the same pan. As it foams, add the chopped <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="capers">capers</a> &mdash; sizzle for 30 seconds, no more. Squeeze in the juice of 1 <a class="ing-link" data-ingredient="lemons">lemon</a>, swirl, and pull off the heat. Taste &mdash; it should be punchy and bright.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Combine and build the sauce <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Combine the <a class="ing-link" data-ingredient="mince">mince</a>, <a class="ing-link" data-ingredient="pancetta">pancetta</a>, and softened veg in a large casserole pan. Mix <a class="ing-link" data-ingredient="stock">400ml chicken stock</a> with <a class="ing-link" data-ingredient="bouillon">beef bouillon</a> until dissolved. Pour into the casserole.</div>
+        <div class="step-title">Buttered peas <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="peas">frozen peas</a> into a small saucepan with a splash of water and the remaining 10g <a class="ing-link" data-ingredient="butter">butter</a>. Cover and warm on medium for 3 mins, shaking the pan once or twice. Drain off any liquid, season with a pinch of salt.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Add the flavour bombs <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="tomatoes">3 tins of plum tomatoes</a>, a good splash of <a class="ing-link" data-ingredient="worcestershire">Worcestershire sauce</a>, a good splash of <a class="ing-link" data-ingredient="soy">dark soy sauce</a>, <a class="ing-link" data-ingredient="chipotle">smoked chipotle flakes</a> to taste, and the <a class="ing-link" data-ingredient="rind">Parmesan rind</a>.</div>
+        <div class="step-title">Plate up <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pile the smashed <a class="ing-link" data-ingredient="potatoes">potatoes</a> on each plate, sit the <a class="ing-link" data-ingredient="salmon">salmon</a> on top skin-side up, spoon a heap of buttered <a class="ing-link" data-ingredient="peas">peas</a> alongside. Drizzle the lemon-caper butter over the salmon and potatoes. Scatter <a class="ing-link" data-ingredient="parsley">parsley</a> if using, lemon wedge on the side.</div>
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Simmer low and slow <span class="step-time">~60+ mins</span></div>
-        <div class="step-text">Bring to a simmer on the hob. Cook low and slow, stirring occasionally, until rich and thickened. At least 1 hour &mdash; longer is better. The sauce will simmer while you're on pickup.</div>
-      </div>
-    </div>
+    <div class="callout kid"><strong>&#128103; Kid-friendly notes:</strong> Capers are bright and salty &mdash; for the 2- and 3-year-olds, plate their salmon and potatoes <em>before</em> drizzling the sauce, then give them a plain knob of butter on top. The 8-year-old can decide for himself. Crispy salmon skin is usually a hit with the wee ones once they try it; offer a piece on the side and don't push it.</div>
 
-    <div class="step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Cook pasta and serve <span class="step-time">~12 mins (after pickup)</span></div>
-        <div class="step-text">Remove the <a class="ing-link" data-ingredient="rind">Parmesan rind</a> and rosemary stalks. Cook <a class="ing-link" data-ingredient="pasta">500g pasta</a> in plenty of salted boiling water. Drain and toss with the sauce. Serve with shredded <a class="ing-link" data-ingredient="parmesan">Parmesan</a>, torn <a class="ing-link" data-ingredient="basil">fresh basil</a>, and a drizzle of olive oil.</div>
-      </div>
-    </div>
-
-    <div class="callout kid"><strong>&#128103; Kid-friendly note:</strong> The chipotle is mild at 1 tsp &mdash; it adds smokiness, not heat. If the kids are particularly sensitive, hold the chipotle from their portions and stir it into the adults' bowls at the table. The Parmesan rind melts in and gives the sauce a lovely richness they'll love.</div>
-
-    <div class="callout"><strong>Leftovers:</strong> Bolognese freezes brilliantly. Portion into containers and freeze for up to 3 months. Reheat gently with a splash of water.</div>
+    <div class="callout"><strong>Leftovers:</strong> Cooked salmon keeps 1&ndash;2 days fridge. Flake into pasta or onto toast with cream cheese for tomorrow's lunch. Don't reheat hard &mdash; gentle warmth or eat cold.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:15 PM</td><td>Dice onions, carrots, and celery. Set aside</td></tr>
-        <tr><td>4:25 PM</td><td>Fry pancetta until crispy. Remove and set aside</td></tr>
-        <tr><td>4:28 PM</td><td>Brown mince in golf-ball clumps &mdash; sear hard, then break apart. Set aside with pancetta</td></tr>
-        <tr><td>4:38 PM</td><td>Soffritto: cook diced veg with rosemary, oregano, salt. Add tomato pur&eacute;e, caramelise. Deglaze with red wine vinegar</td></tr>
-        <tr><td>4:48 PM</td><td>Combine everything in casserole. Add stock + bouillon, tinned tomatoes, Worcestershire, dark soy, chipotle, Parmesan rind. Bring to simmer</td></tr>
-        <tr><td>4:55 PM</td><td>Sauce simmering &mdash; turn heat to lowest setting, stir well, lid slightly ajar. Tidy up</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; Bolognese simmers unattended</td></tr>
+        <tr><td>4:35 PM</td><td>Big pan of well-salted water on for the baby potatoes</td></tr>
+        <tr><td>4:40 PM</td><td>Potatoes in. Boil 12&ndash;14 mins until knife-tender</td></tr>
+        <tr><td>4:42 PM</td><td>While they boil: chop garlic, juice 1 lemon, slice 1 into wedges, drain capers, set aside</td></tr>
+        <tr><td>4:48 PM</td><td>Pat salmon dry, score skins, salt generously, return to fridge</td></tr>
+        <tr><td>4:54 PM</td><td>Drain potatoes. Tip onto oiled tray, smash with a glass, drizzle oil + salt</td></tr>
+        <tr><td>4:58 PM</td><td>Quick tidy. Get bin lid open, kitchen paper out, fish slice and probe thermometer ready</td></tr>
+        <tr><td>5:00 PM</td><td>Out the door for pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Give the sauce a stir &mdash; it should be thick and rich. Taste and adjust seasoning</td></tr>
-        <tr><td>5:32 PM</td><td>Put a large pot of water on to boil. Salt generously once boiling</td></tr>
-        <tr><td>5:38 PM</td><td>Cook 500g pasta (check packet timing). Remove Parmesan rind and rosemary stalks from sauce</td></tr>
-        <tr><td>5:48 PM</td><td>Drain pasta. Toss with sauce. Serve with shredded Parmesan, torn basil, and a drizzle of olive oil</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Oven on at 220&deg;C fan</td></tr>
+        <tr><td>5:33 PM</td><td>Potatoes into the oven once preheated. Heavy frying pan onto medium-high, 2 tbsp oil</td></tr>
+        <tr><td>5:37 PM</td><td>Salmon in skin-side down, press flat 30 secs, then leave undisturbed</td></tr>
+        <tr><td>5:42 PM</td><td>Probe thickest fillet, flip salmon, cook 2&ndash;3 mins more, pull at 55&deg;C internal</td></tr>
+        <tr><td>5:45 PM</td><td>Lift salmon to warm plate. Tip pan oil. Butter + garlic + capers + lemon juice into pan</td></tr>
+        <tr><td>5:46 PM</td><td>Peas into a small saucepan with butter and a splash of water, lid on, medium heat</td></tr>
+        <tr><td>5:50 PM</td><td>Potatoes out of the oven (golden, crisp edges). Plate up. Sauce over the salmon, peas alongside, lemon wedge</td></tr>
       </tbody>
     </table>
   </div>
@@ -553,26 +555,16 @@
 <script>
   // Ingredient data map
   const ingredients = {
-    'pancetta':      '1 pack pancetta — crisp it first for deep savoury flavour',
-    'mince':         '800g lean beef mince — sear in clumps for maximum crust',
-    'carrots':       '2 medium carrots, diced — about ⅔ the usual Bolognese amount',
-    'celery':        '3 sticks celery, diced',
-    'onions':        '3 medium onions, diced',
-    'rosemary':      '2 sprigs fresh rosemary — remove stalks before serving',
-    'oregano':       '1 tsp dried oregano (or fresh)',
-    'puree':         '¼ tube tomato purée — caramelise on the pan base',
-    'vinegar':       'Good splash of red wine vinegar',
-    'stock':         '400ml chicken stock (homemade)',
-    'bouillon':      '1 beef bouillon cube — dissolve in the chicken stock',
-    'tomatoes':      '3 tins plum tomatoes',
-    'worcestershire':'Good splash of Worcestershire sauce',
-    'soy':           'Good splash of dark soy sauce — adds deep umami colour',
-    'chipotle':      'Smoked chipotle flakes to taste — smokiness, not heat',
-    'rind':          '1 Parmesan rind — melts into the sauce, remove before serving',
-    'oil':           '1 tbsp olive oil',
-    'pasta':         '500g pasta — rigatoni, pappardelle, or anything that holds sauce',
-    'parmesan':      'Parmesan, shredded, for serving',
-    'basil':         'Fresh basil, torn, for serving'
+    'salmon':    '5 salmon fillets, skin-on (~150&ndash;180g each) — fresh from the fishmonger today',
+    'potatoes':  '900g baby potatoes — Tesco bag in the pantry',
+    'peas':      '350g frozen peas — straight from the freezer',
+    'butter':    '60g butter — 50g for the pan sauce, 10g for the peas',
+    'lemons':    '2 lemons — one juiced for the sauce, one cut into wedges',
+    'garlic':    '2 cloves garlic, finely chopped — softens 30 sec in the butter, no longer or it burns',
+    'capers':    '2 tbsp capers, drained — salty pop against the salmon',
+    'oil':       '3 tbsp rapeseed oil — high smoke point, neutral flavour',
+    'salt':      'Sea salt + black pepper — be generous on the salmon skin so it crisps',
+    'parsley':   'Small handful flat-leaf parsley — chopped, garnish only, fine to skip if you don’t have any'
   };
 
   const tooltip = document.getElementById('tooltip');
