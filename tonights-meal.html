@@ -7,14 +7,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tonight's Meal">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-<title>Tonight's Meal — Pan-Roasted Salmon, Smashed Potatoes &amp; Buttered Peas</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Homemade Pizza</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #f6f9f7;
+    background: #faf8f5;
     color: #2d2a26;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -28,24 +28,9 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #2a7a5b 0%, #133a2c 100%);
+    background: linear-gradient(135deg, #d35400 0%, #b94600 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
-    position: relative;
-  }
-  .chefs-pick {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.18);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 99px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    backdrop-filter: blur(4px);
   }
   .date {
     font-size: 0.85rem;
@@ -77,7 +62,7 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2a7a5b;
+    color: #d35400;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -93,7 +78,7 @@
   .ingredients li {
     font-size: 0.95rem;
     padding: 0.3rem 0;
-    border-bottom: 1px solid #ecf2ee;
+    border-bottom: 1px solid #f0ece6;
     display: flex;
     align-items: baseline;
   }
@@ -101,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #2a7a5b;
+    background: #d35400;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -115,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #2a7a5b;
+    background: #d35400;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -140,32 +125,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #eaf3ee;
-    border-left: 3px solid #2a7a5b;
+    background: #fef5f0;
+    border-left: 3px solid #d35400;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #1e4d3a;
+    color: #7a5030;
   }
-  .callout strong { color: #2a7a5b; }
-  .callout.kid {
-    background: #e8f5e9;
-    border-left-color: #2e7d32;
-  }
-  .callout.kid strong { color: #2e7d32; }
-  .callout.safety {
-    background: #fde8e6;
-    border-left-color: #c0392b;
-    color: #6b1a14;
-  }
-  .callout.safety strong { color: #c0392b; }
-  .callout.tip {
-    background: #fff8e1;
-    border-left-color: #c08a2b;
-    color: #7a5310;
-  }
-  .callout.tip strong { color: #c08a2b; }
+  .callout strong { color: #d35400; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -175,8 +143,8 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #eaf3ee;
-    color: #777;
+    background: #fef5f0;
+    color: #999;
     font-weight: 600;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -184,26 +152,26 @@
   }
   .timing-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #ecf2ee;
+    border-bottom: 1px solid #f0ece6;
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #2a7a5b;
+    color: #d35400;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #2a7a5b;
+    color: #d35400;
     text-decoration: none;
-    border-bottom: 1px dashed #2a7a5b;
+    border-bottom: 1px dashed #d35400;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #1e4d3a;
-    border-bottom-color: #1e4d3a;
+    color: #b94600;
+    border-bottom-color: #b94600;
   }
 
   /* Tooltip overlay */
@@ -237,7 +205,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #6dbf99;
+    color: #d35400;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -305,7 +273,7 @@
     background: #2a7a5b;
   }
   .prep-step-check:checked::after {
-    content: '\2713';
+    content: '✓';
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
@@ -349,7 +317,6 @@
     background: #e8f4ed;
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    margin-top: 0.75rem;
   }
   .prep-passive-header {
     font-size: 0.8rem;
@@ -381,19 +348,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c0392b !important; }
+  .timing-phase-row.cook td { color: #d35400 !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <span class="chefs-pick">Chef's Pick</span>
-    <div class="date">Thursday 7 May 2026</div>
-    <h1>🐟 Pan-Roasted Salmon with Smashed Baby Potatoes, Buttered Peas &amp; Lemon-Caper Butter</h1>
+    <div class="date">Friday 8 May 2026</div>
+    <h1>Homemade Pizza</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~50 mins total
+        ~40 mins active
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -401,149 +367,169 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Salmon &middot; Spring
+        Pork · Italian
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout"><strong>Why this tonight?</strong> Week 2 Thursday in the rotation is open. Mon&ndash;Wed leaned beef and pork, so a fresh salmon supper is a lighter pivot. Pick up 5 salmon fillets from the fishmonger on the way home &mdash; Irish spring salmon is in good nick right now. Everything else is already in the press or freezer.</div>
-
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, skin-on (~150&ndash;180g each)</a></li>
-      <li><a class="ing-link" data-ingredient="potatoes">900g baby potatoes</a></li>
-      <li><a class="ing-link" data-ingredient="peas">350g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="butter">60g butter (split)</a></li>
-      <li><a class="ing-link" data-ingredient="lemons">2 lemons</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="capers">2 tbsp capers, drained</a></li>
-      <li><a class="ing-link" data-ingredient="oil">3 tbsp rapeseed oil</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Sea salt &amp; black pepper</a></li>
-      <li><a class="ing-link" data-ingredient="parsley">Small handful flat-leaf parsley (optional)</a></li>
+      <li><a class="ing-link" data-ingredient="flour">500g 00 flour (Tipo 00)</a></li>
+      <li><a class="ing-link" data-ingredient="salt">10g fine sea salt</a></li>
+      <li><a class="ing-link" data-ingredient="yeast">7g sachet dried yeast</a></li>
+      <li><a class="ing-link" data-ingredient="sugar">1 tsp caster sugar</a></li>
+      <li><a class="ing-link" data-ingredient="water">325ml lukewarm water</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">400g tin plum tomatoes</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic</a></li>
+      <li><a class="ing-link" data-ingredient="sauce-oil">1 tbsp olive oil (sauce)</a></li>
+      <li><a class="ing-link" data-ingredient="oregano">1 tsp dried oregano</a></li>
+      <li><a class="ing-link" data-ingredient="pepperoni">100g pepperoni slices</a></li>
+      <li><a class="ing-link" data-ingredient="ham">150g ham, sliced or torn</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 jar pickled red onion, drained</a></li>
+      <li><a class="ing-link" data-ingredient="mushrooms">150g mushrooms, sliced</a></li>
+      <li><a class="ing-link" data-ingredient="mozzarella">250g mozzarella, torn</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~25 min before pickup</span>
+        <span class="prep-time-pill">~40 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the potatoes par-boiled and smashed so the post-pickup window is just oven + pan-fry</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Put a pan of well-salted water on for the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and bring to the boil</span>
+        <span class="prep-step-text">Combine 500g 00 flour and 10g salt in a large bowl</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Boil the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> for 12&ndash;14 mins until just tender to a knife. Drain and let them dry off in the colander</span>
+        <span class="prep-step-text">Mix yeast and sugar into 325ml lukewarm water — let sit 5 mins until frothy</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Tip onto an oiled tray, smash each one flat with the bottom of a glass, drizzle with <a class="ing-link" data-ingredient="oil">rapeseed oil</a> and a good pinch of salt. Set aside on the worktop, ready for the oven</span>
+        <span class="prep-step-text">Pour yeast water and 2 tbsp olive oil into flour. Mix, then knead 10 mins until smooth and elastic</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Mise en place: chop <a class="ing-link" data-ingredient="garlic">2 cloves garlic</a>, juice 1 <a class="ing-link" data-ingredient="lemons">lemon</a>, slice the other into wedges, drain <a class="ing-link" data-ingredient="capers">capers</a>. Put it all on a small plate together</span>
+        <span class="prep-step-text">Place dough in oiled bowl, cover with cling film, leave to rise</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Pat the <a class="ing-link" data-ingredient="salmon">salmon</a> dry with kitchen paper, score the skin lightly (3 shallow slashes per fillet), salt the skin generously and leave fridge-side until you're back</span>
+        <span class="prep-step-text">Make the sauce: crush garlic, fry gently 1 min in olive oil. Add tinned tomatoes, oregano, salt &amp; pepper. Simmer 15–20 mins, then blitz or mash smooth</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Slice mushrooms, tear ham, drain pickled red onion, tear mozzarella — set out in bowls</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
+      <hr class="prep-divider">
       <div class="prep-passive">
         <div class="prep-passive-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
           While you're at pickup
         </div>
-        <div class="prep-passive-item">Smashed potatoes sit on the worktop drying out (good for crisping). Salmon sits salted, drawing moisture from the skin so it crisps up properly when it hits the pan.</div>
+        <div class="prep-passive-item">Dough rises — it'll be well doubled by the time you're back</div>
+        <div class="prep-passive-item">Sauce cools — easier to spread on the bases</div>
       </div>
     </div>
-
-    <div class="callout safety"><strong>&#9888;&#65039; Before you leave:</strong> Hob off, oven off. Wash the board and knife you used for prepping &mdash; even though there's no raw meat, anything that touched raw fish gets a hot soapy rinse. Salted salmon goes back in the fridge if the kitchen's warm.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Oven on, potatoes in <span class="step-time">~2 mins active, 18 mins roast</span></div>
-        <div class="step-text">Heat the oven to 220&deg;C fan. Slide the tray of smashed <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in once it's up to temperature. Roast 18&ndash;20 mins until the edges are deep golden and crispy.</div>
+        <div class="step-title">Make the dough <span class="step-time">15 mins</span></div>
+        <div class="step-text">Combine <a class="ing-link" data-ingredient="flour">500g 00 flour</a> and <a class="ing-link" data-ingredient="salt">10g salt</a> in a large bowl. Mix <a class="ing-link" data-ingredient="yeast">yeast</a> and <a class="ing-link" data-ingredient="sugar">sugar</a> into <a class="ing-link" data-ingredient="water">325ml lukewarm water</a>, let sit 5 minutes until frothy. Pour yeast water and <a class="ing-link" data-ingredient="oil">olive oil</a> into the flour. Mix with a fork, then knead by hand for 10 minutes until smooth and elastic.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Pan on, salmon in <span class="step-time">~6&ndash;8 mins</span></div>
-        <div class="step-text">Heat your heaviest frying pan over medium-high. Add 2 tbsp <a class="ing-link" data-ingredient="oil">rapeseed oil</a>. When it shimmers, lay the <a class="ing-link" data-ingredient="salmon">salmon</a> in skin-side down, away from you. Press each fillet flat for the first 30 seconds with a fish slice so the skin makes full contact. Cook undisturbed for 4&ndash;5 mins until the skin is crisp and the flesh is opaque about two-thirds of the way up.</div>
+        <div class="step-title">Rise the dough <span class="step-time">1 hour</span></div>
+        <div class="step-text">Place dough in a lightly oiled bowl, cover with cling film, and leave in a warm place for 1 hour until doubled in size. This is your pickup window — the dough does the work while you're gone.</div>
       </div>
     </div>
-
-    <div class="callout tip"><strong>&#128161; Probe it:</strong> Pop a wireless thermometer into the thickest fillet through the side. Pull at <strong>55&deg;C internal</strong> for a moist, just-cooked centre &mdash; it'll carry up to 58&ndash;60&deg;C while resting. The toddlers will get the slimmer tail-end pieces, which cook through fully.</div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Flip and finish <span class="step-time">~2&ndash;3 mins</span></div>
-        <div class="step-text">Flip the fillets and cook 2&ndash;3 mins more until done (see probe note above). Lift onto a warm plate, skin-side up so it stays crisp. Tip the pan oil into the bin.</div>
+        <div class="step-title">Make the sauce <span class="step-time">20 mins</span></div>
+        <div class="step-text">Crush <a class="ing-link" data-ingredient="garlic">2 cloves garlic</a> and fry gently in <a class="ing-link" data-ingredient="sauce-oil">olive oil</a> for 1 minute. Add <a class="ing-link" data-ingredient="tomatoes">tinned tomatoes</a>, <a class="ing-link" data-ingredient="oregano">oregano</a>, salt and pepper. Simmer for 15–20 minutes, breaking up tomatoes. Blitz or mash until smooth.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>Tip:</strong> Make the sauce while the dough is starting its rise — the timing works perfectly. Sauce improves as it sits.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Build the lemon-caper butter <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Lower the heat to medium. Drop 50g <a class="ing-link" data-ingredient="butter">butter</a> into the same pan. As it foams, add the chopped <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="capers">capers</a> &mdash; sizzle for 30 seconds, no more. Squeeze in the juice of 1 <a class="ing-link" data-ingredient="lemons">lemon</a>, swirl, and pull off the heat. Taste &mdash; it should be punchy and bright.</div>
+        <div class="step-title">Preheat the oven <span class="step-time">5 mins before rolling</span></div>
+        <div class="step-text">Preheat oven to 250°C (or as hot as it goes). If you have a pizza stone, put it in now — it needs to be screaming hot.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Buttered peas <span class="step-time">~3 mins</span></div>
-        <div class="step-text">Tip the <a class="ing-link" data-ingredient="peas">frozen peas</a> into a small saucepan with a splash of water and the remaining 10g <a class="ing-link" data-ingredient="butter">butter</a>. Cover and warm on medium for 3 mins, shaking the pan once or twice. Drain off any liquid, season with a pinch of salt.</div>
+        <div class="step-title">Roll and shape <span class="step-time">5–8 mins</span></div>
+        <div class="step-text">Punch down the risen dough and divide into 2–3 portions. Roll each out on a floured surface as thin as you can, using extra <a class="ing-link" data-ingredient="flour">00 flour</a> to prevent sticking.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Plate up <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pile the smashed <a class="ing-link" data-ingredient="potatoes">potatoes</a> on each plate, sit the <a class="ing-link" data-ingredient="salmon">salmon</a> on top skin-side up, spoon a heap of buttered <a class="ing-link" data-ingredient="peas">peas</a> alongside. Drizzle the lemon-caper butter over the salmon and potatoes. Scatter <a class="ing-link" data-ingredient="parsley">parsley</a> if using, lemon wedge on the side.</div>
+        <div class="step-title">Assemble <span class="step-time">5 mins</span></div>
+        <div class="step-text">Transfer bases to floured baking trays or parchment. Spread sauce over each base, leaving a 1cm border. Top with torn <a class="ing-link" data-ingredient="mozzarella">mozzarella</a>, <a class="ing-link" data-ingredient="pepperoni">pepperoni</a>, <a class="ing-link" data-ingredient="ham">ham</a>, sliced <a class="ing-link" data-ingredient="mushrooms">mushrooms</a>, and <a class="ing-link" data-ingredient="onion">pickled red onion</a>.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>&#128103; Kid-friendly notes:</strong> Capers are bright and salty &mdash; for the 2- and 3-year-olds, plate their salmon and potatoes <em>before</em> drizzling the sauce, then give them a plain knob of butter on top. The 8-year-old can decide for himself. Crispy salmon skin is usually a hit with the wee ones once they try it; offer a piece on the side and don't push it.</div>
+    <div class="callout"><strong>Kid-friendly note:</strong> Make one pizza plain cheese or just ham &amp; cheese — the little ones can help place their own toppings. Pickled onion can be strong so keep it to one side or one pizza only.</div>
 
-    <div class="callout"><strong>Leftovers:</strong> Cooked salmon keeps 1&ndash;2 days fridge. Flake into pasta or onto toast with cream cheese for tomorrow's lunch. Don't reheat hard &mdash; gentle warmth or eat cold.</div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Bake <span class="step-time">10–12 mins per pizza</span></div>
+        <div class="step-text">Bake for 10–12 minutes until the base is crisp and golden and the cheese is bubbling and charred in spots. You'll likely need to do 2 batches — keep the first warm in the turned-off oven while the second bakes.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Rest and serve</div>
+        <div class="step-text">Rest for 2 minutes, then slice and serve. Let the kids pick their slices first — pepperoni is always a winner.</div>
+      </div>
+    </div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:35 PM</td><td>Big pan of well-salted water on for the baby potatoes</td></tr>
-        <tr><td>4:40 PM</td><td>Potatoes in. Boil 12&ndash;14 mins until knife-tender</td></tr>
-        <tr><td>4:42 PM</td><td>While they boil: chop garlic, juice 1 lemon, slice 1 into wedges, drain capers, set aside</td></tr>
-        <tr><td>4:48 PM</td><td>Pat salmon dry, score skins, salt generously, return to fridge</td></tr>
-        <tr><td>4:54 PM</td><td>Drain potatoes. Tip onto oiled tray, smash with a glass, drizzle oil + salt</td></tr>
-        <tr><td>4:58 PM</td><td>Quick tidy. Get bin lid open, kitchen paper out, fish slice and probe thermometer ready</td></tr>
-        <tr><td>5:00 PM</td><td>Out the door for pickup</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Back home. Oven on at 220&deg;C fan</td></tr>
-        <tr><td>5:33 PM</td><td>Potatoes into the oven once preheated. Heavy frying pan onto medium-high, 2 tbsp oil</td></tr>
-        <tr><td>5:37 PM</td><td>Salmon in skin-side down, press flat 30 secs, then leave undisturbed</td></tr>
-        <tr><td>5:42 PM</td><td>Probe thickest fillet, flip salmon, cook 2&ndash;3 mins more, pull at 55&deg;C internal</td></tr>
-        <tr><td>5:45 PM</td><td>Lift salmon to warm plate. Tip pan oil. Butter + garlic + capers + lemon juice into pan</td></tr>
-        <tr><td>5:46 PM</td><td>Peas into a small saucepan with butter and a splash of water, lid on, medium heat</td></tr>
-        <tr><td>5:50 PM</td><td>Potatoes out of the oven (golden, crisp edges). Plate up. Sauce over the salmon, peas alongside, lemon wedge</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
+        <tr><td>4:15 PM</td><td>Mix yeast, sugar &amp; water — let sit 5 mins</td></tr>
+        <tr><td>4:20 PM</td><td>Combine flour &amp; salt, add yeast water &amp; oil, start kneading</td></tr>
+        <tr><td>4:30 PM</td><td>Dough in oiled bowl, covered. Start the sauce — garlic, tomatoes, simmer</td></tr>
+        <tr><td>4:40 PM</td><td>While sauce simmers: slice mushrooms, tear ham, drain onion, tear mozzarella</td></tr>
+        <tr><td>4:50 PM</td><td>Blitz/mash sauce smooth, set aside. Toppings in bowls, covered</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup — dough rises while you're gone</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
+        <tr><td>5:25 PM</td><td>Preheat oven to 250°C (pizza stone in if you have one)</td></tr>
+        <tr><td>5:30 PM</td><td>Punch down dough, divide into 2–3 portions, roll out thin</td></tr>
+        <tr><td>5:38 PM</td><td>Assemble first pizza(s) — sauce, cheese, toppings</td></tr>
+        <tr><td>5:42 PM</td><td>First pizza in the oven</td></tr>
+        <tr><td>5:52 PM</td><td>First pizza out (keep warm), assemble and bake second</td></tr>
+        <tr><td>6:02 PM</td><td>All pizzas done — rest 2 mins, slice and serve!</td></tr>
       </tbody>
     </table>
   </div>
@@ -553,23 +539,29 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map
+  // Ingredient data map — key matches data-ingredient attribute
   const ingredients = {
-    'salmon':    '5 salmon fillets, skin-on (~150&ndash;180g each) — fresh from the fishmonger today',
-    'potatoes':  '900g baby potatoes — Tesco bag in the pantry',
-    'peas':      '350g frozen peas — straight from the freezer',
-    'butter':    '60g butter — 50g for the pan sauce, 10g for the peas',
-    'lemons':    '2 lemons — one juiced for the sauce, one cut into wedges',
-    'garlic':    '2 cloves garlic, finely chopped — softens 30 sec in the butter, no longer or it burns',
-    'capers':    '2 tbsp capers, drained — salty pop against the salmon',
-    'oil':       '3 tbsp rapeseed oil — high smoke point, neutral flavour',
-    'salt':      'Sea salt + black pepper — be generous on the salmon skin so it crisps',
-    'parsley':   'Small handful flat-leaf parsley — chopped, garnish only, fine to skip if you don’t have any'
+    'flour':      '500g 00 flour (Tipo 00)',
+    'salt':       '10g fine sea salt',
+    'yeast':      '7g sachet dried yeast',
+    'sugar':      '1 tsp caster sugar',
+    'water':      '325ml lukewarm water',
+    'oil':        '2 tbsp olive oil (dough)',
+    'tomatoes':   '400g tin plum tomatoes',
+    'garlic':     '2 cloves garlic, crushed',
+    'sauce-oil':  '1 tbsp olive oil (sauce)',
+    'oregano':    '1 tsp dried oregano',
+    'pepperoni':  '100g pepperoni slices',
+    'ham':        '150g ham, sliced or torn',
+    'onion':      '1 jar pickled red onion, drained',
+    'mushrooms':  '150g mushrooms, sliced',
+    'mozzarella': '250g mozzarella (1 pack), torn'
   };
 
   const tooltip = document.getElementById('tooltip');
   let activeLink = null;
 
+  // Position tooltip above the link
   function showTooltip(link) {
     const key = link.dataset.ingredient;
     const detail = ingredients[key];
@@ -584,6 +576,7 @@
     let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
     let top = rect.top - tipRect.height - 10;
 
+    // Keep within viewport
     if (left < 8) left = 8;
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
@@ -601,6 +594,7 @@
     activeLink = null;
   }
 
+  // Click to toggle tooltip
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -612,12 +606,14 @@
     });
   });
 
+  // Dismiss on click outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
       hideTooltip();
     }
   });
 
+  // Also show on hover for desktop
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('mouseenter', () => showTooltip(link));
     link.addEventListener('mouseleave', (e) => {
@@ -658,6 +654,7 @@
       });
     });
 
+    // Clean up old dates (keep only today)
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('prep-checks-') && k !== storageKey) {
         localStorage.removeItem(k);
