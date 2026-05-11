@@ -7,9 +7,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tonight's Meal">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-<title>Tonight's Meal — Honey & Lemon Salmon Traybake</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Roast Chicken with Roasted Cauliflower, Carrots &amp; Potatoes</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #e76f51 0%, #c8553d 100%);
+    background: linear-gradient(135deg, #a67c52 0%, #7a5c3a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
   }
@@ -38,19 +38,6 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
-  }
-  .chef-pick-pill {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.18rem 0.6rem;
-    border-radius: 99px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.6rem;
-    border: 1px solid rgba(255,255,255,0.35);
   }
   .header h1 {
     font-size: 1.6rem;
@@ -75,22 +62,12 @@
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #c8553d;
+    color: #a67c52;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
   h2:first-child { margin-top: 0; }
-  .intro-callout {
-    background: #fdf2ee;
-    border-left: 3px solid #e76f51;
-    padding: 0.75rem 1rem;
-    border-radius: 0 8px 8px 0;
-    margin: 0 0 1.25rem 0;
-    font-size: 0.88rem;
-    color: #6b3a2a;
-  }
-  .intro-callout strong { color: #c8553d; }
   .ingredients {
     list-style: none;
     display: grid;
@@ -109,7 +86,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #e76f51;
+    background: #a67c52;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -123,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #e76f51;
+    background: #a67c52;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -148,15 +125,20 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdf2ee;
-    border-left: 3px solid #e76f51;
+    background: #f5efe8;
+    border-left: 3px solid #a67c52;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #6b3a2a;
+    color: #6b5435;
   }
-  .callout strong { color: #c8553d; }
+  .callout strong { color: #a67c52; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -166,7 +148,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdf2ee;
+    background: #f5efe8;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -179,22 +161,22 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #c8553d;
+    color: #a67c52;
     white-space: nowrap;
     width: 60px;
   }
 
   /* Ingredient tooltip links */
   .ing-link {
-    color: #c8553d;
+    color: #a67c52;
     text-decoration: none;
-    border-bottom: 1px dashed #c8553d;
+    border-bottom: 1px dashed #a67c52;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #a93f2c;
-    border-bottom-color: #a93f2c;
+    color: #7a5c3a;
+    border-bottom-color: #7a5c3a;
   }
 
   /* Tooltip overlay */
@@ -228,7 +210,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #e76f51;
+    color: #a67c52;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -296,7 +278,7 @@
     background: #2a7a5b;
   }
   .prep-step-check:checked::after {
-    content: '✓';
+    content: '\2713';
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
@@ -340,6 +322,7 @@
     background: #e8f4ed;
     border-radius: 8px;
     padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
   }
   .prep-passive-header {
     font-size: 0.8rem;
@@ -371,19 +354,18 @@
     padding-top: 0.75rem !important;
   }
   .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #c8553d !important; }
+  .timing-phase-row.cook td { color: #a67c52 !important; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Saturday 9 May 2026</div>
-    <span class="chef-pick-pill">Chef's Pick · Saturday</span>
-    <h1>Honey &amp; Lemon Salmon Traybake</h1>
+    <div class="date">Monday 11 May 2026</div>
+    <h1>Roast Chicken with Roasted Cauliflower, Carrots &amp; Potatoes</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~45 mins total
+        ~1 hr 30 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -391,75 +373,68 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Salmon · Spring
+        Chicken &middot; Sunday Roast
       </div>
     </div>
   </div>
 
   <div class="body">
-
-    <div class="intro-callout">
-      <strong>Heads up:</strong> Saturday is normally takeaway night. This is a Chef's Pick suggestion in case you'd rather cook — one tray, one pot, in and out in about 45 minutes. Spring salmon from the fishmonger is in great shape right now. If you're going for the takeaway anyway, no harm done.
-    </div>
-
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets (about 130g each)</a></li>
-      <li><a class="ing-link" data-ingredient="potatoes">800g baby/new potatoes</a></li>
-      <li><a class="ing-link" data-ingredient="peas">300g frozen peas</a></li>
-      <li><a class="ing-link" data-ingredient="lemons">2 lemons (1 zested &amp; juiced, 1 in wedges)</a></li>
-      <li><a class="ing-link" data-ingredient="honey">3 tbsp runny honey</a></li>
-      <li><a class="ing-link" data-ingredient="mustard">2 tbsp Dijon mustard (mild)</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">4 cloves garlic, crushed</a></li>
-      <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
-      <li><a class="ing-link" data-ingredient="butter">30g butter</a></li>
-      <li><a class="ing-link" data-ingredient="dill">Small bunch fresh dill (or parsley)</a></li>
+      <li><a class="ing-link" data-ingredient="chicken">1 whole chicken (~1.8kg)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g potatoes, peeled &amp; quartered</a></li>
+      <li><a class="ing-link" data-ingredient="cauliflower">1 head cauliflower, cut into florets</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">4 carrots, peeled &amp; cut into chunks</a></li>
+      <li><a class="ing-link" data-ingredient="parsnips">2 parsnips, peeled &amp; cut into batons</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">1 whole garlic bulb</a></li>
+      <li><a class="ing-link" data-ingredient="peppers">2 bell peppers, deseeded &amp; chunked</a></li>
+      <li><a class="ing-link" data-ingredient="courgettes">2 courgettes, sliced into thick rounds</a></li>
+      <li><a class="ing-link" data-ingredient="oil">3 tbsp rapeseed or olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="butter">30g butter, softened</a></li>
       <li><a class="ing-link" data-ingredient="salt">Salt &amp; black pepper</a></li>
-      <li><a class="ing-link" data-ingredient="rocket">Fresh rocket, to serve (optional)</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">A few sprigs of fresh thyme (or 1 tsp dried)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <h2>Get Ahead</h2>
-        <span class="prep-time-pill">~15 min prep</span>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
-      <div class="prep-context">Optional — knock these out anytime in the afternoon to make the cook itself painless</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the chicken in the oven before you go</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Scrub baby potatoes, halve any larger than a golf ball</span>
+        <span class="prep-step-text">Preheat oven to 200&deg;C fan (220&deg;C conventional)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Whisk glaze: 3 tbsp honey, 2 tbsp Dijon, juice of 1 lemon, lemon zest, crushed garlic, 1 tbsp olive oil, salt &amp; pepper</span>
+        <span class="prep-step-text">Pat chicken dry with kitchen paper. Rub all over with softened butter, season generously with salt &amp; pepper. Tuck thyme sprigs into the cavity</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Take salmon out of the fridge 20 mins before cooking — it cooks more evenly from room-temp</span>
+        <span class="prep-step-text">Halve the garlic bulb crossways. Place cut-side down in the roasting tin with the chicken</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Roughly chop dill, cut second lemon into wedges, set aside</span>
+        <span class="prep-step-text">Put chicken in the oven. Insert wireless thermometer into the thickest part of the thigh &mdash; target 68&deg;C</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Wash rocket and shake dry, into a bowl ready for the table</span>
+        <span class="prep-step-text">Peel and quarter potatoes. Peel and chunk carrots and parsnips. Cut cauliflower into florets. Chunk peppers. Slice courgettes into thick rounds. Keep in separate bowls (courgettes &amp; peppers cook faster)</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
-      <hr class="prep-divider">
       <div class="prep-passive">
         <div class="prep-passive-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
-          While the potatoes are roasting
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
         </div>
-        <div class="prep-passive-item">Glaze the salmon and let it sit at room temp — 10–15 mins makes the flavour land deeper</div>
-        <div class="prep-passive-item">Boil the kettle for the peas — saves you a few minutes later</div>
+        <div class="prep-passive-item">Chicken roasts unattended in the oven (~30 mins of the total cook time ticks away while you're out)</div>
       </div>
     </div>
 
@@ -468,68 +443,83 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Preheat &amp; par-boil potatoes <span class="step-time">15 mins</span></div>
-        <div class="step-text">Heat oven to 200°C fan / 220°C conventional. Bring a pot of salted water to the boil. Add the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and simmer 10 minutes until just tender to a knife tip. Drain and shake the colander a few times — those rough edges crisp beautifully in the oven.</div>
+        <div class="step-title">Season &amp; roast the chicken <span class="step-time">before pickup</span></div>
+        <div class="step-text">Rub the <a class="ing-link" data-ingredient="chicken">chicken</a> all over with <a class="ing-link" data-ingredient="butter">softened butter</a>, season well with <a class="ing-link" data-ingredient="salt">salt &amp; pepper</a>. Place in a large roasting tin with the halved <a class="ing-link" data-ingredient="garlic">garlic bulb</a>. Roast at 200&deg;C fan for 1 hour 15 minutes total.</div>
       </div>
     </div>
+
+    <div class="callout thermometer"><strong>🌡️ Thermometer reminder:</strong> Insert the wireless probe into the thickest part of the thigh, avoiding bone. You're looking for 68&deg;C internal temperature. The thermometer will alert you &mdash; no guessing.</div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Crush &amp; roast potatoes <span class="step-time">20 mins</span></div>
-        <div class="step-text">Tip potatoes onto a large baking tray. Drizzle with <a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a>, season with salt &amp; pepper. Use the back of a fork to gently squash each one to about 1cm thick. Roast on the top shelf for 20 minutes while you prep the salmon.</div>
+        <div class="step-title">Par-boil the potatoes <span class="step-time">10 mins</span></div>
+        <div class="step-text">After pickup, put the <a class="ing-link" data-ingredient="potatoes">potatoes</a> into a large pot of salted boiling water. Boil for 8&ndash;10 minutes until the edges are just starting to soften. Drain well and give the colander a good shake to roughen the edges &mdash; this is what makes them crispy.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Make the glaze <span class="step-time">3 mins</span></div>
-        <div class="step-text">In a small bowl whisk <a class="ing-link" data-ingredient="honey">3 tbsp honey</a>, <a class="ing-link" data-ingredient="mustard">2 tbsp Dijon</a>, juice and zest of 1 <a class="ing-link" data-ingredient="lemons">lemon</a>, <a class="ing-link" data-ingredient="garlic">crushed garlic</a>, <a class="ing-link" data-ingredient="oil">1 tbsp olive oil</a>, a generous pinch of salt and a few grinds of pepper.</div>
+        <div class="step-title">Toss the root veg <span class="step-time">5 mins</span></div>
+        <div class="step-text">In a large bowl, toss the par-boiled <a class="ing-link" data-ingredient="potatoes">potatoes</a>, <a class="ing-link" data-ingredient="carrots">carrots</a>, <a class="ing-link" data-ingredient="parsnips">parsnips</a>, and <a class="ing-link" data-ingredient="cauliflower">cauliflower</a> with <a class="ing-link" data-ingredient="oil">2 tbsp oil</a>, salt &amp; pepper. Spread onto a large baking tray (or around the chicken if there's room).</div>
       </div>
     </div>
-
-    <div class="callout"><strong>Probe-it tip:</strong> Salmon is done at <strong>52–55°C</strong> for moist medium, or <strong>58°C</strong> for fully opaque. Stick a wireless thermometer into the thickest part of one fillet before you put the tray back in.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Add the salmon <span class="step-time">12–15 mins</span></div>
-        <div class="step-text">Pull the tray of potatoes out, push them to the edges. Pat <a class="ing-link" data-ingredient="salmon">salmon fillets</a> dry, lay them skin-side down in the cleared centre. Spoon the glaze generously over each fillet. Return the tray to the oven for 12–15 minutes until salmon flakes easily and the glaze is sticky.</div>
+        <div class="step-title">Roast the veg <span class="step-time">35&ndash;40 mins</span></div>
+        <div class="step-text">Put the root veg tray into the oven alongside the chicken. After 20 minutes, add the <a class="ing-link" data-ingredient="peppers">bell peppers</a> and <a class="ing-link" data-ingredient="courgettes">courgettes</a> tossed in the remaining <a class="ing-link" data-ingredient="oil">1 tbsp oil</a> &mdash; these cook faster and will go mushy if added too early.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Buttered peas <span class="step-time">5 mins</span></div>
-        <div class="step-text">While the salmon is in: tip <a class="ing-link" data-ingredient="peas">frozen peas</a> into a small saucepan with a splash of boiling water. Cook 3 minutes, drain, return to pan with the <a class="ing-link" data-ingredient="butter">butter</a>, a pinch of salt and a small squeeze of lemon. Stir until glossy.</div>
+        <div class="step-title">Rest the chicken <span class="step-time">15 mins</span></div>
+        <div class="step-text">Once the <a class="ing-link" data-ingredient="chicken">chicken</a> hits 68&deg;C, remove from the oven and transfer to a board. Cover loosely with foil and rest for 15 minutes. Don't skip this &mdash; the juices redistribute and it'll be much juicier. Leave the veg in the oven to finish crisping.</div>
       </div>
     </div>
-
-    <div class="callout"><strong>Kid-friendly note:</strong> The honey-mustard glaze is mild and sweet — the little ones love it. If anyone's wary, plate their salmon plain and serve a small dish of glaze on the side for dipping. Bare buttered peas and crushed potatoes are usually a hit too.</div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Plate &amp; serve</div>
-        <div class="step-text">Lift salmon and potatoes onto plates. Spoon over any tray juices. Top with chopped <a class="ing-link" data-ingredient="dill">dill</a>, add a lemon wedge and a small pile of <a class="ing-link" data-ingredient="rocket">rocket</a> alongside. Buttered peas in a bowl in the middle of the table.</div>
+        <div class="step-title">Quick gravy <span class="step-time">5 mins</span></div>
+        <div class="step-text">Pour off most of the fat from the roasting tin, leaving the juices and roasted <a class="ing-link" data-ingredient="garlic">garlic</a>. Squeeze the soft garlic cloves out of their skins into the tin. Place on the hob over medium heat, add a splash of boiling water (or stock if you have it), and scrape up the sticky bits. Simmer for 2&ndash;3 minutes until slightly thickened. Season to taste.</div>
       </div>
     </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Carve &amp; serve</div>
+        <div class="step-text">Carve the chicken and arrange on a platter with all the roasted veg. Pour the gravy into a jug. Serve family-style &mdash; everyone helps themselves.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> No heat or spice in this one. The roasted carrots and parsnips go lovely and sweet in the oven. If the younger ones are picky about mixed veg, serve the different veg in separate piles on their plates rather than all together.</div>
+
+    <div class="callout"><strong>Leftovers:</strong> Strip any remaining chicken off the bone tonight and pop it in the fridge. Great for sandwiches tomorrow or a quick chicken stir-fry later in the week. The carcass makes a brilliant stock if you're bothered.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
-        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — relaxed Saturday</td></tr>
-        <tr><td>5:30 PM</td><td>Salmon out of fridge. Scrub potatoes, whisk glaze, chop dill, rocket in a bowl</td></tr>
-        <tr><td>5:45 PM</td><td>Preheat oven to 200°C fan. Salted water on for potatoes</td></tr>
-        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase</td></tr>
-        <tr><td>5:50 PM</td><td>Potatoes into the simmering water (10 mins)</td></tr>
-        <tr><td>6:00 PM</td><td>Drain, shake, oil &amp; season, crush onto tray, into oven</td></tr>
-        <tr><td>6:18 PM</td><td>Tray out, push potatoes aside, lay salmon, spoon over glaze, back in</td></tr>
-        <tr><td>6:25 PM</td><td>Peas on the hob — 3 mins, drain, butter &amp; lemon</td></tr>
-        <tr><td>6:30 PM</td><td>Salmon out at 55°C — rest 1 minute, plate up, serve</td></tr>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:20 PM</td><td>Preheat oven to 200&deg;C fan</td></tr>
+        <tr><td>4:25 PM</td><td>Pat chicken dry, rub with butter, season. Halve garlic bulb. Place in roasting tin</td></tr>
+        <tr><td>4:35 PM</td><td>Chicken into oven. Insert wireless thermometer &mdash; target 68&deg;C. Set timer for 1 hr 15 mins</td></tr>
+        <tr><td>4:38 PM</td><td>Prep all veg: peel &amp; quarter potatoes, chunk carrots &amp; parsnips, cut cauliflower, slice peppers &amp; courgettes</td></tr>
+        <tr><td>4:55 PM</td><td>Veg prepped and in bowls, kitchen tidied. Ready to head out</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; chicken is roasting away</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Boil kettle, par-boil potatoes for 8&ndash;10 mins</td></tr>
+        <tr><td>5:40 PM</td><td>Drain &amp; shake potatoes. Toss root veg &amp; cauliflower with oil. Into oven alongside chicken</td></tr>
+        <tr><td>5:50 PM</td><td>Chicken should be nearing 68&deg;C &mdash; check thermometer. Remove when ready, rest under foil</td></tr>
+        <tr><td>6:00 PM</td><td>Add peppers &amp; courgettes to the veg tray for the last 15 mins</td></tr>
+        <tr><td>6:05 PM</td><td>Make quick garlic gravy in the roasting tin on the hob</td></tr>
+        <tr><td>6:10 PM</td><td>Veg out of oven. Carve chicken. Serve everything family-style</td></tr>
       </tbody>
     </table>
   </div>
@@ -539,26 +529,25 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
-  // Ingredient data map — key matches data-ingredient attribute
+  // Ingredient data map
   const ingredients = {
-    'salmon':   '5 × salmon fillets (about 130g each), skin on, pin-boned',
-    'potatoes': '800g baby/new potatoes (Charlotte or similar waxy)',
-    'peas':     '300g frozen peas',
-    'lemons':   '2 lemons (1 zested &amp; juiced, 1 in wedges)',
-    'honey':    '3 tbsp runny honey',
-    'mustard':  '2 tbsp Dijon mustard (mild — not English)',
-    'garlic':   '4 cloves garlic, crushed',
-    'oil':      '2 tbsp olive oil (split: 1 for potatoes, 1 for glaze)',
-    'butter':   '30g butter (for the peas)',
-    'dill':     'Small bunch fresh dill, roughly chopped (or parsley)',
-    'salt':     'Sea salt &amp; freshly ground black pepper',
-    'rocket':   'Fresh rocket leaves (you have a bag in the fridge), to serve'
+    'chicken':     '1 whole chicken (~1.8kg)',
+    'potatoes':    '800g potatoes, peeled & quartered',
+    'cauliflower': '1 head cauliflower, cut into florets',
+    'carrots':     '4 carrots, peeled & chunked',
+    'parsnips':    '2 parsnips, peeled & cut into batons',
+    'garlic':      '1 whole garlic bulb, halved crossways',
+    'peppers':     '2 bell peppers, deseeded & chunked',
+    'courgettes':  '2 courgettes, thick rounds',
+    'oil':         '3 tbsp rapeseed or olive oil',
+    'butter':      '30g butter, softened',
+    'salt':        'Salt & black pepper to taste',
+    'thyme':       'Fresh thyme sprigs (or 1 tsp dried)'
   };
 
   const tooltip = document.getElementById('tooltip');
   let activeLink = null;
 
-  // Position tooltip above the link
   function showTooltip(link) {
     const key = link.dataset.ingredient;
     const detail = ingredients[key];
@@ -573,7 +562,6 @@
     let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
     let top = rect.top - tipRect.height - 10;
 
-    // Keep within viewport
     if (left < 8) left = 8;
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
@@ -591,7 +579,6 @@
     activeLink = null;
   }
 
-  // Click to toggle tooltip
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -603,14 +590,12 @@
     });
   });
 
-  // Dismiss on click outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
       hideTooltip();
     }
   });
 
-  // Also show on hover for desktop
   document.querySelectorAll('.ing-link').forEach(link => {
     link.addEventListener('mouseenter', () => showTooltip(link));
     link.addEventListener('mouseleave', (e) => {
@@ -651,7 +636,6 @@
       });
     });
 
-    // Clean up old dates (keep only today)
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('prep-checks-') && k !== storageKey) {
         localStorage.removeItem(k);
