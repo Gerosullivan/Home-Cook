@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Steak Meal</title>
+<title>Tonight's Meal — Chicken Pad Thai (RecipeTin Eats)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,13 +28,14 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
+    background: linear-gradient(135deg, #e07b3b 0%, #a2262c 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
+    position: relative;
   }
   .date {
     font-size: 0.85rem;
-    opacity: 0.85;
+    opacity: 0.9;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
@@ -55,14 +56,14 @@
     align-items: center;
     gap: 0.4rem;
     font-size: 0.9rem;
-    opacity: 0.9;
+    opacity: 0.92;
   }
   .meta-item svg { width: 18px; height: 18px; }
   .body { padding: 1.5rem 2rem 2rem; }
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #5d4037;
+    color: #a2262c;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -86,13 +87,24 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #5d4037;
+    background: #a2262c;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
     position: relative;
     top: -1px;
   }
+  .ingredients-group {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #a2262c;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.4rem;
+    grid-column: 1 / -1;
+  }
+  .ingredients-group:first-child { margin-top: 0; }
+  .ingredients-group::before { display: none !important; }
   .step {
     display: flex;
     gap: 1rem;
@@ -100,7 +112,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #5d4037;
+    background: #a2262c;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -125,25 +137,35 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #efebe9;
-    border-left: 3px solid #5d4037;
+    background: #fdeee6;
+    border-left: 3px solid #d94f3c;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #4e342e;
+    color: #5a1a1e;
   }
-  .callout strong { color: #5d4037; }
+  .callout strong { color: #a2262c; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
   }
   .callout.thermometer strong { color: #e65100; }
   .callout.kid {
-    background: #e8f5e9;
-    border-left-color: #2e7d32;
+    background: #fff8e1;
+    border-left-color: #c28c00;
   }
-  .callout.kid strong { color: #2e7d32; }
+  .callout.kid strong { color: #8a6200; }
+  .callout.safety {
+    background: #e3f2fd;
+    border-left-color: #1565c0;
+  }
+  .callout.safety strong { color: #1565c0; }
+  .callout.pantry {
+    background: #f3ede1;
+    border-left-color: #8a6b2a;
+  }
+  .callout.pantry strong { color: #8a6b2a; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -153,7 +175,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #efebe9;
+    background: #fdeee6;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -166,20 +188,20 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #5d4037;
+    color: #a2262c;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #5d4037;
+    color: #a2262c;
     text-decoration: none;
-    border-bottom: 1px dashed #5d4037;
+    border-bottom: 1px dashed #a2262c;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #3e2723;
-    border-bottom-color: #3e2723;
+    color: #6e161b;
+    border-bottom-color: #6e161b;
   }
   .ing-tooltip {
     display: none;
@@ -210,7 +232,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #8d6e63;
+    color: #f5b894;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -218,9 +240,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #f0f7f4;
-    border: 1px solid #c8e6d8;
-    border-left: 4px solid #2a7a5b;
+    background: #fdf4ec;
+    border: 1px solid #f4d4b8;
+    border-left: 4px solid #d94f3c;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -231,14 +253,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #d94f3c; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #2a7a5b;
+    color: #d94f3c;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #2a7a5b;
+    background: #d94f3c;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -249,7 +271,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #5a8a70;
+    color: #8a3a2a;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -257,14 +279,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #dceee4;
+    border-bottom: 1px solid #f4d4b8;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #2a7a5b;
+    border: 2px solid #d94f3c;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -273,7 +295,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #2a7a5b;
+    background: #d94f3c;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -304,8 +326,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #d4edda;
-    color: #1e6e42;
+    background: #fce2d0;
+    color: #8a3a2a;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -313,11 +335,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #b8d8c8;
+    border-top: 1px dashed #f4b88a;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #e8f4ed;
+    background: #fbe6d4;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -349,19 +371,26 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #2a7a5b !important; }
-  .timing-phase-row.cook td { color: #5d4037 !important; }
+  .timing-phase-row.prep td { color: #d94f3c !important; }
+  .timing-phase-row.cook td { color: #a2262c !important; }
+  .source-link {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+  .source-link a { color: #a2262c; text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
-    <div class="date">Tuesday 12 May 2026</div>
-    <h1>🥩 Steak with Buttery Mash, Fried Onions &amp; Veg</h1>
+    <div class="date">Friday 15 May 2026</div>
+    <h1>🍜 Chicken Pad Thai</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~40 mins total
+        ~30 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -369,142 +398,169 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Beef &middot; Classic
+        Chicken &middot; Thai &middot; Week 3 Friday
       </div>
     </div>
   </div>
 
   <div class="body">
+    <div class="callout"><strong>🍜 Week 3 Friday:</strong> Homemade takeaway night &mdash; RecipeTin Eats&rsquo; <a class="ing-link" data-ingredient="padthai">Chicken Pad Thai</a>, scaled up from 3 to 5 servings. All the prep fits comfortably before pickup so you&rsquo;re just tossing a wok for ten minutes when you&rsquo;re back.</div>
+
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li><a class="ing-link" data-ingredient="steak">2 large sirloin or striploin steaks (~300g each)</a></li>
-      <li><a class="ing-link" data-ingredient="potatoes">1kg potatoes (Maris Piper or Rooster), peeled &amp; quartered</a></li>
-      <li><a class="ing-link" data-ingredient="frozen-veg">1 bag frozen vegetables (peas, sweetcorn &amp; carrots work well)</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 large onion, sliced into rings</a></li>
-      <li><a class="ing-link" data-ingredient="butter">60g butter (40g for mash, 20g for onions)</a></li>
-      <li><a class="ing-link" data-ingredient="milk">80ml milk, warmed</a></li>
-      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed or sunflower oil</a></li>
-      <li><a class="ing-link" data-ingredient="salt">Salt &amp; freshly ground black pepper</a></li>
+      <li class="ingredients-group">Sauce</li>
+      <li><a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind puree (not concentrate)</a></li>
+      <li><a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar, packed</a></li>
+      <li><a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a></li>
+      <li><a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a></li>
+
+      <li class="ingredients-group">Stir-fry</li>
+      <li><a class="ing-link" data-ingredient="noodles">210g dried rice stick (pad thai) noodles</a></li>
+      <li><a class="ing-link" data-ingredient="oil">5 tbsp vegetable oil</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 medium onion, finely sliced</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="chicken">250g chicken breast or thigh, thinly sliced</a></li>
+      <li><a class="ing-link" data-ingredient="eggs">3 eggs, lightly whisked</a></li>
+      <li><a class="ing-link" data-ingredient="tofu">210g firm tofu, cut into 3cm batons</a></li>
+      <li><a class="ing-link" data-ingredient="beansprouts">125g beansprouts</a></li>
+      <li><a class="ing-link" data-ingredient="chives">40g garlic chives, cut into 3cm pieces</a></li>
+
+      <li class="ingredients-group">To finish</li>
+      <li><a class="ing-link" data-ingredient="peanuts">60g peanuts, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="lime">1 lime, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="chilli">Ground chilli or cayenne (on the side, optional)</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~25 min prep</span>
+        <span class="prep-time-pill">~20 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the potatoes cooked and steaks to room temp</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; everything chopped, sauced and measured so the wok is 10 minutes flat when you&rsquo;re home.</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Take <a class="ing-link" data-ingredient="steak">steaks</a> out of the fridge. Leave on a plate on the counter to come to room temperature. Pat dry with kitchen paper.</span>
+        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind</a>, <a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar</a>, <a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a>, <a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a> in a small bowl until the sugar dissolves.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Peel and quarter <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Put into a large pot of salted cold water. Bring to the boil, then simmer for 15&ndash;20 mins until fork-tender.</span>
+        <span class="prep-step-text">Slice the <a class="ing-link" data-ingredient="onion">onion</a> finely and chop the <a class="ing-link" data-ingredient="garlic">garlic</a>. Cube the <a class="ing-link" data-ingredient="tofu">tofu</a> into 3cm batons and pat dry. Cut the <a class="ing-link" data-ingredient="chives">garlic chives</a> into 3cm lengths.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Peel and slice <a class="ing-link" data-ingredient="onion">onion</a> into rings. Set aside.</span>
+        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="chicken">chicken</a> (easier when fridge-cold). Season with a pinch of salt, cover and return to the fridge.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Season <a class="ing-link" data-ingredient="steak">steaks</a> generously with <a class="ing-link" data-ingredient="salt">salt and pepper</a> on both sides.</span>
+        <span class="prep-step-text">Lightly whisk the <a class="ing-link" data-ingredient="eggs">3 eggs</a> in a small bowl. Rinse the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and leave draining in a colander. Finely chop the <a class="ing-link" data-ingredient="peanuts">peanuts</a>, cut the <a class="ing-link" data-ingredient="lime">lime</a> into wedges.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Drain cooked <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Leave in the pot with the lid off to steam dry for a minute. Turn off heat.</span>
+        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in a bowl of just-boiled water for 5 minutes, then drain and rinse well under cold water. Toss with ½ tsp oil so they don&rsquo;t stick, cover.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
       <div class="prep-passive">
         <div class="prep-passive-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          While you're at pickup
+          While you&rsquo;re at pickup
         </div>
-        <div class="prep-passive-item">Steaks continue coming to room temperature &mdash; this ensures an even cook and better sear. Potatoes steam dry in the pot &mdash; drier potatoes make fluffier mash.</div>
+        <div class="prep-passive-item">Raw chicken in the fridge, sauce on the counter, noodles covered and oiled. The wok stays cold &mdash; this dish wants one hot, fast pass when you&rsquo;re back.</div>
       </div>
     </div>
+
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife right after slicing the raw chicken. The kitchen can be warm this time of year &mdash; keep the sliced chicken in the fridge while you&rsquo;re on the school run, not on the counter.</div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you add the sauce to the wok, scoop out a small portion of plain buttered noodles with a bit of chicken and egg for Child 3 (2 yo). Tamarind and fish sauce are punchy &mdash; the plain version is more her speed. Keep the <a class="ing-link" data-ingredient="chilli">chilli</a> and extra peanuts strictly on the side for the grown-ups.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Make the mash <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Mash the drained <a class="ing-link" data-ingredient="potatoes">potatoes</a> with 40g <a class="ing-link" data-ingredient="butter">butter</a> and the warm <a class="ing-link" data-ingredient="milk">milk</a>. Season well with salt and pepper. Beat until smooth and creamy. Cover and set aside &mdash; it stays warm.</div>
+        <div class="step-title">Fire up the wok <span class="step-time">~1 min</span></div>
+        <div class="step-text">Get your biggest non-stick pan or wok screaming hot over high heat. Have every bowl lined up beside it &mdash; sauce, chicken, egg, noodles, chives, beansprouts. Once you start, you don&rsquo;t stop.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Fry the onions <span class="step-time">~8 mins</span></div>
-        <div class="step-text">Melt 20g <a class="ing-link" data-ingredient="butter">butter</a> in a frying pan over medium heat. Add the sliced <a class="ing-link" data-ingredient="onion">onion rings</a> and cook, stirring occasionally, until soft and golden brown. Season with a pinch of salt. Remove to a bowl and keep warm.</div>
+        <div class="step-title">Garlic, onion &amp; chicken <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="oil">3 tbsp of the oil</a>. Tip in the <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="onion">onion</a>, toss 30 seconds until fragrant. Add the <a class="ing-link" data-ingredient="chicken">chicken</a> and stir-fry 1½ minutes until it&rsquo;s mostly cooked through &mdash; still a hint of pink is fine, it finishes in a moment.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Cook the steaks <span class="step-time">~6&ndash;8 mins</span></div>
-        <div class="step-text">Get the same pan smoking hot. Add a splash of <a class="ing-link" data-ingredient="oil">oil</a>. Lay the <a class="ing-link" data-ingredient="steak">steaks</a> in and cook without moving for 3&ndash;4 minutes until a deep golden crust forms. Flip and cook the other side for 3&ndash;4 minutes for medium. Add a knob of butter to the pan in the last minute and baste the steaks.</div>
+        <div class="step-title">Scramble the eggs <span class="step-time">~1 min</span></div>
+        <div class="step-text">Push everything to one side of the pan. Pour the last <a class="ing-link" data-ingredient="oil">2 tbsp oil</a> and the whisked <a class="ing-link" data-ingredient="eggs">eggs</a> into the cleared side. Let them set for 20 seconds, then scramble with the back of the spoon and fold the chicken back through.</div>
       </div>
     </div>
-
-    <div class="callout thermometer"><strong>🌡️ Thermometer:</strong> Probe your steaks &mdash; pull at 55&ndash;58°C for medium. They'll carry over a few degrees while resting. Use one of your wireless thermometers to get it right.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Rest the steaks <span class="step-time">~5 mins</span></div>
-        <div class="step-text">Transfer <a class="ing-link" data-ingredient="steak">steaks</a> to a warm plate and tent loosely with foil. Resting lets the juices redistribute &mdash; don't skip this step. Meanwhile, cook the veg.</div>
+        <div class="step-title">Tofu, noodles &amp; sauce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Add the <a class="ing-link" data-ingredient="tofu">tofu</a>, most of the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> (hold a handful back for the table) and the <a class="ing-link" data-ingredient="noodles">noodles</a>. Pour in all of the <a class="ing-link" data-ingredient="sauce">sauce</a>. Toss with tongs or two spatulas so every strand picks up colour.</div>
       </div>
     </div>
+
+    <div class="callout kid"><strong>🍜 Scoop-out moment:</strong> Right before you pour the sauce in, lift out a portion of plain noodles + chicken + egg into a small bowl &mdash; that&rsquo;s Child 3&rsquo;s dinner sorted. Then pour the sauce for the rest.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Heat the veg <span class="step-time">~4 mins (during rest)</span></div>
-        <div class="step-text">Cook the <a class="ing-link" data-ingredient="frozen-veg">frozen veg</a> according to packet instructions &mdash; microwave or a quick boil. Drain and add a small knob of butter.</div>
+        <div class="step-title">Toss until glossy <span class="step-time">~1½ mins</span></div>
+        <div class="step-text">Keep tossing for about a minute and a half &mdash; the noodles drink up the sauce and turn glossy reddish-brown. If it looks dry, a splash of water loosens things without watering down the flavour.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Slice and serve</div>
-        <div class="step-text">Slice each <a class="ing-link" data-ingredient="steak">steak</a> against the grain into strips. Serve on plates with a generous scoop of <a class="ing-link" data-ingredient="potatoes">buttery mash</a>, a pile of <a class="ing-link" data-ingredient="onion">fried onions</a> on top, and the <a class="ing-link" data-ingredient="frozen-veg">veg</a> alongside. Pour any resting juices from the plate over the steak.</div>
+        <div class="step-title">Chives &amp; half the peanuts <span class="step-time">~30 secs</span></div>
+        <div class="step-text">Scatter in the <a class="ing-link" data-ingredient="chives">garlic chives</a> and half of the <a class="ing-link" data-ingredient="peanuts">chopped peanuts</a>. Toss once or twice &mdash; the chives should wilt but still have bite. Off the heat.</div>
       </div>
     </div>
 
-    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Slice the kids' steak into small, thin strips so it cools quickly and is easy to eat. The fried onions and buttery mash are always a hit. If the younger two are fussy about veg, mix the peas into the mash &mdash; they'll never know.</div>
-
-    <div class="callout"><strong>💡 Tip:</strong> Two large steaks between five is about right &mdash; give the adults larger portions and cut smaller strips for the three kids. If you fancy a sauce, deglaze the steak pan with a splash of stock and a teaspoon of mustard for a quick pan sauce.</div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pile into bowls. Top with the remaining <a class="ing-link" data-ingredient="peanuts">peanuts</a>, the reserved fresh <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and a <a class="ing-link" data-ingredient="lime">lime wedge</a>. A little pot of <a class="ing-link" data-ingredient="chilli">chilli</a> on the side for Ger and Maura.</div>
+      </div>
+    </div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:30 PM</td><td>Take steaks out of fridge. Pat dry with kitchen paper</td></tr>
-        <tr><td>4:33 PM</td><td>Peel and quarter potatoes. Into salted cold water, bring to boil</td></tr>
-        <tr><td>4:38 PM</td><td>Slice onion into rings. Set aside</td></tr>
-        <tr><td>4:40 PM</td><td>Season steaks generously with salt and pepper on both sides</td></tr>
-        <tr><td>4:52 PM</td><td>Drain potatoes when fork-tender. Leave to steam dry in the pot, lid off</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; steaks at room temp, potatoes drained, onions prepped</td></tr>
+        <tr><td>4:40 PM</td><td>Whisk the sauce (tamarind, brown sugar, fish sauce, oyster sauce)</td></tr>
+        <tr><td>4:43 PM</td><td>Slice onion, chop garlic, cube tofu, cut garlic chives</td></tr>
+        <tr><td>4:50 PM</td><td>Thinly slice chicken, season, back into the fridge. Wash board &amp; knife</td></tr>
+        <tr><td>4:54 PM</td><td>Whisk eggs, rinse beansprouts, chop peanuts, cut lime wedges</td></tr>
+        <tr><td>4:58 PM</td><td>Soak noodles 5 mins, drain, rinse cold, toss with ½ tsp oil, cover</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Mash potatoes with butter &amp; warm milk. Cover and set aside</td></tr>
-        <tr><td>5:35 PM</td><td>Fry onions in butter over medium heat until golden</td></tr>
-        <tr><td>5:43 PM</td><td>Remove onions. Get pan smoking hot. Sear steaks 3&ndash;4 mins per side</td></tr>
-        <tr><td>5:51 PM</td><td>Rest steaks under foil. Cook frozen veg during rest</td></tr>
-        <tr><td>5:56 PM</td><td>Slice steaks against the grain. Plate up: mash, steak strips, fried onions, veg</td></tr>
+        <tr><td>5:30 PM</td><td>Wok on high, line up every bowl beside the hob</td></tr>
+        <tr><td>5:32 PM</td><td>3 tbsp oil, garlic + onion 30 secs, chicken 1½ mins</td></tr>
+        <tr><td>5:34 PM</td><td>Push aside, 2 tbsp oil, pour in eggs, scramble, fold chicken back</td></tr>
+        <tr><td>5:35 PM</td><td>Add tofu, most beansprouts, noodles. Scoop out Child 3&rsquo;s portion. Pour sauce</td></tr>
+        <tr><td>5:37 PM</td><td>Toss 1½ mins until glossy</td></tr>
+        <tr><td>5:39 PM</td><td>Garlic chives + half the peanuts, toss 30 secs. Off the heat</td></tr>
+        <tr><td>5:40 PM</td><td>Plate: peanuts, fresh beansprouts, lime wedges, chilli on the side</td></tr>
       </tbody>
     </table>
+
+    <div class="source-link">Adapted from <a href="https://www.recipetineats.com/chicken-pad-thai/" target="_blank" rel="noopener">RecipeTin Eats &mdash; Chicken Pad Thai</a> &middot; scaled 3 &rarr; 5 servings</div>
   </div>
 </div>
 
@@ -513,14 +569,24 @@
 
 <script>
   const ingredients = {
-    'steak':      '2 large sirloin/striploin steaks (~300g each)',
-    'potatoes':   '1kg potatoes, peeled & quartered',
-    'frozen-veg': '1 bag frozen vegetables',
-    'onion':      '1 large onion, sliced into rings',
-    'butter':     '60g butter (40g mash, 20g onions)',
-    'milk':       '80ml milk, warmed',
-    'oil':        '1 tbsp rapeseed or sunflower oil',
-    'salt':       'Salt & freshly ground black pepper'
+    'padthai':      'Chicken Pad Thai — RecipeTin Eats recipe, scaled from 3 → 5 servings',
+    'tamarind':     '2½ tbsp tamarind puree (not concentrate). Thick brown paste — check the Asian aisle or pantry',
+    'brown-sugar':  '5 tbsp brown sugar, firmly packed',
+    'fish-sauce':   '3½ tbsp fish sauce',
+    'oyster-sauce': '2½ tbsp oyster sauce',
+    'sauce':        'The whisked tamarind + brown sugar + fish sauce + oyster sauce mix',
+    'noodles':      '210g dried rice stick (pad thai) noodles — flat, about 5mm wide',
+    'oil':          '5 tbsp vegetable oil total — 3 tbsp for garlic/onion/chicken, 2 tbsp with the eggs',
+    'onion':        '1 medium onion, finely sliced into half-moons',
+    'garlic':       '3 cloves garlic, finely chopped',
+    'chicken':      '250g chicken breast or thigh, thinly sliced against the grain',
+    'eggs':         '3 eggs, lightly whisked in a small bowl',
+    'tofu':         '210g firm tofu, cut into 3cm batons, patted dry',
+    'beansprouts':  '125g beansprouts — hold back a handful raw for the top',
+    'chives':       '40g garlic chives, cut into 3cm lengths (regular chives or spring onion greens if unavailable)',
+    'peanuts':      '60g peanuts, finely chopped — half go in at the end, half on top',
+    'lime':         '1 lime, cut into 5 wedges for the table',
+    'chilli':       'Ground chilli or cayenne pepper, served on the side for the adults'
   };
 
   const tooltip = document.getElementById('tooltip');
