@@ -5,3 +5,4 @@ data/recipe-cards/*.html
 __pycache__/
 *.pyc
 .vercel
+scripts/deploy.log

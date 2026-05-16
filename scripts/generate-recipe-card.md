@@ -223,15 +223,20 @@ Add as callouts where relevant:
 
 ## Deploy to Website
 
-After writing `tonights-meal.html`, commit and push so Vercel auto-deploys to `cook.gerosullivan.com`:
+Deployment is handled automatically. A macOS LaunchAgent (`com.homecook.deploy`) watches `tonights-meal.html` for changes and runs `scripts/deploy.sh`, which:
 
-```bash
-cd /Users/ger/Agents/Home-Cook
-# Remove stale lock file if present (left by interrupted git operations)
-rm -f .git/index.lock
-git add tonights-meal.html
-git commit -m "Update tonight's meal card ($(date +%Y-%m-%d))"
-git push
+1. Snapshots `tonights-meal.html` into `archive/<slug>.html` (slug derived from the `<h1>` text) so the cookbook keeps a permanent copy of every served card.
+2. Regenerates `archive/index.html` (the cookbook view, sorted by mtime descending) via `scripts/build-archive-index.py`.
+3. Commits and pushes both `tonights-meal.html` and the `archive/` changes. Vercel then auto-deploys to `cook.gerosullivan.com`.
+
+**Do not** attempt git operations from this prompt — the sandbox lacks credentials. Just write the file and the deploy pipeline handles the rest.
+
+### Cookbook Nav Link
+
+Every card (both `tonights-meal.html` and the per-recipe pages in `archive/`) must include a small Cookbook nav link injected just inside `<body>`. The marker attribute is `data-hc-nav`. If you regenerate a card from scratch include this snippet at the top of `<body>`:
+
+```html
+<div class="hc-nav" data-hc-nav="tonight" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:flex-end;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">📖 Cookbook</a></div>
 ```
 
-This ensures the recipe card is publicly accessible even if the laptop goes offline later.
+If you skip this, `deploy.sh` will inject it as a safety net, but baking it into newly-generated cards (and into the cached `data/recipe-cards/{recipe_id}.html`) keeps the snapshot consistent with what gets served.
