@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Pan-Roasted Cod with Crushed Potatoes, Peas &amp; Caper-Lemon Butter (Chef's Pick)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #f3f7fa;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #6ba1c0 0%, #2c5d7a 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+  }
+  .chef-pill {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.92;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c5d7a;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #dfe7ec;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #2c5d7a;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .ingredients-group {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #2c5d7a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.4rem;
+    grid-column: 1 / -1;
+  }
+  .ingredients-group:first-child { margin-top: 0; }
+  .ingredients-group::before { display: none !important; }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #2c5d7a;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #e7f0f6;
+    border-left: 3px solid #6ba1c0;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #1c3d52;
+  }
+  .callout strong { color: #2c5d7a; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #fff8e1;
+    border-left-color: #c28c00;
+  }
+  .callout.kid strong { color: #8a6200; }
+  .callout.safety {
+    background: #e3f2fd;
+    border-left-color: #1565c0;
+  }
+  .callout.safety strong { color: #1565c0; }
+  .callout.pantry {
+    background: #f3ede1;
+    border-left-color: #8a6b2a;
+  }
+  .callout.pantry strong { color: #8a6b2a; }
+  .callout.chef {
+    background: #f0ece6;
+    border-left-color: #6e5a3a;
+  }
+  .callout.chef strong { color: #6e5a3a; }
+  .callout.shop {
+    background: #f5e9f1;
+    border-left-color: #a14c8a;
+  }
+  .callout.shop strong { color: #7e3a6c; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #e7f0f6;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #dfe7ec;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #2c5d7a;
+    white-space: nowrap;
+    width: 60px;
+  }
+  .ing-link {
+    color: #2c5d7a;
+    text-decoration: none;
+    border-bottom: 1px dashed #2c5d7a;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #1a3f55;
+    border-bottom-color: #1a3f55;
+  }
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #9bc7e0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead {
+    background: #e7f0f6;
+    border: 1px solid #b9d3e2;
+    border-left: 4px solid #6ba1c0;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #6ba1c0; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2c5d7a;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2c5d7a;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #1c3d52;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #b9d3e2;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #6ba1c0;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #6ba1c0;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #c5dce8;
+    color: #1c3d52;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #9bc0d5;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #d4e3ee;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1c3d52;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #6ba1c0 !important; }
+  .timing-phase-row.cook td { color: #2c5d7a !important; }
+  .source-link {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+  .source-link a { color: #2c5d7a; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <span class="chef-pill">Chef's Pick</span>
+    <div class="date">Monday 27 April 2026</div>
+    <h1>🐟 Pan-Roasted Cod with Crushed Potatoes, Peas &amp; Caper-Lemon Butter</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~35 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Cod &middot; Coastal &middot; Spring
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, and yesterday was already a pork-mince supper. Spring cod is excellent at the fishmonger right now, so this one leans on a quick stop on the way home &mdash; five thick fillets, a bag of new potatoes, and a brown-butter sauce built from the pantry. Light, fast, springy. Not in the database &mdash; give it a thumbs up at check-in if you want it added to the rotation.</div>
+
+    <div class="callout shop"><strong>🛒 Pick up on the way home:</strong> 5 &times; thick cod fillets (~150g each, skin on if possible) and 700g baby/new potatoes. Everything else is in the kitchen. Tesco fish counter or Caviston&rsquo;s on the way back from school will both work &mdash; cod is in good nick mid-spring.</div>
+
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li class="ingredients-group">Fish</li>
+      <li><a class="ing-link" data-ingredient="cod">5 cod fillets (~150g each, ~750g total)</a></li>
+      <li><a class="ing-link" data-ingredient="rapeseed-oil">1 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper-fish">½ tsp sea salt, twist of pepper</a></li>
+      <li><a class="ing-link" data-ingredient="flour-dust">2 tbsp plain flour, for dusting</a></li>
+
+      <li class="ingredients-group">Crushed Potatoes</li>
+      <li><a class="ing-link" data-ingredient="potatoes">700g baby/new potatoes</a></li>
+      <li><a class="ing-link" data-ingredient="butter-spuds">25g butter</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">½ tsp dried thyme</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper-spuds">½ tsp salt, pepper</a></li>
+
+      <li class="ingredients-group">Caper-Lemon Butter</li>
+      <li><a class="ing-link" data-ingredient="butter-sauce">75g butter</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic, thinly sliced</a></li>
+      <li><a class="ing-link" data-ingredient="capers">1 tbsp capers, drained &amp; lightly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">Zest + juice of 1 lemon (~3 tbsp juice)</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 tsp dried parsley</a></li>
+
+      <li class="ingredients-group">Peas</li>
+      <li><a class="ing-link" data-ingredient="frozen-peas">250g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter-peas">10g butter</a></li>
+      <li><a class="ing-link" data-ingredient="mint">¼ tsp dried mint (optional)</a></li>
+
+      <li class="ingredients-group">To serve</li>
+      <li><a class="ing-link" data-ingredient="lemon-wedges">1 extra lemon, cut into wedges</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~18 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; potatoes par-boiled, sauce ingredients ready in a bowl, cod patted &amp; seasoned. After pickup, it&rsquo;s an 18-minute finish.</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Pop the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in well-salted cold water in a wide pan. Bring to the boil, then simmer for ~12 minutes until just tender to a knife tip. Drain, return to the dry pan, lid on, leave on the counter to steam-dry.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic</a>, drain &amp; lightly chop the <a class="ing-link" data-ingredient="capers">capers</a>, zest 1 <a class="ing-link" data-ingredient="lemon">lemon</a> into a small bowl and juice it into another. Cut the second lemon into <a class="ing-link" data-ingredient="lemon-wedges">5 wedges</a> for the table. Group all the sauce bits on one corner of the counter.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Pat the <a class="ing-link" data-ingredient="cod">cod fillets</a> very dry with kitchen paper (this is the difference between a crisp top and a soggy one). Season both sides with <a class="ing-link" data-ingredient="salt-pepper-fish">salt &amp; pepper</a>, dust the top with a fine layer of <a class="ing-link" data-ingredient="flour-dust">plain flour</a>, set on a plate skin-side down.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Tip the <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a> into a bowl on the counter to take the chill off &mdash; they&rsquo;ll cook faster. Wash the board, knife and your hands.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you&rsquo;re at pickup
+        </div>
+        <div class="prep-passive-item">Potatoes steam-drying in their pan, cod resting seasoned on its plate, sauce ingredients lined up, peas thawing on the counter. Nothing&rsquo;s warming up to a danger zone &mdash; if the kitchen is over 22°C, slide the cod plate into the fridge for the half hour.</div>
+      </div>
+    </div>
+
+    <div class="callout safety"><strong>🧊 Food safety:</strong> Cod is delicate &mdash; if there&rsquo;s any chance the kitchen will sit warm, put the seasoned fillets in the fridge while you&rsquo;re on the school run rather than leaving them out. They&rsquo;ll go straight from fridge to hot pan.</div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Cod is mild and flaky &mdash; perfect for the younger two. Pull off a piece for each kid before you spoon over the caper butter (capers can be a hard sell for the 2-year-old). Plain crushed potatoes &amp; buttered peas alongside, and a squeeze of lemon optional. The 8-year-old should love the lemony butter on top.</div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Heat the oven and a pan <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Set the oven to 200°C fan. Put a wide oven-safe frying pan on medium-high heat with the <a class="ing-link" data-ingredient="rapeseed-oil">rapeseed oil</a>. Get it hot &mdash; you want a shimmer, not smoke.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Crush the potatoes <span class="step-time">~3 mins</span></div>
+        <div class="step-text">In the par-boiled <a class="ing-link" data-ingredient="potatoes">potato pan</a>, add 25g <a class="ing-link" data-ingredient="butter-spuds">butter</a>, the <a class="ing-link" data-ingredient="thyme">dried thyme</a>, and a pinch of <a class="ing-link" data-ingredient="salt-pepper-spuds">salt &amp; pepper</a>. Use a potato masher or the back of a spoon to gently crush each one so it splits open but holds its shape. Lid on, off the heat, ready to go.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Sear the cod <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Lay the <a class="ing-link" data-ingredient="cod">cod fillets</a> floured-side down in the hot pan. Don&rsquo;t crowd &mdash; do them in 2 batches if your pan&rsquo;s small. Press each fillet down gently for 5 seconds so they don&rsquo;t curl. Sear undisturbed for 3 minutes until a proper golden crust forms.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Flip &amp; finish in the oven <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Flip the fillets carefully with a fish slice. Slide the whole pan into the oven for 4&ndash;5 minutes &mdash; cod is done when it flakes apart with light pressure (~52°C internal). Pull it out the moment it flakes; it&rsquo;ll keep cooking on the way to the plate.</div>
+      </div>
+    </div>
+
+    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you want to be precise, push the wireless thermometer into the thickest fillet before it goes in the oven. Cod wants <strong>52°C</strong> internal &mdash; whip the pan out the moment it hits, since fish goes from perfect to dry in 30 seconds.</div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Cook the peas <span class="step-time">~3 mins</span></div>
+        <div class="step-text">While the cod is in the oven, drop the <a class="ing-link" data-ingredient="frozen-peas">peas</a> into a small pan with 50ml water and 10g <a class="ing-link" data-ingredient="butter-peas">butter</a>. Lid on, medium heat, 2&ndash;3 minutes until vibrant green and just hot through. Drain off any excess water, finish with a pinch of salt and the <a class="ing-link" data-ingredient="mint">dried mint</a> if using.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Make the brown-butter sauce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Lift the cooked cod to a warm plate (don&rsquo;t cover &mdash; you don&rsquo;t want it to steam). Wipe the pan briefly, drop in 75g <a class="ing-link" data-ingredient="butter-sauce">butter</a>, melt over medium heat. Add the <a class="ing-link" data-ingredient="garlic-sauce">sliced garlic</a>, swirl 30 seconds. As soon as the butter goes foamy and smells nutty, kill the heat and add the <a class="ing-link" data-ingredient="capers">capers</a>, <a class="ing-link" data-ingredient="lemon">lemon zest &amp; juice</a> and dried <a class="ing-link" data-ingredient="parsley">parsley</a>. The juice will sputter &mdash; stand back. Swirl until glossy.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Spoon a mound of <a class="ing-link" data-ingredient="potatoes">crushed potatoes</a> onto each plate. Top with a fillet of <a class="ing-link" data-ingredient="cod">cod</a>, then ladle the warm caper-lemon butter generously over the fish (and a little onto the spuds &mdash; it&rsquo;s the best bit). A scattering of <a class="ing-link" data-ingredient="frozen-peas">peas</a> alongside, a <a class="ing-link" data-ingredient="lemon-wedges">lemon wedge</a> on each plate, and you&rsquo;re away.</div>
+      </div>
+    </div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Potatoes in cold salted water; bring to the boil</td></tr>
+        <tr><td>4:38 PM</td><td>Slice garlic, chop capers, zest &amp; juice 1 lemon, cut wedges from the 2nd</td></tr>
+        <tr><td>4:42 PM</td><td>Drain potatoes when tender (~12 min total), lid on, off the heat</td></tr>
+        <tr><td>4:45 PM</td><td>Pat cod dry, season both sides, dust top with flour, plate &amp; set aside</td></tr>
+        <tr><td>4:53 PM</td><td>Tip frozen peas into a bowl. Wash board, knife &amp; hands</td></tr>
+        <tr><td>4:56 PM</td><td>Cod plate into the fridge if the kitchen is warm</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Oven on 200°C fan. Wide oven-safe frying pan on medium-high with oil</td></tr>
+        <tr><td>5:34 PM</td><td>Crush the potatoes with butter, thyme, salt &amp; pepper. Lid on, off heat</td></tr>
+        <tr><td>5:37 PM</td><td>Sear cod floured-side down for 3 mins, then flip</td></tr>
+        <tr><td>5:40 PM</td><td>Slide pan into oven (4&ndash;5 mins). Probe largest fillet &mdash; target 52°C</td></tr>
+        <tr><td>5:41 PM</td><td>Peas: 50ml water + 10g butter, lid on, medium heat, 2&ndash;3 mins</td></tr>
+        <tr><td>5:45 PM</td><td>Cod out. Brown butter, garlic, capers, lemon zest &amp; juice in pan</td></tr>
+        <tr><td>5:47 PM</td><td>Plate: spuds, cod, ladle caper butter over, peas alongside, lemon wedge</td></tr>
+      </tbody>
+    </table>
+
+    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe based on tonight&rsquo;s inventory + a quick fishmonger stop &middot; not yet in the rotation</div>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  const ingredients = {
+    'cod':                '5 thick cod fillets, ~150g each (~750g total). Skin on if you can — it crisps beautifully',
+    'rapeseed-oil':       '1 tbsp rapeseed oil — high smoke point, neutral flavour, perfect for searing fish',
+    'salt-pepper-fish':   '½ tsp fine sea salt + a good twist of black pepper, both sides of the fillets',
+    'flour-dust':         '2 tbsp plain flour for dusting the top of the fillets — gives a crisp golden crust',
+    'potatoes':           '700g baby/new potatoes, skins on. Halve any larger ones so they cook evenly',
+    'butter-spuds':       '25g salted butter for the crushed potatoes',
+    'thyme':              '½ tsp dried thyme from the spice rack — earthy, springy note for the spuds',
+    'salt-pepper-spuds':  '½ tsp salt + a twist of pepper for seasoning the crushed potatoes',
+    'butter-sauce':       '75g salted butter — the heart of the brown-butter sauce',
+    'garlic-sauce':       '2 cloves garlic, thinly sliced (not minced) so they sizzle gently and don\u2019t burn',
+    'capers':             '1 tbsp capers, drained from the jar in the pantry, lightly chopped to release their salty pop',
+    'lemon':              'Zest + juice of 1 lemon — yellow zest only, no white pith. Strain pips out of the juice',
+    'lemon-wedges':       '1 extra lemon, cut into 5 wedges for the table',
+    'parsley':            '1 tsp dried parsley to lift the brown butter',
+    'frozen-peas':        '250g frozen peas (about half a small bag). Cook in a splash of water + butter, lid on',
+    'butter-peas':        '10g butter to enrich the peas at the end',
+    'mint':               '¼ tsp dried mint, optional — classic with peas, very lightly does it'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

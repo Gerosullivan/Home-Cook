@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Lemon & Thyme Butter Salmon</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #d97757 0%, #a9472c 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+  }
+  .chefs-pick-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #a9472c;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #a9472c;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #a9472c;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #fbeee7;
+    border-left: 3px solid #a9472c;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #5d2e1d;
+  }
+  .callout strong { color: #a9472c; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #e8f5e9;
+    border-left-color: #2e7d32;
+  }
+  .callout.kid strong { color: #2e7d32; }
+  .callout.safety {
+    background: #e3f2fd;
+    border-left-color: #1565c0;
+  }
+  .callout.safety strong { color: #1565c0; }
+  .callout.fishmonger {
+    background: #e0f2f1;
+    border-left-color: #00796b;
+  }
+  .callout.fishmonger strong { color: #00796b; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #fbeee7;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #a9472c;
+    white-space: nowrap;
+    width: 60px;
+  }
+  .ing-link {
+    color: #a9472c;
+    text-decoration: none;
+    border-bottom: 1px dashed #a9472c;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #7f2f1a;
+    border-bottom-color: #7f2f1a;
+  }
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #d97757;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #a9472c !important; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <div class="chefs-pick-badge">Chef's Pick</div>
+    <div class="date">Wednesday 22 April 2026</div>
+    <h1>🐟 Lemon &amp; Thyme Butter Salmon with Crushed Baby Potatoes &amp; Peas</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~45 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Salmon &middot; Spring &middot; Irish
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="callout fishmonger"><strong>🐟 Fishmonger pickup:</strong> Call in on the way home and ask for 5 salmon fillets, skin on, about 130&ndash;140g each. Spring salmon is in peak season right now &mdash; the fishmonger will be able to tell you what came in this morning. If salmon isn't available, fresh cod or hake fillets work just as well with this butter (pull them 2 mins earlier).</div>
+
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="salmon">5 salmon fillets, skin on (~130&ndash;140g each)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g baby potatoes, scrubbed</a></li>
+      <li><a class="ing-link" data-ingredient="peas">250g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter">90g butter, softened (plus 15g for peas)</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">2 lemons (1 zested &amp; juiced, 1 sliced into thin rounds)</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 small bunch fresh thyme (leaves picked)</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Sea salt &amp; freshly ground black pepper</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~20 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; par-boil spuds, build the butter, assemble the salmon tray</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Scrub the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a>. Into a pot of salted cold water, bring to the boil, then simmer 10&ndash;12 mins until just tender (a knife slides in with a little resistance). Drain, tip onto a tray to steam-dry.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Pick the leaves from the <a class="ing-link" data-ingredient="thyme">thyme</a>. Zest 1 <a class="ing-link" data-ingredient="lemon">lemon</a> and juice half of it. Slice the other lemon into thin rounds. Finely chop the <a class="ing-link" data-ingredient="garlic">garlic</a>.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Mash the softened <a class="ing-link" data-ingredient="butter">butter</a> in a bowl with the lemon zest, half the juice, the chopped garlic, most of the thyme leaves (save a few for garnish) and a good pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Keep at room temp so it stays spoonable.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Line a baking tray with parchment. Lay the <a class="ing-link" data-ingredient="salmon">salmon fillets</a> skin-down, spaced apart. Dot a generous spoon of the <a class="ing-link" data-ingredient="butter">lemon-thyme butter</a> on each. Tuck <a class="ing-link" data-ingredient="lemon">lemon slices</a> around the fillets. Cover with foil and put the tray in the fridge.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Tip the steam-dried <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> onto a second oiled tray. Leave uncovered &mdash; you'll crush &amp; roast them later.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Salmon sits in the fridge under its butter blanket &mdash; the flavours infuse and it stays safely cold. Potatoes dry out on the tray so they'll crisp up beautifully when crushed and roasted.</div>
+      </div>
+    </div>
+
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife after handling the raw salmon. The tray goes into the fridge (not left on the counter) while you're away &mdash; the kitchen can warm up and fish doesn't forgive that.</div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Preheat &amp; start the potatoes <span class="step-time">~15 mins</span></div>
+        <div class="step-text">Crank the oven to 200°C fan. Drizzle the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> with the <a class="ing-link" data-ingredient="oil">rapeseed oil</a>, season with <a class="ing-link" data-ingredient="salt">salt and pepper</a>, and use the base of a glass or a fork to crush each one flat so you get craggy edges. Into the hot oven &mdash; they need a ~10&nbsp;minute head start before the salmon joins them.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Salmon into the oven <span class="step-time">12&ndash;14 mins</span></div>
+        <div class="step-text">Take the <a class="ing-link" data-ingredient="salmon">salmon tray</a> out of the fridge. Remove the foil. Slide it onto the rack above (or beside) the potatoes. Bake 12&ndash;14 minutes depending on thickness &mdash; the butter will melt and baste the fillets as they cook.</div>
+      </div>
+    </div>
+
+    <div class="callout thermometer"><strong>🌡️ Thermometer:</strong> Probe the thickest part of the biggest fillet. Pull at <strong>50°C</strong> for pale pink and flaky &mdash; it'll carry to 52&ndash;54°C on the tray. Don't go past 58°C or the fish turns dry. Use one of your wireless probes &mdash; no guessing.</div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Cook the peas <span class="step-time">~4 mins</span></div>
+        <div class="step-text">In the last few minutes of the salmon cook, tip the <a class="ing-link" data-ingredient="peas">peas</a> into a small pot of boiling salted water. 3 minutes is plenty. Drain, return to the pot, toss with 15g <a class="ing-link" data-ingredient="butter">butter</a> and a pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Lid on.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Rest &amp; plate up <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pull the <a class="ing-link" data-ingredient="salmon">salmon</a> out and let it sit for 2 minutes &mdash; this finishes the cook. Spoon some <a class="ing-link" data-ingredient="potatoes">crushed potatoes</a>, a generous scoop of buttery <a class="ing-link" data-ingredient="peas">peas</a>, and a fillet onto each plate. Spoon the melted <a class="ing-link" data-ingredient="butter">lemon-thyme butter</a> from the salmon tray over the top. Scatter the reserved thyme leaves.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly notes:</strong> For Child 2 &amp; 3 (the younger two), flake the salmon off the skin into small pieces and stir a spoon of the lemon-thyme butter through their peas &mdash; they'll eat more of each that way. The flavours are mild, buttery and non-spicy, which is exactly what they like. The crushed potatoes are basically roast potato edges &mdash; always a winner.</div>
+
+    <div class="callout"><strong>💡 Tip:</strong> This is a <strong>Chef's Pick</strong> &mdash; not part of the 3-week rotation. Nothing was planned for tonight so I picked something that uses the expiring <a class="ing-link" data-ingredient="thyme">fresh thyme</a>, <a class="ing-link" data-ingredient="lemon">lemons</a>, <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and <a class="ing-link" data-ingredient="butter">butter</a> already in the fridge and pantry, leans on spring Irish salmon from the fishmonger, and stays clear of the Italian/Thai/Korean proteins from earlier in the month.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:38 PM</td><td>Scrub baby potatoes, into salted cold water, bring to boil then simmer 10&ndash;12 mins</td></tr>
+        <tr><td>4:42 PM</td><td>Pick thyme leaves. Zest 1 lemon, juice half. Slice second lemon into rounds. Chop garlic</td></tr>
+        <tr><td>4:48 PM</td><td>Mash softened butter with lemon zest, juice, garlic, most thyme leaves, pinch salt</td></tr>
+        <tr><td>4:52 PM</td><td>Drain potatoes, tip onto tray to steam-dry</td></tr>
+        <tr><td>4:55 PM</td><td>Line tray, lay salmon skin-down, dot butter, tuck lemon slices. Foil on &mdash; into fridge</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for school pickup &mdash; salmon tray in fridge, potatoes steam-drying on tray</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Oven on, 200°C fan</td></tr>
+        <tr><td>5:40 PM</td><td>Oil &amp; season baby potatoes, crush flat, into the hot oven</td></tr>
+        <tr><td>5:50 PM</td><td>Salmon tray out of fridge, foil off, into oven above the potatoes (probe the biggest fillet)</td></tr>
+        <tr><td>5:58 PM</td><td>Peas into boiling salted water, 3 mins. Drain, toss with 15g butter</td></tr>
+        <tr><td>6:02 PM</td><td>Salmon at 50°C &mdash; pull, rest 2 mins</td></tr>
+        <tr><td>6:05 PM</td><td>Plate up: potatoes, peas, salmon, spoon over the lemon-thyme butter</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  const ingredients = {
+    'salmon':   '5 salmon fillets, skin on (~130–140g each) — from the fishmonger today',
+    'potatoes': '800g baby potatoes, scrubbed',
+    'peas':     '250g frozen peas',
+    'butter':   '90g butter softened for the sauce + 15g for the peas',
+    'lemon':    '2 lemons — 1 zested & half-juiced, 1 sliced into rounds',
+    'thyme':    '1 small bunch fresh thyme, leaves picked',
+    'garlic':   '3 cloves garlic, finely chopped',
+    'oil':      '1 tbsp rapeseed oil',
+    'salt':     'Sea salt & freshly ground black pepper'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

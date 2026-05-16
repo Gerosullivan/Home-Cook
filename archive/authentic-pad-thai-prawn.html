@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Chicken Pad Thai (RecipeTin Eats)</title>
+<title>Tonight's Meal — Authentic Pad Thai (Hot Thai Kitchen)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,14 +28,13 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #e07b3b 0%, #a2262c 100%);
+    background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
-    position: relative;
   }
   .date {
     font-size: 0.85rem;
-    opacity: 0.9;
+    opacity: 0.85;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
@@ -56,14 +55,14 @@
     align-items: center;
     gap: 0.4rem;
     font-size: 0.9rem;
-    opacity: 0.92;
+    opacity: 0.9;
   }
   .meta-item svg { width: 18px; height: 18px; }
   .body { padding: 1.5rem 2rem 2rem; }
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #a2262c;
+    color: #c2185b;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -87,24 +86,13 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #a2262c;
+    background: #c2185b;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
     position: relative;
     top: -1px;
   }
-  .ingredients-group {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #a2262c;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 1rem 0 0.4rem;
-    grid-column: 1 / -1;
-  }
-  .ingredients-group:first-child { margin-top: 0; }
-  .ingredients-group::before { display: none !important; }
   .step {
     display: flex;
     gap: 1rem;
@@ -112,7 +100,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #a2262c;
+    background: #c2185b;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -137,35 +125,25 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdeee6;
-    border-left: 3px solid #d94f3c;
+    background: #fce4ec;
+    border-left: 3px solid #c2185b;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #5a1a1e;
+    color: #6a1b3a;
   }
-  .callout strong { color: #a2262c; }
+  .callout strong { color: #c2185b; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
   }
   .callout.thermometer strong { color: #e65100; }
   .callout.kid {
-    background: #fff8e1;
-    border-left-color: #c28c00;
+    background: #e8f5e9;
+    border-left-color: #2e7d32;
   }
-  .callout.kid strong { color: #8a6200; }
-  .callout.safety {
-    background: #e3f2fd;
-    border-left-color: #1565c0;
-  }
-  .callout.safety strong { color: #1565c0; }
-  .callout.pantry {
-    background: #f3ede1;
-    border-left-color: #8a6b2a;
-  }
-  .callout.pantry strong { color: #8a6b2a; }
+  .callout.kid strong { color: #2e7d32; }
   .timing-table {
     width: 100%;
     border-collapse: collapse;
@@ -175,7 +153,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdeee6;
+    background: #fce4ec;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -188,21 +166,25 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #a2262c;
+    color: #c2185b;
     white-space: nowrap;
     width: 60px;
   }
+
+  /* Ingredient tooltip links */
   .ing-link {
-    color: #a2262c;
+    color: #c2185b;
     text-decoration: none;
-    border-bottom: 1px dashed #a2262c;
+    border-bottom: 1px dashed #c2185b;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #6e161b;
-    border-bottom-color: #6e161b;
+    color: #7b1fa2;
+    border-bottom-color: #7b1fa2;
   }
+
+  /* Tooltip overlay */
   .ing-tooltip {
     display: none;
     position: fixed;
@@ -214,9 +196,10 @@
     font-weight: 500;
     z-index: 1000;
     pointer-events: none;
-    white-space: normal;
+    white-space: nowrap;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     max-width: 300px;
+    white-space: normal;
     line-height: 1.4;
   }
   .ing-tooltip::after {
@@ -232,17 +215,19 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #f5b894;
+    color: #c2185b;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: block;
     margin-bottom: 0.15rem;
   }
+
+  /* Prep Ahead section */
   .prep-ahead {
-    background: #fdf4ec;
-    border: 1px solid #f4d4b8;
-    border-left: 4px solid #d94f3c;
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -253,14 +238,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #d94f3c; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #d94f3c;
+    color: #2a7a5b;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #d94f3c;
+    background: #2a7a5b;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -271,7 +256,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #8a3a2a;
+    color: #5a8a70;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -279,14 +264,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #f4d4b8;
+    border-bottom: 1px solid #dceee4;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #d94f3c;
+    border: 2px solid #2a7a5b;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -295,7 +280,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #d94f3c;
+    background: #2a7a5b;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -326,8 +311,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #fce2d0;
-    color: #8a3a2a;
+    background: #d4edda;
+    color: #1e6e42;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -335,11 +320,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #f4b88a;
+    border-top: 1px dashed #b8d8c8;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #fbe6d4;
+    background: #e8f4ed;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -361,6 +346,8 @@
     color: #555;
     padding: 0.2rem 0;
   }
+
+  /* Timing phase rows */
   .timing-phase-row td {
     background: #f5f5f5;
     font-weight: 700 !important;
@@ -371,27 +358,20 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #d94f3c !important; }
-  .timing-phase-row.cook td { color: #a2262c !important; }
-  .source-link {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 1.25rem;
-    text-align: center;
-  }
-  .source-link a { color: #a2262c; text-decoration: none; }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #c2185b !important; }
 </style>
 </head>
 <body>
-<div class="hc-nav" data-hc-nav="tonight" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:flex-end;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">📖 Cookbook</a></div>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
 <div class="card">
   <div class="header">
-    <div class="date">Friday 15 May 2026</div>
-    <h1>🍜 Chicken Pad Thai</h1>
+    <div class="date">Thursday 2 April 2026</div>
+    <h1>🍜 Authentic Pad Thai (Prawn)</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~30 mins total
+        ~40 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -399,37 +379,33 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Chicken &middot; Thai &middot; Week 3 Friday
+        Prawns &middot; Thai
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout"><strong>🍜 Week 3 Friday:</strong> Homemade takeaway night &mdash; RecipeTin Eats&rsquo; <a class="ing-link" data-ingredient="padthai">Chicken Pad Thai</a>, scaled up from 3 to 5 servings. All the prep fits comfortably before pickup so you&rsquo;re just tossing a wok for ten minutes when you&rsquo;re back.</div>
-
     <h2>Ingredients</h2>
+    <p style="font-size:0.82rem; color:#999; margin-bottom:0.75rem;">Scaled to 5 servings (original serves 2). Cook in 2&ndash;3 batches &mdash; a wok can only handle 2 portions at a time.</p>
     <ul class="ingredients">
-      <li class="ingredients-group">Sauce</li>
-      <li><a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind puree (not concentrate)</a></li>
-      <li><a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar, packed</a></li>
-      <li><a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a></li>
-      <li><a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a></li>
-
-      <li class="ingredients-group">Stir-fry</li>
-      <li><a class="ing-link" data-ingredient="noodles">210g dried rice stick (pad thai) noodles</a></li>
-      <li><a class="ing-link" data-ingredient="oil">5 tbsp vegetable oil</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 medium onion, finely sliced</a></li>
-      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="chicken">250g chicken breast or thigh, thinly sliced</a></li>
-      <li><a class="ing-link" data-ingredient="eggs">3 eggs, lightly whisked</a></li>
-      <li><a class="ing-link" data-ingredient="tofu">210g firm tofu, cut into 3cm batons</a></li>
-      <li><a class="ing-link" data-ingredient="beansprouts">125g beansprouts</a></li>
-      <li><a class="ing-link" data-ingredient="chives">40g garlic chives, cut into 3cm pieces</a></li>
-
-      <li class="ingredients-group">To finish</li>
-      <li><a class="ing-link" data-ingredient="peanuts">60g peanuts, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="lime">1 lime, cut into wedges</a></li>
-      <li><a class="ing-link" data-ingredient="chilli">Ground chilli or cayenne (on the side, optional)</a></li>
+      <li><a class="ing-link" data-ingredient="palmsugar">90g palm sugar, chopped</a></li>
+      <li><a class="ing-link" data-ingredient="water">120ml water (for sauce)</a></li>
+      <li><a class="ing-link" data-ingredient="tamarind">8 tbsp Thai tamarind paste</a></li>
+      <li><a class="ing-link" data-ingredient="fishsauce">5 tbsp fish sauce</a></li>
+      <li><a class="ing-link" data-ingredient="noodles">290g dry rice noodles (medium), soaked 1 hr</a></li>
+      <li><a class="ing-link" data-ingredient="driedshrimp">5 tbsp dried shrimp, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">8 cloves garlic, chopped</a></li>
+      <li><a class="ing-link" data-ingredient="shallots">150g shallots, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="tofu">210g pressed tofu, small pieces</a></li>
+      <li><a class="ing-link" data-ingredient="radish">8 tbsp sweet preserved daikon radish</a></li>
+      <li><a class="ing-link" data-ingredient="chilli">Dried chilli flakes (adults only)</a></li>
+      <li><a class="ing-link" data-ingredient="oil">8 tbsp vegetable oil</a></li>
+      <li><a class="ing-link" data-ingredient="prawns">25 medium prawns</a></li>
+      <li><a class="ing-link" data-ingredient="eggs">5 eggs</a></li>
+      <li><a class="ing-link" data-ingredient="beansprouts">300g bean sprouts</a></li>
+      <li><a class="ing-link" data-ingredient="chives">175g garlic chives, cut into 5cm pieces</a></li>
+      <li><a class="ing-link" data-ingredient="peanuts">60g roasted peanuts, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="lime">3 limes, cut into wedges</a></li>
     </ul>
 
     <div class="prep-ahead">
@@ -438,130 +414,136 @@
         <h2>Prep Ahead</h2>
         <span class="prep-time-pill">~20 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; everything chopped, sauced and measured so the wok is 10 minutes flat when you&rsquo;re home.</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get all the chopping and sauce done so it's pure wok work when you're back</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind</a>, <a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar</a>, <a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a>, <a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a> in a small bowl until the sugar dissolves.</span>
+        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in room temperature water (need 1 hour minimum &mdash; start by 4:00 PM at latest)</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Slice the <a class="ing-link" data-ingredient="onion">onion</a> finely and chop the <a class="ing-link" data-ingredient="garlic">garlic</a>. Cube the <a class="ing-link" data-ingredient="tofu">tofu</a> into 3cm batons and pat dry. Cut the <a class="ing-link" data-ingredient="chives">garlic chives</a> into 3cm lengths.</span>
+        <span class="prep-step-text">Make the sauce: melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat, stir until it darkens. Add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind</a>. Simmer briefly, then turn off heat. Leave to dissolve.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="chicken">chicken</a> (easier when fridge-cold). Season with a pinch of salt, cover and return to the fridge.</span>
+        <span class="prep-step-text">Chop <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="radish">preserved radish</a>. Cut <a class="ing-link" data-ingredient="tofu">tofu</a> into small pieces. Combine in a bowl with chilli flakes.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Lightly whisk the <a class="ing-link" data-ingredient="eggs">3 eggs</a> in a small bowl. Rinse the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and leave draining in a colander. Finely chop the <a class="ing-link" data-ingredient="peanuts">peanuts</a>, cut the <a class="ing-link" data-ingredient="lime">lime</a> into wedges.</span>
+        <span class="prep-step-text">Cut <a class="ing-link" data-ingredient="chives">garlic chives</a> into 5cm pieces. Chop <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Cut <a class="ing-link" data-ingredient="lime">limes</a> into wedges.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in a bowl of just-boiled water for 5 minutes, then drain and rinse well under cold water. Toss with ½ tsp oil so they don&rsquo;t stick, cover.</span>
+        <span class="prep-step-text">Drain <a class="ing-link" data-ingredient="noodles">noodles</a> and snip once with scissors so they're half-length. Divide noodles, sauce, and stir-fry bowl into 3 roughly equal batches.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
       <div class="prep-passive">
         <div class="prep-passive-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          While you&rsquo;re at pickup
+          While you're at pickup
         </div>
-        <div class="prep-passive-item">Raw chicken in the fridge, sauce on the counter, noodles covered and oiled. The wok stays cold &mdash; this dish wants one hot, fast pass when you&rsquo;re back.</div>
+        <div class="prep-passive-item">Sauce continues to dissolve and the noodles sit drained &mdash; both are fine at room temp for 30 minutes</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife right after slicing the raw chicken. The kitchen can be warm this time of year &mdash; keep the sliced chicken in the fridge while you&rsquo;re on the school run, not on the counter.</div>
-
-    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you add the sauce to the wok, scoop out a small portion of plain buttered noodles with a bit of chicken and egg for Child 3 (2 yo). Tamarind and fish sauce are punchy &mdash; the plain version is more her speed. Keep the <a class="ing-link" data-ingredient="chilli">chilli</a> and extra peanuts strictly on the side for the grown-ups.</div>
-
     <h2>Method</h2>
+    <p style="font-size:0.85rem; color:#888; margin-bottom:1rem;">This recipe is cooked in 2&ndash;3 batches. A wok only does 2 portions properly &mdash; overcrowding steams instead of fries. Each batch takes ~5 minutes. Keep finished batches warm in a low oven (100&deg;C).</p>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Fire up the wok <span class="step-time">~1 min</span></div>
-        <div class="step-text">Get your biggest non-stick pan or wok screaming hot over high heat. Have every bowl lined up beside it &mdash; sauce, chicken, egg, noodles, chives, beansprouts. Once you start, you don&rsquo;t stop.</div>
+        <div class="step-title">Make the sauce <span class="step-time">~5 mins (done in prep)</span></div>
+        <div class="step-text">Melt <a class="ing-link" data-ingredient="palmsugar">palm sugar</a> in a small pot over medium heat. Stir until it darkens in colour. Immediately add <a class="ing-link" data-ingredient="water">water</a>, <a class="ing-link" data-ingredient="fishsauce">fish sauce</a>, and <a class="ing-link" data-ingredient="tamarind">tamarind paste</a>. The sugar will harden &mdash; this is fine. Bring to a simmer, then turn off heat. Let it sit while you prep; the sugar will dissolve by the time you need it.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Garlic, onion &amp; chicken <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="oil">3 tbsp of the oil</a>. Tip in the <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="onion">onion</a>, toss 30 seconds until fragrant. Add the <a class="ing-link" data-ingredient="chicken">chicken</a> and stir-fry 1½ minutes until it&rsquo;s mostly cooked through &mdash; still a hint of pink is fine, it finishes in a moment.</div>
+        <div class="step-title">Prep noodles &amp; aromatics <span class="step-time">done in prep</span></div>
+        <div class="step-text">Cut drained <a class="ing-link" data-ingredient="noodles">noodles</a> once with scissors so they're half as long (easier to toss). In a bowl, combine <a class="ing-link" data-ingredient="tofu">tofu</a>, <a class="ing-link" data-ingredient="garlic">garlic</a>, <a class="ing-link" data-ingredient="shallots">shallots</a>, <a class="ing-link" data-ingredient="radish">preserved radish</a>, <a class="ing-link" data-ingredient="driedshrimp">dried shrimp</a>, and <a class="ing-link" data-ingredient="chilli">chilli flakes</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Scramble the eggs <span class="step-time">~1 min</span></div>
-        <div class="step-text">Push everything to one side of the pan. Pour the last <a class="ing-link" data-ingredient="oil">2 tbsp oil</a> and the whisked <a class="ing-link" data-ingredient="eggs">eggs</a> into the cleared side. Let them set for 20 seconds, then scramble with the back of the spoon and fold the chicken back through.</div>
+        <div class="step-title">Sear the prawns <span class="step-time">~3 mins per batch</span></div>
+        <div class="step-text">Heat a wok or large non-stick skillet over high heat. Add enough <a class="ing-link" data-ingredient="oil">oil</a> to coat the bottom. Sear 8&ndash;9 <a class="ing-link" data-ingredient="prawns">prawns</a> until just done, then remove. Repeat for remaining prawns. Set all aside.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Tofu, noodles &amp; sauce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add the <a class="ing-link" data-ingredient="tofu">tofu</a>, most of the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> (hold a handful back for the table) and the <a class="ing-link" data-ingredient="noodles">noodles</a>. Pour in all of the <a class="ing-link" data-ingredient="sauce">sauce</a>. Toss with tongs or two spatulas so every strand picks up colour.</div>
+        <div class="step-title">Fry the aromatics <span class="step-time">~2 mins per batch</span></div>
+        <div class="step-text">In the same wok over medium heat, add a little more <a class="ing-link" data-ingredient="oil">oil</a>. Add one batch of the tofu/garlic/shallot mixture. Saut&eacute; for a few minutes until garlic starts to turn golden and shallots wilt. Don't skimp on oil or the noodles will clump.</div>
       </div>
     </div>
-
-    <div class="callout kid"><strong>🍜 Scoop-out moment:</strong> Right before you pour the sauce in, lift out a portion of plain noodles + chicken + egg into a small bowl &mdash; that&rsquo;s Child 3&rsquo;s dinner sorted. Then pour the sauce for the rest.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Toss until glossy <span class="step-time">~1½ mins</span></div>
-        <div class="step-text">Keep tossing for about a minute and a half &mdash; the noodles drink up the sauce and turn glossy reddish-brown. If it looks dry, a splash of water loosens things without watering down the flavour.</div>
+        <div class="step-title">Add noodles &amp; sauce <span class="step-time">~2 mins per batch</span></div>
+        <div class="step-text">Turn heat to high, add one batch of <a class="ing-link" data-ingredient="noodles">noodles</a> and sauce. Toss until all the sauce is absorbed. If noodles are still undercooked, add a splash of water and keep cooking.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">6</div>
       <div class="step-content">
-        <div class="step-title">Chives &amp; half the peanuts <span class="step-time">~30 secs</span></div>
-        <div class="step-text">Scatter in the <a class="ing-link" data-ingredient="chives">garlic chives</a> and half of the <a class="ing-link" data-ingredient="peanuts">chopped peanuts</a>. Toss once or twice &mdash; the chives should wilt but still have bite. Off the heat.</div>
+        <div class="step-title">Add the eggs <span class="step-time">~1 min per batch</span></div>
+        <div class="step-text">Push noodles to one side. Add a little oil to the empty space, crack in 1&ndash;2 <a class="ing-link" data-ingredient="eggs">eggs</a>, break the yolks. Put noodles on top of the eggs and cook for about 30 seconds. Flip and toss to mix eggs through.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">7</div>
       <div class="step-content">
-        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pile into bowls. Top with the remaining <a class="ing-link" data-ingredient="peanuts">peanuts</a>, the reserved fresh <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and a <a class="ing-link" data-ingredient="lime">lime wedge</a>. A little pot of <a class="ing-link" data-ingredient="chilli">chilli</a> on the side for Ger and Maura.</div>
+        <div class="step-title">Finish each batch <span class="step-time">~1 min</span></div>
+        <div class="step-text">Add that batch's <a class="ing-link" data-ingredient="prawns">prawns</a> back in plus any juices, then <a class="ing-link" data-ingredient="beansprouts">bean sprouts</a>, <a class="ing-link" data-ingredient="chives">garlic chives</a>, and some <a class="ing-link" data-ingredient="peanuts">peanuts</a>. Turn off heat and toss until well mixed. Transfer to serving dish (or keep warm in low oven). Repeat steps 4&ndash;7 for remaining batches.</div>
       </div>
     </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Serve</div>
+        <div class="step-text">Serve immediately with <a class="ing-link" data-ingredient="lime">lime wedges</a> and extra <a class="ing-link" data-ingredient="peanuts">peanuts</a> on top. Squeeze lime over before eating.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> Pad Thai shouldn't be spicy for the kids &mdash; just leave the dried chilli flakes out of their batches entirely. The palm sugar sauce is sweet and tangy which kids usually love. If the fish sauce smell bothers them, don't worry &mdash; it mellows completely when cooked.</div>
+
+    <div class="callout"><strong>💡 Wok tip:</strong> The secret to good pad thai is a screaming hot wok and not overcrowding it. Two portions per batch max. If the noodles start clumping, add a splash of water and a bit more oil.</div>
+
+    <div class="callout"><strong>🥜 Peanut note:</strong> Keep chopped peanuts on the side for topping &mdash; easier for the kids to skip if they prefer.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:40 PM</td><td>Whisk the sauce (tamarind, brown sugar, fish sauce, oyster sauce)</td></tr>
-        <tr><td>4:43 PM</td><td>Slice onion, chop garlic, cube tofu, cut garlic chives</td></tr>
-        <tr><td>4:50 PM</td><td>Thinly slice chicken, season, back into the fridge. Wash board &amp; knife</td></tr>
-        <tr><td>4:54 PM</td><td>Whisk eggs, rinse beansprouts, chop peanuts, cut lime wedges</td></tr>
-        <tr><td>4:58 PM</td><td>Soak noodles 5 mins, drain, rinse cold, toss with ½ tsp oil, cover</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
+        <tr><td>4:00 PM</td><td>Put rice noodles in room-temp water to soak (need at least 1 hour)</td></tr>
+        <tr><td>4:35 PM</td><td>Make the pad thai sauce: caramelise palm sugar, add water, fish sauce &amp; tamarind. Leave to dissolve</td></tr>
+        <tr><td>4:40 PM</td><td>Chop garlic, shallots, dried shrimp, preserved radish. Cut tofu. Combine in a bowl</td></tr>
+        <tr><td>4:48 PM</td><td>Cut garlic chives into 5cm pieces. Chop peanuts. Cut limes into wedges</td></tr>
+        <tr><td>4:53 PM</td><td>Drain noodles, snip once with scissors. Divide noodles, sauce &amp; aromatics into 3 batches</td></tr>
+        <tr><td>4:57 PM</td><td>Tidy up, ready to leave</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; everything prepped and waiting</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Wok on high, line up every bowl beside the hob</td></tr>
-        <tr><td>5:32 PM</td><td>3 tbsp oil, garlic + onion 30 secs, chicken 1½ mins</td></tr>
-        <tr><td>5:34 PM</td><td>Push aside, 2 tbsp oil, pour in eggs, scramble, fold chicken back</td></tr>
-        <tr><td>5:35 PM</td><td>Add tofu, most beansprouts, noodles. Scoop out Child 3&rsquo;s portion. Pour sauce</td></tr>
-        <tr><td>5:37 PM</td><td>Toss 1½ mins until glossy</td></tr>
-        <tr><td>5:39 PM</td><td>Garlic chives + half the peanuts, toss 30 secs. Off the heat</td></tr>
-        <tr><td>5:40 PM</td><td>Plate: peanuts, fresh beansprouts, lime wedges, chilli on the side</td></tr>
+        <tr><td>5:30 PM</td><td>Preheat oven to 100&deg;C (warming). Heat wok over high. Sear all prawns in batches, set aside</td></tr>
+        <tr><td>5:36 PM</td><td>Batch 1: saut&eacute; aromatics &rarr; add noodles &amp; sauce &rarr; eggs &rarr; prawns, sprouts, chives. Transfer to oven</td></tr>
+        <tr><td>5:43 PM</td><td>Batch 2: repeat. Transfer to oven</td></tr>
+        <tr><td>5:50 PM</td><td>Batch 3: repeat (or combine with batch 2 if wok is large enough)</td></tr>
+        <tr><td>5:55 PM</td><td>Plate up all batches. Top with peanuts &amp; lime wedges. Serve!</td></tr>
       </tbody>
     </table>
-
-    <div class="source-link">Adapted from <a href="https://www.recipetineats.com/chicken-pad-thai/" target="_blank" rel="noopener">RecipeTin Eats &mdash; Chicken Pad Thai</a> &middot; scaled 3 &rarr; 5 servings</div>
   </div>
 </div>
 
@@ -569,25 +551,26 @@
 <div class="ing-tooltip" id="tooltip"></div>
 
 <script>
+  // Ingredient data map (scaled to 5 servings)
   const ingredients = {
-    'padthai':      'Chicken Pad Thai — RecipeTin Eats recipe, scaled from 3 → 5 servings',
-    'tamarind':     '2½ tbsp tamarind puree (not concentrate). Thick brown paste — check the Asian aisle or pantry',
-    'brown-sugar':  '5 tbsp brown sugar, firmly packed',
-    'fish-sauce':   '3½ tbsp fish sauce',
-    'oyster-sauce': '2½ tbsp oyster sauce',
-    'sauce':        'The whisked tamarind + brown sugar + fish sauce + oyster sauce mix',
-    'noodles':      '210g dried rice stick (pad thai) noodles — flat, about 5mm wide',
-    'oil':          '5 tbsp vegetable oil total — 3 tbsp for garlic/onion/chicken, 2 tbsp with the eggs',
-    'onion':        '1 medium onion, finely sliced into half-moons',
-    'garlic':       '3 cloves garlic, finely chopped',
-    'chicken':      '250g chicken breast or thigh, thinly sliced against the grain',
-    'eggs':         '3 eggs, lightly whisked in a small bowl',
-    'tofu':         '210g firm tofu, cut into 3cm batons, patted dry',
-    'beansprouts':  '125g beansprouts — hold back a handful raw for the top',
-    'chives':       '40g garlic chives, cut into 3cm lengths (regular chives or spring onion greens if unavailable)',
-    'peanuts':      '60g peanuts, finely chopped — half go in at the end, half on top',
-    'lime':         '1 lime, cut into 5 wedges for the table',
-    'chilli':       'Ground chilli or cayenne pepper, served on the side for the adults'
+    'palmsugar':   '90g palm sugar, chopped',
+    'water':       '120ml water (for sauce)',
+    'tamarind':    '8 tbsp Thai cooking tamarind',
+    'fishsauce':   '5 tbsp fish sauce',
+    'noodles':     '290g dry rice noodles (medium) — soaked 1 hr in room-temp water',
+    'driedshrimp': '5 tbsp dried shrimp, roughly chopped',
+    'garlic':      '8 cloves garlic, chopped',
+    'shallots':    '150g shallots, roughly chopped (~¾ cup)',
+    'tofu':        '210g pressed tofu, small pieces',
+    'radish':      '8 tbsp sweet preserved daikon radish, finely chopped',
+    'chilli':      'Dried chilli flakes — adults only, skip for kids',
+    'oil':         '8 tbsp vegetable oil (for wok across all batches)',
+    'prawns':      '25 medium prawns',
+    'eggs':        '5 eggs (1–2 per batch)',
+    'beansprouts': '300g bean sprouts',
+    'chives':      '175g garlic chives, cut 5cm',
+    'peanuts':     '60g roasted peanuts, roughly chopped',
+    'lime':        '3 limes, cut into wedges'
   };
 
   const tooltip = document.getElementById('tooltip');
@@ -611,6 +594,7 @@
     if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
     if (top < 8) {
       top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
     }
 
     tooltip.style.left = left + 'px';
@@ -651,6 +635,7 @@
     });
   });
 
+  // Prep-ahead checkbox persistence (keyed by today's date)
   (function() {
     const today = new Date().toISOString().slice(0, 10);
     const storageKey = 'prep-checks-' + today;

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Next Level Paella</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #d4860b 0%, #8a5520 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #d4860b;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #d4860b;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #d4860b;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #fef3e0;
+    border-left: 3px solid #d4860b;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #6b4e18;
+  }
+  .callout strong { color: #d4860b; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #e8f5e9;
+    border-left-color: #2e7d32;
+  }
+  .callout.kid strong { color: #2e7d32; }
+  .callout.safety {
+    background: #fde8e6;
+    border-left-color: #c0392b;
+  }
+  .callout.safety strong { color: #c0392b; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #fef3e0;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #d4860b;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #d4860b;
+    text-decoration: none;
+    border-bottom: 1px dashed #d4860b;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #8a5520;
+    border-bottom-color: #8a5520;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #d4860b;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #d4860b !important; }
+
+  .adaptation-note {
+    background: #f3e8ff;
+    border-left: 3px solid #7c3aed;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.82rem;
+    color: #5b21b6;
+  }
+  .adaptation-note strong { color: #7c3aed; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <div class="date">Tuesday 31 March 2026</div>
+    <h1>🥘 Next Level Paella</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~1 hr 10 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Seafood &middot; Spanish
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="adaptation-note"><strong>Ger's version:</strong> Adapted from BBC Good Food. Frozen prawns (no shells), leftover roast chicken from Monday instead of mussels/squid, sherry vinegar instead of dry sherry, frozen fine beans instead of broad beans.</div>
+
+    <h2>Ingredients</h2>
+    <p style="font-size: 0.82rem; color: #999; margin-bottom: 0.75rem;">Scaled to 5 servings (recipe base is 4)</p>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="oil">4 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="prawns">375g frozen prawns, de-shelled and deveined</a></li>
+      <li><a class="ing-link" data-ingredient="chicken">375g leftover roast chicken, shredded</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 bunch of parsley, stalks &amp; leaves separated</a></li>
+      <li><a class="ing-link" data-ingredient="vinegar">2&frac12; tbsp sherry vinegar</a></li>
+      <li><a class="ing-link" data-ingredient="saffron">Large pinch of saffron strands</a></li>
+      <li><a class="ing-link" data-ingredient="chorizo">190g cooking chorizo, cut into chunks</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 large onion, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">4 garlic cloves, finely chopped</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">4 ripe tomatoes, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="rice">310g paella rice</a></li>
+      <li><a class="ing-link" data-ingredient="beans">125g frozen fine beans</a></li>
+      <li><a class="ing-link" data-ingredient="stock">750ml chicken stock (or water)</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon, zested then cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Smoked sea salt (optional)</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~20 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; make the saffron stock and prep all your veg</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Take <a class="ing-link" data-ingredient="prawns">frozen prawns</a> out of the freezer to defrost in a bowl of cold water</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Finely chop <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Roughly chop <a class="ing-link" data-ingredient="tomatoes">tomatoes</a>. Cut <a class="ing-link" data-ingredient="chorizo">chorizo</a> into chunks. Zest the <a class="ing-link" data-ingredient="lemon">lemon</a>, then cut into wedges</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Separate <a class="ing-link" data-ingredient="parsley">parsley</a> stalks from leaves. Roughly chop the leaves. Shred the <a class="ing-link" data-ingredient="chicken">leftover roast chicken</a></span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Make the stock: heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a>, sizzle parsley stalks for a minute. Add <a class="ing-link" data-ingredient="vinegar">sherry vinegar</a> and 750ml <a class="ing-link" data-ingredient="stock">chicken stock</a>. Add <a class="ing-link" data-ingredient="saffron">saffron</a>, season with salt, simmer 10 mins. Strain into a bowl &mdash; top up to ~875ml with water if needed</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Saffron steeps in the stock, deepening the colour and flavour. Prawns continue to defrost.</div>
+      </div>
+    </div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Make the saffron stock <span class="step-time">~12 mins (before pickup)</span></div>
+        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">oil</a> in a wide, shallow pan. Add the <a class="ing-link" data-ingredient="parsley">parsley stalks</a> and sizzle for a minute. Add 2&frac12; tbsp <a class="ing-link" data-ingredient="vinegar">sherry vinegar</a> and 750ml <a class="ing-link" data-ingredient="stock">chicken stock</a> (or water). Add the <a class="ing-link" data-ingredient="saffron">saffron</a>, season with salt and simmer for 10 minutes. Strain into a bowl &mdash; you need about 875ml total (scaled for 5), top up with water if needed. Let the saffron steep.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Chorizo, soffritto &amp; rice <span class="step-time">~10 mins (after pickup)</span></div>
+        <div class="step-text">Wipe out the pan and add the rest of the <a class="ing-link" data-ingredient="oil">olive oil</a>. Sizzle the <a class="ing-link" data-ingredient="chorizo">chorizo</a> until it releases its oil, then add the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> and cook until softened. Add the <a class="ing-link" data-ingredient="tomatoes">tomatoes</a> and cook for a few minutes until pulpy. Tip in the <a class="ing-link" data-ingredient="rice">rice</a> and stir until coated, then pour in the saffron stock. Bring to a simmer.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>💡 Tip:</strong> Once the stock is in, resist stirring too much &mdash; you want a slight crust (socarrat) to form on the bottom. Stir gently a couple of times early on, then leave it alone.</div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Simmer the rice <span class="step-time">~15 mins</span></div>
+        <div class="step-text">Cook uncovered for about 15 minutes, stirring occasionally at first then leaving it alone. The stock should be almost absorbed and the rice almost cooked.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Add prawns, beans &amp; chicken <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Tuck the defrosted <a class="ing-link" data-ingredient="prawns">prawns</a> into the rice and simmer for 3&ndash;4 minutes until pink and cooked through. Stir through the <a class="ing-link" data-ingredient="beans">frozen fine beans</a> to heat through, and scatter the shredded <a class="ing-link" data-ingredient="chicken">leftover roast chicken</a> over the top to warm.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Rest &amp; serve</div>
+        <div class="step-text">Once the rice is just cooked, turn off the heat and cover with a tea towel for a few minutes. Scatter over the <a class="ing-link" data-ingredient="parsley">parsley leaves</a>, <a class="ing-link" data-ingredient="lemon">lemon zest</a>, and <a class="ing-link" data-ingredient="salt">smoked sea salt</a> if using. Serve with <a class="ing-link" data-ingredient="lemon">lemon wedges</a>.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> This paella is mild &mdash; the chorizo adds warmth but no heat. Serve the kids' portions from the centre of the pan where the rice is softest. The leftover chicken makes it familiar for the little ones.</div>
+
+    <div class="callout"><strong>Leftovers:</strong> Paella reheats well &mdash; splash in a little water, cover with foil, and warm in the oven at 160&deg;C for 15 mins.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:40 PM</td><td>Take frozen prawns out to defrost in cold water. Chop onion, garlic, tomatoes. Cut chorizo into chunks. Zest lemon. Separate parsley stalks and leaves. Shred leftover chicken</td></tr>
+        <tr><td>4:48 PM</td><td>Start saffron stock: sizzle parsley stalks in 1 tbsp oil, add sherry vinegar + 750ml chicken stock + saffron. Simmer 10 mins</td></tr>
+        <tr><td>4:58 PM</td><td>Strain stock into bowl. Leave saffron steeping. Tidy up, drain prawns</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; saffron steeps in the stock</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Wipe out pan. Heat remaining olive oil. Sizzle chorizo until oils release</td></tr>
+        <tr><td>5:33 PM</td><td>Add onion &amp; garlic, cook until soft</td></tr>
+        <tr><td>5:37 PM</td><td>Add tomatoes, cook until pulpy. Tip in rice, stir to coat. Pour in saffron stock. Bring to simmer</td></tr>
+        <tr><td>5:40 PM</td><td>Simmer uncovered ~15 mins. Stir gently early on, then leave alone for socarrat</td></tr>
+        <tr><td>5:55 PM</td><td>Tuck prawns into rice. Simmer 3&ndash;4 mins until pink. Stir through fine beans. Scatter chicken on top</td></tr>
+        <tr><td>6:00 PM</td><td>Heat off. Cover with tea towel for 3&ndash;4 mins</td></tr>
+        <tr><td>6:03 PM</td><td>Scatter parsley, lemon zest &amp; smoked salt. Lemon wedges on table. Serve!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map
+  const ingredients = {
+    'oil':       '4 tbsp olive oil (scaled for 5)',
+    'prawns':    '375g frozen prawns, de-shelled and deveined — defrost before cooking',
+    'chicken':   '375g leftover roast chicken, shredded (from Monday\'s roast)',
+    'parsley':   '1 bunch flat-leaf parsley — stalks for stock, leaves for garnish',
+    'vinegar':   '2½ tbsp sherry vinegar',
+    'saffron':   'Large pinch of saffron strands',
+    'chorizo':   '190g cooking chorizo, cut into chunks',
+    'onion':     '1 large onion, finely chopped',
+    'garlic':    '4 garlic cloves, finely chopped',
+    'tomatoes':  '4 ripe tomatoes, roughly chopped',
+    'rice':      '310g paella rice (bomba or calasparra)',
+    'beans':     '125g frozen fine beans',
+    'stock':     '750ml chicken stock (or water) — top up to 875ml after simmering',
+    'lemon':     '1 lemon — zest for garnish, wedges for serving',
+    'salt':      'Smoked sea salt (optional)'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  // Prep-ahead checkbox persistence (keyed by today's date)
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

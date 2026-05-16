@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
-<title>Tonight's Meal — Chicken Pad Thai (RecipeTin Eats)</title>
+<title>Tonight's Meal — Irish Pork &amp; Apple Skillet with Colcannon</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -28,14 +28,29 @@
     overflow: hidden;
   }
   .header {
-    background: linear-gradient(135deg, #e07b3b 0%, #a2262c 100%);
+    background: linear-gradient(135deg, #5a8a4e 0%, #2f5d2a 100%);
     color: white;
     padding: 2rem 2rem 1.5rem;
     position: relative;
   }
+  .chefs-pick-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
   .date {
     font-size: 0.85rem;
-    opacity: 0.9;
+    opacity: 0.85;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
@@ -56,14 +71,14 @@
     align-items: center;
     gap: 0.4rem;
     font-size: 0.9rem;
-    opacity: 0.92;
+    opacity: 0.9;
   }
   .meta-item svg { width: 18px; height: 18px; }
   .body { padding: 1.5rem 2rem 2rem; }
   h2 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #a2262c;
+    color: #2f5d2a;
     margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -87,7 +102,7 @@
     content: '';
     display: inline-block;
     width: 6px; height: 6px;
-    background: #a2262c;
+    background: #2f5d2a;
     border-radius: 50%;
     margin-right: 0.6rem;
     flex-shrink: 0;
@@ -97,14 +112,13 @@
   .ingredients-group {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #a2262c;
+    color: #2f5d2a;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 1rem 0 0.4rem;
     grid-column: 1 / -1;
   }
   .ingredients-group:first-child { margin-top: 0; }
-  .ingredients-group::before { display: none !important; }
   .step {
     display: flex;
     gap: 1rem;
@@ -112,7 +126,7 @@
     align-items: flex-start;
   }
   .step-num {
-    background: #a2262c;
+    background: #2f5d2a;
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -137,15 +151,15 @@
   }
   .step-text { font-size: 0.9rem; color: #555; }
   .callout {
-    background: #fdeee6;
-    border-left: 3px solid #d94f3c;
+    background: #eef5ea;
+    border-left: 3px solid #2f5d2a;
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
     margin: 0.75rem 0 1rem 2.4rem;
     font-size: 0.85rem;
-    color: #5a1a1e;
+    color: #1f3b1c;
   }
-  .callout strong { color: #a2262c; }
+  .callout strong { color: #2f5d2a; }
   .callout.thermometer {
     background: #fff3e0;
     border-left-color: #e65100;
@@ -175,7 +189,7 @@
   .timing-table th {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    background: #fdeee6;
+    background: #eef5ea;
     color: #999;
     font-weight: 600;
     font-size: 0.75rem;
@@ -188,20 +202,20 @@
   }
   .timing-table td:first-child {
     font-weight: 600;
-    color: #a2262c;
+    color: #2f5d2a;
     white-space: nowrap;
     width: 60px;
   }
   .ing-link {
-    color: #a2262c;
+    color: #2f5d2a;
     text-decoration: none;
-    border-bottom: 1px dashed #a2262c;
+    border-bottom: 1px dashed #2f5d2a;
     cursor: pointer;
     position: relative;
   }
   .ing-link:hover {
-    color: #6e161b;
-    border-bottom-color: #6e161b;
+    color: #1e3f1a;
+    border-bottom-color: #1e3f1a;
   }
   .ing-tooltip {
     display: none;
@@ -232,7 +246,7 @@
   }
   .ing-tooltip.visible { display: block; }
   .ing-tooltip .tooltip-label {
-    color: #f5b894;
+    color: #a8d29a;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -240,9 +254,9 @@
     margin-bottom: 0.15rem;
   }
   .prep-ahead {
-    background: #fdf4ec;
-    border: 1px solid #f4d4b8;
-    border-left: 4px solid #d94f3c;
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
     border-radius: 0 12px 12px 0;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -253,14 +267,14 @@
     gap: 0.5rem;
     margin-bottom: 0.15rem;
   }
-  .prep-ahead-header svg { width: 20px; height: 20px; color: #d94f3c; flex-shrink: 0; }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
   .prep-ahead-header h2 {
-    color: #d94f3c;
+    color: #2a7a5b;
     margin: 0;
     font-size: 1.05rem;
   }
   .prep-time-pill {
-    background: #d94f3c;
+    background: #2a7a5b;
     color: #fff;
     font-size: 0.72rem;
     font-weight: 600;
@@ -271,7 +285,7 @@
   }
   .prep-context {
     font-size: 0.85rem;
-    color: #8a3a2a;
+    color: #5a8a70;
     margin-bottom: 1rem;
   }
   .prep-step {
@@ -279,14 +293,14 @@
     align-items: flex-start;
     gap: 0.6rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #f4d4b8;
+    border-bottom: 1px solid #dceee4;
   }
   .prep-step:last-child { border-bottom: none; }
   .prep-step-check {
     appearance: none;
     -webkit-appearance: none;
     width: 20px; height: 20px;
-    border: 2px solid #d94f3c;
+    border: 2px solid #2a7a5b;
     border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -295,7 +309,7 @@
     background: #fff;
   }
   .prep-step-check:checked {
-    background: #d94f3c;
+    background: #2a7a5b;
   }
   .prep-step-check:checked::after {
     content: '\2713';
@@ -326,8 +340,8 @@
     margin-top: 3px;
   }
   .prep-step-tag.before {
-    background: #fce2d0;
-    color: #8a3a2a;
+    background: #d4edda;
+    color: #1e6e42;
   }
   .prep-step-tag.during {
     background: #fff3cd;
@@ -335,11 +349,11 @@
   }
   .prep-divider {
     border: none;
-    border-top: 1px dashed #f4b88a;
+    border-top: 1px dashed #b8d8c8;
     margin: 0.75rem 0;
   }
   .prep-passive {
-    background: #fbe6d4;
+    background: #e8f4ed;
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-top: 0.75rem;
@@ -371,27 +385,21 @@
     border-bottom: 2px solid #ddd !important;
     padding-top: 0.75rem !important;
   }
-  .timing-phase-row.prep td { color: #d94f3c !important; }
-  .timing-phase-row.cook td { color: #a2262c !important; }
-  .source-link {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 1.25rem;
-    text-align: center;
-  }
-  .source-link a { color: #a2262c; text-decoration: none; }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #2f5d2a !important; }
 </style>
 </head>
 <body>
-<div class="hc-nav" data-hc-nav="tonight" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:flex-end;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">📖 Cookbook</a></div>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
 <div class="card">
   <div class="header">
-    <div class="date">Friday 15 May 2026</div>
-    <h1>🍜 Chicken Pad Thai</h1>
+    <div class="chefs-pick-badge">Chef's Pick</div>
+    <div class="date">Thursday 23 April 2026</div>
+    <h1>🍏 Irish Pork, Apple &amp; Thyme Skillet with Colcannon Mash &amp; Buttered Peas</h1>
     <div class="meta">
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ~30 mins total
+        ~55 mins total
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -399,169 +407,149 @@
       </div>
       <div class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Chicken &middot; Thai &middot; Week 3 Friday
+        Pork &middot; Irish &middot; Freezer-first
       </div>
     </div>
   </div>
 
   <div class="body">
-    <div class="callout"><strong>🍜 Week 3 Friday:</strong> Homemade takeaway night &mdash; RecipeTin Eats&rsquo; <a class="ing-link" data-ingredient="padthai">Chicken Pad Thai</a>, scaled up from 3 to 5 servings. All the prep fits comfortably before pickup so you&rsquo;re just tossing a wok for ten minutes when you&rsquo;re back.</div>
+    <div class="callout pantry"><strong>🧊 Freezer-first:</strong> Tonight leans on what's already in the house &mdash; <a class="ing-link" data-ingredient="pork">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> from the freezer, <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> from the pantry, a couple of <a class="ing-link" data-ingredient="apples">apples</a>, <a class="ing-link" data-ingredient="peas">frozen peas</a> and a knob of <a class="ing-link" data-ingredient="butter">butter</a>. No shopping run needed. Pull the pork mince out of the freezer onto a plate in the fridge when you read this &mdash; it needs a head start to defrost.</div>
 
     <h2>Ingredients</h2>
     <ul class="ingredients">
-      <li class="ingredients-group">Sauce</li>
-      <li><a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind puree (not concentrate)</a></li>
-      <li><a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar, packed</a></li>
-      <li><a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a></li>
-      <li><a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a></li>
-
-      <li class="ingredients-group">Stir-fry</li>
-      <li><a class="ing-link" data-ingredient="noodles">210g dried rice stick (pad thai) noodles</a></li>
-      <li><a class="ing-link" data-ingredient="oil">5 tbsp vegetable oil</a></li>
-      <li><a class="ing-link" data-ingredient="onion">1 medium onion, finely sliced</a></li>
+      <li class="ingredients-group">Pork &amp; apple skillet</li>
+      <li><a class="ing-link" data-ingredient="pork">500g pork mince, defrosted</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 large white onion, finely chopped</a></li>
       <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="chicken">250g chicken breast or thigh, thinly sliced</a></li>
-      <li><a class="ing-link" data-ingredient="eggs">3 eggs, lightly whisked</a></li>
-      <li><a class="ing-link" data-ingredient="tofu">210g firm tofu, cut into 3cm batons</a></li>
-      <li><a class="ing-link" data-ingredient="beansprouts">125g beansprouts</a></li>
-      <li><a class="ing-link" data-ingredient="chives">40g garlic chives, cut into 3cm pieces</a></li>
+      <li><a class="ing-link" data-ingredient="apples">2 eating apples, cored &amp; coarsely grated</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 tsp dried thyme (or a few sprigs fresh)</a></li>
+      <li><a class="ing-link" data-ingredient="worcestershire">1 tbsp Worcestershire sauce</a></li>
+      <li><a class="ing-link" data-ingredient="stock">250ml chicken stock</a></li>
+      <li><a class="ing-link" data-ingredient="vinegar">1 tsp white wine vinegar</a></li>
+      <li><a class="ing-link" data-ingredient="oil">1 tbsp rapeseed oil</a></li>
 
-      <li class="ingredients-group">To finish</li>
-      <li><a class="ing-link" data-ingredient="peanuts">60g peanuts, finely chopped</a></li>
-      <li><a class="ing-link" data-ingredient="lime">1 lime, cut into wedges</a></li>
-      <li><a class="ing-link" data-ingredient="chilli">Ground chilli or cayenne (on the side, optional)</a></li>
+      <li class="ingredients-group">Colcannon mash</li>
+      <li><a class="ing-link" data-ingredient="potatoes">900g baby potatoes, skins on</a></li>
+      <li><a class="ing-link" data-ingredient="cabbage">200g savoy cabbage (frozen is grand)</a></li>
+      <li><a class="ing-link" data-ingredient="butter">80g butter (plus 20g for finishing)</a></li>
+      <li><a class="ing-link" data-ingredient="milk">100ml whole milk, warm</a></li>
+
+      <li class="ingredients-group">Buttered peas &amp; to finish</li>
+      <li><a class="ing-link" data-ingredient="peas">250g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="butter">15g butter</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Sea salt &amp; freshly ground black pepper</a></li>
     </ul>
 
     <div class="prep-ahead">
       <div class="prep-ahead-header">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <h2>Prep Ahead</h2>
-        <span class="prep-time-pill">~20 min prep</span>
+        <span class="prep-time-pill">~25 min prep</span>
       </div>
-      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; everything chopped, sauced and measured so the wok is 10 minutes flat when you&rsquo;re home.</div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; build the pork base, par-boil the potatoes, get the cabbage ready</div>
 
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="0">
-        <span class="prep-step-text">Whisk the sauce: <a class="ing-link" data-ingredient="tamarind">2½ tbsp tamarind</a>, <a class="ing-link" data-ingredient="brown-sugar">5 tbsp brown sugar</a>, <a class="ing-link" data-ingredient="fish-sauce">3½ tbsp fish sauce</a>, <a class="ing-link" data-ingredient="oyster-sauce">2½ tbsp oyster sauce</a> in a small bowl until the sugar dissolves.</span>
+        <span class="prep-step-text">Chop the <a class="ing-link" data-ingredient="onion">onion</a> and <a class="ing-link" data-ingredient="garlic">garlic</a>. Core and coarsely grate the <a class="ing-link" data-ingredient="apples">apples</a> (skins on is fine).</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="1">
-        <span class="prep-step-text">Slice the <a class="ing-link" data-ingredient="onion">onion</a> finely and chop the <a class="ing-link" data-ingredient="garlic">garlic</a>. Cube the <a class="ing-link" data-ingredient="tofu">tofu</a> into 3cm batons and pat dry. Cut the <a class="ing-link" data-ingredient="chives">garlic chives</a> into 3cm lengths.</span>
+        <span class="prep-step-text">Heat the <a class="ing-link" data-ingredient="oil">oil</a> in a wide heavy pan over medium-high. Brown the <a class="ing-link" data-ingredient="pork">pork mince</a> in two batches, breaking it up until it's got real colour &mdash; 6&ndash;8 minutes total. Transfer to a bowl.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="2">
-        <span class="prep-step-text">Thinly slice the <a class="ing-link" data-ingredient="chicken">chicken</a> (easier when fridge-cold). Season with a pinch of salt, cover and return to the fridge.</span>
+        <span class="prep-step-text">Drop the heat to medium. Soften the <a class="ing-link" data-ingredient="onion">onion</a> in the pork fat, 5 minutes. Add <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="thyme">thyme</a>, 30 seconds. Stir in the grated <a class="ing-link" data-ingredient="apples">apple</a>, <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a>, <a class="ing-link" data-ingredient="vinegar">vinegar</a> and <a class="ing-link" data-ingredient="stock">stock</a>. Return the pork, season, simmer gently 10 minutes until most liquid is gone. Taste, adjust. Lid on, off the heat.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="3">
-        <span class="prep-step-text">Lightly whisk the <a class="ing-link" data-ingredient="eggs">3 eggs</a> in a small bowl. Rinse the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and leave draining in a colander. Finely chop the <a class="ing-link" data-ingredient="peanuts">peanuts</a>, cut the <a class="ing-link" data-ingredient="lime">lime</a> into wedges.</span>
+        <span class="prep-step-text">Scrub the <a class="ing-link" data-ingredient="potatoes">baby potatoes</a>. Halve any larger ones. Into a big pot of well-salted cold water, bring to the boil, then simmer 15&ndash;18 minutes until a knife slides straight through. Drain, return to the pot, lid on, off the heat &mdash; they'll stay warm enough.</span>
         <span class="prep-step-tag before">before</span>
       </div>
       <div class="prep-step">
         <input type="checkbox" class="prep-step-check" data-prep="4">
-        <span class="prep-step-text">Soak the <a class="ing-link" data-ingredient="noodles">rice noodles</a> in a bowl of just-boiled water for 5 minutes, then drain and rinse well under cold water. Toss with ½ tsp oil so they don&rsquo;t stick, cover.</span>
+        <span class="prep-step-text">Tip the <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> into a colander in the sink so it starts to thaw. Measure out <a class="ing-link" data-ingredient="butter">80g butter</a> for the mash and pour <a class="ing-link" data-ingredient="milk">100ml milk</a> into a mug ready to warm later.</span>
         <span class="prep-step-tag before">before</span>
       </div>
 
       <div class="prep-passive">
         <div class="prep-passive-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          While you&rsquo;re at pickup
+          While you're at pickup
         </div>
-        <div class="prep-passive-item">Raw chicken in the fridge, sauce on the counter, noodles covered and oiled. The wok stays cold &mdash; this dish wants one hot, fast pass when you&rsquo;re back.</div>
+        <div class="prep-passive-item">The pork and apple sit quietly in the pan soaking up each other's flavour &mdash; it actually tastes better after a 30-minute rest. Potatoes stay warm under the lid. Cabbage defrosts slowly in the sink so it's ready to wilt in seconds when you're back.</div>
       </div>
     </div>
 
-    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife right after slicing the raw chicken. The kitchen can be warm this time of year &mdash; keep the sliced chicken in the fridge while you&rsquo;re on the school run, not on the counter.</div>
-
-    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you add the sauce to the wok, scoop out a small portion of plain buttered noodles with a bit of chicken and egg for Child 3 (2 yo). Tamarind and fish sauce are punchy &mdash; the plain version is more her speed. Keep the <a class="ing-link" data-ingredient="chilli">chilli</a> and extra peanuts strictly on the side for the grown-ups.</div>
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, board and knife after handling the raw pork. Once the mince is browned and in the sauce it's safe to leave covered at room temp for 30&ndash;40 minutes. If you're gone longer, slide the pan into the fridge and give it a proper reheat when you're back.</div>
 
     <h2>Method</h2>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Fire up the wok <span class="step-time">~1 min</span></div>
-        <div class="step-text">Get your biggest non-stick pan or wok screaming hot over high heat. Have every bowl lined up beside it &mdash; sauce, chicken, egg, noodles, chives, beansprouts. Once you start, you don&rsquo;t stop.</div>
+        <div class="step-title">Reheat the pork &amp; apple <span class="step-time">~6 mins</span></div>
+        <div class="step-text">Back from pickup &mdash; set the <a class="ing-link" data-ingredient="pork">pork pan</a> on medium heat with the lid on to come back up to a gentle bubble. Stir once or twice. If it looks dry, splash in 2 tbsp water or extra <a class="ing-link" data-ingredient="stock">stock</a>.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Garlic, onion &amp; chicken <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add <a class="ing-link" data-ingredient="oil">3 tbsp of the oil</a>. Tip in the <a class="ing-link" data-ingredient="garlic">garlic</a> and <a class="ing-link" data-ingredient="onion">onion</a>, toss 30 seconds until fragrant. Add the <a class="ing-link" data-ingredient="chicken">chicken</a> and stir-fry 1½ minutes until it&rsquo;s mostly cooked through &mdash; still a hint of pink is fine, it finishes in a moment.</div>
+        <div class="step-title">Wilt the cabbage <span class="step-time">~3 mins</span></div>
+        <div class="step-text">Squeeze excess water from the thawed <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a>. Melt a knob of the mash <a class="ing-link" data-ingredient="butter">butter</a> (about 20g) in a small pan, add the cabbage with a pinch of salt and toss over medium heat until it's hot and glossy &mdash; about 2&ndash;3 minutes. Off the heat.</div>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Scramble the eggs <span class="step-time">~1 min</span></div>
-        <div class="step-text">Push everything to one side of the pan. Pour the last <a class="ing-link" data-ingredient="oil">2 tbsp oil</a> and the whisked <a class="ing-link" data-ingredient="eggs">eggs</a> into the cleared side. Let them set for 20 seconds, then scramble with the back of the spoon and fold the chicken back through.</div>
+        <div class="step-title">Mash the spuds <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Warm the <a class="ing-link" data-ingredient="milk">milk</a> in the microwave 30 seconds. Back on a low hob, mash the <a class="ing-link" data-ingredient="potatoes">potatoes</a> (skins on, rustic is fine) with the remaining <a class="ing-link" data-ingredient="butter">60g butter</a>, working it in until glossy. Loosen with the warm milk, bit by bit, until you like the texture. Fold the buttery <a class="ing-link" data-ingredient="cabbage">cabbage</a> through. Season generously.</div>
       </div>
     </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> Before you fold the cabbage through the mash, scoop out a plain-mash portion for Child 3 (the 2-year-old) &mdash; plain buttery spud is often more popular than green-flecked spud at that age. Serve theirs on the side of a small pork-apple spoonful and add a few peas around it.</div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Tofu, noodles &amp; sauce <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Add the <a class="ing-link" data-ingredient="tofu">tofu</a>, most of the <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> (hold a handful back for the table) and the <a class="ing-link" data-ingredient="noodles">noodles</a>. Pour in all of the <a class="ing-link" data-ingredient="sauce">sauce</a>. Toss with tongs or two spatulas so every strand picks up colour.</div>
+        <div class="step-title">Peas on the go <span class="step-time">~4 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="peas">peas</a> into a small pot of boiling salted water. 3 minutes is enough. Drain, return to the hot pot, toss with 15g <a class="ing-link" data-ingredient="butter">butter</a> and a pinch of <a class="ing-link" data-ingredient="salt">salt</a>. Lid on.</div>
       </div>
     </div>
-
-    <div class="callout kid"><strong>🍜 Scoop-out moment:</strong> Right before you pour the sauce in, lift out a portion of plain noodles + chicken + egg into a small bowl &mdash; that&rsquo;s Child 3&rsquo;s dinner sorted. Then pour the sauce for the rest.</div>
 
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <div class="step-title">Toss until glossy <span class="step-time">~1½ mins</span></div>
-        <div class="step-text">Keep tossing for about a minute and a half &mdash; the noodles drink up the sauce and turn glossy reddish-brown. If it looks dry, a splash of water loosens things without watering down the flavour.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-content">
-        <div class="step-title">Chives &amp; half the peanuts <span class="step-time">~30 secs</span></div>
-        <div class="step-text">Scatter in the <a class="ing-link" data-ingredient="chives">garlic chives</a> and half of the <a class="ing-link" data-ingredient="peanuts">chopped peanuts</a>. Toss once or twice &mdash; the chives should wilt but still have bite. Off the heat.</div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-content">
         <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
-        <div class="step-text">Pile into bowls. Top with the remaining <a class="ing-link" data-ingredient="peanuts">peanuts</a>, the reserved fresh <a class="ing-link" data-ingredient="beansprouts">beansprouts</a> and a <a class="ing-link" data-ingredient="lime">lime wedge</a>. A little pot of <a class="ing-link" data-ingredient="chilli">chilli</a> on the side for Ger and Maura.</div>
+        <div class="step-text">A generous scoop of <a class="ing-link" data-ingredient="potatoes">colcannon</a> on each plate, pressed into a nest with the back of the spoon. Spoon the <a class="ing-link" data-ingredient="pork">pork &amp; apple</a> into the nest so the gravy pools in the mash. Buttery <a class="ing-link" data-ingredient="peas">peas</a> to the side. A final crack of pepper.</div>
       </div>
     </div>
+
+    <div class="callout"><strong>💡 Tip:</strong> This is a <strong>Chef's Pick</strong> &mdash; nothing was on the plan for Thursday Week&nbsp;3, so I pulled this together from what's already in the house. It uses the <a class="ing-link" data-ingredient="pork">pork mince</a> and <a class="ing-link" data-ingredient="cabbage">savoy cabbage</a> sitting in the freezer, a couple of <a class="ing-link" data-ingredient="apples">apples</a> from the pantry, and the last of the <a class="ing-link" data-ingredient="worcestershire">Worcestershire</a> (0.2 bottle left &mdash; time to use it). It's also a completely different direction from yesterday's salmon and steers well clear of the chicken and steak already booked for the rest of this week.</div>
 
     <h2>Timing Plan</h2>
     <table class="timing-table">
       <thead><tr><th>Time</th><th>Action</th></tr></thead>
       <tbody>
         <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
-        <tr><td>4:40 PM</td><td>Whisk the sauce (tamarind, brown sugar, fish sauce, oyster sauce)</td></tr>
-        <tr><td>4:43 PM</td><td>Slice onion, chop garlic, cube tofu, cut garlic chives</td></tr>
-        <tr><td>4:50 PM</td><td>Thinly slice chicken, season, back into the fridge. Wash board &amp; knife</td></tr>
-        <tr><td>4:54 PM</td><td>Whisk eggs, rinse beansprouts, chop peanuts, cut lime wedges</td></tr>
-        <tr><td>4:58 PM</td><td>Soak noodles 5 mins, drain, rinse cold, toss with ½ tsp oil, cover</td></tr>
-        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
+        <tr><td>4:35 PM</td><td>Chop onion &amp; garlic. Core and grate the apples</td></tr>
+        <tr><td>4:40 PM</td><td>Heat oil in heavy pan, brown pork mince in two batches (6&ndash;8 mins)</td></tr>
+        <tr><td>4:48 PM</td><td>Soften onion in pork fat, add garlic &amp; thyme, stir in apple, Worcestershire, vinegar, stock. Return pork, simmer 10 mins. Lid on, off the heat</td></tr>
+        <tr><td>4:50 PM</td><td>Baby potatoes scrubbed into salted cold water, bring to boil &mdash; simmer 15&ndash;18 mins</td></tr>
+        <tr><td>4:58 PM</td><td>Tip savoy cabbage into colander in the sink to thaw. Measure 80g butter, 100ml milk</td></tr>
+        <tr><td>5:00 PM</td><td>Drain potatoes, lid on, off the heat. Leave for school pickup</td></tr>
         <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
-        <tr><td>5:30 PM</td><td>Wok on high, line up every bowl beside the hob</td></tr>
-        <tr><td>5:32 PM</td><td>3 tbsp oil, garlic + onion 30 secs, chicken 1½ mins</td></tr>
-        <tr><td>5:34 PM</td><td>Push aside, 2 tbsp oil, pour in eggs, scramble, fold chicken back</td></tr>
-        <tr><td>5:35 PM</td><td>Add tofu, most beansprouts, noodles. Scoop out Child 3&rsquo;s portion. Pour sauce</td></tr>
-        <tr><td>5:37 PM</td><td>Toss 1½ mins until glossy</td></tr>
-        <tr><td>5:39 PM</td><td>Garlic chives + half the peanuts, toss 30 secs. Off the heat</td></tr>
-        <tr><td>5:40 PM</td><td>Plate: peanuts, fresh beansprouts, lime wedges, chilli on the side</td></tr>
+        <tr><td>5:30 PM</td><td>Pork pan back on medium, lid on, reheat gently (splash of water if needed)</td></tr>
+        <tr><td>5:36 PM</td><td>Squeeze cabbage, wilt in 20g butter &mdash; 2&ndash;3 mins. Off the heat</td></tr>
+        <tr><td>5:40 PM</td><td>Warm milk 30 secs. Mash potatoes with 60g butter, loosen with milk, fold cabbage through</td></tr>
+        <tr><td>5:45 PM</td><td>Peas into boiling salted water, 3 mins. Drain, toss with 15g butter</td></tr>
+        <tr><td>5:49 PM</td><td>Plate: colcannon nest, pork &amp; apple in the middle, peas to the side</td></tr>
       </tbody>
     </table>
-
-    <div class="source-link">Adapted from <a href="https://www.recipetineats.com/chicken-pad-thai/" target="_blank" rel="noopener">RecipeTin Eats &mdash; Chicken Pad Thai</a> &middot; scaled 3 &rarr; 5 servings</div>
   </div>
 </div>
 
@@ -570,24 +558,21 @@
 
 <script>
   const ingredients = {
-    'padthai':      'Chicken Pad Thai — RecipeTin Eats recipe, scaled from 3 → 5 servings',
-    'tamarind':     '2½ tbsp tamarind puree (not concentrate). Thick brown paste — check the Asian aisle or pantry',
-    'brown-sugar':  '5 tbsp brown sugar, firmly packed',
-    'fish-sauce':   '3½ tbsp fish sauce',
-    'oyster-sauce': '2½ tbsp oyster sauce',
-    'sauce':        'The whisked tamarind + brown sugar + fish sauce + oyster sauce mix',
-    'noodles':      '210g dried rice stick (pad thai) noodles — flat, about 5mm wide',
-    'oil':          '5 tbsp vegetable oil total — 3 tbsp for garlic/onion/chicken, 2 tbsp with the eggs',
-    'onion':        '1 medium onion, finely sliced into half-moons',
-    'garlic':       '3 cloves garlic, finely chopped',
-    'chicken':      '250g chicken breast or thigh, thinly sliced against the grain',
-    'eggs':         '3 eggs, lightly whisked in a small bowl',
-    'tofu':         '210g firm tofu, cut into 3cm batons, patted dry',
-    'beansprouts':  '125g beansprouts — hold back a handful raw for the top',
-    'chives':       '40g garlic chives, cut into 3cm lengths (regular chives or spring onion greens if unavailable)',
-    'peanuts':      '60g peanuts, finely chopped — half go in at the end, half on top',
-    'lime':         '1 lime, cut into 5 wedges for the table',
-    'chilli':       'Ground chilli or cayenne pepper, served on the side for the adults'
+    'pork':           '500g pork mince, defrosted (from the freezer — pull it out early)',
+    'onion':          '1 large white onion, finely chopped',
+    'garlic':         '3 cloves garlic, finely chopped',
+    'apples':         '2 eating apples, cored & coarsely grated (skins on is fine)',
+    'thyme':          '1 tsp dried thyme (or a few sprigs fresh, leaves picked)',
+    'worcestershire': '1 tbsp Worcestershire sauce — uses the last of the open bottle',
+    'stock':          '250ml chicken stock (from the 2L portion in the freezer)',
+    'vinegar':        '1 tsp white wine vinegar — brightens the sauce',
+    'oil':            '1 tbsp rapeseed oil for browning',
+    'potatoes':       '900g baby potatoes, skins on, scrubbed, larger ones halved',
+    'cabbage':        '200g savoy cabbage — the bag in the freezer is perfect',
+    'butter':         '115g butter total: 80g for the mash + 20g for the cabbage + 15g for the peas',
+    'milk':           '100ml whole milk, warmed (microwave 30s)',
+    'peas':           '250g frozen peas',
+    'salt':           'Sea salt & freshly ground black pepper, throughout'
   };
 
   const tooltip = document.getElementById('tooltip');

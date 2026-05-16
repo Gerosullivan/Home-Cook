@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Pan-Fried Pork Chops with Crushed Baby Potatoes & Honey-Thyme Carrots</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #5b7a3a 0%, #3d5a1e 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .chefs-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #5b7a3a;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #5b7a3a;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #5b7a3a;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #f4f8f0;
+    border-left: 3px solid #5b7a3a;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #4a6530;
+  }
+  .callout strong { color: #5b7a3a; }
+  .callout.saturday {
+    background: #fef9e7;
+    border-left-color: #d4a017;
+    color: #7a6520;
+    margin: 0 0 1.5rem 0;
+  }
+  .callout.saturday strong { color: #b8860b; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #f4f8f0;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #5b7a3a;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #5b7a3a;
+    text-decoration: none;
+    border-bottom: 1px dashed #5b7a3a;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #3d5a1e;
+    border-bottom-color: #3d5a1e;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #5b7a3a;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '✓';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #5b7a3a !important; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <span class="chefs-pick">Chef's Pick</span>
+    <div class="date">Saturday 28 March 2026</div>
+    <h1>Pan-Fried Pork Chops with Crushed Baby Potatoes &amp; Honey-Thyme Carrots</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~45 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Pork · Irish Comfort
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="callout saturday"><strong>Saturday suggestion:</strong> It's takeaway night, but you've got pork chops in the freezer and baby potatoes, carrots &amp; thyme all needing to be used. This is a quick, satisfying dinner if you fancy cooking instead — skip it if you'd rather order in!</div>
+
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="chops">4 pork chops (from freezer — defrost in fridge or microwave)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">1 bag baby potatoes (~500g)</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">4–5 carrots, peeled &amp; halved lengthways</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">3 cloves garlic, crushed</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 bunch fresh thyme</a></li>
+      <li><a class="ing-link" data-ingredient="honey">2 tbsp honey</a></li>
+      <li><a class="ing-link" data-ingredient="butter">40g butter</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="lemon">1 lemon, juiced</a></li>
+      <li><a class="ing-link" data-ingredient="onion">1 red onion, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt &amp; black pepper</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~25 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Defrost pork chops — move from freezer to a plate in the fridge (or use microwave defrost if short on time)</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Boil baby potatoes in salted water for 15 mins until tender. Drain and set aside</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Peel carrots and halve lengthways. Toss with 1 tbsp olive oil, honey, and a few thyme sprigs on a baking tray</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Cut red onion into wedges and add to the carrot tray</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Preheat oven to 200°C and put the carrot tray in before you leave</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Crush garlic, juice lemon, strip remaining thyme leaves — set aside in a small bowl</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <hr class="prep-divider">
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Carrots &amp; onion roast away in the oven — they'll be golden and caramelised by the time you're back</div>
+      </div>
+    </div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Boil the potatoes <span class="step-time">15 mins</span></div>
+        <div class="step-text">Put <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> in a pot of salted boiling water. Cook for 15 minutes until a knife slides through easily. Drain and set aside.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Prep &amp; roast the carrots <span class="step-time">5 mins prep + 30 mins oven</span></div>
+        <div class="step-text">Preheat oven to 200°C. Peel <a class="ing-link" data-ingredient="carrots">carrots</a>, halve lengthways, and toss on a baking tray with 1 tbsp <a class="ing-link" data-ingredient="oil">olive oil</a>, <a class="ing-link" data-ingredient="honey">honey</a>, <a class="ing-link" data-ingredient="onion">red onion wedges</a>, and a few sprigs of <a class="ing-link" data-ingredient="thyme">thyme</a>. Season well. Roast for 30 minutes until caramelised and tender.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Start the oven before you leave for pickup</strong> — the carrots will be perfectly roasted by the time you're back at 5:30 PM.</div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Season the chops <span class="step-time">2 mins</span></div>
+        <div class="step-text">Pat <a class="ing-link" data-ingredient="chops">pork chops</a> dry with kitchen paper. Season generously on both sides with <a class="ing-link" data-ingredient="salt">salt and pepper</a>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Pan-fry the pork chops <span class="step-time">8–10 mins</span></div>
+        <div class="step-text">Heat 1 tbsp <a class="ing-link" data-ingredient="oil">olive oil</a> in a large heavy pan over medium-high heat. Add chops and cook 4–5 minutes per side until golden brown with a good crust. In the last minute, add 20g <a class="ing-link" data-ingredient="butter">butter</a>, crushed <a class="ing-link" data-ingredient="garlic">garlic</a>, and a few sprigs of <a class="ing-link" data-ingredient="thyme">thyme</a>. Baste the chops with the foaming butter.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Thermometer check:</strong> Insert a wireless probe into the thickest part of a chop — you're looking for 68°C internal. Rest the chops for 3–4 minutes once they hit temp.</div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Crush the potatoes <span class="step-time">5 mins</span></div>
+        <div class="step-text">While chops rest, add 20g <a class="ing-link" data-ingredient="butter">butter</a> to the same pan (keep all those lovely pork juices). Tip in the boiled <a class="ing-link" data-ingredient="potatoes">baby potatoes</a> and press each one lightly with a fork to crush and open up. Fry for 3–4 minutes until golden and crispy on the cut sides. Squeeze over <a class="ing-link" data-ingredient="lemon">lemon juice</a>, scatter with stripped <a class="ing-link" data-ingredient="thyme">thyme leaves</a>, and toss.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Serve each plate with a pork chop, a pile of crushed potatoes, and the honey-roasted carrots &amp; onion alongside. Spoon any pan juices over the chops.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> This one's a winner for the kids — no heat or spice. The honey carrots go down well. For the younger two, cut the pork off the bone into strips for easier eating.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase — before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Preheat oven to 200°C. Start boiling baby potatoes in salted water</td></tr>
+        <tr><td>4:35 PM</td><td>While potatoes boil: peel &amp; halve carrots, cut red onion into wedges, toss with oil, honey &amp; thyme on baking tray</td></tr>
+        <tr><td>4:40 PM</td><td>Carrots &amp; onion into the oven</td></tr>
+        <tr><td>4:45 PM</td><td>Drain potatoes and set aside. Crush garlic, juice lemon, strip thyme leaves into a bowl</td></tr>
+        <tr><td>4:50 PM</td><td>Pat pork chops dry (if defrosted). Season with salt &amp; pepper. Everything ready</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup — carrots roasting away in the oven</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase — after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Check carrots — should be nearly done. Heat pan with olive oil over medium-high</td></tr>
+        <tr><td>5:33 PM</td><td>Pork chops in the pan — 4–5 mins first side</td></tr>
+        <tr><td>5:38 PM</td><td>Flip chops. Add butter, garlic &amp; thyme — baste for 4–5 mins. Probe to 68°C</td></tr>
+        <tr><td>5:43 PM</td><td>Chops out to rest. Carrots out of oven. Potatoes into the pan — crush and fry until golden</td></tr>
+        <tr><td>5:48 PM</td><td>Lemon juice &amp; thyme over potatoes. Plate up everything and serve!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map — key matches data-ingredient attribute
+  const ingredients = {
+    'chops':    '4 pork chops (from freezer)',
+    'potatoes': '1 bag baby potatoes (~500g)',
+    'carrots':  '4–5 carrots, peeled & halved',
+    'garlic':   '3 cloves garlic, crushed',
+    'thyme':    '1 bunch fresh thyme',
+    'honey':    '2 tbsp honey',
+    'butter':   '40g butter (20g for pan, 20g for potatoes)',
+    'oil':      '2 tbsp olive oil',
+    'lemon':    '1 lemon, juiced',
+    'onion':    '1 red onion, cut into wedges',
+    'salt':     'Salt & black pepper to taste'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  // Prep-ahead checkbox persistence (keyed by today's date)
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

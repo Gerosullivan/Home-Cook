@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Pork & Herb Meatballs with Buttery Mash & Onion Gravy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #6d4c41 0%, #4e342e 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .chefs-pick {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #6d4c41;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #6d4c41;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #6d4c41;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #efebe9;
+    border-left: 3px solid #6d4c41;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #4e342e;
+  }
+  .callout strong { color: #6d4c41; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #e8f5e9;
+    border-left-color: #2e7d32;
+  }
+  .callout.kid strong { color: #2e7d32; }
+  .callout.sunday {
+    background: #fef3e2;
+    border-left-color: #a1887f;
+  }
+  .callout.sunday strong { color: #6d4c41; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #efebe9;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #6d4c41;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #6d4c41;
+    text-decoration: none;
+    border-bottom: 1px dashed #6d4c41;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #4e342e;
+    border-bottom-color: #4e342e;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #8d6e63;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #6d4c41 !important; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <span class="chefs-pick">Chef's Pick</span>
+    <div class="date">Sunday 5 April 2026</div>
+    <h1>🍖 Pork &amp; Herb Meatballs with Buttery Mash &amp; Onion Gravy</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~50 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Pork &middot; Comfort / Irish
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="callout sunday"><strong>🍂 Sunday note:</strong> A proper Sunday dinner using the pork mince from the freezer. Hearty meatballs, creamy mash, and a rich onion gravy &mdash; the kids will love rolling these into balls with you. No spice, all comfort.</div>
+
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="mince">500g pork mince (from freezer &mdash; defrost in fridge from morning)</a></li>
+      <li><a class="ing-link" data-ingredient="breadcrumbs">50g fresh breadcrumbs (2 slices of bread, blitzed)</a></li>
+      <li><a class="ing-link" data-ingredient="egg">1 egg, beaten</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">1 tbsp fresh thyme leaves (stripped from sprigs)</a></li>
+      <li><a class="ing-link" data-ingredient="parsley">1 tsp dried parsley</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">2 cloves garlic, finely grated</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt &amp; pepper</a></li>
+      <li><a class="ing-link" data-ingredient="oil">2 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">1kg Maris Piper potatoes (or baby potatoes), peeled &amp; quartered</a></li>
+      <li><a class="ing-link" data-ingredient="butter">60g butter</a></li>
+      <li><a class="ing-link" data-ingredient="milk">100ml milk, warmed</a></li>
+      <li><a class="ing-link" data-ingredient="onions">2 red onions, thinly sliced</a></li>
+      <li><a class="ing-link" data-ingredient="flour">1 tbsp plain flour</a></li>
+      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock (from freezer)</a></li>
+      <li><a class="ing-link" data-ingredient="worcestershire">1 tbsp Worcestershire sauce</a></li>
+      <li><a class="ing-link" data-ingredient="honey">1 tsp honey</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~20 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the mash started, meatballs shaped, and gravy onions cooking</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Peel and quarter <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Put into a large pot of salted cold water. Bring to the boil, then simmer for 15&ndash;20 mins until fork-tender.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Thinly slice <a class="ing-link" data-ingredient="onions">red onions</a>. Start them in a pan with 20g <a class="ing-link" data-ingredient="butter">butter</a> and a pinch of salt over low heat. They'll slowly caramelise while you prep.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Make the meatballs: combine <a class="ing-link" data-ingredient="mince">pork mince</a>, <a class="ing-link" data-ingredient="breadcrumbs">breadcrumbs</a>, <a class="ing-link" data-ingredient="egg">beaten egg</a>, <a class="ing-link" data-ingredient="thyme">thyme</a>, <a class="ing-link" data-ingredient="parsley">parsley</a>, <a class="ing-link" data-ingredient="garlic">garlic</a>, and seasoning. Mix gently &mdash; don't overwork. Roll into golf-ball sized meatballs (you should get about 15&ndash;18). Place on a plate.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Give the <a class="ing-link" data-ingredient="onions">caramelising onions</a> a stir. They should be softening and turning golden. Turn heat to lowest setting before you leave.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Drain the cooked <a class="ing-link" data-ingredient="potatoes">potatoes</a>. Leave in the pot with the lid off to steam dry for a minute. Turn off heat.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Onions continue to slowly caramelise on lowest heat &mdash; they'll be beautifully sweet and jammy by the time you're back. Potatoes steam dry in the pot &mdash; drier potatoes make fluffier mash.</div>
+      </div>
+    </div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Brown the meatballs <span class="step-time">~8 mins</span></div>
+        <div class="step-text">Heat <a class="ing-link" data-ingredient="oil">rapeseed oil</a> in a large non-stick frying pan over medium-high heat. Add the <a class="ing-link" data-ingredient="mince">meatballs</a> and brown on all sides, turning gently every couple of minutes. They don't need to be cooked through &mdash; just a good golden crust. Remove to a plate.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Make the mash <span class="step-time">~5 mins (parallel with step 1)</span></div>
+        <div class="step-text">While the meatballs brown, mash the drained <a class="ing-link" data-ingredient="potatoes">potatoes</a> with 40g <a class="ing-link" data-ingredient="butter">butter</a> and the warm <a class="ing-link" data-ingredient="milk">milk</a>. Season well with salt and pepper. Beat until smooth and creamy. Cover and set aside &mdash; it'll stay warm.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Build the onion gravy <span class="step-time">~5 mins</span></div>
+        <div class="step-text">Check your <a class="ing-link" data-ingredient="onions">caramelised onions</a> &mdash; they should be deep golden and soft. Stir in <a class="ing-link" data-ingredient="flour">plain flour</a> and cook for 1 minute. Gradually pour in the <a class="ing-link" data-ingredient="stock">chicken stock</a>, stirring constantly to avoid lumps. Add the <a class="ing-link" data-ingredient="worcestershire">Worcestershire sauce</a> and <a class="ing-link" data-ingredient="honey">honey</a>. Bring to a gentle simmer.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Simmer meatballs in the gravy <span class="step-time">~10 mins</span></div>
+        <div class="step-text">Nestle the browned <a class="ing-link" data-ingredient="mince">meatballs</a> into the onion gravy. Reduce heat to medium-low and let them simmer gently, turning once, until cooked through &mdash; about 10 minutes. The gravy will thicken as it goes.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Plate up</div>
+        <div class="step-text">Spoon generous helpings of <a class="ing-link" data-ingredient="potatoes">buttery mash</a> onto each plate. Top with <a class="ing-link" data-ingredient="mince">meatballs</a> and ladle the <a class="ing-link" data-ingredient="onions">onion gravy</a> over everything. Serve with some steamed greens on the side if you have them.</div>
+      </div>
+    </div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly note:</strong> These meatballs are naturally mild &mdash; no spice at all. The sweet onion gravy is a hit with kids. For the younger ones, cut each meatball in half so they cool faster. Great for little hands to pick up too.</div>
+
+    <div class="callout"><strong>💡 Tip:</strong> If you want to stretch this further, toss in a handful of frozen peas to the gravy in the last 3 minutes. They add colour and the kids will eat them in the gravy without complaint.</div>
+
+    <div class="callout"><strong>💡 Leftover mince:</strong> You've 500g pork mince left in the freezer &mdash; save it for another day. It makes great pork burgers or a stir-fry base.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:35 PM</td><td>Put peeled, quartered potatoes into salted cold water. Bring to the boil</td></tr>
+        <tr><td>4:38 PM</td><td>Start sliced red onions caramelising in butter over low heat</td></tr>
+        <tr><td>4:40 PM</td><td>Mix meatball ingredients. Roll into golf-ball-sized balls (~15&ndash;18). Place on a plate</td></tr>
+        <tr><td>4:50 PM</td><td>Stir onions. Check potatoes &mdash; drain when fork-tender. Leave to steam dry in the pot</td></tr>
+        <tr><td>4:55 PM</td><td>Turn onions to lowest setting. Tidy up, wash hands well after handling raw pork</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; meatballs shaped, potatoes drained, onions caramelising gently</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Brown meatballs in rapeseed oil (medium-high heat). Meanwhile, mash the potatoes with butter &amp; warm milk</td></tr>
+        <tr><td>5:38 PM</td><td>Remove browned meatballs. Build gravy: stir flour into onions, add stock, Worcestershire, honey</td></tr>
+        <tr><td>5:43 PM</td><td>Nestle meatballs into gravy. Simmer gently for 10 mins, turning once</td></tr>
+        <tr><td>5:53 PM</td><td>Plate up: mash, meatballs, ladle gravy over everything. Serve!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map
+  const ingredients = {
+    'mince':          '500g pork mince (defrosted from freezer)',
+    'breadcrumbs':    '50g fresh breadcrumbs (2 slices of bread, blitzed)',
+    'egg':            '1 egg, beaten',
+    'thyme':          '1 tbsp fresh thyme leaves, stripped from sprigs',
+    'parsley':        '1 tsp dried parsley',
+    'garlic':         '2 cloves garlic, finely grated',
+    'salt':           'Salt & pepper to taste',
+    'oil':            '2 tbsp rapeseed oil',
+    'potatoes':       '1kg potatoes, peeled & quartered',
+    'butter':         '60g butter (20g for onions, 40g for mash)',
+    'milk':           '100ml milk, warmed',
+    'onions':         '2 red onions, thinly sliced',
+    'flour':          '1 tbsp plain flour',
+    'stock':          '400ml chicken stock (from freezer)',
+    'worcestershire': '1 tbsp Worcestershire sauce',
+    'honey':          '1 tsp honey'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  // Prep-ahead checkbox persistence (keyed by today's date)
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

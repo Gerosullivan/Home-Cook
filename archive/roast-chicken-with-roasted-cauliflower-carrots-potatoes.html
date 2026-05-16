@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Roast Chicken with Roasted Cauliflower, Carrots &amp; Potatoes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #a67c52 0%, #7a5c3a 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #a67c52;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #a67c52;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #a67c52;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #f5efe8;
+    border-left: 3px solid #a67c52;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #6b5435;
+  }
+  .callout strong { color: #a67c52; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #f5efe8;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #a67c52;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #a67c52;
+    text-decoration: none;
+    border-bottom: 1px dashed #a67c52;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #7a5c3a;
+    border-bottom-color: #7a5c3a;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #a67c52;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #a67c52 !important; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <div class="date">Monday 11 May 2026</div>
+    <h1>Roast Chicken with Roasted Cauliflower, Carrots &amp; Potatoes</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~1 hr 30 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Chicken &middot; Sunday Roast
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="chicken">1 whole chicken (~1.8kg)</a></li>
+      <li><a class="ing-link" data-ingredient="potatoes">800g potatoes, peeled &amp; quartered</a></li>
+      <li><a class="ing-link" data-ingredient="cauliflower">1 head cauliflower, cut into florets</a></li>
+      <li><a class="ing-link" data-ingredient="carrots">4 carrots, peeled &amp; cut into chunks</a></li>
+      <li><a class="ing-link" data-ingredient="parsnips">2 parsnips, peeled &amp; cut into batons</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">1 whole garlic bulb</a></li>
+      <li><a class="ing-link" data-ingredient="peppers">2 bell peppers, deseeded &amp; chunked</a></li>
+      <li><a class="ing-link" data-ingredient="courgettes">2 courgettes, sliced into thick rounds</a></li>
+      <li><a class="ing-link" data-ingredient="oil">3 tbsp rapeseed or olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="butter">30g butter, softened</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt &amp; black pepper</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">A few sprigs of fresh thyme (or 1 tsp dried)</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~25 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; get the chicken in the oven before you go</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Preheat oven to 200&deg;C fan (220&deg;C conventional)</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Pat chicken dry with kitchen paper. Rub all over with softened butter, season generously with salt &amp; pepper. Tuck thyme sprigs into the cavity</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Halve the garlic bulb crossways. Place cut-side down in the roasting tin with the chicken</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Put chicken in the oven. Insert wireless thermometer into the thickest part of the thigh &mdash; target 68&deg;C</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Peel and quarter potatoes. Peel and chunk carrots and parsnips. Cut cauliflower into florets. Chunk peppers. Slice courgettes into thick rounds. Keep in separate bowls (courgettes &amp; peppers cook faster)</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Chicken roasts unattended in the oven (~30 mins of the total cook time ticks away while you're out)</div>
+      </div>
+    </div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Season &amp; roast the chicken <span class="step-time">before pickup</span></div>
+        <div class="step-text">Rub the <a class="ing-link" data-ingredient="chicken">chicken</a> all over with <a class="ing-link" data-ingredient="butter">softened butter</a>, season well with <a class="ing-link" data-ingredient="salt">salt &amp; pepper</a>. Place in a large roasting tin with the halved <a class="ing-link" data-ingredient="garlic">garlic bulb</a>. Roast at 200&deg;C fan for 1 hour 15 minutes total.</div>
+      </div>
+    </div>
+
+    <div class="callout thermometer"><strong>🌡️ Thermometer reminder:</strong> Insert the wireless probe into the thickest part of the thigh, avoiding bone. You're looking for 68&deg;C internal temperature. The thermometer will alert you &mdash; no guessing.</div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Par-boil the potatoes <span class="step-time">10 mins</span></div>
+        <div class="step-text">After pickup, put the <a class="ing-link" data-ingredient="potatoes">potatoes</a> into a large pot of salted boiling water. Boil for 8&ndash;10 minutes until the edges are just starting to soften. Drain well and give the colander a good shake to roughen the edges &mdash; this is what makes them crispy.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Toss the root veg <span class="step-time">5 mins</span></div>
+        <div class="step-text">In a large bowl, toss the par-boiled <a class="ing-link" data-ingredient="potatoes">potatoes</a>, <a class="ing-link" data-ingredient="carrots">carrots</a>, <a class="ing-link" data-ingredient="parsnips">parsnips</a>, and <a class="ing-link" data-ingredient="cauliflower">cauliflower</a> with <a class="ing-link" data-ingredient="oil">2 tbsp oil</a>, salt &amp; pepper. Spread onto a large baking tray (or around the chicken if there's room).</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Roast the veg <span class="step-time">35&ndash;40 mins</span></div>
+        <div class="step-text">Put the root veg tray into the oven alongside the chicken. After 20 minutes, add the <a class="ing-link" data-ingredient="peppers">bell peppers</a> and <a class="ing-link" data-ingredient="courgettes">courgettes</a> tossed in the remaining <a class="ing-link" data-ingredient="oil">1 tbsp oil</a> &mdash; these cook faster and will go mushy if added too early.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Rest the chicken <span class="step-time">15 mins</span></div>
+        <div class="step-text">Once the <a class="ing-link" data-ingredient="chicken">chicken</a> hits 68&deg;C, remove from the oven and transfer to a board. Cover loosely with foil and rest for 15 minutes. Don't skip this &mdash; the juices redistribute and it'll be much juicier. Leave the veg in the oven to finish crisping.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Quick gravy <span class="step-time">5 mins</span></div>
+        <div class="step-text">Pour off most of the fat from the roasting tin, leaving the juices and roasted <a class="ing-link" data-ingredient="garlic">garlic</a>. Squeeze the soft garlic cloves out of their skins into the tin. Place on the hob over medium heat, add a splash of boiling water (or stock if you have it), and scrape up the sticky bits. Simmer for 2&ndash;3 minutes until slightly thickened. Season to taste.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Carve &amp; serve</div>
+        <div class="step-text">Carve the chicken and arrange on a platter with all the roasted veg. Pour the gravy into a jug. Serve family-style &mdash; everyone helps themselves.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> No heat or spice in this one. The roasted carrots and parsnips go lovely and sweet in the oven. If the younger ones are picky about mixed veg, serve the different veg in separate piles on their plates rather than all together.</div>
+
+    <div class="callout"><strong>Leftovers:</strong> Strip any remaining chicken off the bone tonight and pop it in the fridge. Great for sandwiches tomorrow or a quick chicken stir-fry later in the week. The carcass makes a brilliant stock if you're bothered.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:20 PM</td><td>Preheat oven to 200&deg;C fan</td></tr>
+        <tr><td>4:25 PM</td><td>Pat chicken dry, rub with butter, season. Halve garlic bulb. Place in roasting tin</td></tr>
+        <tr><td>4:35 PM</td><td>Chicken into oven. Insert wireless thermometer &mdash; target 68&deg;C. Set timer for 1 hr 15 mins</td></tr>
+        <tr><td>4:38 PM</td><td>Prep all veg: peel &amp; quarter potatoes, chunk carrots &amp; parsnips, cut cauliflower, slice peppers &amp; courgettes</td></tr>
+        <tr><td>4:55 PM</td><td>Veg prepped and in bowls, kitchen tidied. Ready to head out</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for pickup &mdash; chicken is roasting away</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Boil kettle, par-boil potatoes for 8&ndash;10 mins</td></tr>
+        <tr><td>5:40 PM</td><td>Drain &amp; shake potatoes. Toss root veg &amp; cauliflower with oil. Into oven alongside chicken</td></tr>
+        <tr><td>5:50 PM</td><td>Chicken should be nearing 68&deg;C &mdash; check thermometer. Remove when ready, rest under foil</td></tr>
+        <tr><td>6:00 PM</td><td>Add peppers &amp; courgettes to the veg tray for the last 15 mins</td></tr>
+        <tr><td>6:05 PM</td><td>Make quick garlic gravy in the roasting tin on the hob</td></tr>
+        <tr><td>6:10 PM</td><td>Veg out of oven. Carve chicken. Serve everything family-style</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map
+  const ingredients = {
+    'chicken':     '1 whole chicken (~1.8kg)',
+    'potatoes':    '800g potatoes, peeled & quartered',
+    'cauliflower': '1 head cauliflower, cut into florets',
+    'carrots':     '4 carrots, peeled & chunked',
+    'parsnips':    '2 parsnips, peeled & cut into batons',
+    'garlic':      '1 whole garlic bulb, halved crossways',
+    'peppers':     '2 bell peppers, deseeded & chunked',
+    'courgettes':  '2 courgettes, thick rounds',
+    'oil':         '3 tbsp rapeseed or olive oil',
+    'butter':      '30g butter, softened',
+    'salt':        'Salt & black pepper to taste',
+    'thyme':       'Fresh thyme sprigs (or 1 tsp dried)'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.style.setProperty('--arrow', 'top');
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  // Prep-ahead checkbox persistence (keyed by today's date)
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

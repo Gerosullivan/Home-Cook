@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Pork &amp; Lemon Polpette with Orzo (Chef's Pick)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #f6f8f1;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #8eaf67 0%, #4a6b3a 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+  }
+  .chef-pill {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.92;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4a6b3a;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ecefdf;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #4a6b3a;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .ingredients-group {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #4a6b3a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.4rem;
+    grid-column: 1 / -1;
+  }
+  .ingredients-group:first-child { margin-top: 0; }
+  .ingredients-group::before { display: none !important; }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #4a6b3a;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #f0f4e2;
+    border-left: 3px solid #6b8a4a;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #2e3e1d;
+  }
+  .callout strong { color: #4a6b3a; }
+  .callout.thermometer {
+    background: #fff3e0;
+    border-left-color: #e65100;
+  }
+  .callout.thermometer strong { color: #e65100; }
+  .callout.kid {
+    background: #fff8e1;
+    border-left-color: #c28c00;
+  }
+  .callout.kid strong { color: #8a6200; }
+  .callout.safety {
+    background: #e3f2fd;
+    border-left-color: #1565c0;
+  }
+  .callout.safety strong { color: #1565c0; }
+  .callout.pantry {
+    background: #f3ede1;
+    border-left-color: #8a6b2a;
+  }
+  .callout.pantry strong { color: #8a6b2a; }
+  .callout.chef {
+    background: #f0ece6;
+    border-left-color: #6e5a3a;
+  }
+  .callout.chef strong { color: #6e5a3a; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #f0f4e2;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #ecefdf;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #4a6b3a;
+    white-space: nowrap;
+    width: 60px;
+  }
+  .ing-link {
+    color: #4a6b3a;
+    text-decoration: none;
+    border-bottom: 1px dashed #4a6b3a;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #2f4a23;
+    border-bottom-color: #2f4a23;
+  }
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #c4dba0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead {
+    background: #f0f4e2;
+    border: 1px solid #cfdca5;
+    border-left: 4px solid #6b8a4a;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #6b8a4a; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #6b8a4a;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #6b8a4a;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #4a5b30;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #cfdca5;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #6b8a4a;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #6b8a4a;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d8e6b8;
+    color: #4a5b30;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8cc88;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e2ecc8;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4a5b30;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #6b8a4a !important; }
+  .timing-phase-row.cook td { color: #4a6b3a !important; }
+  .source-link {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+  .source-link a { color: #4a6b3a; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <span class="chef-pill">Chef's Pick</span>
+    <div class="date">Sunday 26 April 2026</div>
+    <h1>🌿 Pork &amp; Lemon Polpette with Orzo, Peas &amp; Brown Butter</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~40 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Pork &middot; Italian-ish &middot; Spring
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="callout chef"><strong>👨&zwj;🍳 Chef&rsquo;s Pick:</strong> Nothing on the meal plan tonight, so this is an off-rotation original built around what&rsquo;s in your kitchen &mdash; <a class="ing-link" data-ingredient="pork-mince">pork mince</a> from the freezer, <a class="ing-link" data-ingredient="lemons">lemons</a> in the fruit bowl, and the bag of <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a>. Tender little polpette in a glossy lemon-butter sauce, tossed through orzo. Light, springy, Sunday-tea food. Not in the database &mdash; if you like it, give it a thumbs up at check-in and we&rsquo;ll add it.</div>
+
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li class="ingredients-group">Polpette</li>
+      <li><a class="ing-link" data-ingredient="pork-mince">500g pork mince (defrosted)</a></li>
+      <li><a class="ing-link" data-ingredient="onion">½ white onion, finely grated</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic, finely minced</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-zest">Zest of 1 lemon</a></li>
+      <li><a class="ing-link" data-ingredient="egg">1 egg, beaten</a></li>
+      <li><a class="ing-link" data-ingredient="flour-binder">2 tbsp plain flour</a></li>
+      <li><a class="ing-link" data-ingredient="parsley-mix">1 tsp dried parsley</a></li>
+      <li><a class="ing-link" data-ingredient="oregano">½ tsp dried oregano</a></li>
+      <li><a class="ing-link" data-ingredient="salt-pepper">½ tsp salt, good twist of pepper</a></li>
+
+      <li class="ingredients-group">Sauce &amp; Orzo</li>
+      <li><a class="ing-link" data-ingredient="orzo">350g orzo</a></li>
+      <li><a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a></li>
+      <li><a class="ing-link" data-ingredient="butter">60g butter (40g sauce + 20g orzo)</a></li>
+      <li><a class="ing-link" data-ingredient="garlic-sauce">2 cloves garlic, thinly sliced</a></li>
+      <li><a class="ing-link" data-ingredient="stock">400ml chicken stock</a></li>
+      <li><a class="ing-link" data-ingredient="lemon-juice">Juice of 1 lemon (~3 tbsp)</a></li>
+      <li><a class="ing-link" data-ingredient="frozen-peas">200g frozen peas</a></li>
+      <li><a class="ing-link" data-ingredient="parsley-finish">1 tsp dried parsley, to finish</a></li>
+
+      <li class="ingredients-group">To serve (optional)</li>
+      <li><a class="ing-link" data-ingredient="lemons">1 extra lemon, cut into wedges</a></li>
+      <li><a class="ing-link" data-ingredient="pesto">1 tbsp basil pesto, swirled in</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~22 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM &mdash; meatballs rolled and browned, sauce ready to finish in 8 minutes flat after pickup.</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Defrost the <a class="ing-link" data-ingredient="pork-mince">pork mince</a> if you haven&rsquo;t already &mdash; cold-water bath in the sink for 30 mins works. Defrost <a class="ing-link" data-ingredient="stock">2 chicken stock cubes</a> from the freezer (microwave 1 min) and dilute to ~400ml with hot water.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Finely grate <a class="ing-link" data-ingredient="onion">½ a white onion</a>, mince <a class="ing-link" data-ingredient="garlic-mince">2 cloves garlic</a> for the polpette, and thinly slice <a class="ing-link" data-ingredient="garlic-sauce">2 more cloves</a> for the sauce. Zest 1 <a class="ing-link" data-ingredient="lemon-zest">lemon</a> and juice it (set juice aside in a small bowl).</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Mix the polpette: <a class="ing-link" data-ingredient="pork-mince">pork mince</a>, grated onion, minced garlic, lemon zest, beaten <a class="ing-link" data-ingredient="egg">egg</a>, <a class="ing-link" data-ingredient="flour-binder">2 tbsp flour</a>, dried <a class="ing-link" data-ingredient="parsley-mix">parsley</a> and <a class="ing-link" data-ingredient="oregano">oregano</a>, ½ tsp <a class="ing-link" data-ingredient="salt-pepper">salt</a> and pepper. Mix gently with your hands &mdash; don&rsquo;t overwork it. Roll into about 20 walnut-sized balls (~25g each).</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Heat <a class="ing-link" data-ingredient="rapeseed-oil">2 tbsp rapeseed oil</a> in a wide sauté pan or deep frying pan over medium-high. Brown the polpette in 2 batches, ~2 mins per side, just until they have a golden crust (still pink inside &mdash; they&rsquo;ll finish in the sauce). Transfer to a plate, cover loosely with foil, leave on the hob (off the heat).</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Wash the meatball board, knife and your hands. Tip the <a class="ing-link" data-ingredient="frozen-peas">frozen peas</a> into a bowl and leave on the counter to take the chill off. Cut <a class="ing-link" data-ingredient="lemons">lemon wedges</a> for the table.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          While you&rsquo;re at pickup
+        </div>
+        <div class="prep-passive-item">Browned polpette resting on the plate, sliced garlic + stock + lemon juice on the counter, peas warming up. The pan keeps a head start of fond on the bottom &mdash; that&rsquo;s the flavour base for the sauce.</div>
+      </div>
+    </div>
+
+    <div class="callout safety"><strong>🧼 Food safety:</strong> Wash your hands, the board and your knife thoroughly after handling the raw mince. If the kitchen is warm, slide the browned polpette into the fridge while you&rsquo;re on the school run instead of leaving them on the hob.</div>
+
+    <div class="callout kid"><strong>👧 Kid-friendly trick:</strong> The polpette are mild &mdash; just lemon, herbs and garlic, no chilli. For Child 3 (2yo) you can plate a couple of meatballs straight from the pan with plain orzo and butter, before stirring in the lemon sauce, if she finds the lemon too tangy. The peas are a soft win.</div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Boil water for the orzo <span class="step-time">~5 mins to boil</span></div>
+        <div class="step-text">First thing back in the door: a big pan of well-salted water on for the <a class="ing-link" data-ingredient="orzo">orzo</a>. While it heats, do the next step.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Build the sauce <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Lift the rested polpette onto a plate. Put the same pan on medium heat &mdash; there&rsquo;ll be flavourful fond in the bottom. Add 40g of the <a class="ing-link" data-ingredient="butter">butter</a> and the <a class="ing-link" data-ingredient="garlic-sauce">sliced garlic</a>. Sizzle gently 30 seconds &mdash; don&rsquo;t let the garlic colour past pale gold.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Deglaze and simmer <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Pour in the <a class="ing-link" data-ingredient="stock">chicken stock</a> and the <a class="ing-link" data-ingredient="lemon-juice">lemon juice</a>. Scrape the bottom of the pan with a wooden spoon to lift the brown bits. Bring to a gentle simmer.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Drop the orzo <span class="step-time">~9 mins</span></div>
+        <div class="step-text">Once the water&rsquo;s at a rolling boil, tip in the <a class="ing-link" data-ingredient="orzo">350g orzo</a>. Stir for the first 30 seconds so it doesn&rsquo;t clump. Cook 8&ndash;9 minutes for al dente &mdash; check the packet.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Finish the polpette in the sauce <span class="step-time">~6 mins</span></div>
+        <div class="step-text">Slide the browned <a class="ing-link" data-ingredient="pork-mince">polpette</a> back into the simmering sauce. Cover and cook 5 minutes, turning halfway, until they&rsquo;re cooked through (no pink at the centre, juices clear &mdash; the wireless thermometer should read 71°C if you&rsquo;re probing).</div>
+      </div>
+    </div>
+
+    <div class="callout thermometer"><strong>🌡️ Probe time:</strong> If you&rsquo;re using a wireless thermometer, push it into the largest meatball before you cover the pan. Pork polpette want <strong>71°C</strong> internal &mdash; whip them out the moment they hit it so they don&rsquo;t dry.</div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Add the peas <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Tip the <a class="ing-link" data-ingredient="frozen-peas">peas</a> into the pan around the polpette. Let them simmer 1&ndash;2 minutes until vibrant green and just hot through. The sauce should be glossy and lightly thickened &mdash; if it&rsquo;s thin, raise the heat for 30 seconds; if it&rsquo;s tight, splash in a ladle of orzo cooking water.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Drain &amp; toss the orzo <span class="step-time">~1 min</span></div>
+        <div class="step-text">Reserve a cup of the orzo cooking water, then drain. Tip the orzo back into the dry pot with the remaining 20g <a class="ing-link" data-ingredient="butter">butter</a> and a small splash of cooking water. Stir until glossy.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Plate &amp; serve <span class="step-time">~2 mins</span></div>
+        <div class="step-text">Spoon the buttery orzo into shallow bowls. Top with 4 polpette per adult plate (3 for the kids), spoon the lemony sauce and peas over the top. Scatter the finishing <a class="ing-link" data-ingredient="parsley-finish">dried parsley</a> across. A wedge of <a class="ing-link" data-ingredient="lemons">lemon</a> on the side, and a small swirl of <a class="ing-link" data-ingredient="pesto">basil pesto</a> in the adult bowls if you fancy a herby lift.</div>
+      </div>
+    </div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Defrost mince &amp; stock cubes (if not done earlier)</td></tr>
+        <tr><td>4:38 PM</td><td>Grate onion, mince &amp; slice garlic, zest &amp; juice lemon</td></tr>
+        <tr><td>4:42 PM</td><td>Mix polpette, roll ~20 walnut-sized balls</td></tr>
+        <tr><td>4:50 PM</td><td>Brown polpette in 2 batches (~5 mins). Off heat, cover loose foil</td></tr>
+        <tr><td>4:56 PM</td><td>Wash board, knife and hands. Tip peas into a bowl. Cut lemon wedges</td></tr>
+        <tr><td>5:00 PM</td><td>Leave for school pickup</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Big pot of well-salted water on for orzo</td></tr>
+        <tr><td>5:31 PM</td><td>Polpette pan back on medium. Butter + sliced garlic 30 secs</td></tr>
+        <tr><td>5:32 PM</td><td>Stock + lemon juice in. Scrape the bottom. Simmer</td></tr>
+        <tr><td>5:35 PM</td><td>Water boiling &mdash; tip in orzo, stir, set 9 min timer</td></tr>
+        <tr><td>5:36 PM</td><td>Polpette back into the sauce. Cover, simmer 5 mins</td></tr>
+        <tr><td>5:41 PM</td><td>Probe largest polpette &mdash; 71°C. Add peas, simmer 2 mins</td></tr>
+        <tr><td>5:43 PM</td><td>Reserve orzo water, drain. Toss orzo with butter &amp; a splash of water</td></tr>
+        <tr><td>5:45 PM</td><td>Plate: orzo, polpette &amp; sauce, parsley, lemon wedge, optional pesto swirl</td></tr>
+      </tbody>
+    </table>
+
+    <div class="source-link">Chef&rsquo;s Pick &middot; original recipe based on tonight&rsquo;s inventory &middot; not yet in the rotation</div>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  const ingredients = {
+    'pork-mince':     '500g pork mince — half a 1kg block from the freezer. Defrost in the fridge or a cold-water bath',
+    'onion':          '½ white onion, finely grated on a box grater. Grating gives a wetter, gentler bind than chopping',
+    'garlic-mince':   '2 cloves garlic, finely minced (or grated on a microplane) for the meatballs',
+    'garlic-sauce':   '2 more cloves garlic, thinly sliced for the pan sauce',
+    'lemon-zest':     'Zest of 1 lemon — yellow only, no white pith',
+    'lemon-juice':    'Juice of the same lemon, about 3 tbsp. Strain out pips',
+    'lemons':         '1 lemon for the polpette + 1 extra cut into 5 wedges for the table',
+    'egg':            '1 egg, beaten — binds the polpette and keeps them tender',
+    'flour-binder':   '2 tbsp plain flour — extra binder since there are no breadcrumbs in the house',
+    'parsley-mix':    '1 tsp dried parsley for the polpette mix',
+    'parsley-finish': '1 tsp dried parsley scattered on top to finish',
+    'oregano':        '½ tsp dried oregano',
+    'salt-pepper':    '½ tsp fine sea salt + a good twist of black pepper',
+    'orzo':           '350g orzo (rice-shaped pasta, in the pantry)',
+    'rapeseed-oil':   '2 tbsp rapeseed oil for browning the polpette',
+    'butter':         '60g salted butter — 40g for the sauce, 20g to gloss the orzo',
+    'stock':          '400ml chicken stock — defrost 2 frozen stock cubes and dilute with hot water',
+    'frozen-peas':    '200g frozen peas (about half a small bag). No need to defrost fully — they hit the hot sauce',
+    'pesto':          '1 tbsp basil pesto from the half jar in the fridge — optional swirl on the adult plates'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) {
+        hideTooltip();
+      } else {
+        showTooltip(link);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) {
+          hideTooltip();
+        }
+      }, 100);
+    });
+  });
+
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

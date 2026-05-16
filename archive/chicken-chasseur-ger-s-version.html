@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight's Meal">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>Tonight's Meal — Chicken Chasseur</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #faf8f5;
+    color: #2d2a26;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #7B2D3B 0%, #5A1F2B 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .meta-item svg { width: 18px; height: 18px; }
+  .body { padding: 1.5rem 2rem 2rem; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #7B2D3B;
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h2:first-child { margin-top: 0; }
+  .ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  @media (max-width: 500px) { .ingredients { grid-template-columns: 1fr; } }
+  .ingredients li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0ece6;
+    display: flex;
+    align-items: baseline;
+  }
+  .ingredients li::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #7B2D3B;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .ingredients .section-label {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #7B2D3B;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 0.6rem;
+    border-bottom: none;
+  }
+  .ingredients .section-label::before { display: none; }
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: #7B2D3B;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .step-time {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .step-text { font-size: 0.9rem; color: #555; }
+  .callout {
+    background: #fdf0f2;
+    border-left: 3px solid #7B2D3B;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0 1rem 2.4rem;
+    font-size: 0.85rem;
+    color: #5A1F2B;
+  }
+  .callout strong { color: #7B2D3B; }
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .timing-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: #fdf0f2;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .timing-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .timing-table td:first-child {
+    font-weight: 600;
+    color: #7B2D3B;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  /* Ingredient tooltip links */
+  .ing-link {
+    color: #7B2D3B;
+    text-decoration: none;
+    border-bottom: 1px dashed #7B2D3B;
+    cursor: pointer;
+    position: relative;
+  }
+  .ing-link:hover {
+    color: #5A1F2B;
+    border-bottom-color: #5A1F2B;
+  }
+
+  /* Tooltip overlay */
+  .ing-tooltip {
+    display: none;
+    position: fixed;
+    background: #2d2a26;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-width: 300px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .ing-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d2a26;
+  }
+  .ing-tooltip.visible { display: block; }
+  .ing-tooltip .tooltip-label {
+    color: #7B2D3B;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prep Ahead section */
+  .prep-ahead {
+    background: #f0f7f4;
+    border: 1px solid #c8e6d8;
+    border-left: 4px solid #2a7a5b;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .prep-ahead-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+  .prep-ahead-header svg { width: 20px; height: 20px; color: #2a7a5b; flex-shrink: 0; }
+  .prep-ahead-header h2 {
+    color: #2a7a5b;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .prep-time-pill {
+    background: #2a7a5b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .prep-context {
+    font-size: 0.85rem;
+    color: #5a8a70;
+    margin-bottom: 1rem;
+  }
+  .prep-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #dceee4;
+  }
+  .prep-step:last-child { border-bottom: none; }
+  .prep-step-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 2px solid #2a7a5b;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+  }
+  .prep-step-check:checked {
+    background: #2a7a5b;
+  }
+  .prep-step-check:checked::after {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prep-step-check:checked + .prep-step-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .prep-step-text {
+    font-size: 0.9rem;
+    color: #2d2a26;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .prep-step-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prep-step-tag.before {
+    background: #d4edda;
+    color: #1e6e42;
+  }
+  .prep-step-tag.during {
+    background: #fff3cd;
+    color: #856404;
+  }
+  .prep-divider {
+    border: none;
+    border-top: 1px dashed #b8d8c8;
+    margin: 0.75rem 0;
+  }
+  .prep-passive {
+    background: #e8f4ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .prep-passive-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #856404;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .prep-passive-header svg { width: 14px; height: 14px; }
+  .prep-passive-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.2rem 0;
+  }
+
+  /* Timing phase rows */
+  .timing-phase-row td {
+    background: #f5f5f5;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666 !important;
+    border-bottom: 2px solid #ddd !important;
+    padding-top: 0.75rem !important;
+  }
+  .timing-phase-row.prep td { color: #2a7a5b !important; }
+  .timing-phase-row.cook td { color: #7B2D3B !important; }
+</style>
+</head>
+<body>
+<div class="hc-nav" data-hc-nav="archive" style="max-width:680px;margin:0 auto 1rem;display:flex;justify-content:space-between;font-size:0.85rem;"><a href="/archive/" style="color:#a2262c;text-decoration:none;font-weight:600;">← Cookbook</a><a href="/" style="color:#a2262c;text-decoration:none;font-weight:600;">Tonight's Meal →</a></div>
+<div class="card">
+  <div class="header">
+    <div class="date">Monday 4 May 2026</div>
+    <h1>Chicken Chasseur (Ger's Version)</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ~55 mins total
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Serves 5
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Chicken &middot; French
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      <li><a class="ing-link" data-ingredient="chicken">1 whole chicken (~1.2kg), broken down into thighs and breasts</a></li>
+      <li><a class="ing-link" data-ingredient="olive-oil">2 tbsp olive oil</a></li>
+      <li><a class="ing-link" data-ingredient="salt">Salt and pepper</a></li>
+      <li><a class="ing-link" data-ingredient="shallots">300g shallots, sliced</a></li>
+      <li><a class="ing-link" data-ingredient="garlic">4 cloves garlic, roughly chopped</a></li>
+      <li><a class="ing-link" data-ingredient="flour">2 tbsp plain flour</a></li>
+      <li><a class="ing-link" data-ingredient="mushrooms">300g closed cup mushrooms, quartered</a></li>
+      <li><a class="ing-link" data-ingredient="tomatoes">400g tin chopped tomatoes</a></li>
+      <li><a class="ing-link" data-ingredient="wine">200ml white wine (or red)</a></li>
+      <li><a class="ing-link" data-ingredient="thyme">2 sprigs of fresh thyme</a></li>
+      <li><a class="ing-link" data-ingredient="soy">1 tsp soy sauce</a></li>
+      <li><a class="ing-link" data-ingredient="tarragon">Fresh tarragon, to finish (or 1 tsp dried)</a></li>
+    </ul>
+
+    <div class="prep-ahead">
+      <div class="prep-ahead-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2>Prep Ahead</h2>
+        <span class="prep-time-pill">~30 min prep</span>
+      </div>
+      <div class="prep-context">Before you leave for pickup at 5:00 PM</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="0">
+        <span class="prep-step-text">Break down the whole chicken &mdash; remove thighs and breasts (bone-in, skin-on). Set aside drumsticks and wings for stock.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="1">
+        <span class="prep-step-text">Season all chicken pieces generously with salt and pepper.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <div class="callout" style="margin: 0.5rem 0 0.5rem 0;"><strong>Food safety:</strong> Wash your board and knife thoroughly after handling the raw chicken before prepping the veg.</div>
+
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="2">
+        <span class="prep-step-text">Slice the shallots and roughly chop the garlic.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="3">
+        <span class="prep-step-text">Quarter the mushrooms.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="4">
+        <span class="prep-step-text">Brown chicken in olive oil, skin-side down, for 8&ndash;10 mins, turning once until golden. Work in batches if needed. Remove and set aside.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="5">
+        <span class="prep-step-text">Cook shallots and garlic in the pan for 1 minute, scraping up the fond. Stir in the flour for 1 minute.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="6">
+        <span class="prep-step-text">Add mushrooms, tinned tomatoes, wine, thyme, and soy sauce. Stir to combine.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+      <div class="prep-step">
+        <input type="checkbox" class="prep-step-check" data-prep="7">
+        <span class="prep-step-text">Return chicken to the pan, bring to a boil, then reduce to a gentle simmer. Cover with lid.</span>
+        <span class="prep-step-tag before">before</span>
+      </div>
+
+      <hr class="prep-divider">
+      <div class="prep-passive">
+        <div class="prep-passive-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>
+          While you're at pickup
+        </div>
+        <div class="prep-passive-item">Chasseur simmering gently on low heat with the lid on &mdash; it'll be about 30 mins in when you get back, nearly done</div>
+      </div>
+    </div>
+
+    <h2>Method</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Break down the chicken <span class="step-time">5 mins</span></div>
+        <div class="step-text">Remove thighs and breasts (bone-in, skin-on) from the <a class="ing-link" data-ingredient="chicken">whole chicken</a>. Set aside drumsticks and wings for stock another day.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Season the chicken <span class="step-time">1 min</span></div>
+        <div class="step-text">Season all chicken pieces generously with <a class="ing-link" data-ingredient="salt">salt and pepper</a>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Brown the chicken <span class="step-time">8&ndash;10 mins</span></div>
+        <div class="step-text">Heat <a class="ing-link" data-ingredient="olive-oil">olive oil</a> in a large heavy pan or casserole over medium-high heat. Brown chicken skin-side down for 8&ndash;10 minutes, turning once, until golden all over. Work in batches if needed. Remove and set aside.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Food safety:</strong> Wash your board and knife after handling the raw chicken. Clean up any splashes from browning.</div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Soften the aromatics <span class="step-time">2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="shallots">sliced shallots</a> and <a class="ing-link" data-ingredient="garlic">garlic</a> to the pan. Cook for 1 minute, scraping up any fond. Stir in the <a class="ing-link" data-ingredient="flour">flour</a> and cook for 1 minute, mixing well.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Build the sauce <span class="step-time">2 mins</span></div>
+        <div class="step-text">Add <a class="ing-link" data-ingredient="mushrooms">quartered mushrooms</a>, <a class="ing-link" data-ingredient="tomatoes">tinned tomatoes</a>, <a class="ing-link" data-ingredient="wine">wine</a>, <a class="ing-link" data-ingredient="thyme">thyme</a>, and <a class="ing-link" data-ingredient="soy">soy sauce</a>. Stir to combine.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Braise the chicken <span class="step-time">35&ndash;40 mins</span></div>
+        <div class="step-text">Return chicken to the pan, nestling pieces into the sauce. Bring to a boil, then reduce to a gentle simmer. Cover and cook for 35&ndash;40 minutes until chicken is cooked through.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Thermometer check:</strong> Chicken should reach 68&deg;C internal. Probe the thickest part of the breast &mdash; pop a wireless thermometer in before you leave for pickup and you'll know it's done when you're back.</div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Check and finish <span class="step-time">2 mins</span></div>
+        <div class="step-text">Check the chicken is cooked through (68&deg;C). Taste the sauce and adjust seasoning. Sprinkle with fresh <a class="ing-link" data-ingredient="tarragon">tarragon</a>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Serve</div>
+        <div class="step-text">Serve with mashed potato. The sauce is rich and tomatoey &mdash; perfect for soaking up with the mash.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Kid-friendly note:</strong> This dish is mild and saucy &mdash; kids tend to love it. The mushrooms can be fished out for any fussy eaters. Serve with extra mash on the side.</div>
+
+    <h2>Timing Plan</h2>
+    <table class="timing-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="timing-phase-row prep"><td colspan="2">Prep Phase &mdash; before pickup</td></tr>
+        <tr><td>4:30 PM</td><td>Break down the chicken. Season with salt and pepper.</td></tr>
+        <tr><td>4:36 PM</td><td>Wash board &amp; knife. Slice shallots, chop garlic, quarter mushrooms.</td></tr>
+        <tr><td>4:43 PM</td><td>Heat olive oil. Brown chicken pieces 8&ndash;10 mins, turning once. Remove.</td></tr>
+        <tr><td>4:53 PM</td><td>Cook shallots &amp; garlic 1 min. Stir in flour 1 min.</td></tr>
+        <tr><td>4:55 PM</td><td>Add mushrooms, tomatoes, wine, thyme, soy. Return chicken. Bring to boil, reduce to gentle simmer, cover.</td></tr>
+        <tr><td>4:58 PM</td><td>Pop a wireless thermometer into the thickest breast piece. Lid on.</td></tr>
+        <tr><td>5:00 PM</td><td>Head out for pickup &mdash; chasseur simmers away on low</td></tr>
+        <tr class="timing-phase-row cook"><td colspan="2">Cook Phase &mdash; after pickup</td></tr>
+        <tr><td>5:30 PM</td><td>Back home. Check thermometer &mdash; chicken should be at or near 68&deg;C. Taste sauce, adjust seasoning.</td></tr>
+        <tr><td>5:32 PM</td><td>Start the mash &mdash; peel and boil potatoes (or use ones you've prepped).</td></tr>
+        <tr><td>5:45 PM</td><td>Drain potatoes, mash with butter and a splash of milk. Season well.</td></tr>
+        <tr><td>5:48 PM</td><td>Sprinkle tarragon over the chasseur. Plate up with mashed potato.</td></tr>
+        <tr><td>5:50 PM</td><td>Dinner on the table!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tooltip element -->
+<div class="ing-tooltip" id="tooltip"></div>
+
+<script>
+  // Ingredient data map
+  const ingredients = {
+    'chicken':    '1 whole chicken (~1.2kg) — thighs and breasts, bone-in skin-on',
+    'olive-oil':  '2 tbsp olive oil',
+    'salt':       'Salt and pepper',
+    'shallots':   '300g shallots, sliced',
+    'garlic':     '4 cloves garlic, roughly chopped',
+    'flour':      '2 tbsp plain flour',
+    'mushrooms':  '300g closed cup mushrooms, quartered',
+    'tomatoes':   '400g tin chopped tomatoes',
+    'wine':       '200ml white wine (or red)',
+    'thyme':      '2 sprigs of fresh thyme',
+    'soy':        '1 tsp soy sauce',
+    'tarragon':   'Fresh tarragon to finish (or 1 tsp dried)'
+  };
+
+  const tooltip = document.getElementById('tooltip');
+  let activeLink = null;
+
+  function showTooltip(link) {
+    const key = link.dataset.ingredient;
+    const detail = ingredients[key];
+    if (!detail) return;
+
+    tooltip.innerHTML = '<span class="tooltip-label">Ingredient</span>' + detail;
+    tooltip.classList.add('visible');
+
+    const rect = link.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
+    let top = rect.top - tipRect.height - 10;
+
+    if (left < 8) left = 8;
+    if (left + tipRect.width > window.innerWidth - 8) left = window.innerWidth - tipRect.width - 8;
+    if (top < 8) {
+      top = rect.bottom + 10;
+    }
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeLink = link;
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    activeLink = null;
+  }
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeLink === link) { hideTooltip(); }
+      else { showTooltip(link); }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.ing-link') && !e.target.closest('.ing-tooltip')) {
+      hideTooltip();
+    }
+  });
+
+  document.querySelectorAll('.ing-link').forEach(link => {
+    link.addEventListener('mouseenter', () => showTooltip(link));
+    link.addEventListener('mouseleave', (e) => {
+      setTimeout(() => {
+        if (activeLink === link && !link.matches(':hover')) { hideTooltip(); }
+      }, 100);
+    });
+  });
+
+  // Prep-ahead checkbox persistence
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = 'prep-checks-' + today;
+
+    function loadChecks() {
+      try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveChecks(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const checks = document.querySelectorAll('.prep-step-check');
+    const saved = loadChecks();
+
+    checks.forEach(cb => {
+      const key = cb.dataset.prep;
+      if (saved[key]) cb.checked = true;
+      cb.addEventListener('change', () => {
+        const state = loadChecks();
+        state[key] = cb.checked;
+        saveChecks(state);
+      });
+    });
+
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('prep-checks-') && k !== storageKey) {
+        localStorage.removeItem(k);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
